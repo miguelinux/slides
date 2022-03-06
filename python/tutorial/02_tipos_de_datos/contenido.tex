@@ -1,0 +1,720 @@
+% ex: ts=2 sw=2 sts=2 et filetype=tex
+% SPDX-License-Identifier: CC-BY-SA-4.0
+
+\section{Tipos de Datos}
+
+\begin{frame}[c]{Tipo de datos integrados}
+
+  \vspace{\baselineskip}
+  En programación, el tipo de dato es un concepto importante.
+
+  \vspace{\baselineskip}
+  Las variables pueden almacenar datos de diferentes tipos y diferentes
+  tipos pueden hacer cosas diferentes.
+
+  \vspace{\baselineskip}
+  Python tiene los siguientes tipos de datos integrados de forma
+  predeterminada, en estas categorías:
+
+  \begin{table}[]
+  \begin{tabular}{ll}
+    Texto & \textcolor{codeKeyword2}{str} \\
+    \pausa
+    Numérico & \textcolor{codeKeyword2}{int}, \textcolor{codeKeyword2}{float},
+     \textcolor{codeKeyword2}{complex} \\
+    \pausa
+    Secuencia & \textcolor{codeKeyword2}{list}, \textcolor{codeKeyword2}{tuple},
+     \textcolor{codeKeyword2}{range} \\
+    \pausa
+    Mapeo & \textcolor{codeKeyword2}{dict} \\
+    \pausa
+    Conjunto & \textcolor{codeKeyword2}{set},
+     \textcolor{codeKeyword2}{frozenset} \\
+    \pausa
+    Boleano & \textcolor{codeKeyword2}{bool} \\
+    \pausa
+    Binario & \textcolor{codeKeyword2}{bytes},
+     \textcolor{codeKeyword2}{bytearray}, \textcolor{codeKeyword2}{memoryview} \\
+  \end{tabular}
+  \end{table}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Obteniendo el tipo de dato}
+
+  Se puede obtener el tipo de dato con la función
+  \textcolor{codeKeyword2}{type}()
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  x = str(3)   # x guarda '3'
+  y = int(3)   # y guarda 3
+  z = float(3) # z guarda 3.0
+
+  print( type(x) )
+  print( type(y) )
+  print( type(z) )
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Configurando el tipo de dato}
+
+  \vspace{\baselineskip}
+  En Python, el tipo de dato es configurado/asociado cuando se asigna un
+  valor a una variable:
+
+  \begin{lstlisting}[language=Python]
+x = "Hola Mundo"                      # str
+x = 20                                # int
+x = 20.5                              # float
+x = 1j                                # complex
+x = ["manzana", "platano", "naranja"] # list
+x = ("manzana", "platano", "naranja") # tuple
+x = range(6)                          # range
+x = {"nombre" : "juan", "edad": 18}   # dict
+x = {"manzana", "platano", "naranja"} # set
+x = frozenset({"manzana", "platano", "naranja"}) # frozenset
+x = True                              # bool
+x = b"Hola"                           # bytes
+x = bytearray(5)                      # bytearray
+x = memoryview(bytes(5))              # memoryview
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Configurando un tipo de dato especifico}
+
+  \vspace{\baselineskip}
+  Si se quiere especificar un tipo de dato especifico, se puede utilizar
+  las siguientes funciones constructoras:
+
+  \begin{lstlisting}[language=Python]
+x = str("Hola Mundo")                        # str
+x = int(20)                                  # int
+x = float(20.5)                              # float
+x = complex(1j)                              # complex
+x = list(("manzana", "platano", "naranja"))  # list
+x = tuple(("manzana", "platano", "naranja")) # tuple
+x = range(6)                                 # range
+x = dict(nombre = "juan", edad = 18)         # dict
+x = set(("manzana", "platano", "naranja"))   # set
+x = frozenset(("manzana", "platano", "naranja")) # frozenset
+x = bool(5)                                  # bool
+x = bytes(5)                                 # bytes
+x = bytearray(5)                             # bytearray
+x = memoryview(bytes(5))                     # memoryview
+  \end{lstlisting}
+\end{frame}
+
+\section{Números}
+
+\begin{frame}[fragile]
+  \frametitle{Números en Python}
+
+  \vspace{\baselineskip}
+  Hay tres tipos numéricos en Python:
+
+  \begin{itemize}
+    \item \textcolor{codeKeyword2}{int}
+    \item \textcolor{codeKeyword2}{float}
+    \item \textcolor{codeKeyword2}{complex}
+  \end{itemize}
+
+  Las variables numéricas son creadas cuando se le asigna su valor:
+
+  \begin{lstlisting}[language=Python]
+  x = 1    # int
+  y = 2.8  # float
+  z = 1j   # complex
+  \end{lstlisting}
+
+  \pausa
+  Para verificar el tipo de dato de cualquier objeto en Python, se usa la
+  función \textcolor{codeKeyword2}{type}():
+
+  \begin{lstlisting}[language=Python]
+  print( type(x) )
+  print( type(y) )
+  print( type(z) )
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Números Enteros}
+
+  Un entero (\textcolor{codeKeyword2}{int}) es un número positivo o
+  negativo, sin decimales de longitud ilimitada.
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  x = 1
+  y = 35656222554887711
+  z = -3255522
+
+  print( type(x) )
+  print( type(y) )
+  print( type(z) )
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Números de punto flotante}
+
+  Un número de punto flotante (\textcolor{codeKeyword2}{float}), es un número
+  positivo o negativo, que contiene uno o más decimales.
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  x = 3.1416
+  y = 1.0
+  z = -35.59
+
+  print( type(x) )
+  print( type(y) )
+  print( type(z) )
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Números de punto flotante}
+
+  Los número de punto flotante (\textcolor{codeKeyword2}{float}) pueden ser
+  escritos como números en \emph{notación científica} con una "\textbf{e}"
+  para indicar la potencia de 10.
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  x = 35e3
+  y = 12E4
+  z = -87.7e100
+
+  print( type(x) )
+  print( type(y) )
+  print( type(z) )
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Números Complejos}
+
+  Los números complejos son escritos con una "\textbf{j}" para indicar
+  la parte imaginaria:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  x = 3+5j
+  y = 5j
+  z = -2.5j
+
+  print( type(x) )
+  print( type(y) )
+  print( type(z) )
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Conversión entre tipo de datos}
+
+  \vspace{\baselineskip}
+  Se pueden convertir de un tipo de dato a otro con las siguientes
+  funciones \textcolor{codeKeyword2}{int}(), \textcolor{codeKeyword2}{float}()
+  y \textcolor{codeKeyword2}{complex}():
+
+  \begin{lstlisting}[language=Python]
+  x = 1    # int
+  y = 2.8  # float
+  z = -1j  # complex
+
+  # convertir de int a float:
+  a = float(x)
+  # convertir de float a int:
+  b = int(y)
+  # convertir de int a complex:
+  c = complex(x)
+  \end{lstlisting}
+
+  \pausa
+  \begin{alertblock}{Nota}
+    No se puede convertir un \textbf{número complejo} en otro tipo de dato numérico.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Números aleatorios}
+
+  Python no tiene una función de \textbf{random}() para
+  hacer números aleatorios, pero Python tiene integrado un modulo llamado
+  \textbf{random} que puede ser usado para hacer números
+  aleatorios:
+
+  \vspace{\baselineskip}
+  Importamos el modulo de \textbf{random}, y desplegamos un número aleatorio entre 1
+  y 9:
+
+  \begin{lstlisting}[language=Python]
+  import random
+
+  print( random.randrange(1,10) )
+  \end{lstlisting}
+\end{frame}
+
+\section{Casting}
+
+\begin{frame}[c]{Especificando el tipo de variable}
+
+  \vspace{\baselineskip}
+  Puede haber ocasiones en las que se desee especificar un tipo de dato en una
+  variable. Esto se puede hacer con el "\textbf{casting}". Python es un
+  lenguaje orientado a objetos y, como tal, usa clases para definir tipos de
+  datos, incluidos sus tipos primitivos.
+
+  \pausa
+  \vspace{\baselineskip}
+  Por lo tanto, la conversión (\textbf{casting}) en python se realiza
+  mediante funciones constructoras:
+
+  \vspace{\baselineskip}
+  \begin{description}
+    \item[int()] construye un número entero a partir de una literal entero,
+      una literal flotante (eliminando todos los decimales) o una literal
+      de cadena (siempre que la cadena represente un número entero).
+    \pausa
+    \item[float()] construye un número flotante a partir de una literal
+      entero, una literal flotante o una literal de cadena (siempre que la
+      cadena represente un número flotante o entero)
+    \pausa
+    \item[str()] construye una cadena a partir de una amplia variedad de
+      tipos de datos, incluidas cadenas, literales enteros y literales
+      flotantes
+  \end{description}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Especificando el tipo de variable}
+  \begin{lstlisting}[language=Python]
+  # Integers (enteros)
+  x = int(1)   # x sera 1
+  y = int(2.8) # y sera 2
+  z = int("3") # z sera 3
+
+  # Floats (enteros con decimales)
+  x = float(1)     # x sera 1.0
+  y = float(2.8)   # y sera 2.8
+  z = float("3")   # z sera 3.0
+  w = float("4.2") # w sera 4.2
+
+  # Strings (cadenas de texto)
+  x = str("s1") # x sera 's1'
+  y = str(2)    # y sera '2'
+  z = str(3.0)  # z sera '3.0'
+  \end{lstlisting}
+\end{frame}
+
+\section{Lógicos}
+
+\begin{frame}[fragile]
+  \frametitle{Valores Lógicos (\emph{Boleanos})}
+  Los booleanos representan uno de dos valores: Verdadero
+  (\textcolor{codeKeyword2}{True}) o Falso
+  (\textcolor{codeKeyword2}{False}).
+
+  \pausa
+  \vspace{\baselineskip}
+  En programación, a menudo es necesario saber si una expresión es verdadera
+  o falsa. Se puede evaluar cualquier expresión en Python y obtener una de
+  dos respuestas, Verdadero (\textcolor{codeKeyword2}{True})
+  o Falso (\textcolor{codeKeyword2}{False}).
+
+  \pausa
+  \vspace{\baselineskip}
+  Cuando se comparan dos valores, la expresión se evalúa y Python
+  devuelve la respuesta booleana: 
+
+  \begin{lstlisting}[language=Python]
+  print(10 > 9)
+  print(10 == 9)
+  print(10 < 9)
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Valores Lógicos (\emph{Boleanos})}
+
+  Cuando se corre una condición en una sentencia
+  \textcolor{codeKeyword}{if}, Python regresa Verdadero
+  (\textcolor{codeKeyword2}{True}) o Falso
+  (\textcolor{codeKeyword2}{False}):
+
+  \vspace{\baselineskip}
+  Ejemplo: imprimir un mensaje en función de si la condición es Verdadero
+  (\textcolor{codeKeyword2}{True}) o Falso
+  (\textcolor{codeKeyword2}{False}):
+  \begin{lstlisting}[language=Python]
+a = 200
+b = 33
+
+if b > a:
+  print("b es mas grande que a")
+else:
+  print("b No es mas grande que a") 
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Evaluando valores y variables}
+
+  La función \textcolor{codeKeyword2}{bool}() permite evaluar cualquier
+  valor y a cambio, regresa el valor Verdadero o Falso.
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+print(bool("Hola"))
+print(bool(15))
+
+x = "Hola"
+y = 15
+
+print(bool(x))
+print(bool(y))
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{La mayoría de los valores son verdadero}
+
+  \vspace{\baselineskip}
+  La función \textcolor{codeKeyword2}{bool}() permite evaluar cualquier
+  valor y a cambio, regresa el valor Verdadero o Falso.
+
+  \pausa
+  \vspace{\baselineskip}
+  Casi cualquier valor se evalúa como \textbf{Verdadero} si tiene algún
+  tipo de contenido.
+
+  \pausa
+  \vspace{\baselineskip}
+  Cualquier cadena es verdadera, excepto las cadenas vacías.
+
+  \pausa
+  \vspace{\baselineskip}
+  Cualquier número es verdadero, excepto 0.
+
+  \pausa
+  \vspace{\baselineskip}
+  Cualquier lista, tupla, conjunto y diccionario son verdaderos, excepto
+  los vacíos.
+  \begin{lstlisting}[language=Python]
+bool("abc")
+bool(123)
+bool(["manzana", "naranja", "platano"])
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Algunos valores son falsos}
+
+  De hecho, no hay muchos valores que se evalúen como \textbf{Falso},
+  excepto los valores vacíos, como \textbf{()}, \textbf{[]}, \textbf{\{\}},
+  \textbf{""}, el número \textbf{0} y el
+  valor \textbf{None}. Y, por supuesto, el valor \textbf{False} se evalúa
+  como falso.
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+bool(False)
+bool(None)
+bool(0)
+bool("")
+bool(())
+bool([])
+bool({}) 
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Algunos valores son falsos}
+
+  Un valor más, u objeto en este caso, se evalúa como Falso, y eso es si
+  se tiene un objeto que está hecho a partir de una clase con una función
+  \emph{\_\_len\_\_} que devuelve 0 o Falso: 
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+class myclass():
+  def __len__(self):
+    return 0
+
+myobj = myclass()
+print(bool(myobj))
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Las funciones pueden regresar valores lógicos (boleanos)}
+
+  Se puede crear una función que regrese un valor lógico (boleano)
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+def miFuncion() :
+  return True
+
+print(miFuncion())
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Las funciones pueden regresar valores lógicos (boleanos)}
+
+  Se puede ejecutar código en base al valor de retorno de una función:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+def miFuncion():
+  return True
+
+if miFuncion():
+  print("Si!")
+else:
+  print("No!") 
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Las funciones pueden regresar valores lógicos (boleanos)}
+
+  Python también tiene muchas funciones integradas que devuelven un valor
+  booleano, como la función \textcolor{codeKeyword2}{isinstance}(),
+  que se puede usar para determinar si un objeto es de un determinado
+  tipo de dato: 
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+x = 200
+print(isinstance(x, int)) 
+  \end{lstlisting}
+\end{frame}
+
+\section{Operadores}
+
+\begin{frame}[fragile]
+  \frametitle{Operadores en Python}
+
+  Los operadores son usados para realizar operaciones sobre las variables y
+  sus valores.
+
+  \vspace{\baselineskip}
+  En el ejemplo de abajo, se usa el operador \textbf{+} para hacer la suma
+  de dos valores:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  print(10 + 5)
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[c]{Operadores en Python}
+  Python divide los operadores en los siguientes grupos:
+  \pausa
+  \begin{itemize}
+    \item Aritméticos
+    \pausa
+    \item Asignación
+    \pausa
+    \item Comparación
+    \pausa
+    \item Lógicos
+    \pausa
+    \item Identidad
+    \pausa
+    \item Pertenencia (\emph{Membership})
+    \pausa
+    \item A nivel de bits (\emph{Bitwise})
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[c]{Operadores Aritméticos}
+
+  Los operadores aritméticos son usados con valores numéricos para realizar
+  operaciones matemáticas comunes:
+
+  \begin{table}[]
+  \begin{tabular}{cll}
+    \textbf{Operador} &  \textbf{Nombre} & \textbf{Ejemplo} \\
+    \rowcolor{light-gray}
+    + & Adición        & $x + y$ \\
+    \pausa
+    - & Sustracción    & $x - y$ \pausa \\
+    \rowcolor{light-gray}
+    * & Multiplicación & $x * y$ \\
+    \pausa
+    / & División       & $x / y$ \pausa \\
+    \rowcolor{light-gray}
+    \% & Modulo        & $x \% y$ \\
+    \pausa
+    ** & Exponente     & $x ** y$ \pausa \\
+    \rowcolor{light-gray}
+    // & División entera & $x // y$ \\
+  \end{tabular}
+  \end{table}
+\end{frame}
+
+\begin{frame}[c]{Operadores de Asignación}
+
+  \vspace{\baselineskip}
+  Los operadores de asignación son usados para asignar valores a las
+  variables:
+
+  \begin{table}[]
+  \begin{tabular}{cll}
+    \textbf{Operador} &  \textbf{Ejemplo} & \textbf{lo mismo que} \\
+    \rowcolor{light-gray}
+    =  & x = 5  & x = 5  \pausa \\
+    += & x += 3 & x = x + 3 \pausa \\
+    \rowcolor{light-gray}
+    -= & x -= 3 & x = x - 3 \pausa \\
+    *= & x *= 3 & x = x * 3 \pausa \\
+    \rowcolor{light-gray}
+    /= & x /= 3 & x = x / 3 \pausa \\
+    \%= & x \%= 3 & x = x \% 3 \pausa \\
+    \rowcolor{light-gray}
+    //= & x //= 3 & x = x // 3 \pausa \\
+    **= & x **= 3 & x = x ** 3 \pausa \\
+    \rowcolor{light-gray}
+    \&= & x \&= 3 & x = x \& 3 \pausa \\
+    \textbar= & x \textbar= 3 & x = x \textbar  3 \pausa \\
+    \rowcolor{light-gray}
+    \^{}= & x \^{}= 3 & x = x \^{} 3 \pausa \\
+    $>>=$ & $x >>= 3$ & $x = x >> 3$ \pausa \\
+    \rowcolor{light-gray}
+    $<<=$ & $x <<= 3$ & $x = x << 3$ \\
+  \end{tabular}
+  \end{table}
+\end{frame}
+
+\begin{frame}[c]{Operadores de Comparación}
+
+  Los operadores de comparación son usados para comparar dos valores:
+
+  \begin{table}[]
+  \begin{tabular}{cll}
+    \textbf{Operador} &  \textbf{Nombre} & \textbf{Ejemplo} \\
+    \rowcolor{light-gray}
+    ==  & Igual  & x == y  \pausa \\
+    !=  & No igual (Diferente)  & x != y  \pausa \\
+    \rowcolor{light-gray}
+     >  & Mayor que  & x > y  \pausa \\
+     <  & Menor que  & x < y  \pausa \\
+    \rowcolor{light-gray}
+    >=  & Mayor o igual que  & x >= y  \pausa \\
+    <=  & Menor o igual que  & x <= y  \\
+  \end{tabular}
+  \end{table}
+\end{frame}
+
+\begin{frame}[c]{Operadores Lógicos}
+
+  Los operadores lógicos son usados para combinar sentencias condicionales:
+
+  \begin{table}[]
+  \begin{tabular}{cll}
+    \textbf{Operador} &  \textbf{Descripción} & \textbf{Ejemplo} \\
+    \rowcolor{light-gray}
+    and & Regresa Verdadero si ambas & calif > 5 and calif < 11  \\
+    \rowcolor{light-gray}
+        & sentencias son verdaderas  & \pausa \\
+    or  & Regresa Verdadero si una de &  calif < 6 or faltas > 6  \\
+        & las sentencias es verdadera & \pausa \\
+    \rowcolor{light-gray}
+    not & Revierte el resultado, & not(calif > 5 and calif < 11) \\
+    \rowcolor{light-gray}
+        & regresa Falso si el    & \\
+    \rowcolor{light-gray}
+        & resultado es verdadero & \\
+  \end{tabular}
+  \end{table}
+\end{frame}
+
+\begin{frame}[c]{Operadores de Identidad}
+
+  Los operadores de identidad se utilizan para comparar los objetos,
+  no si son iguales, sino si en realidad son el mismo objeto, con la
+  misma ubicación de memoria:
+
+  \begin{table}[]
+  \begin{tabular}{cll}
+    \textbf{Operador} &  \textbf{Descripción} & \textbf{Ejemplo} \\
+    \rowcolor{light-gray}
+    is  & Regresa Verdadero si ambas & x is y  \\
+    \rowcolor{light-gray}
+        & variables son el mismo objeto  & \pausa \\
+    is not  & Regresa Verdadero si ambas &  x is not y \\
+        & variables No son el mismo objeto & \\
+  \end{tabular}
+  \end{table}
+\end{frame}
+
+\begin{frame}[c]{Operadores de Pertenencia}
+
+  Los operadores de pertenencia se utilizan para probar si una secuencia
+  esta presente en un objeto:
+
+  \begin{table}[]
+  \begin{tabular}{cll}
+    \textbf{Operador} &  \textbf{Descripción} & \textbf{Ejemplo} \\
+    \rowcolor{light-gray}
+    in  & Regresa Verdadero si una secuencia & x in y  \\
+    \rowcolor{light-gray}
+        & con un valor especifico esta & \\
+    \rowcolor{light-gray}
+        & presente en el objeto & \pausa \\
+    not in  & Regresa Verdadero si una secuancia &  x not in y \\
+        & con un valor especifico No esta & \\
+        & presente en el objeto & \\
+  \end{tabular}
+  \end{table}
+\end{frame}
+
+\begin{frame}[c]{Operadores a nivel de Bits (\emph{Bitwise})}
+
+  Los operadores bit a bit (\emph{Bitwise}) se utilizan para
+  comparar números a nivel binario:
+
+  \begin{table}[]
+  \begin{tabular}{cll}
+    \textbf{Operador} &  \textbf{Nombre} & \textbf{Descripción} \\
+    \rowcolor{light-gray}
+    \&  & AND & Establece cada bit en 1 si ambos bits son 1 \pausa \\
+    \textbar & OR & Establece cada bit en 1 si uno de los dos bits son 1 \pausa \\
+    \rowcolor{light-gray}
+    \^{} & XOR & Establece cada bit en 1 si sólo uno de los dos bits es 1 \pausa \\
+    \~{} & NOT & Invierte todos los bits \pausa \\
+    \rowcolor{light-gray}
+    $<<$ & Desplazamiento & Desplaza a la izquierda agregando ceros \\
+    \rowcolor{light-gray}
+         & a la izquierda & a la derecha y deja que los bits más a \\
+    \rowcolor{light-gray}
+         &  & la izquierda se caigan/pierdan \pausa \\
+    $>>$ & Desplazamiento & Desplaza a la derecha poniendo copias del \\
+         & a la derecha &  bit más significativo a la izquierda y \\
+         & con signo & deja que los bits de la derecha se caigan/pierdan \\
+ \end{tabular}
+  \end{table}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Operadores a nivel de Bits (\emph{Bitwise})}
+
+  \begin{lstlisting}[language=Python]
+x = 22
+
+print("x      =       {:>6b}".format(x))
+print("x & 4  = {:>3d} = {:>6b}".format(x & 4, x & 4))
+print("x | 1  = {:>3d} = {:>6b}".format(x | 1, x | 1))
+print("x ^ 4  = {:>3d} = {:>6b}".format(x ^ 4, x ^ 4))
+print("~x     = {:>3d} = {:>6b}".format(~x , ~x))
+print("x << 1 = {:>3d} = {:>6b}".format(x << 1, x << 1))
+print("x >> 2 = {:>3d} = {:>6b}".format(x >> 2, x >> 2))
+  \end{lstlisting}
+\end{frame}

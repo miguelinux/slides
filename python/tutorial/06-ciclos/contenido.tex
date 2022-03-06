@@ -1,0 +1,299 @@
+% ex: ts=2 sw=2 sts=2 et filetype=tex
+% SPDX-License-Identifier: CC-BY-SA-4.0
+
+\section{El ciclo/bucle "mientras"}
+
+\begin{frame}[c]{Ciclos en Python}
+  Python tiene dos comandos de ciclo/bucle primitivos:
+  \begin{itemize}
+    \item el ciclo/bucle \textcolor{codeKeyword}{while}
+    \item el ciclo/bucle \textcolor{codeKeyword}{for}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{El bucle while}
+
+  Con el ciclo while podemos ejecutar un conjunto de declaraciones
+  siempre que una condición sea verdadera.
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  i = 1
+  while i < 6:
+    print(i)
+    i += 1
+  \end{lstlisting}
+
+  \pausa
+  \begin{alertblock}{Nota}
+    Recuerde incrementar \textbf{i}, de lo contrario el ciclo continuará
+    para siempre.
+  \end{alertblock}
+
+  El \emph{ciclo while} requiere que las variables relevantes estén listas,
+  en este ejemplo necesitamos definir una variable de indexación, i,
+  que establecemos en 1.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Sentencia \textbf{break}}
+
+  Con la sentencia \textcolor{codeKeyword}{break} podemos detener el ciclo incluso si la
+  condición while es verdadera:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  i = 1
+  while i < 6:
+    print(i)
+    if i == 3:
+      break
+    i += 1
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Sentencia \textbf{continue}}
+
+  Con la declaración \textcolor{codeKeyword}{continue} podemos detener la iteración actual
+  y continuar con la siguiente:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  i = 0
+  while i < 6:
+    i += 1
+    if i == 3:
+      continue
+    print(i)
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Sentencia \textbf{else}}
+
+  Con la instrucción \textcolor{codeKeyword}{else} podemos ejecutar un bloque de código
+  una vez cuando la condición ya no es verdadera:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  i = 1
+  while i < 6:
+    print(i)
+    i += 1
+  else:
+    print("i ya no es menor que 6")
+  \end{lstlisting}
+\end{frame}
+
+
+\section{El ciclo/bucle "para"}
+
+\begin{frame}[c]{El bucle for}
+
+  Un bucle \textcolor{codeKeyword}{for} se usa para iterar sobre una secuencia
+  (que es una lista, una tupla, un diccionario, un conjunto o una cadena).
+
+  \vspace{\baselineskip}
+  Esto es menos parecido a la palabra clave \textcolor{codeKeyword}{for} en
+  otros lenguajes de programación y funciona más como un método
+  \textbf{iterador} que se encuentra en otros lenguajes de programación
+  orientados a objetos.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{El bucle for}
+
+  Con el ciclo for podemos ejecutar un conjunto de declaraciones,
+  una vez para cada elemento de una lista, tupla, conjunto, etc.
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  frutas = ["manzana", "platano", "cereza"]
+  for x in frutas:
+    print(x)
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  El bucle for no requiere que se establezca una variable de
+  indexación de antemano.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Iterando en una cadena de texto}
+
+  Incluso las cadenas son objetos iterables, contienen una
+  secuencia de caracteres:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  for x in "manzana":
+    print(x)
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Sentencia \textbf{break}}
+
+  \vspace{\baselineskip}
+  Con la instrucción \textcolor{codeKeyword}{break} podemos detener el ciclo
+  antes de que haya pasado por todos los elementos:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  frutas = ["manzana", "platano", "naranja"]
+  for x in frutas:
+    print(x)
+    if x == "platano":
+      break
+  \end{lstlisting}
+
+  \pausa
+  \begin{lstlisting}[language=Python]
+  frutas = ["manzana", "platano", "naranja"]
+  for x in frutas:
+    if x == "platano":
+      break
+    print(x)
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Sentencia \textbf{continue}}
+
+  Con la instrucción \textcolor{codeKeyword}{continue} podemos detener
+  la iteración actual del ciclo y continuar con la siguiente:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  frutas = ["manzana", "platano", "naranja"]
+  for x in frutas:
+    if x == "platano":
+      continue
+    print(x)
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{La función \textbf{range}()}
+
+  Para recorrer un conjunto de código un número de veces específico,
+  podemos usar la función \textcolor{codeKeyword2}{range}(),
+
+  \vspace{\baselineskip}
+  La función \textcolor{codeKeyword2}{range}() devuelve una secuencia
+  de números, comenzando desde \textbf{0} de forma predeterminada,
+  se incrementa en 1 (de forma predeterminada) y termina en un
+  número especificado.
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  for x in range(6):
+    print(x)
+  \end{lstlisting}
+
+  \pausa
+  \begin{alertblock}{Nota}
+  Tenga en cuenta que la función range(6) no son los valores de 0 a 6,
+  sino los valores de 0 a 5.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{La función \textbf{range}()}
+
+  La función \textcolor{codeKeyword2}{range}() tiene por defecto 0
+  como valor inicial, sin embargo, es posible especificar el valor
+  inicial agregando un parámetro: \textcolor{codeKeyword2}{range}(2, 6),
+  que significa valores de 2 a 6 (pero sin incluir 6):
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  for x in range(2, 6):
+    print(x)
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{La función \textbf{range}()}
+
+  La función \textcolor{codeKeyword2}{range}() tiene como valor
+  predeterminado incrementar la secuencia en 1, sin embargo, es
+  posible especificar el valor de incremento agregando un tercer
+  parámetro: \textcolor{codeKeyword2}{range}(2, 30, 3):
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  for x in range(2, 30, 3):
+    print(x)
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{\textbf{Else} en ciclo \textbf{for}}
+
+  La palabra clave \textcolor{codeKeyword2}{else} en un bucle for
+  especifica un bloque de código que se ejecutará cuando
+  finalice el bucle:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  for x in range(6):
+    print(x)
+  else:
+    print("Al fin termino!")
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{\textbf{Else} en ciclo \textbf{for}}
+
+  \begin{alertblock}{Nota}
+    El bloque else NO se ejecutará si el bucle se detiene
+    mediante una declaración de interrupción (break).
+  \end{alertblock}
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  for x in range(6):
+    if x == 3: break
+    print(x)
+  else:
+    print("Al fin termino!")
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Ciclos anidados}
+
+  Un bucle/ciclo anidado es un bucle/ciclo dentro de un bucle/ciclo.
+
+  \vspace{\baselineskip}
+  El "bucle interno" se ejecutará una vez por cada iteración del
+  "bucle externo":
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  adjetivo = ["roja", "grande", "dulce"]
+  frutas = ["manzana", "platano", "naranja"]
+
+  for x in adjetivo:
+    for y in frutas:
+      print(y, x)
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{La sentencia \textbf{pass}}
+
+  Los bucles for no pueden estar vacíos, pero si por alguna
+  razón tiene un bucle for sin contenido, ingrese la instrucción
+  pass para evitar errores.
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  for x in [0, 1, 2]:
+    pass
+  \end{lstlisting}
+\end{frame}

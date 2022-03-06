@@ -1,0 +1,246 @@
+% ex: ts=2 sw=2 sts=2 et filetype=tex
+% SPDX-License-Identifier: CC-BY-SA-4.0
+
+\section{Condiciones lógicas y sentencias "si"}
+
+\begin{frame}[c]{Condiciones lógicas}
+
+  Python admite las condiciones lógicas habituales de las matemáticas:
+
+  \vspace{\baselineskip}
+  \begin{itemize}
+    \item Es igual a \textbf{a == b}
+    \pausa
+    \item No es igual a \textbf{a != b}
+    \pausa
+    \item Menor que \textbf{a < b}
+    \pausa
+    \item Menor o igual a \textbf{a <= b}
+    \pausa
+    \item Mayor que \textbf{a > b}
+    \pausa
+    \item Mayor o igual a \textbf{a >= b}
+  \end{itemize}
+
+  \vspace{\baselineskip}
+  Estas condiciones se pueden utilizar de varias formas, más
+  comúnmente en "sentencias \textcolor{codeKeyword}{if}" y bucles.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Sentencias if}
+
+  Una "instrucción if" se escribe utilizando la palabra clave
+  \textcolor{codeKeyword}{if}.
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  a = 33
+  b = 200
+  if b > a:
+    print("b es mas grande que a")
+  \end{lstlisting}
+
+  En este ejemplo usamos dos variables, a y b, que se usan como parte de
+  la instrucción \textcolor{codeKeyword}{if} para probar si b es mayor
+  que a. Como a es 33 y b es 200, sabemos que 200 es mayor que 33,
+  por lo que imprimimos en la pantalla que "b es mayor que a".
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Sangría}
+
+  Python se basa en la sangría (espacio en blanco al comienzo de una línea)
+  para definir el alcance en el código. Otros lenguajes de programación a
+  menudo usan corchetes para este propósito.
+
+  \pausa
+  \vspace{\baselineskip}
+  \begin{alertblock}{}
+    Una sentencia if sin sangría provocará un error.
+  \end{alertblock}
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  a = 33
+  b = 200
+  if b > a:
+  print("b es mas grande que a")
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Elif}
+
+  La palabra clave \textcolor{codeKeyword}{elif} es la forma que usa Python
+  para decir "si las condiciones anteriores no eran verdaderas, entonces
+  pruebe esta condición".
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  a = 33
+  b = 33
+  if b > a:
+    print("b es mas grande que a")
+  elif a == b:
+    print("a y b son iguales")
+  \end{lstlisting}
+
+  En este ejemplo, a es igual a b, por lo que la primera condición no es
+  verdadera, pero la condición elif es verdadera, por lo que imprimimos en
+  la pantalla que "a y b son iguales".
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Else}
+
+  La palabra clave \textcolor{codeKeyword}{else} captura cualquier cosa que
+  no sea detectada por las condiciones anteriores.
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  a = 200
+  b = 33
+  if b > a:
+    print("b es mas grande que a")
+  elif a == b:
+    print("a y b son iguales")
+  else:
+    print("a es mayor que b")
+  \end{lstlisting}
+
+  En este ejemplo, a es mayor que b, por lo que la primera condición no es
+  verdadera, también la condición elif no es verdadera, así que vamos a la
+  condición else e imprimimos en la pantalla que "a es mayor que b". 
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Else}
+
+  Se puede tener \textcolor{codeKeyword}{else} sin el
+  \textcolor{codeKeyword}{elif}
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  a = 200
+  b = 33
+  if b > a:
+    print("b es mas grande que a")
+  else:
+    print("b no es mayor que a")
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Manera corta del if}
+
+  Si solo tiene una instrucción para ejecutar, puede ponerla en la misma
+  línea que la instrucción if.
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  if a > b: print("a es mayor que b")
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Manera corta del if ... else}
+
+  Si solo tiene una declaración para ejecutar, una para if y otra para
+  else, puede ponerlas todas en la misma línea:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  a = 2
+  b = 330
+  print("A") if a > b else print("B")
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  \begin{exampleblock}{}
+    Esta técnica se conoce como \textbf{operadores ternarios} o
+    \textbf{expresiones condicionales}.
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Manera corta del if ... else}
+
+  También puede tener varias declaraciones else en la misma línea:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  a = 2
+  b = 330
+  print("A") if a > b else print("=") if a == b else print("B")
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{And}
+
+  La palabra clave \textcolor{codeKeyword}{and} es un operador lógico y
+  se utiliza para combinar declaraciones condicionales: 
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  a = 200
+  b = 33
+  c = 500
+  if a > b and c > a:
+    print("Ambas condiciones son verdaderas")
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Or}
+
+  La palabra clave \textcolor{codeKeyword}{or} es un operador lógico y
+  se utiliza para combinar declaraciones condicionales: 
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  a = 200
+  b = 33
+  c = 500
+  if a > b or a > a:
+    print("Al menos una condicion es verdaderas")
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{If anidados}
+
+  Puede tener sentencias if dentro de sentencias if, esto se llama
+  \textbf{sentencias if anidadas}.
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  x = 41
+
+  if x > 10:
+    print("mayor que diez,")
+    if x > 20:
+      print("y tambien mayor que 20!")
+    else:
+      print("pero menor que 20.")
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{La sentencia \textbf{pass}}
+
+  Las declaraciones if no pueden estar vacías, pero si por alguna razón
+  tiene una declaración if sin contenido, coloque la declaración pass
+  para evitar errores. 
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  a = 33
+  b = 200
+
+  if b > a:
+    pass
+  \end{lstlisting}
+\end{frame}
+

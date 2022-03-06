@@ -1,0 +1,355 @@
+% ex: ts=2 sw=2 sts=2 et filetype=tex
+% SPDX-License-Identifier: CC-BY-SA-4.0
+
+\section{Abriendo archivos}
+
+\begin{frame}[c]{Manejo de archivos}
+
+  El manejo de archivos es una parte importante de cualquier
+  aplicación web.
+
+  \vspace{\baselineskip}
+  Python tiene varias funciones para crear, leer, actualizar y
+  eliminar archivos.
+
+  \vspace{\baselineskip}
+  La función clave para trabajar con archivos en Python es la
+  función \textcolor{codeKeyword2}{open}().
+\end{frame}
+
+\begin{frame}[c]{La función \textbf{open}()}
+
+  La función \textcolor{codeKeyword2}{open}() toma dos parámetros;
+  \textbf{nombre de archivo} y \textbf{modo}.
+
+  \vspace{\baselineskip}
+  Hay cuatro métodos (modos) diferentes para abrir un archivo: 
+
+  \vspace{\baselineskip}
+  \begin{description}
+    \item[r] Lectura - Valor predeterminado. Abre un archivo para
+      lectura, error si el archivo no existe
+    \pausa
+    \item[a] Adjuntar - Abre un archivo para agregar, crea el
+      archivo si no existe
+    \pausa
+    \item[w] Escritura - Abre un archivo para escritura, crea el
+      archivo si no existe
+    \pausa
+    \item[x] Crear - Crea el archivo especificado, devuelve un error
+      si el archivo existe
+  \end{description}
+\end{frame}
+
+\begin{frame}[c]{Manejo de archivos}
+
+  Además, puede especificar si el archivo debe manejarse en
+  modo binario o de texto.
+
+  \vspace{\baselineskip}
+  \begin{description}
+    \item[t] Texto - Valor predeterminado. Modo texto
+    \pausa
+    \item[b] Binario - Modo binario (p. ej., imágenes)
+  \end{description}
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{Sintaxis}
+
+  Para abrir un archivo para leerlo basta con especificar
+  el nombre del archivo: 
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  f = open("demo.txt")
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Sintaxis}
+
+  El código anterior es el mismo que: 
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  f = open("demo.txt","rt")
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  Dado que "\textbf{r}" para lectura y "\textbf{t}" para texto
+  son los valores predeterminados, no es necesario especificarlos.
+
+  \pausa
+  \begin{alertblock}{Nota}
+  Asegúrese de que el archivo exista o, de lo contrario, obtendrá un error.
+  \end{alertblock}
+\end{frame}
+
+\section{Lectura archivos}
+
+\begin{frame}[fragile]
+  \frametitle{Leyendo archivos}
+
+  Supongamos que tenemos el siguiente archivo, ubicado en la
+  misma carpeta donde ejecutamos un código de Python:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  Hola! Bienvendios al demo.txt.
+  Este es un archivo para pruebas.
+  Buena suerte!.
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Leyendo archivos}
+
+  Para abrir el archivo, use la función open () incorporada.
+
+  \vspace{\baselineskip}
+  La función open () devuelve un objeto de archivo, que tiene un
+  método \textbf{read}() para leer el contenido del archivo: 
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  f = open("demo.txt", "r")
+  print(f.read())
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Leyendo archivos}
+
+  Si el archivo se encuentra en una ubicación diferente,
+  deberá especificar la ruta del archivo, así: 
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  f = open("C:\\en\\windows\\es\\demo.txt", "r")
+  print(f.read())
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Leyendo solo unas partes del archivo}
+
+  De forma predeterminada, el método \textbf{read}() devuelve el texto
+  completo, pero también puede especificar cuántos caracteres
+  desea devolver:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  f = open("demo.txt", "r")
+  print(f.read(5))
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Leyendo lineas}
+
+  Puede devolver una línea utilizando el método
+  \textbf{readline}():
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  f = open("demo.txt", "r")
+  print(f.readline())
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Leyendo lineas}
+
+  Al llamar a \textbf{readline}() dos veces, puede leer
+  las dos primeras líneas:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  f = open("demo.txt", "r")
+  print(f.readline())
+  print(f.readline())
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Leyendo lineas}
+
+  Al recorrer las líneas del archivo, puede leer todo el
+  archivo, línea por línea:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  f = open("demo.txt", "r")
+  for x in f:
+      print(x)
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Cerrando el archivo}
+
+  Es una buena práctica cerrar siempre el archivo
+  cuando haya terminado.
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  f = open("demo.txt", "r")
+  print(f.readline())
+  f.close()
+  \end{lstlisting}
+
+  \pausa
+  \begin{exampleblock}{Nota}
+    Siempre debe cerrar sus archivos; en algunos casos,
+    debido al almacenamiento en búfer, es posible que los
+    cambios realizados en un archivo no se muestren hasta
+    que lo cierre. 
+  \end{exampleblock}
+\end{frame}
+
+\section{Escribiendo en los archivos}
+
+\begin{frame}[c]{Escribir en un archivo existente}
+
+  Para escribir en un archivo existente, debe agregar un
+  parámetro a la función \textcolor{codeKeyword2}{open}():
+
+  \vspace{\baselineskip}
+  \begin{description}
+    \item[a] Adjuntar - se agregará al final del archivo
+    \item[w] Escribir - sobrescribirá cualquier contenido existente 
+  \end{description}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Escribir en un archivo existente}
+
+  Ejemplo: abrir el archivo "demo2.txt" y agregue un
+  contenido al archivo: 
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  f = open("demo2.txt", "a")
+  f.write("Ahora el archivo tiene mas contendio!")
+  f.close()
+
+  #abrir y leer el archivo despues de agregar contenido
+  f = open("demo2.txt", "r")
+  print(f.read()) 
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Escribir en un archivo existente}
+
+  Ejemplo: abrir el archivo "demo3.txt" y sobrescriba el
+  contenido: 
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  f = open("demo3.txt", "w")
+  f.write("Woops! Acabo de borrar el contendio!")
+  f.close()
+
+  #abrir y leer el archivo despues de agregar contenido
+  f = open("demo.txt", "r")
+  print(f.read())
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  \begin{alertblock}{Nota}
+    Usando "w" en open() sobreescribirá el archivo entero.
+  \end{alertblock}
+\end{frame}
+
+
+\begin{frame}[c]{Crear un archivo nuevo}
+
+  Para crear un nuevo archivo en Python, use el método
+  \textcolor{codeKeyword2}{open}(),
+  con uno de los siguientes parámetros:
+
+  \vspace{\baselineskip}
+  \begin{description}
+    \item[x] Crear - creará un archivo, devuelve un error si el archivo existe
+    \pausa
+    \item[a] Adjuntar - creará un archivo si el archivo especificado no
+      existe, y agrega al final el nuevo contenido.
+    \pausa
+    \item[w] Escritura - creará un archivo si el archivo especificado no
+      existe, y borra todo su contenido.
+  \end{description}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Ejemplos}
+
+  Creando un archivo llamado ejemplo.txt:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  f = open("ejemplo.txt", "x")
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  Creando un nuevo archivo llamado ejemplo.txt si no existe:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  f = open("ejemplo.txt", "w")
+  \end{lstlisting}
+
+\end{frame}
+
+\section{Borrando archivos}
+
+\begin{frame}[fragile]
+  \frametitle{Borrando un archivo}
+
+  Para eliminar un archivo, debe importar el módulo del sistema operativo
+  y ejecutar su función \textbf{os.remove}():
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  import os
+
+  os.remove("ejemplo.txt")
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Verificando si existe el archivo}
+
+  Para evitar un error, es posible que desee verificar si el archivo
+  existe antes de intentar eliminarlo:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  import os
+
+  if os.path.exists("demo.txt"):
+      os.remove("demo.txt")
+  else:
+      print("El archvo demo.txt no existe ")
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Borrando directorios/carpetas}
+
+  Para eliminar una carpeta completa, use el método \textbf{os.rmdir}():
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  import os
+
+  os.rmdir("una-carpeta")
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  \begin{exampleblock}{Nota}
+    Solo se pueden eliminar carpetas/directorios vacíos
+  \end{exampleblock}
+\end{frame}

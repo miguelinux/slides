@@ -1,0 +1,201 @@
+% ex: ts=2 sw=2 sts=2 et filetype=tex
+% SPDX-License-Identifier: CC-BY-SA-4.0
+
+\section{Funciones}
+
+\begin{frame}[c]{Funciones en Python}
+  \vspace{\baselineskip}
+  Una función es un bloque de código que solo se ejecuta cuando se llama.
+
+  \vspace{\baselineskip}
+  Puede pasar datos, conocidos como parámetros, a una función.
+
+  \vspace{\baselineskip}
+  Una función puede devolver datos como resultado. 
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Creando una función}
+
+  En Python, una función se define usando la palabra clave
+  \textcolor{codeKeyword}{def}:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  def mi_funcion():
+    print("Hola desde una funcion")
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Llamando a una función}
+
+  Para llamar a una función, use el nombre de la función
+  seguido de paréntesis: 
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  def mi_funcion():     # esta es la definicion de la funcion
+    print("Hola desde una funcion") # este es su cuerpo
+
+  mi_funcion()  # aqui se manda a llamar
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Argumentos}
+
+  \vspace{\baselineskip}
+  La información se puede pasar a funciones como \textbf{argumentos}.
+
+  \vspace{\baselineskip}
+  Los argumentos se especifican después del nombre de la función,
+  \emph{entre paréntesis}. Puede agregar tantos argumentos como desee,
+  solo sepárelos con una coma.
+
+  \pausa
+  \vspace{\baselineskip}
+  El siguiente ejemplo tiene una función con un argumento (nombre).
+  Cuando se llama a la función, pasamos un nombre, que se usa
+  dentro de la función para imprimir el nombre completo:
+
+  \begin{lstlisting}[language=Python]
+  def mi_funcion(nombre):
+    print(nombre + " Lopez")
+
+  mi_funcion("Emilio")
+  mi_funcion("Tomas")
+  mi_funcion("Luis") 
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[c]{¿Parámetros o argumentos?}
+
+  \begin{exampleblock}{}
+    Los argumentos a menudo se acortan a \emph{args} en las
+    documentaciones de Python.
+  \end{exampleblock} 
+
+  \pausa
+  \vspace{\baselineskip}
+  Los términos \textbf{parámetro} y \textbf{argumento} se pueden
+  usar para lo mismo: información que se pasa a una función.
+
+  \pausa
+  \vspace{\baselineskip}
+  \begin{block}{Desde la perspectiva de una función:}
+    Un \textbf{parámetro} es la variable que aparece entre paréntesis en
+    la \underline{definición de la función}.
+
+    \vspace{\baselineskip}
+    Un \textbf{argumento} es el valor que se envía a la función 
+    \underline{cuando se llama}.
+  \end{block} 
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Número de argumentos}
+
+  De forma predeterminada, se debe llamar a una función con el
+  número correcto de argumentos. Lo que significa que si una
+  función espera 2 argumentos, debe llamar a la función con
+  2 argumentos, ni más ni menos. 
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  def mi_funcion(nombre, apellidos):
+      print(nombre + " " + apellidos)
+
+  mi_funcion("Julio", "Lopez") 
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Número de argumentos}
+
+  Si intenta llamar a la función con 1 o 3 argumentos, obtendrá un error:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  def mi_funcion(nombre, apellidos):
+      print(nombre + " " + apellidos)
+
+  mi_funcion("Julio") 
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Argumentos arbitrarios, * argumentos}
+
+  \vspace{\baselineskip}
+  Si no sabe cuántos argumentos se pasarán a su función,
+  agregue un \textbf{*} antes del nombre del parámetro en la
+  definición de la función.
+
+  \vspace{\baselineskip}
+  De esta forma, la función recibirá una tupla de argumentos
+  y podrá acceder a los elementos en consecuencia: 
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  def mi_funcion(*ninios):
+      print("El mas ninio mas joven es " + ninios[2])
+
+  mi_funcion("Julio", "Luis", "Pedro")
+  \end{lstlisting}
+
+  \pausa
+  \begin{exampleblock}{}
+    Los argumentos arbitrarios a menudo se acortan a *args en
+    la documentación de Python.
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Argumentos con nombre de variables}
+
+  También se puede enviar argumentos con la sintaxis \textbf{clave = valor}.
+
+  \vspace{\baselineskip}
+  De esta forma no importa el orden de los argumentos. 
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  def mi_funcion(ninio3, ninio2, ninio1):
+      print("El mas ninio mas joven es " + ninios3)
+
+  mi_funcion(ninio1="Julio", ninio2="Luis", ninio3="Pedro")
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Valores devueltos}
+
+  Para permitir que una función devuelva un valor,
+  use la declaración de \textcolor{codeKeyword}{return}:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  def mi_funcion(x):
+      return 5 * x
+
+  print(mi_funcion(3))
+  print(mi_funcion(5))
+  print(mi_funcion(9))
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{La declaración \textbf{pass}}
+
+  Las definiciones de función no pueden estar vacías, pero si
+  por alguna razón tiene una definición de función sin contenido,
+  coloque la instrucción \textcolor{codeKeyword}{pass} para
+  evitar errores. 
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  def mi_funcion(x):
+      pass
+  \end{lstlisting}
+\end{frame}

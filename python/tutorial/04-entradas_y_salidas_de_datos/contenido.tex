@@ -1,0 +1,242 @@
+% ex: ts=2 sw=2 sts=2 et filetype=tex
+% SPDX-License-Identifier: CC-BY-SA-4.0
+
+\section{Entrada de datos}
+
+\begin{frame}[c]{Entrada y salida de datos}
+
+  \vspace{\baselineskip}
+  Existen operaciones de entrada y salida, también conocidas como
+  operaciones de lectura y escritura, respectivamente.
+
+  \vspace{\baselineskip}
+  Una \textbf{entrada} de datos es una operación que permite leer
+  un valor y asignarlo a una determinada variable.
+
+  \vspace{\baselineskip}
+  Una \textbf{salida} de datos es una operación derivada de un
+  proceso que permite mostrar información contenida en variables.
+
+  \pausa
+  \vspace{\baselineskip}
+  \begin{columns}
+    \column{0.1\textwidth}
+    \column{0.4\textwidth}
+      \textbf{Entradas}
+      \begin{itemize}
+        \item Teclado
+        \item Puerto / Dispositivo
+        \item Archivo / Base de Datos
+        \item Otro programa
+      \end{itemize}
+    \column{0.4\textwidth}
+      \textbf{Salidas}
+      \begin{itemize}
+        \item Pantalla
+        \item Puerto / Dispositivo
+        \item Archivo / Base de Datos
+        \item Otro programa
+      \end{itemize}
+    \column{0.1\textwidth}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Entrada de usuario}
+
+  Python permite la entrada del usuario, eso significa que podemos pedirle
+  información al usuario, y para ello usamos el método
+  \textcolor{codeKeyword2}{input}().
+
+  \vspace{\baselineskip}
+  El siguiente ejemplo solicita el nombre de usuario, y cuando ingresó el
+  nombre de usuario, se imprime en la pantalla:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+ username = input("Escribe tu usuario: ")
+ print("El usuario es: " + username)
+  \end{lstlisting}
+
+  \pausa
+  \begin{exampleblock}{}
+    Python detiene la ejecución cuando se trata de la función
+    \textcolor{codeKeyword2}{input}().
+    y continúa cuando el usuario ha dado alguna entrada.
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Función input()}
+
+  La función \textcolor{codeKeyword2}{input}() permite entrada de datos del
+  usuario y estos los regresa como una cadena de texto.
+
+  \vspace{\baselineskip}
+  \textbf{Sintaxis}:
+
+  \vspace{\baselineskip}
+  \textcolor{codeKeyword2}{input}(mensaje)
+
+  \vspace{\baselineskip}
+  \textbf{Parámetros}:
+  \begin{description}
+    \item[mensaje] Una cadena que representa un mensaje antes de la entrada
+      de datos.
+  \end{description}
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  x = input("Escribe tu nombre: ")
+  print("Hola, " + x)
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[c]{Función eval()}
+
+  La función \textcolor{codeKeyword2}{eval}() evalúa la expresión
+  especificada, si la expresión es una declaración de Python legal,
+  se ejecutará; si la expresión en un número lo convierte al tipo de
+  dato que corresponde.
+
+  \vspace{\baselineskip}
+  \textbf{Sintaxis}:
+
+  \vspace{\baselineskip}
+  \textcolor{codeKeyword2}{eval}(expresión, globales, locales)
+
+  \vspace{\baselineskip}
+  \textbf{Parámetros}:
+  \begin{description}
+    \item[expresión] Una cadena de texto, que se evaluará como código
+      Python.
+    \item[globales] Opcional: Un diccionario que contenga los parámetros
+      globales.
+    \item[locales] Opcional: Un diccionario que contenga los parámetros
+      locales.
+  \end{description}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Función eval()}
+
+  \begin{lstlisting}[language=Python]
+  x = "print(55)"
+  eval(x)
+
+  numero = eval(input("Escribe un numero: "))
+  print( type(numero) )
+  \end{lstlisting}
+\end{frame}
+
+\section{Salida de datos}
+
+\begin{frame}[c]{Formateando cadenas de texto}
+
+  Para asegurarnos de que una cadena se muestre como se esperaba,
+  podemos formatear el resultado con el método
+  \textcolor{codeKeyword2}{format}().
+
+  \vspace{\baselineskip}
+  El método \textcolor{codeKeyword2}{format}() permite formatear
+  partes seleccionadas de una cadena.
+
+  \vspace{\baselineskip}
+  A veces, hay partes de un texto que no controlas, porque tal vez provienen
+  de una base de datos o de una entrada de usuario.
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Formateando cadenas de texto}
+
+  Para controlar dichos valores, se agrega marcadores de posición
+  (unas llaves \{\}) en el texto y se ejecutan los valores a través del
+  método \textcolor{codeKeyword2}{format}().
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+precio = 49
+txt = "El precio es {} pesos"
+print(txt.format(precio))
+  \end{lstlisting}
+
+  \pausa
+  Se puede agregar parámetros dentro de las llaves para especificar cómo convertir el valor:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+txt = "El precio es {:.2f} pesos"
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Múltiples Valores}
+
+  Si desea usar más valores, simplemente agregue más valores
+  método \textcolor{codeKeyword2}{format}():
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+print(txt.format(precio, articulo, cantidad))
+  \end{lstlisting}
+
+  \pausa
+  Y agregue más marcadores de posición: 
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+cantidad = 3
+articulo = 567
+precio = 49
+txt = "El costo de {} piezas del articulo con numero {} es de {:.2f} pesos"
+print(txt.format(cantidad, articulo, precio))
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Números de indice}
+
+  Se puede utilizar números de índice (un número dentro de las llaves
+  \textbf{\{0\}}) para asegurarse de que los valores se coloquen en
+  los marcadores de posición correctos: 
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+cantidad = 3
+articulo = 567
+precio = 49
+txt = "El costo de {0} piezas del articulo con numero {1} es de {2:.2f} pesos"
+print(txt.format(cantidad, articulo, precio))
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Números de indice}
+
+  Además, si se desea hacer referencia al mismo valor más de una vez,
+  use el número de índice:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+hermanos = 2
+nombre = "Juan"
+txt = "Su nombre es {1}. {1} tiene {0} hermanos."
+print(txt.format(hermanos, nombre))
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Indices con nombre}
+
+  También puede usar índices con nombre ingresando un nombre entre
+  llaves \textbf{\{carname\}}, pero luego se debe usar los nombres cuando
+  se pase los valores en los parámetro \\
+  \textbf{txt.format (carname = "Ford")}: 
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+txt = "Yo tengo un {carname}, es un {model}."
+print(txt.format(carname = "Ford", model = "Mustang"))
+  \end{lstlisting}
+\end{frame}

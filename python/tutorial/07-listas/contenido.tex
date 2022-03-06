@@ -1,0 +1,400 @@
+% ex: ts=2 sw=2 sts=2 et filetype=tex
+% SPDX-License-Identifier: CC-BY-SA-4.0
+
+\begin{frame}[c]{Colecciones en Python}
+
+  Hay cuatro tipos de datos de recopilación en el lenguaje de programación Python:
+
+  \pausa
+  \begin{description}
+    \item[List ] es una colección ordenada y modificable.
+      Permite miembros duplicados.
+    \pausa
+    \item[Tuple ] es una colección ordenada e inmutable.
+      Permite miembros duplicados.
+    \pausa
+    \item[Set ] es una colección desordenada y no indexada.
+      Sin miembros duplicados.
+    \pausa
+    \item[Dictionary ] es una colección ordenada* y modificable.
+      Sin miembros duplicados.
+  \end{description}
+
+  \begin{exampleblock}{}
+    * A partir de la versión 3.7 de Python, los diccionarios están ordenados.
+    En Python 3.6 y versiones anteriores, los diccionarios están desordenados.
+  \end{exampleblock}
+
+  Al elegir un tipo de colección, es útil comprender las propiedades de ese
+  tipo. Elegir el tipo correcto para un conjunto de datos en particular
+  podría significar la utilización del significado y podría significar un
+  aumento en la eficiencia o la seguridad. 
+\end{frame}
+
+\section{Listas}
+
+\begin{frame}[fragile]
+  \frametitle{Listas}
+
+  \vspace{\baselineskip}
+  Las listas se utilizan para almacenar varios elementos en una sola variable.
+
+  \vspace{\baselineskip}
+  Las listas son uno de los 4 tipos de datos integrados en Python que se
+  utilizan para almacenar colecciones de datos, los otros 3 son Tuple,
+  Set y Dictionary, todos con diferentes calidades y usos.
+
+  \vspace{\baselineskip}
+  Las listas se crean utilizando corchetes:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  una_lista = ["manzana", "platano", "naranja"]
+  print(una_lista) 
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[c]{Propiedades de las listas}
+
+  \begin{block}{Elementos de la lista}
+    Los elementos de la lista están ordenados, se pueden cambiar
+    y permiten valores duplicados.
+
+    Los elementos de la lista están indexados, el primer elemento tiene
+    índice \textbf{[0]}, el segundo elemento tiene índice \textbf{[1]}, etc.
+  \end{block}
+
+  \pausa
+  \begin{block}{Ordenado}
+    Cuando decimos que las listas están ordenadas, significa que los
+    artículos tienen un orden definido y ese orden no cambiará.
+
+    Si agrega nuevos elementos a una lista, los nuevos elementos se
+    colocarán al final de la lista.
+  \end{block}
+
+  \begin{alertblock}{Nota}
+    Hay algunos métodos de lista que cambiarán el orden,
+    pero en general: el orden de los elementos no cambiará. 
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Propiedades de las listas}
+
+  \begin{block}{Modificable}
+    La lista se puede cambiar, lo que significa que podemos cambiar,
+    agregar y eliminar elementos en una lista después de que se haya creado.
+  \end{block}
+
+  \pausa
+  \begin{block}{Permite duplicados}
+    Dado que las listas están indexadas, las listas pueden tener
+    elementos con el mismo valor: 
+  \end{block}
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  una_lista = ["manzana", "platano", "naranja", "manzana", "naranja"]
+  print(una_lista) 
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Longitud de una lista}
+
+  Para determinar cuántos elementos tiene una lista, use la función
+  \textcolor{codeKeyword2}{len}():
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  una_lista = ["manzana", "platano", "naranja"]
+  print(len(una_lista)) 
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Elementos de lista: tipos de datos}
+
+  Los elementos de la lista pueden ser de cualquier tipo de datos:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  lista1 = ["manzana", "platano", "naranja"]
+  lista2 = [1, 5, 7, 9, 3]
+  lista3 = [True, False, False]
+  \end{lstlisting}
+
+  \pausa
+  Una lista puede contener diferentes tipos de datos:
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  lista1 = ["abc", 34, True, 40.5, "texto"]
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Tipo de dato}
+
+  Desde la perspectiva de Python, las listas se definen
+  como objetos con el tipo de datos 'lista':
+
+  \vspace{\baselineskip}
+  \textbf{<class 'list'>}
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  una_lista = ["manzana", "platano", "naranja"]
+  print(type(una_lista)) 
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{El constructor list()}
+
+  También es posible utilizar el constructor
+  \textcolor{codeKeyword2}{list}() al crear una nueva lista. 
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  una_lista = list(("manzana", "platano", "naranja")) # con doble parentesis
+  print(type(una_lista)) 
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  Una lista vacía puede inicializarce como
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  lista_vacia = list()
+  otra_lista_vacia = []
+  \end{lstlisting}
+
+\end{frame}
+
+\section{Accediendo a los elementos de una lista}
+
+\begin{frame}[fragile]
+  \frametitle{Elementos de acceso}
+
+  Los elementos de la lista están indexados y puede acceder
+  a ellos consultando el número de índice:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  lista = ["manzana", "platano", "naranja"]
+  print(lista[1]) 
+  \end{lstlisting}
+
+  \begin{exampleblock}{Nota}
+    El primer elemento tiene indice 0.
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Indexación negativa}
+
+  La indexación negativa significa comenzar desde el final
+
+  \vspace{\baselineskip}
+  -1 se refiere al último elemento, -2 se refiere al penúltimo elemento, etc.
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  lista = ["manzana", "platano", "naranja"]
+  print(lista[-1]) 
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Rango de índices}
+
+  Puede especificar un rango de índices especificando
+  dónde comenzar y dónde terminar el rango.
+
+  \vspace{\baselineskip}
+  Al especificar un rango, el valor de retorno será una nueva
+  lista con los elementos especificados.
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+lista = ["manzana", "platano", "limon", "cereza", "kiwi", "mango", "melon"]
+print(lista[2:5]) 
+  \end{lstlisting}
+
+  \pausa
+  \begin{alertblock}{Nota}
+    La búsqueda comenzará en el índice 2 (incluido)
+    y terminará en el índice 5 (no incluido). 
+
+    Recuerde que el primer elemento tiene índice 0.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Rango de índices}
+
+  Al omitir el valor inicial, el rango comenzará en el primer elemento: 
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+lista = ["manzana", "platano", "limon", "cereza", "kiwi", "mango", "melon"]
+print(lista[:4]) 
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Rango de índices}
+
+  Al omitir el valor final, el rango continuará hasta el final de la lista: 
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+lista = ["manzana", "platano", "limon", "cereza", "kiwi", "mango", "melon"]
+print(lista[2:]) 
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Rango de índices negativos}
+
+  Especifique índices negativos si desea iniciar la búsqueda
+  desde el final de la lista:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+lista = ["manzana", "platano", "limon", "cereza", "kiwi", "mango", "melon"]
+print(lista[-4:-1]) 
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Verificar si un elemento existe}
+
+  Para determinar si un elemento específico está presente en una lista,
+  use la palabra clave
+  \textcolor{codeKeyword}{in}:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  lista = ["manzana", "platano", "naranja"]
+  if "manzana" in lista:
+    print("Si, la manzana si esta en la lista")
+  \end{lstlisting}
+\end{frame}
+
+\section{Agregar elementos a la lista}
+
+\begin{frame}[fragile]
+  \frametitle{Agregar elementos}
+
+  Para agregar un elemento al final de la lista, use el método
+  \textbf{append}():
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  lista = ["manzana", "platano", "naranja"]
+  lista.append("kiwi")
+  print(lista)
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Insertar elementos}
+
+  Para insertar un elemento de la lista en un índice específico,
+  use el método \textbf{insert}().
+
+  El método \textbf{insert}() inserta un elemento en el
+  índice especificado: 
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  lista = ["manzana", "platano", "naranja"]
+  lista.insert(1, "kiwi")
+  print(lista)
+  \end{lstlisting}
+
+  \begin{exampleblock}{Nota}
+    Como resultado de los ejemplos anteriores,
+    la lista ahora contendrán 4 elementos.
+  \end{exampleblock}{}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Ampliar lista}
+
+  Para agregar elementos de otra lista a la lista actual,
+  use el método \textbf{extend}(). 
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  lista = ["manzana", "platano", "naranja"]
+  otra_lista = ["mango", "papaya", "limon"]
+  lista.extend(otra_lista)
+  print(lista)
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  Los elementos se agregarán al final de la lista.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Agregar cualquier iterable}
+
+  El método \textbf{extend}() no tiene que agregar listas,
+  puede agregar cualquier objeto iterable
+  (tuplas, conjuntos, diccionarios, etc.).
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  lista = ["manzana", "platano", "naranja"]
+  tupla = ("mango", "kiwi")
+  lista.extend(tupla)
+  print(lista)
+  \end{lstlisting}
+\end{frame}
+
+\section{Comprensión de listas}
+
+\begin{frame}[c]{Comprensión de listas}
+  La comprensión de listas ofrece una sintaxis más corta cuando
+  desea crear una nueva lista basada en los valores de una lista
+  existente.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Comprensión de listas - Ejemplo}
+
+  Basado en una lista de frutas, desea una nueva lista que
+  contenga solo las frutas con la letra "a" en el nombre.
+
+  \vspace{\baselineskip}
+  Sin la comprensión de la lista, tendrá que escribir una declaración
+  \textcolor{codeKeyword}{for} con una prueba condicional dentro: 
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  lista = ["manzana", "platano", "naranja", "limno", "kiwi"]
+  lista_nueva = []
+
+  for x in lista:
+    if "a" in x:
+      lista_nueva.append(x)
+
+  print(lista_nueva)
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Comprensión de listas - Ejemplo}
+
+  Con la comprensión de listas, puede hacer todo eso con
+  solo una línea de código:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  lista = ["manzana", "platano", "naranja", "limon", "kiwi"]
+  lista_nueva = [x for x in lista if "a" in x]
+
+  print(lista_nueva)
+  \end{lstlisting}
+\end{frame}
