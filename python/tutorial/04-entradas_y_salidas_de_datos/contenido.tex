@@ -54,8 +54,8 @@
 
   \vspace{\baselineskip}
   \begin{lstlisting}[language=Python]
- username = input("Escribe tu usuario: ")
- print("El usuario es: " + username)
+ usuario = input("Escribe tu usuario: ")
+ print("El usuario es: " + usuario)
   \end{lstlisting}
 
   \pausa
@@ -70,7 +70,7 @@
   \frametitle{Función input()}
 
   La función \textcolor{codeKeyword2}{input}() permite entrada de datos del
-  usuario y estos los regresa como una cadena de texto.
+  usuario y estos los regresa como una \textbf{cadena de texto}.
 
   \vspace{\baselineskip}
   \textbf{Sintaxis}:
@@ -87,8 +87,8 @@
 
   \vspace{\baselineskip}
   \begin{lstlisting}[language=Python]
-  x = input("Escribe tu nombre: ")
-  print("Hola, " + x)
+  nombre = input("Escribe tu nombre: ")
+  print("Hola, " + nombre)
   \end{lstlisting}
 \end{frame}
 
@@ -122,11 +122,30 @@
 
   \begin{lstlisting}[language=Python]
   x = "print(55)"
-  eval(x)
+  eval(x) # aquí me ejecuta print(55), en pantalla solo sale 55
 
-  numero = eval(input("Escribe un numero: "))
+  numero = eval(input("Escribe un número: "))
   print( type(numero) )
   \end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{Leer texto y números}
+
+  Para leer \textbf{números} usamos:
+  \begin{lstlisting}[language=Python]
+  numero = eval(input("Escribe un número: "))
+  print("Escribiste el número:", numero)
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  Para leer \textbf{cadenas de texto} usamos:
+  \begin{lstlisting}[language=Python]
+  texto = input("Escribe un texto: ")
+  print("Escribiste el texto: " + texto)
+  \end{lstlisting}
+
 \end{frame}
 
 \section{Salida de datos}
@@ -189,7 +208,7 @@ print(txt.format(precio, articulo, cantidad))
 cantidad = 3
 articulo = 567
 precio = 49
-txt = "El costo de {} piezas del articulo con numero {} es de {:.2f} pesos"
+txt = "El costo de {} piezas del artículo con número {} es de {:.2f} pesos"
 print(txt.format(cantidad, articulo, precio))
   \end{lstlisting}
 \end{frame}
@@ -206,7 +225,7 @@ print(txt.format(cantidad, articulo, precio))
 cantidad = 3
 articulo = 567
 precio = 49
-txt = "El costo de {0} piezas del articulo con numero {1} es de {2:.2f} pesos"
+txt = "El costo de {0} piezas del artículo con número {1} es de {2:.2f} pesos"
 print(txt.format(cantidad, articulo, precio))
   \end{lstlisting}
 \end{frame}
@@ -230,13 +249,13 @@ print(txt.format(hermanos, nombre))
   \frametitle{Indices con nombre}
 
   También puede usar índices con nombre ingresando un nombre entre
-  llaves \textbf{\{carname\}}, pero luego se debe usar los nombres cuando
+  llaves \textbf{\{marca\}}, pero luego se debe usar los nombres cuando
   se pase los valores en los parámetro \\
-  \textbf{txt.format (carname = "Ford")}: 
+  \textbf{txt.format (marca = "Ford")}:
 
   \vspace{\baselineskip}
   \begin{lstlisting}[language=Python]
-txt = "Yo tengo un {carname}, es un {model}."
-print(txt.format(carname = "Ford", model = "Mustang"))
+txt = "Yo tengo un {marca}, es un {modelo}."
+print(txt.format(marca = "Ford", modelo = "Mustang"))
   \end{lstlisting}
 \end{frame}
