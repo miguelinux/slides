@@ -1,0 +1,245 @@
+% ex: ts=2 sw=2 sts=2 et filetype=tex
+% SPDX-License-Identifier: CC-BY-SA-4.0
+
+\section{Introducción a JavaScript}
+
+\begin{frame}[c]{¿Qué es JavaScript?}
+  \textbf{JavaScript} (abreviado comúnmente \textbf{JS}) es un lenguaje de
+  programación interpretado, dialecto del estándar ECMAScript. Se define
+  como orientado a objetos, basado en prototipos, imperativo, débilmente
+  tipado y dinámico. 
+
+  \vspace{\baselineskip}
+  Se utiliza principalmente del lado del cliente, implementado como parte
+  de un navegador web permitiendo mejoras en la interfaz de usuario y
+  páginas web dinámicas y JavaScript del lado del servidor (Server-side
+  JavaScript o SSJS).
+\end{frame}
+
+\begin{frame}[c]{¿Qué es JavaScript?}
+
+  JavaScript se diseñó con una sintaxis similar a C, aunque adopta nombres
+  y convenciones del lenguaje de programación Java. Sin embargo, Java y
+  JavaScript tienen semánticas y propósitos diferentes.
+
+  \vspace{\baselineskip}
+  Tradicionalmente se venía utilizando en páginas web HTML para realizar
+  operaciones y únicamente en el marco de la aplicación cliente, sin acceso
+  a funciones del servidor.
+
+  \vspace{\baselineskip}
+  Actualmente es ampliamente utilizado para enviar y recibir información del
+  servidor junto con ayuda de otras tecnologías como \textbf{AJAX}.
+
+\end{frame}
+
+\begin{frame}[c]{¿Qué es AJAX?}
+
+  \textbf{AJAX}, acrónimo de \textbf{A}synchronous \textbf{J}avaScript
+  \textbf{A}nd \textbf{X}ML (JavaScript asíncrono y XML), es una técnica
+  de desarrollo web para crear aplicaciones web asíncronas.
+
+  \vspace{\baselineskip}
+  Estas aplicaciones se ejecutan en el cliente, es decir, en el navegador
+  de los usuarios mientras se mantiene la comunicación asíncrona con el
+  servidor en segundo plano.
+
+  \vspace{\baselineskip}
+  De esta forma es posible interactuar con el
+  servidor sin necesidad de recargar la página web, mejorando la
+  interactividad, velocidad y usabilidad en las aplicaciones.
+\end{frame}
+
+
+\section{Características de JavaScript}
+
+\begin{frame}[c]{Imperativo y estructurado}
+
+  \begin{exampleblock}{}
+    JavaScript es compatible con gran parte de la estructura de programación
+    de C (por ejemplo, sentencias if, bucles for, sentencias switch, etc.).
+  \end{exampleblock}
+
+\end{frame}
+
+\begin{frame}[c]{Dinámicos}
+
+  \begin{block}{Tipado dinámico}
+    El tipo de dato está asociado al valor, no a la variable. Por ejemplo,
+    una variable x en un momento dado puede estar ligada a un número y más
+    adelante, religada a una cadena de texto.
+  \end{block}
+
+  \begin{block}{Objetual}
+    JavaScript está formado casi en su totalidad por objetos. Los objetos
+    en JavaScript son arrays asociativos, mejorados con la inclusión de
+    prototipos.
+
+    \vspace{\baselineskip}
+    Los nombres de las propiedades de los objetos son claves de tipo
+    cadena: obj.x = 10 y obj['x'] = 10 son equivalentes.
+
+    \vspace{\baselineskip}
+    Las propiedades y sus valores pueden ser creados, cambiados o
+    eliminados en tiempo de ejecución.
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[c]{Dinámicos (continuación)}
+
+  \begin{block}{Evaluados en tiempo de ejecución}
+    JavaScript incluye la función \textbf{eval} que permite evaluar
+    expresiones expresadas como cadenas en tiempo de ejecución.
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[c]{Funcional}
+
+  \begin{block}{Funciones de primera clase}
+    A las funciones se les suele llamar ciudadanos de primera clase;
+    son objetos en sí mismos. Como tal, poseen propiedades y métodos, 
+    como .call() y .bind().
+
+    \vspace{\baselineskip}
+    Una función anidada es una función definida dentro de otra.
+    Esta es creada cada vez que la función externa es invocada.
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[c]{Prototípico}
+
+  \begin{block}{Prototipos}
+    JavaScript usa prototipos en vez de clases para el uso de
+    herencia. Es posible llegar a emular muchas de las
+    características que proporcionan las clases en lenguajes orientados a
+    objetos tradicionales por medio de prototipos en JavaScript.
+  \end{block}
+
+  \begin{block}{Funciones como constructores de objetos}
+    Las funciones también se comportan como constructores. Prefijar una
+    llamada a la función con la palabra clave new crear una nueva instancia
+    de un prototipo, que heredan propiedades y métodos del constructor
+    (incluidas las propiedades del prototipo de Object).
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[c]{Otras características}
+
+  \begin{block}{Entorno de ejecución}
+    JavaScript normalmente depende del entorno en el que se ejecute (por
+    ejemplo, en un navegador web) para ofrecer objetos y métodos por los que
+    los scripts pueden interactuar con el "mundo exterior".
+  \end{block}
+
+  \begin{block}{Funciones como métodos}
+    A diferencia de muchos lenguajes orientados a objetos, no hay distinción
+    entre la definición de función y la definición de método. Más bien, la
+    distinción se produce durante la llamada a la función; una función puede
+    ser llamada como un método.
+  \end{block}
+
+\end{frame}
+
+\section{JavaScript en acción}
+
+\begin{frame}[c]{Ejemplos de JavaScript}
+
+  En seguida veremos algunos ejemplos de lo que se puede hacer en
+  Javascript.
+
+  \vspace{\baselineskip}
+  Usa tu editor de texto favorito para copiar los ejemplos que aquí se
+  mostrarán a continuación.
+\end{frame}
+
+\begin{frame}[c]{JavaScript puede cambiar el contenido HTML}
+
+  Uno de los muchos métodos HTML de JavaScript es \textbf{getElementById()}.
+
+  El siguiente ejemplo "busca" un elemento HTML (con id="demo") y cambia el
+  contenido del elemento (innerHTML) a "Hola JavaScript":
+
+  \vspace{\baselineskip}
+  \begin{exampleblock}{Ejemplo:}
+     document.getElementById("demo").innerHTML = "Hola JavaScript";
+  \end{exampleblock}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Ejemplo 1}
+  \lstinputlisting{ejemplo01.html}
+\end{frame}
+
+\begin{frame}[c]{JavaScript puede cambiar el contenido HTML}
+
+  \vspace{\baselineskip}
+  \begin{alertblock}{Nota:}
+    JavaScript acepta comillas simples o dobles para las cadenas de texto.
+  \end{alertblock}
+
+  \vspace{\baselineskip}
+  \begin{exampleblock}{Ejemplo:}
+     document.getElementById('demo').innerHTML = 'Hola JavaScript';
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Ejemplo 2 (comillas)}
+  \lstinputlisting{ejemplo02.html}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{JavaScript puede cambiar los valores de los atributos HTML}
+  \lstinputlisting{ejemplo03.html}
+\end{frame}
+
+\begin{frame}[c]{JavaScript puede cambiar los estilos HTML (CSS)}
+
+  Cambiar el estilo de un elemento HTML es una variante de cambiar un atributo HTML:
+
+  \vspace{\baselineskip}
+  \begin{exampleblock}{Ejemplo:}
+    document.getElementById("demo").style.fontSize = "35px";
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Ejemplo 4}
+  \lstinputlisting{ejemplo04.html}
+\end{frame}
+
+\begin{frame}[c]{JavaScript puede ocultar elementos HTML}
+
+  Se pueden ocultar elementos HTML cambiando el estilo de visualización:
+
+  \vspace{\baselineskip}
+  \begin{exampleblock}{Ejemplo:}
+    document.getElementById("demo").style.display = "none"; 
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Ejemplo 5}
+  \lstinputlisting{ejemplo05.html}
+\end{frame}
+
+\begin{frame}[c]{JavaScript puede mostrar elementos HTML}
+
+  También se pueden mostrar elementos HTML ocultos cambiando el estilo
+  de visualización: 
+
+  \vspace{\baselineskip}
+  \begin{exampleblock}{Ejemplo:}
+    document.getElementById("demo").style.display = "block";
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Ejemplo 6}
+  \lstinputlisting{ejemplo06.html}
+\end{frame}
