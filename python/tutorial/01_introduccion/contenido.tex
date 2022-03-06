@@ -44,7 +44,9 @@
       \pausa
       \item Tipado dinámico
       \pausa
-      \item Python 2.x ya esta \textbf{descontinuado}, solo hay que usar el 3.x
+      \item Python 2.x ya esta \textbf{descontinuado}
+      \pausa
+      \item Solo hay que usar versiones de Python 3.x
     \end{itemize}
   \end{columns}
 \end{frame}
@@ -272,7 +274,7 @@ print(y)
   \end{lstlisting}
 \end{frame}
 
-\begin{frame}[fragile,b]
+\begin{frame}[fragile]
   \frametitle{Nombre de variables}
 
   \vspace{\baselineskip}
@@ -281,6 +283,7 @@ print(y)
   \textit{volumen\_total}). Las reglas para las variables en Python son:
   \pausa
 
+  \vspace{\baselineskip}
   \begin{itemize}
     \item El nombre de la variable tiene que \textbf{comenzar} con una
       \textbf{letra} o un \textbf{guión bajo} (\_).
@@ -293,16 +296,27 @@ print(y)
     \pausa
     \item Los nombre de las variables son sensibles a mayúsculas y minúsculas
       (edad, Edad y EDAD son tres variables deferentes)
+    \pausa
+  \item No se pueden usar las vocales acentuadas (á,é,í,ó,ú), ni la letra ñ
   \end{itemize}
-  \pausa
+\end{frame}
 
+\begin{frame}[fragile]
+  \frametitle{Nombre de variables}
+
+  Estos son unos ejemplos de nombre de variables
+
+  \vspace{\baselineskip}
   \begin{lstlisting}[language=Python]
- myvar = "Juan"
- my_var = "Juan"
- _my_var = "Juan"
- myVar = "Juan"
- MYVAR = "Juan"
- myvar2 = "Juan"
+ mivar = "Ana"
+ mi_var = "Juan"
+ _mi_var = "Pedro"
+ miVar = "Lucia"
+ MIVAR = "Maria"
+ mivar2 = "Estela"
+ mi_variable = "Mateo"
+ anio_de_nacimento = 2010
+ el_nombre_de_mi_variable = "Miguel"
   \end{lstlisting}
 \end{frame}
 
