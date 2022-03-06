@@ -560,9 +560,21 @@ print(isinstance(x, int))
   \end{table}
 \end{frame}
 
+\begin{frame}[fragile]
+  \frametitle{Ejemplo de una suma}
+
+  \begin{lstlisting}[language=Python]
+  num1 = eval(input("Escribe un número: "))
+  num2 = eval(input("Escribe otro número: "))
+
+  suma = num1 + num2
+
+  print("La suma es", suma)
+  \end{lstlisting}
+\end{frame}
+
 \begin{frame}[c]{Operadores de Asignación}
 
-  \vspace{\baselineskip}
   Los operadores de asignación son usados para asignar valores a las
   variables:
 
@@ -591,6 +603,20 @@ print(isinstance(x, int))
     $<<=$ & $x <<= 3$ & $x = x << 3$ \\
   \end{tabular}
   \end{table}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Ejemplo de una asignación}
+
+  \begin{lstlisting}[language=Python]
+  num1 = eval(input("Escribe un número: "))
+  num2 = eval(input("Escribe otro número: "))
+
+  # A num1 le sumamos num2
+  num1 += num2
+
+  print("La suma es", num1)
+  \end{lstlisting}
 \end{frame}
 
 \begin{frame}[c]{Operadores de Comparación}
