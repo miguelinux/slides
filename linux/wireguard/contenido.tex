@@ -1,0 +1,128 @@
+% ex: ts=2 sw=2 sts=2 et filetype=tex
+% SPDX-License-Identifier: CC-BY-SA-4.0
+
+\section{Introducción a Wireguard}
+
+\begin{frame}[c]{¿Qué es Wireguard?}
+    \begin{columns}
+        \column{0.5\textwidth}
+        WireGuard es una aplicación de software libre y de código abierto
+        y un protocolo de comunicación que implementa técnicas de red
+        privada virtual (\textbf{VPN}) para crear \emph{conexiones seguras
+        punto a punto} en configuraciones enrutadas o puenteadas.
+        \column{0.5\textwidth}
+        \begin{center}
+            \includegraphics[scale=0.5]{wireguard-logo.png}
+        \end{center}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[c]{¿Qué es Wireguard? (continuación)}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{center}
+            \includegraphics[scale=0.5]{kr-donenfeld.jpg}
+        \end{center}
+        \column{0.5\textwidth}
+        Se ejecuta como un módulo dentro del núcleo Linux y tiene como
+        objetivo un mejor rendimiento que los protocolos de tunelización
+        IPsec y OpenVPN.
+
+        \vspace{\baselineskip}
+        Fue escrito por Jason A. Donenfeld y se publica bajo la segunda
+        versión de la GNU General Public License (GPL).
+    \end{columns}
+\end{frame}
+
+\begin{frame}[c]{Características}
+  \begin{itemize}
+    \item Tiene como objetivo proporcionar una VPN que sea
+          simple y altamente efectiva.
+    \pausa
+    \item Código fuente de alrededor de 4000 líneas.
+    \pausa
+    \item Utiliza criptografía de última generación, como el \emph{framework}
+          del protocolo Noise, Curve25519, ChaCha20, Poly1305, BLAKE2,
+          SipHash24, HKDF y construcciones seguras y confiables.
+
+  \end{itemize}
+\end{frame}
+
+\section{Creación de llaves}
+
+\begin{frame}[fragile]
+  \frametitle{Generando llave privada}
+
+  WireGuard requiere claves públicas y privadas codificadas en base64.
+  Estos se pueden generar utilizando la utilidad \textbf{wg(8)}: 
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Bash]
+  $ umask 077
+  $ wg genkey > privatekey
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  esto creará una clave privada en la salida estándar que contiene una
+  nueva clave privada. 
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Generando llave publica}
+
+  Luego puede derivar su clave pública de su clave privada:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=bash]
+  $ wg pubkey < privatekey > publickey
+  $
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  Esto leerá la clave privada de la entrada estándar y escribirá la
+  clave pública correspondiente en la clave pública en la salida estándar.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Generando ambas llaves a la vez}
+
+  Por supuesto, puedes hacer todo esto a la vez: 
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Bash]
+  $ umask 077
+  $ wg genkey | tee privatekey | wg pubkey > publickey
+  \end{lstlisting}
+
+\end{frame}
+
+\section{Configurando las interfaces de red}
+
+\begin{frame}[fragile]
+  \frametitle{Agregando interfaces}
+
+  Se puede agregar una nueva interfaz a través de \textbf{ip-link(8)},
+  que debería manejar automáticamente la carga del módulo:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Bash]
+  # ip link add dev wg0 type wireguard
+  \end{lstlisting}
+
+  Los usuarios que no son de Linux escribirán en su lugar wireguard-go wg0.
+
+\end{frame}
+
+%\begin{frame}[c]{Caracteres de escape}
+%\end{frame}
+
+%\begin{frame}[fragile]
+%  \frametitle{Cadenas de texto}
+%
+%  \vspace{\baselineskip}
+%  \textcolor{codeKeyword}{print}():
+%
+%  \vspace{\baselineskip}
+%  \begin{lstlisting}[language=Python]
+%  \end{lstlisting}
+%\end{frame}

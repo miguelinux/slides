@@ -1,0 +1,127 @@
+% ex: ts=2 sw=2 sts=2 et filetype=tex
+% SPDX-License-Identifier: CC-BY-SA-4.0
+
+\section{Introducción a SSH}
+
+\begin{frame}[c]{¿Qué es SSH?}
+  \textbf{SSH} (o Secure SHell) es el nombre de un
+  \underline{protocolo} y del \underline{programa} que
+  lo implementa cuya principal función es el acceso remoto a un servidor
+  por medio de un canal seguro en el que toda la información está cifrada.
+
+  \vspace{\baselineskip}
+  Además de la conexión a otros dispositivos, SSH permite
+  \begin{itemize}
+    \item Copiar datos de forma segura
+    \pausa
+    \item Gestionar claves (llaves) para no escribir contraseñas
+      al conectar a los dispositivos 
+    \pausa
+    \item Pasar los datos de cualquier otra aplicación por un canal
+      seguro tunelizado mediante SSH
+    \pausa
+    \item Redirigir el tráfico del (Sistema de Ventanas X) para poder
+      ejecutar programas gráficos remotamente.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[c]{Versiones de SSH}
+  Existen 2 versiones de SSH:
+
+  \vspace{\baselineskip}
+  La \textbf{versión 1} de SSH hace uso de muchos algoritmos de
+  cifrado patentados (sin embargo, algunas de estas patentes han
+  expirado) y es vulnerable a un agujero de seguridad que
+  potencialmente permite a un intruso insertar datos
+  en la corriente de comunicación.
+
+  \pausa
+  \vspace{\baselineskip}
+  La \textbf{versión 2} de SSH, la cual tiene un algoritmo de
+  intercambio de claves mejorado que no es vulnerable al agujero
+  de seguridad en la versión 1.
+\end{frame}
+
+\begin{frame}[c]{¿Qué es OpenSSH?}
+  \textbf{OpenSSH} (Open Secure Shell) es un conjunto de aplicaciones
+  que permiten realizar comunicaciones \emph{cifradas a través de una red},
+  usando el protocolo SSH. Fue creado como una alternativa libre y
+  abierta al programa Secure Shell, que es software propietario.
+  \begin{center}
+    \includegraphics[scale=0.5]{openssh.png}
+  \end{center}
+\end{frame}
+
+\begin{frame}[c]{Herramientas de OpenSSH}
+
+  La suite OpenSSH consta de las siguientes herramientas:
+
+  \begin{itemize}
+    \item Las operaciones remotas se realizan mediante \textbf{ssh},
+      \textbf{scp} y sftp.
+    \pausa
+    \item Gestión de claves con ssh-add, ssh-keysign, ssh-keyscan
+      y \textbf{ssh-keygen}.
+    \pausa
+    \item El lado del servicio consta de \textbf{sshd}, sftp-server
+      y \textbf{ssh-agent}.
+  \end{itemize}
+
+  \pausa
+  \vspace{\baselineskip}
+  OpenSSH es desarrollado por algunos desarrolladores del Proyecto OpenBSD
+  y está disponible bajo una licencia de estilo BSD. 
+
+  \vspace{\baselineskip}
+  \begin{exampleblock}{Nota}
+    En lo sucesivo hablaremos sólo de OpenSSH
+  \end{exampleblock}
+\end{frame}
+
+\section{Configuración y llaves}
+
+\begin{frame}[c]{Directorio de configuración}
+
+  El directorio de configuración para un usuario es \textbf{.ssh}
+  y se encuentra en
+
+  \begin{exampleblock}{Windows}
+    C:\textbackslash{}Users\textbackslash{}\textbf{TU\_USUARIO}\textbackslash{}.ssh
+  \end{exampleblock}
+
+  \pausa
+  \begin{block}{Mac}
+    /Users/\textbf{TU\_USUARIO}/.ssh
+  \end{block}
+
+  \pausa
+  \begin{alertblock}{Linux}
+    /home/\textbf{TU\_USUARIO}/.ssh
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}[c]{Archivo de configuración del cliente}
+
+  \textbf{ssh} obtiene datos de configuración de las siguientes
+  fuentes en el siguiente orden:
+
+  \begin{enumerate}
+    \item opciones de línea de comandos
+    \item archivo de configuración del usuario (\~{}/.ssh/config)
+    \item archivo de configuración de todo el sistema (/etc/ssh/ssh\_config)
+  \end{enumerate}
+
+\end{frame}
+
+
+
+
+\section{Tunel SSH}
+
+\begin{frame}[c]{titutlo}
+\end{frame}
+
+\section{GitHub y SSH}
+
+\begin{frame}[c]{titutlo}
+\end{frame}
