@@ -744,3 +744,124 @@ print("x << 1 = {:>3d} = {:>6b}".format(x << 1, x << 1))
 print("x >> 2 = {:>3d} = {:>6b}".format(x >> 2, x >> 2))
   \end{lstlisting}
 \end{frame}
+
+\section{Matemáticas en Python}
+
+\begin{frame}[c]{Tipo de datos integrados}
+  Python tiene un conjunto de funciones matemáticas integradas,
+  incluido un extenso módulo matemático, que le permite realizar
+  tareas matemáticas con números.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Funciones matemáticas integradas}
+
+  Las funciones \textcolor{codeKeyword2}{min}() y
+  \textcolor{codeKeyword2}{max}() se pueden
+  usar para encontrar el valor más bajo o más alto en un iterable:
+
+  \begin{lstlisting}[language=Python]
+  minimo = min(5, 10, 25)
+  maximo = max(5, 10, 25)
+
+  print(minimo)
+  print(maximo)
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Funciones matemáticas integradas}
+
+  La función \textcolor{codeKeyword2}{abs}() devuelve el
+  valor absoluto (positivo) del número especificado:
+
+  \begin{lstlisting}[language=Python]
+  absoluto = abs(-7.25)
+
+  print(absoluto)
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Funciones matemáticas integradas}
+
+  La función \textcolor{codeKeyword2}{pow(x, y)} devuelve el valo
+  de x a la potencia de y ($x^y$).
+
+  \vspace{\baselineskip}
+  Ejemplo:
+
+  \vspace{\baselineskip}
+  Devuelve el valor de 4 a la potencia de 3 (lo mismo que 4 * 4 * 4):
+  \begin{lstlisting}[language=Python]
+  resultado = pow(4,3)
+
+  print("4 elevado a la 3 es", resultado)
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{El módulo de matemáticas}
+
+  Python también tiene un módulo integrado llamado \textbf{math},
+  que amplía la lista de funciones matemáticas.
+
+  \vspace{\baselineskip}
+  Para usarlo, se debe importar el módulo \textbf{math}:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  import math
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  Cuando hayas importado el módulo \textbf{math}, puedes comenzar
+  a usar métodos y constantes del módulo.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Raiz cuadrada}
+
+  El método \textbf{math.sqrt()}, por ejemplo, devuelve la raíz
+  cuadrada de un número:
+
+  \begin{lstlisting}[language=Python]
+  import math
+
+  raiz = math.sqrt(64)
+
+  print(raiz)
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Funciones techo y piso}
+
+  El método \textbf{math.ceil()} (techo) redondea un número hacia arriba a
+  su entero más cercano, y el método \textbf{math.floor()} (piso) redondea
+  un número hacia abajo a su entero más cercano y devuelve el resultado:
+
+  \begin{lstlisting}[language=Python]
+  import math
+
+  techo = math.ceil(1.4)
+  piso  = math.floor(1.4)
+
+  print(techo) # regresa 2
+  print(piso)  # regresa 1
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Constante $\pi$}
+
+  La constante \textbf{math.pi}, devuelve el valor de $\pi$ (3.14...):
+
+  \begin{lstlisting}[language=Python]
+  import math
+
+  pi = math.pi
+
+  print("El valor de pi es:", pi)
+  \end{lstlisting}
+\end{frame}
