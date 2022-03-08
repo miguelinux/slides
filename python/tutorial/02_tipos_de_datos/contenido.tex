@@ -181,7 +181,7 @@ x = memoryview(bytes(5))                     # memoryview
 
   Los número de punto flotante (\textcolor{codeKeyword2}{float}) pueden ser
   escritos como números en \emph{notación científica} con una "\textbf{e}"
-  para indicar la potencia de 10.
+  o una "\textbf{E}" para indicar la potencia de 10.
 
   \vspace{\baselineskip}
   \begin{lstlisting}[language=Python]
@@ -244,19 +244,40 @@ x = memoryview(bytes(5))                     # memoryview
   \frametitle{Números aleatorios}
 
   Python no tiene una función de \textbf{random}() para
-  hacer números aleatorios, pero Python tiene integrado un modulo llamado
+  hacer números aleatorios, pero Python tiene integrado un módulo llamado
   \textbf{random} que puede ser usado para hacer números
   aleatorios:
 
   \vspace{\baselineskip}
-  Importamos el modulo de \textbf{random}, y desplegamos un número aleatorio entre 1
-  y 9:
+  Importamos el módulo de \textbf{random}, e imprimimos un
+  número aleatorio entre 1 y 9:
 
   \begin{lstlisting}[language=Python]
   import random
 
   print( random.randrange(1,10) )
   \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Números aleatorios}
+
+  El método \textbf{randint}() devuelve un número
+  entero de un rango especificado.
+
+  \vspace{\baselineskip}
+  Imprimimos un número aleatorio entre 1 y 10
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  import random
+
+  print("Número aleatorio entre 1 y 10:", random.randint(1,10))
+  \end{lstlisting}
+
+  \begin{alertblock}{Nota}
+    Este es un alias del método \textbf{random.randrange(inicio, fin+1)}
+  \end{alertblock}
 \end{frame}
 
 \section{Casting}
