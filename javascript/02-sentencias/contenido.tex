@@ -1,0 +1,227 @@
+% ex: ts=2 sw=2 sts=2 et filetype=tex
+% SPDX-License-Identifier: CC-BY-SA-4.0
+
+\section{¿Dónde se codifica JavaScript?}
+
+\begin{frame}[fragile]
+  \frametitle{La etiqueta <script>}
+
+  En HTML, el código JavaScript se inserta entre las etiquetas
+  \textbf{<script>} y \textbf{</script>}.
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<script>
+document.getElementById("demo").innerHTML = "Mi primer JavaScript";
+</script>
+  \end{lstlisting}
+
+  \begin{block}{}
+    Los ejemplos antiguos de JavaScript pueden usar un atributo de tipo:
+    \textbf{<script type="text/javascript">}.
+
+    \vspace{\baselineskip}
+    El atributo de tipo no es obligatorio. JavaScript es el lenguaje de
+    secuencias de comandos predeterminado en HTML.
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Ejemplo 1}
+  \lstinputlisting{02-ejemplo01.html}
+\end{frame}
+
+\begin{frame}[c]{Funciones y eventos de JavaScript}
+
+  Una función JavaScript es un bloque de código JavaScript,
+  que se puede ejecutar cuando se "llama".
+
+  \vspace{\baselineskip}
+  Por ejemplo, se puede llamar a una función cuando ocurre un evento,
+  como cuando el usuario hace clic en un botón.
+
+  \vspace{\baselineskip}
+  \begin{exampleblock}{}
+    Aprenderás mucho más sobre funciones y eventos en
+    capítulos posteriores.
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}[c]{JavaScript en <head> o <body>}
+
+  Puedes colocar cualquier número de secuencias de comandos
+  en un documento HTML.
+
+  \vspace{\baselineskip}
+  Los scripts se pueden colocar en la sección \textbf{<body>} o
+  \textbf{<head>} de una página HTML, o en ambas.
+\end{frame}
+
+\begin{frame}[c]{JavaScript en <head>}
+
+  En el siguiente ejemplo, se coloca una función de JavaScript
+  en la sección \textbf{<head>} de una página HTML.
+
+  \vspace{\baselineskip}
+  La función se invoca (llama) cuando se hace clic en un botón:
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Ejemplo 2}
+  \lstinputlisting{02-ejemplo02.html}
+\end{frame}
+
+\begin{frame}[c]{JavaScript en <body>}
+
+  En este ejemplo, se coloca una función de JavaScript en la
+  sección <body> de una página HTML.
+
+  \vspace{\baselineskip}
+  La función se invoca (llama) cuando se hace clic en un botón:
+
+  \vspace{\baselineskip}
+  \begin{exampleblock}{Nota:}
+    Colocar el script en la parte inferior del elemento <body>
+    mejora la velocidad de visualización, porque la interpretación de
+    los scripts ralentiza la visualización.
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Ejemplo 3}
+  \lstinputlisting{02-ejemplo03.html}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{JavaScript externo}
+
+  Los scripts también se pueden colocar en archivos externos
+
+  \vspace{\baselineskip}
+  Los scripts externos son prácticos cuando se usa el mismo
+  código en muchas páginas web diferentes.
+
+  \vspace{\baselineskip}
+  Los archivos JavaScript tienen la extensión de archivo \textbf{.js}.
+
+  \vspace{\baselineskip}
+  Para usar una secuencia de comandos externa, coloque el nombre del
+  archivo de secuencia de comandos en el atributo src (fuente) de
+  una etiqueta <script>:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<script src="miScript.js"></script>
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[c]{JavaScript externo}
+  Puede colocar una referencia de secuencia de comandos externa
+  en \textbf{<head>} o \textbf{<body>} como desee.
+
+  El script se comportará como si estuviera ubicado exactamente
+  donde se encuentra la etiqueta \textbf{<script>}.
+
+  \begin{alertblock}{Nota:}
+    Los scripts externos no pueden contener etiquetas \textbf{<script>}.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{JavaScript externo}
+
+  Has un archivo llamado \textbf{miScript.js} que contenga:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+function miFuncion() {
+  document.getElementById("demo").innerHTML = "cambió el párrafo.";
+}
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Ejemplo 4}
+  \lstinputlisting{02-ejemplo04.html}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Ventajas de JavaScript externo}
+
+  Colocar scripts en archivos externos tiene algunas ventajas:
+
+  \vspace{\baselineskip}
+  \begin{itemize}
+    \item Separa HTML y código.
+    \item Hace que HTML y JavaScript sean más fáciles de leer y mantener.
+    \item Los archivos JavaScript almacenados en caché pueden
+      acelerar la carga de la página
+  \end{itemize}
+
+  \vspace{\baselineskip}
+  Para agregar varios archivos de script a una página,
+  use varias etiquetas de script:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<script src="miScript1.js"></script>
+<script src="miScript2.js"></script>
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Referencias externas}
+
+  Se puede hacer referencia a un script externo de 3 maneras diferentes:
+
+  \vspace{\baselineskip}
+  \begin{itemize}
+    \item Con una URL completa (una dirección web completa)
+    \item Con una ruta de archivo (como /js/)
+    \item sin ningún camino
+  \end{itemize}
+
+  \vspace{\baselineskip}
+  Este ejemplo usa una URL completa para vincular a myScript.js:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<script src="https://www.w3schools.com/js/myScript.js"></script>
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Referencias externas}
+
+  \vspace{\baselineskip}
+  Este ejemplo utiliza una ruta de archivo para vincular a miScript.js:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<script src="/js/miScript.js"></script>
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  Este ejemplo no usa una ruta para vincular a myScript.js (el archivo esta
+  en el mismo directorio que el HTML):
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<script src="miScript.js"></script>
+  \end{lstlisting}
+\end{frame}
+
+\section{Salida de JavaScript}
+
+\begin{frame}[c]{Posibilidades de visualización de JavaScript}
+
+  JavaScript puede "mostrar" datos de diferentes maneras:
+
+  \begin{itemize}
+    \item Escribiendo en un elemento HTML, usando \textbf{innerHTML}.
+    \item Escribiendo en la salida HTML usando \textbf{document.write()}.
+    \item Escribiendo en un cuadro de alerta, usando \textbf{window.alert()}.
+    \item Escribiendo en la consola del navegador, usando
+      \textbf{console.log()}.
+  \end{itemize}
+\end{frame}
