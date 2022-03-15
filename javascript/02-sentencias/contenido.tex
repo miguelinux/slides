@@ -217,6 +217,7 @@ function miFuncion() {
 
   JavaScript puede "mostrar" datos de diferentes maneras:
 
+  \vspace{\baselineskip}
   \begin{itemize}
     \item Escribiendo en un elemento HTML, usando \textbf{innerHTML}.
     \item Escribiendo en la salida HTML usando \textbf{document.write()}.
@@ -225,3 +226,306 @@ function miFuncion() {
       \textbf{console.log()}.
   \end{itemize}
 \end{frame}
+
+\begin{frame}[c]{Uso de HTML interno}
+
+  Para acceder a un elemento HTML, JavaScript puede usar el
+  método \textbf{document.getElementById(id)}.
+
+  \vspace{\baselineskip}
+  El atributo \textbf{id} define el elemento HTML.
+  La propiedad \textbf{innerHTML} define el contenido HTML
+
+  \begin{exampleblock}{Nota:}
+    Cambiar la propiedad \textbf{innerHTML} de un elemento HTML
+    es una forma común de mostrar datos en HTML.
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Ejemplo 5}
+  \lstinputlisting{02-ejemplo05.html}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Usando document.write()}
+
+  Para propósitos de prueba, es conveniente usar
+  \textbf{document.write()}: 
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<script>
+document.write(5 + 6);
+</script>
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Usando document.write()}
+
+  \begin{alertblock}{Nota:}
+    El uso de \textbf{document.write()} después de cargar un
+    documento HTML eliminará todo el HTML existente:
+  \end{alertblock}
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<button type="button" onclick="document.write(5 + 6)">Borrar todo</button>
+  \end{lstlisting}
+
+  \begin{exampleblock}{Nota:}
+    El método \textbf{document.write()} solo debe usarse para pruebas. 
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Usando window.alert()}
+
+  Puede utilizar un cuadro de alerta para mostrar datos:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<script>
+window.alert(5 + 6);
+</script>
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Usando window.alert()}
+
+  Se puede omitir la palabra clave \textbf{window}.
+
+  \vspace{\baselineskip}
+  En JavaScript, el objeto de window es el objeto de alcance global,
+  lo que significa que las variables, propiedades y métodos por
+  defecto pertenecen al objeto de window. Esto también significa que
+  especificar la palabra clave de la ventana es opcional: 
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<script>
+alert(5 + 6);
+</script>
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Usando console.log()}
+
+  Con fines de depuración, se puede llamar al método \textbf{console.log()}
+  en el navegador para mostrar datos.
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<script>
+console.log(5 + 6);
+</script>
+  \end{lstlisting}
+
+  \begin{exampleblock}{}
+  Aprenderemos más sobre la depuración en un capítulo posterior.
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Imprimir en JavaScript}
+
+  JavaScript no tiene ningún objeto de impresión o métodos de impresión.
+
+  \vspace{\baselineskip}
+  No puede acceder a los dispositivos de salida (como una impresora)
+  desde JavaScript
+
+  \vspace{\baselineskip}
+  La única excepción es que puede llamar al método
+  \textbf{window.print()} en el navegador para imprimir el
+  contenido de la ventana actual. 
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<button onclick="window.print()">Imprimir esta página</button>
+  \end{lstlisting}
+\end{frame}
+
+\section{Sentencias JavaScript}
+
+\begin{frame}[fragile]
+  \frametitle{Programas JavaScript}
+
+  Un \textbf{programa de computadora} es una lista de
+  "instrucciones" para ser "ejecutadas" por una computadora.
+
+  \vspace{\baselineskip}
+  En un lenguaje de programación, estas instrucciones de
+  programación se denominan \textbf{sentencias}.
+
+  \vspace{\baselineskip}
+  Un programa JavaScript es una lista de sentencias de programación.
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+let x, y, z;    // Sentencia 1
+x = 5;          // Sentencia 2
+y = 6;          // Sentencia 3
+z = x + y;      // Sentencia 4
+  \end{lstlisting}
+
+  \begin{exampleblock}{}
+  En HTML, los programas JavaScript son ejecutados por el navegador web. 
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Declaraciones JavaScript}
+
+  Las declaraciones de JavaScript se componen de:
+
+  \vspace{\baselineskip}
+  Valores, operadores, expresiones, palabras clave y comentarios.
+
+  \vspace{\baselineskip}
+  Esta declaración le dice al navegador que escriba "Hola, Mundo".
+  dentro de un elemento HTML con id="demo":
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+document.getElementById("demo").innerHTML = "Hola Mundo";
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  La mayoría de los programas de JavaScript contienen muchas
+  declaraciones de JavaScript.
+
+  Las declaraciones se ejecutan, una por una, en el mismo orden
+  en que se escriben.
+
+  \begin{exampleblock}{}
+    Los programas de JavaScript (y las declaraciones de JavaScript) a menudo se denominan código de JavaScript.
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{punto y coma ";"}
+
+  Los puntos y comas separan las declaraciones de JavaScript.
+
+  \vspace{\baselineskip}
+  Hay que agregar un punto y coma al final de cada instrucción ejecutable: 
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+let a, b, c;  // Declará 3 variables
+a = 5;        // Asigna el valor de 5 a la variable a
+b = 6;        // Asigna el valor de 6 a la variable b
+c = a + b;    // Asigna la suma de a y b a la variable c
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{punto y coma ";"}
+
+  Cuando se separan por punto y coma,
+  se permiten varias declaraciones en una línea:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+ a = 5; b = 6; c = a + b;
+  \end{lstlisting}
+
+  \begin{block}{En la Web}
+    es posible que vea ejemplos sin punto y coma.
+    No es obligatorio terminar las declaraciones con punto y coma,
+    pero es muy recomendable. 
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Espacios en blanco de JavaScript}
+
+  JavaScript ignora múltiples espacios. Puede agregar espacios
+  en blanco a su secuencia de comandos para que sea más legible.
+
+  \vspace{\baselineskip}
+  Las siguientes líneas son equivalentes: 
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+let persona = "Maria";
+let persona="Maria";
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Espacios en blanco de JavaScript}
+
+  Una buena práctica es poner espacios alrededor
+  de los operadores ( = + - * / ): 
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+
+let x = y + z;
+
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Longitud de línea de JavaScript y saltos de línea}
+
+  Para una mejor legibilidad, a los programadores a menudo
+  les gusta evitar las líneas de código de más de 80 caracteres.
+
+  \vspace{\baselineskip}
+  Si una declaración de JavaScript no cabe en una línea,
+  el mejor lugar para dividirla es después de un operador: 
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+
+document.getElementById("demo").innerHTML =
+"Hola Mundo!"; 
+
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Bloques de código JavaScript}
+
+  Las declaraciones de JavaScript se pueden agrupar
+  en bloques de código, dentro de corchetes \textbf{\{}...\textbf{\}}.
+
+  \vspace{\baselineskip}
+  El propósito de los bloques de código es definir declaraciones
+  que se ejecutarán juntas.
+
+  \vspace{\baselineskip}
+  Un lugar donde encontrará declaraciones agrupadas en bloques,
+  es en funciones de JavaScript: 
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+function miFunción() {
+  document.getElementById("demo1").innerHTML = "Hola, Don Pepito";
+  document.getElementById("demo2").innerHTML = "Hola, Don Jose";
+}
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  En el siguiente ejemplo se muestra el código completo.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Ejemplo 6}
+  \lstinputlisting{02-ejemplo06.html}
+\end{frame}
+
+\begin{frame}[c]{Bloques de código JavaScript}
+
+  \begin{block}{En este curso}
+    Usamos 2 espacios de sangría para bloques de código.
+    Aprenderemos más sobre las funciones más adelante en este curso. 
+  \end{block}
+\end{frame}
+
