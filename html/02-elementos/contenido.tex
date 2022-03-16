@@ -1,0 +1,313 @@
+% ex: ts=2 sw=2 sts=2 et filetype=tex
+% SPDX-License-Identifier: CC-BY-SA-4.0
+
+\section{Elementos de HTML}
+
+\begin{frame}[c]{Elementos HTML}
+
+  Un elemento HTML se define mediante una \textbf{etiqueta} de inicio,
+  algo de contenido y una \textbf{etiqueta} de finalización:
+
+  \vspace{\baselineskip}
+  \textcolor{blue}{<nombre\_de\_la\_etiqueta>} el contenido va aquí
+  \textcolor{blue}{</nombre\_de\_la\_etiqueta>}
+
+  \pausa
+  \vspace{\baselineskip}
+  El elemento HTML es todo, desde la etiqueta de inicio hasta la
+  etiqueta final:
+
+  \vspace{\baselineskip}
+  \textcolor{blue}{<h1>}Mi primer encabezado\textcolor{blue}{</h1>}
+
+  \vspace{\baselineskip}
+  \textcolor{blue}{<p>}Mi primer párrafo.\textcolor{blue}{</p>}
+
+  \begin{exampleblock}{Nota:}
+    La etiqueta final siempre tiene una / al inicio.
+  \end{exampleblock}
+\end{frame}
+
+
+\begin{frame}[c]{Elementos HTML anidados}
+
+  Los elementos HTML se pueden anidar (esto significa que los
+  elementos pueden contener otros elementos).
+
+  \vspace{\baselineskip}
+  Todos los documentos HTML constan de elementos HTML anidados.
+
+  \vspace{\baselineskip}
+  El siguiente ejemplo contiene cuatro elementos HTML (<html>, <body>,
+  <h1> y <p>)
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Ejemplo}
+
+  \begin{lstlisting}
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Mi primer encabezado</h1>
+<p>Mi primer párrafo.</p>
+
+</body>
+</html>
+  \end{lstlisting}
+
+  El elemento <html> es el elemento raíz y define todo el documento HTML.
+  Tiene una etiqueta de inicio <html> y una etiqueta de fin </html>.
+
+  \vspace{\baselineskip}
+  Luego, dentro del elemento <html> hay un elemento <body>.
+  El elemento <body> define el cuerpo del documento.
+  Tiene una etiqueta de inicio <body> y una etiqueta de fin </body>.
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Ejemplo}
+
+  Luego, dentro del elemento <body> hay otros dos elementos: <h1> y <p>:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<h1>Mi primer encabezado</h1>
+<p>Mi primer párrafo.</p>
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  El elemento <h1> define un encabezado.
+  Tiene una etiqueta de inicio <h1> y una etiqueta de fin </h1>.
+
+  \vspace{\baselineskip}
+  El elemento <p> define un párrafo.
+  Tiene una etiqueta de inicio <p> y una etiqueta de fin </p>:
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Nunca te saltes la etiqueta final}
+
+  Algunos elementos HTML se mostrarán correctamente,
+  incluso si se olvida la etiqueta final:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<html>
+<body>
+
+<p>Estes es un párrafo
+<p>Estes es un párrafo
+
+</body>
+</html>
+  \end{lstlisting}
+
+  \begin{alertblock}{Nota:}
+    Sin embargo, ¡nunca confíes en esto!,
+    ¡Pueden ocurrir resultados inesperados y errores si
+    se olvida la etiqueta final!
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Elementos HTML vacíos}
+
+  Los elementos HTML sin contenido se denominan elementos vacíos.
+
+  La etiqueta <br> define un salto de línea y es un elemento vacío
+  sin una etiqueta de cierre:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<p>Esto es un <br> párrafo con un salto de línea.</p>
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[c]{HTML no distingue entre mayúsculas y minúsculas}
+
+  Las etiquetas HTML no distinguen entre mayúsculas y minúsculas:
+  <P> significa lo mismo que <p>.
+
+  \vspace{\baselineskip}
+  El estándar HTML no requiere etiquetas en minúsculas, pero W3C
+  (World Wide Web Consortium)
+  \textbf{recomienda} minúsculas en HTML y \textbf{exige} minúsculas
+  para tipos de documentos más estrictos como XHTML.
+
+  \begin{exampleblock}{Nota:}
+    En este curso siempre usamos nombres de etiquetas en minúsculas.
+  \end{exampleblock}
+\end{frame}
+
+\section{Atributos HTML}
+
+\begin{frame}[c]{Atributos HTML}
+  Los atributos HTML proporcionan información adicional
+  sobre los elementos HTML.
+  \begin{itemize}
+    \item Todos los elementos HTML pueden tener \textbf{atributos}
+    \item Los atributos proporcionan \textbf{información adicional}
+      sobre los elementos .
+    \item Los atributos siempre se especifican en la \textbf{etiqueta
+      de inicio}
+    \item Los atributos generalmente vienen en pares de nombre/valor
+      como: \textbf{nombre="valor"}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{El atributo href}
+
+  La etiqueta <a> define un hipervínculo.
+  El atributo \textbf{href} especifica la URL de la página a la
+  que va el enlace:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+ <a href="https://www.w3schools.com">Visita W3Schools</a>
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{El atributo src}
+
+  La etiqueta <img> se utiliza para incrustar una imagen en una
+  página HTML. El atributo \textbf{src} especifica la ruta a la
+  imagen que se va a mostrar:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+ <img src="nombre_de_la_imagen.jpg">
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[c]{URL absolutas y relativas}
+
+  Hay dos formas de especificar la URL en el src atributo:
+
+  \vspace{\baselineskip}
+  \begin{description}
+    \item[URL absoluta] enlaces a una imagen externa alojada en
+      otro sitio web. Ejemplo:
+      src="https://www.w3schools.com/images/img\_girl.jpg".
+  \end{description}
+
+  \begin{alertblock}{Nota:}
+    Las imágenes externas pueden estar protegidas por derechos de autor.
+    Si no obtiene permiso para usarlo, es posible que esté violando las
+    leyes de derechos de autor. Además, no puede controlar imágenes
+    externas; se puede quitar o cambiar repentinamente.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}[c]{URL absolutas y relativas}
+
+  \begin{description}
+    \item[URL relativa] enlaces a una imagen alojada en el sitio web.
+      Aquí, la URL no incluye el nombre de dominio.
+
+      \vspace{\baselineskip}
+      Si la URL comienza sin una barra inclinada (una diagonal),
+      será relativa a la página actual.
+      Ejemplo: src="img\_girl.jpg".
+
+      \vspace{\baselineskip}
+      Si la URL comienza con una barra
+      inclinada (una diagonal), será relativa al dominio.
+      Ejemplo: src="/images/img\_girl.jpg".
+  \end{description}
+
+  \begin{exampleblock}{Sugerencia:}
+    Casi siempre es mejor usar URL relativas.
+    No se romperán si cambias de dominio.
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Los atributos de ancho y alto}
+
+  La etiqueta <img> también debe contener los atributos width y height,
+  que especifican el ancho y el alto de la imagen (en píxeles):
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<img src="una_imagen.jpg" width="500" height="600"> 
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{El atributo alt}
+
+  El atributo alt requerido para la etiqueta <img> especifica un
+  texto alternativo para una imagen, si la imagen por algún motivo no
+  se puede mostrar. Esto puede deberse a una conexión lenta, a un error
+  en el atributo src, o si el usuario usa un lector de pantalla.
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<img src="imagen.jpg" alt="Explicación de la imagen"> 
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  El texto alternativo aparecerá si pasan y dejan el ratón sobre la imagen,
+  también aparece si la imagen no existe.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{El atributo de estilo}
+
+  El atributo style se usa para agregar estilos a un elemento,
+  como color, fuente, tamaño y más.
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<p style="color:red;">Este es un párrafo rojo.</p> 
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{El atributo lang}
+
+  Siempre debe incluir el atributo \textbf{lang} dentro de la
+  etiqueta <html>, para declarar el idioma de la página web.
+  Esto está destinado a ayudar a los motores de búsqueda y
+  navegadores.
+
+  El siguiente ejemplo especifica el inglés como idioma:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<!DOCTYPE html>
+<html lang="en">
+<body>
+...
+</body>
+</html>
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{El atributo lang}
+
+  Los códigos de países también se pueden agregar al código de idioma
+  en el atributo lang. Entonces, los dos primeros caracteres definen
+  el idioma de la página HTML y los dos últimos caracteres definen el
+  país.
+
+  El siguiente ejemplo especifica inglés como idioma y Estados Unidos
+  como país:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<!DOCTYPE html>
+<html lang="en-US">
+<body>
+...
+</body>
+</html>
+  \end{lstlisting}
+\end{frame}
