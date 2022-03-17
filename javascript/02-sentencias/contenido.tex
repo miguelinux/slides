@@ -251,7 +251,7 @@ function miFuncion() {
   \frametitle{Usando document.write()}
 
   Para propósitos de prueba, es conveniente usar
-  \textbf{document.write()}: 
+  \textbf{document.write()}:
 
   \vspace{\baselineskip}
   \begin{lstlisting}
@@ -275,7 +275,7 @@ document.write(5 + 6);
   \end{lstlisting}
 
   \begin{exampleblock}{Nota:}
-    El método \textbf{document.write()} solo debe usarse para pruebas. 
+    El método \textbf{document.write()} solo debe usarse para pruebas.
   \end{exampleblock}
 \end{frame}
 
@@ -301,7 +301,7 @@ window.alert(5 + 6);
   En JavaScript, el objeto de window es el objeto de alcance global,
   lo que significa que las variables, propiedades y métodos por
   defecto pertenecen al objeto de window. Esto también significa que
-  especificar la palabra clave de la ventana es opcional: 
+  especificar la palabra clave de la ventana es opcional:
 
   \vspace{\baselineskip}
   \begin{lstlisting}
@@ -341,7 +341,7 @@ console.log(5 + 6);
   \vspace{\baselineskip}
   La única excepción es que puede llamar al método
   \textbf{window.print()} en el navegador para imprimir el
-  contenido de la ventana actual. 
+  contenido de la ventana actual.
 
   \vspace{\baselineskip}
   \begin{lstlisting}
@@ -373,7 +373,7 @@ z = x + y;      // Sentencia 4
   \end{lstlisting}
 
   \begin{exampleblock}{}
-  En HTML, los programas JavaScript son ejecutados por el navegador web. 
+  En HTML, los programas JavaScript son ejecutados por el navegador web.
   \end{exampleblock}
 \end{frame}
 
@@ -412,7 +412,7 @@ document.getElementById("demo").innerHTML = "Hola Mundo";
   Los puntos y comas separan las declaraciones de JavaScript.
 
   \vspace{\baselineskip}
-  Hay que agregar un punto y coma al final de cada instrucción ejecutable: 
+  Hay que agregar un punto y coma al final de cada instrucción ejecutable:
 
   \vspace{\baselineskip}
   \begin{lstlisting}
@@ -437,7 +437,7 @@ c = a + b;    // Asigna la suma de a y b a la variable c
   \begin{block}{En la Web}
     es posible que vea ejemplos sin punto y coma.
     No es obligatorio terminar las declaraciones con punto y coma,
-    pero es muy recomendable. 
+    pero es muy recomendable.
   \end{block}
 \end{frame}
 
@@ -448,7 +448,7 @@ c = a + b;    // Asigna la suma de a y b a la variable c
   en blanco a su secuencia de comandos para que sea más legible.
 
   \vspace{\baselineskip}
-  Las siguientes líneas son equivalentes: 
+  Las siguientes líneas son equivalentes:
 
   \vspace{\baselineskip}
   \begin{lstlisting}
@@ -461,7 +461,7 @@ let persona="Maria";
   \frametitle{Espacios en blanco de JavaScript}
 
   Una buena práctica es poner espacios alrededor
-  de los operadores ( = + - * / ): 
+  de los operadores ( = + - * / ):
 
   \vspace{\baselineskip}
   \begin{lstlisting}
@@ -479,13 +479,13 @@ let x = y + z;
 
   \vspace{\baselineskip}
   Si una declaración de JavaScript no cabe en una línea,
-  el mejor lugar para dividirla es después de un operador: 
+  el mejor lugar para dividirla es después de un operador:
 
   \vspace{\baselineskip}
   \begin{lstlisting}
 
 document.getElementById("demo").innerHTML =
-"Hola Mundo!"; 
+"Hola Mundo!";
 
   \end{lstlisting}
 \end{frame}
@@ -502,7 +502,7 @@ document.getElementById("demo").innerHTML =
 
   \vspace{\baselineskip}
   Un lugar donde encontrará declaraciones agrupadas en bloques,
-  es en funciones de JavaScript: 
+  es en funciones de JavaScript:
 
   \vspace{\baselineskip}
   \begin{lstlisting}
@@ -525,7 +525,47 @@ function miFuncion() {
 
   \begin{block}{En este curso}
     Usamos 2 espacios de sangría para bloques de código.
-    Aprenderemos más sobre las funciones más adelante en este curso. 
+    Aprenderemos más sobre las funciones más adelante en este curso.
   \end{block}
 \end{frame}
+
+\begin{frame}[c]{Palabras clave de JavaScript}
+
+  Las declaraciones de JavaScript a menudo comienzan con una palabra
+  clave para identificar la acción de JavaScript que se va a realizar.
+
+  \vspace{\baselineskip}
+  Aquí hay una lista de algunas de las palabras clave que aprenderá
+  en este curso:
+
+  \begin{table}[]
+  \begin{tabular}{ll}
+    \textbf{Palabra clave} &  \textbf{Descripción} \\
+    \rowcolor{light-gray}
+    var 	 & Declara una variable \\
+    let 	 & Declara una variable de bloque \\
+    \rowcolor{light-gray}
+    const  & Declara una constante de bloque \\
+    if 	   & Marca un bloque de declaraciones para ser
+             ejecutado en una condición \\
+    \rowcolor{light-gray}
+    switch & Marca un bloque de declaraciones para ser ejecutado en
+             diferentes casos \\
+    for 	 & Marca un bloque de sentencias para ser ejecutado en un bucle \\
+    \rowcolor{light-gray}
+    function & Declara una función \\
+    return & Sale de una función \\
+    \rowcolor{light-gray}
+    try 	 & Implementa el manejo de errores en un bloque de declaraciones. \\
+  \end{tabular}
+  \end{table}
+\end{frame}
+
+\begin{frame}[c]{Palabras clave de JavaScript}
+  \begin{exampleblock}{Nota:}
+    Las palabras clave de JavaScript son palabras reservadas.
+    Las palabras reservadas no se pueden utilizar como nombres de variables.
+  \end{exampleblock}
+\end{frame}
+
 
