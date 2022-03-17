@@ -191,18 +191,228 @@ y = x * 10;
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{}
+  \frametitle{Comentarios en JavaScript}
+
+  No todas las declaraciones de JavaScript se "ejecutan".
+
+  \vspace{\baselineskip}
+  El código después de barras oblicuas dobles // o entre
+  /* y */se trata como un comentario .
+
+  \vspace{\baselineskip}
+  Los comentarios se ignoran y no se ejecutarán:
 
   \vspace{\baselineskip}
   \begin{lstlisting}
+let x = 5;   // Este si se ejecuta
+
+// x = 6;   Este no se ejecutará
+  \end{lstlisting}
+
+  \begin{block}{}
+  Aprenderemos más sobre los comentarios en un capítulo posterior.
+  \end{block}
+\end{frame}
+
+\begin{frame}[c]{Identificadores/Nombres de JavaScript}
+
+  Los identificadores son nombres de JavaScript.
+
+  \vspace{\baselineskip}
+  Los identificadores se utilizan para nombrar variables y
+  palabras clave y funciones.
+
+  \vspace{\baselineskip}
+  Las reglas para los nombres legales son las mismas en la
+  mayoría de los lenguajes de programación.
+
+  \vspace{\baselineskip}
+  Un nombre de JavaScript debe comenzar con:
+
+  \begin{itemize}
+    \item Una letra (A-Z o a-z)
+    \item Un signo de peso/dólar (\$)
+    \item Un guión bajo (\_)
+  \end{itemize}
+
+  \vspace{\baselineskip}
+  Los caracteres subsiguientes pueden ser letras, dígitos,
+  guiones bajos o signos de peso/dólar.
+\end{frame}
+
+\begin{frame}[c]{Identificadores/Nombres de JavaScript}
+  \begin{alertblock}{Nota:}
+    No se permiten números como primer carácter en los nombres.
+
+    \vspace{\baselineskip}
+    De esta forma, JavaScript puede distinguir fácilmente los identificadores de los números.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{JavaScript distingue entre mayúsculas y minúsculas}
+
+  Todos los identificadores de JavaScript \textbf{distinguen
+  entre mayúsculas y minúsculas}.
+
+  \vspace{\baselineskip}
+  Las variables nombre y Nombre, son dos variables diferentes:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+let nombre, Nombre;
+nombre = "Maria";
+Nombre = "Juan";
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  JavaScript no interpreta LET o Let como la palabra clave let.
+\end{frame}
+
+\begin{frame}[c]{Variables con múltiples palabras}
+  Un nombre de una variable con múltiples palabras puede ser difícil de leer.
+  Hay varias técnicas que se pueden usar para que sean mas legibles.
+  \pausa
+  \begin{block}{Pascal case}
+    Cada palabra comienza con una mayúscula:
+    \textbf{ElNombreDeMiVariable}
+  \end{block}
+  \pausa
+  \begin{block}{Snake case}
+    Cada palabra esta separada por un guión bajo:
+    \textbf{el\_nombre\_de\_mi\_variable}
+  \end{block}
+  \pausa
+  \begin{exampleblock}{Camel case}
+    Cada palabra, excepto la primera, comienza con una mayúscula:
+    \textbf{elNombreDeMiVariable}
+
+    \vspace{\baselineskip}
+    Los programadores de JavaScript usan la técnica \textbf{Camel Case}.
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}[c]{Conjunto de caracteres JavaScript}
+
+  JavaScript utiliza el conjunto de caracteres \textbf{Unicode}.
+
+  \vspace{\baselineskip}
+  Unicode cubre (casi) todos los caracteres, puntuaciones y símbolos del mundo.
+\end{frame}
+
+\section{Comentarios}
+
+\begin{frame}[c]{Comentarios en JavaScript}
+
+  Los comentarios de JavaScript se pueden usar para explicar
+  el código de JavaScript y hacerlo más legible.
+
+  \vspace{\baselineskip}
+  Los comentarios de JavaScript también se pueden usar para
+  evitar la ejecución, al probar código alternativo.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Comentarios de una sola línea}
+
+  Los comentarios de una sola línea comienzan con //.
+
+  \vspace{\baselineskip}
+  Cualquier texto entre // y el final de la línea será ignorado
+  por JavaScript (no se ejecutará).
+
+  \vspace{\baselineskip}
+  Este ejemplo usa un comentario de una sola línea antes de
+  cada línea de código:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+// Cambiando el encabezado:
+document.getElementById("miEncabezado").innerHTML = "Mi primera página";
+
+// Cambiando el parrafo:
+document.getElementById("miParrafo").innerHTML = "Mi primer párrafo.";
   \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{}
+  \frametitle{Comentarios de una sola línea}
+
+  Este ejemplo utiliza un comentario de una sola línea al
+  final de cada línea para explicar el código:
 
   \vspace{\baselineskip}
   \begin{lstlisting}
+let x = 5;      // Declara x y le asigna el valor de 5
+let y = x + 2;  // Declara y y le asigna el valor de x + 2
   \end{lstlisting}
 \end{frame}
 
+\begin{frame}[fragile]
+  \frametitle{Comentarios de varias líneas}
+
+  Los comentarios de varias líneas comienzan con /* y
+  terminan con */.
+
+  \vspace{\baselineskip}
+  Cualquier texto entre /* y */será ignorado por JavaScript.
+
+  \vspace{\baselineskip}
+  Este ejemplo utiliza un comentario de varias líneas
+  (un bloque de comentarios) para explicar el código:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+/*
+   El siguiente código cambia el texto de un
+   encabezado (H1, H2, etc.) con id = "miEncabezado" y un
+   parrafo (p) con id = "miParrafo" en la pagina web
+*/
+document.getElementById("miEncabezado").innerHTML = "Mi primera página";
+document.getElementById("miParrafo").innerHTML = "Mi primer párrafo.";
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[c]{Comentarios de varias líneas}
+  \begin{block}{Nota:}
+    Lo más común es utilizar comentarios de una sola línea.
+    Los comentarios en bloque se utilizan a menudo para la
+    documentación formal.
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Uso de comentarios para evitar la ejecución}
+
+  El uso de comentarios para evitar la ejecución de código es
+  adecuado para las pruebas de código.
+
+  \vspace{\baselineskip}
+  Agregar // delante de una línea de código cambia las líneas de
+  código de una línea ejecutable a un comentario.
+
+  \vspace{\baselineskip}
+  Este ejemplo utiliza // para evitar la ejecución de una de las
+  líneas de código:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+//document.getElementById("miEncabezado").innerHTML = "Mi primera página";
+document.getElementById("miParrafo").innerHTML = "Mi primer párrafo.";
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Uso de comentarios para evitar la ejecución}
+
+  Este ejemplo utiliza un bloque de comentarios para evitar
+  la ejecución de varias líneas:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+/*
+document.getElementById("miEncabezado").innerHTML = "Mi primera página";
+document.getElementById("miParrafo").innerHTML = "Mi primer párrafo.";
+*/
+  \end{lstlisting}
+\end{frame}
