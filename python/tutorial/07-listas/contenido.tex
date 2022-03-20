@@ -505,6 +505,11 @@ print(frutas)
 frutas = ["manzana", "plátano", "naranja"]
 del frutas
   \end{lstlisting}
+
+  \begin{block}{Nota:}
+    Ya no podemos usar la variable \textbf{frutas} después de usar
+    la palabra clave \textbf{del}
+  \end{block}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -523,6 +528,88 @@ frutas.clear()
 print(frutas)
   \end{lstlisting}
 \end{frame}
+
+\section{Recorrer una lista}
+
+\begin{frame}[fragile]
+  \frametitle{Recorrer una lista}
+
+  Puede recorrer los elementos de la lista se usa un
+  bucle/ciclo para (for):
+
+  \vspace{\baselineskip}
+  Ejemplo: Imprima todos los elementos de la lista, uno por uno
+  \begin{lstlisting}[language=Python]
+frutas = ["manzana", "plátano", "naranja"]
+for x in frutas:
+  print(x)
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Bucle a través de los números de índice}
+
+  También puede recorrer los elementos de la lista
+  consultando su número de índice.
+
+  Utilice las funciones \textbf{range()} y \textbf{len()}
+  para crear un iterable adecuado.
+
+  \vspace{\baselineskip}
+  Ejemplo: Imprima todos los elementos haciendo referencia
+  a su número de índice
+  \begin{lstlisting}[language=Python]
+frutas = ["manzana", "plátano", "naranja"]
+for i in range( len( frutas) ):
+  print( frutas[i] )
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  El iterable creado en el ejemplo anterior es \textbf{[0, 1, 2]}.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Usar un ciclo mientras (while)}
+
+  Puede recorrer los elementos de la lista mediante un bucle/ciclo mientras
+  (while).
+
+  \vspace{\baselineskip}
+  Use la función len() para determinar la longitud de la lista,
+  luego comience en 0 y recorra los elementos de la lista consultando
+  sus índices.
+
+  \vspace{\baselineskip}
+  Recuerde aumentar el índice en 1 después de cada iteración.
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+frutas = ["manzana", "plátano", "naranja"]
+i=0
+while i < len( frutas ):
+  print(frutas[i])
+  i = i + 1
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Bucles utilizando la comprensión de listas}
+
+  La compresión de listas ofrece la sintaxis más corta para
+  recorrer listas:
+
+  \vspace{\baselineskip}
+  Ejemplo: Un bucle/ciclo (for) corto que imprimirá todos los
+  elementos en una lista:
+  \begin{lstlisting}[language=Python]
+frutas = ["manzana", "plátano", "naranja"]
+[print(x) for x in frutas]
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  Enseguida veremos mas sobre la compresión de listas.
+\end{frame}
+
 
 \section{Comprensión de listas}
 
@@ -568,4 +655,119 @@ print(frutas)
 
   print(lista_nueva)
   \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{La sintaxis}
+
+  \begin{lstlisting}[language=Python]
+nueva_lista = [expresión for elemento in iterable if condisión == True]
+  \end{lstlisting}
+
+  El valor de retorno es una nueva lista, dejando la lista anterior sin cambios.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Condición}
+
+  La condición es como un filtro que solo acepta los
+  elementos que se valoran en True.
+
+  \vspace{\baselineskip}
+  Ejemplo: Solo acepte artículos que no sean "manzana":
+  \begin{lstlisting}[language=Python]
+frutas = ["manzana", "plátano", "naranja"]
+
+nueva_lista = [x for x in frutas if x != "manzana"]
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Condición}
+  La condición \textbf{if x != "manzana"}  volverá Verdadera (True)
+  todos los elementos que no sean "manzana", haciendo que la nueva
+  lista contenga todas las frutas excepto "manzana".
+
+  La condición es opcional y se puede omitir:
+
+  \vspace{\baselineskip}
+  Ejemplo: sin declaración \textbf{si} (if)
+  \begin{lstlisting}[language=Python]
+frutas = ["manzana", "plátano", "naranja"]
+
+nueva_lista = [x for x in frutas]
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Iterable}
+
+  El iterable puede ser cualquier objeto iterable,
+  como una lista, una tupla, un conjunto, etc.
+
+  \vspace{\baselineskip}
+  Ejemplo: Puede usar la función range() para crear un iterable:
+  \begin{lstlisting}[language=Python]
+nueva_lista = [x for x in range(10)]
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Iterable}
+
+  Mismo ejemplo, pero con una condición:
+
+  \vspace{\baselineskip}
+  Ejemplo: Aceptar solo números inferiores a 5
+  \begin{lstlisting}[language=Python]
+nueva_lista = [x for x in range(10) if x < 5]
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Expresión}
+
+  La expresión es el elemento actual en la iteración,
+  pero también es el resultado, que puede manipular antes de que
+  termine como un elemento de lista en la nueva lista:
+
+  \vspace{\baselineskip}
+  Ejemplo: Establezca los valores en la nueva lista en mayúsculas
+  \begin{lstlisting}[language=Python]
+frutas = ["manzana", "plátano", "naranja"]
+
+nueva_lista = [x.upper() for x in frutas]
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Expresión}
+
+  Puedes establecer el resultado como quieras
+
+  \vspace{\baselineskip}
+  Ejemplo: Establezca todos los valores en la nueva lista en 'hola':
+  \begin{lstlisting}[language=Python]
+nueva_lista = ['hola' for x in frutas]
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Expresión}
+
+  La expresión también puede contener condiciones,
+  no como un filtro, sino como una forma de manipular el resultado:
+
+  \vspace{\baselineskip}
+  Ejemplo: Devuelve "naranja" en lugar de "plátano"
+  \begin{lstlisting}[language=Python]
+frutas = ["manzana", "plátano", "naranja"]
+
+nueva_lista = [x if x != "plátano" else "naranja" for x in frutas]
+  \end{lstlisting}
+
+  La expresión del ejemplo anterior dice:
+
+  \vspace{\baselineskip}
+  "Devolver el artículo si no es plátano, si es plátano devolver naranja".
 \end{frame}
