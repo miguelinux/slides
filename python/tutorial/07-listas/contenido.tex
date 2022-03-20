@@ -229,7 +229,7 @@
 
   \vspace{\baselineskip}
   \begin{lstlisting}[language=Python]
-lista = ["manzana", "plátano", "limon", "cereza", "kiwi", "mango", "melon"]
+lista = ["manzana", "plátano", "limón", "cereza", "kiwi", "mango", "melón"]
 print(lista[2:5]) 
   \end{lstlisting}
 
@@ -248,7 +248,7 @@ print(lista[2:5])
   Al omitir el valor inicial, el rango comenzará en el primer elemento: 
   \vspace{\baselineskip}
   \begin{lstlisting}[language=Python]
-lista = ["manzana", "plátano", "limon", "cereza", "kiwi", "mango", "melon"]
+lista = ["manzana", "plátano", "limón", "cereza", "kiwi", "mango", "melón"]
 print(lista[:4]) 
   \end{lstlisting}
 \end{frame}
@@ -259,7 +259,7 @@ print(lista[:4])
   Al omitir el valor final, el rango continuará hasta el final de la lista: 
   \vspace{\baselineskip}
   \begin{lstlisting}[language=Python]
-lista = ["manzana", "plátano", "limon", "cereza", "kiwi", "mango", "melon"]
+lista = ["manzana", "plátano", "limón", "cereza", "kiwi", "mango", "melón"]
 print(lista[2:]) 
   \end{lstlisting}
 \end{frame}
@@ -272,7 +272,7 @@ print(lista[2:])
 
   \vspace{\baselineskip}
   \begin{lstlisting}[language=Python]
-lista = ["manzana", "plátano", "limon", "cereza", "kiwi", "mango", "melon"]
+lista = ["manzana", "plátano", "limón", "cereza", "kiwi", "mango", "melón"]
 print(lista[-4:-1]) 
   \end{lstlisting}
 \end{frame}
@@ -410,7 +410,7 @@ print(frutas)
   \vspace{\baselineskip}
   \begin{lstlisting}[language=Python]
   lista = ["manzana", "plátano", "naranja"]
-  otra_lista = ["mango", "papaya", "limon"]
+  otra_lista = ["mango", "papaya", "limón"]
   lista.extend(otra_lista)
   print(lista)
   \end{lstlisting}
@@ -650,7 +650,7 @@ frutas = ["manzana", "plátano", "naranja"]
 
   \vspace{\baselineskip}
   \begin{lstlisting}[language=Python]
-  lista = ["manzana", "plátano", "naranja", "limon", "kiwi"]
+  lista = ["manzana", "plátano", "naranja", "limón", "kiwi"]
   lista_nueva = [x for x in lista if "a" in x]
 
   print(lista_nueva)
@@ -770,4 +770,226 @@ nueva_lista = [x if x != "plátano" else "naranja" for x in frutas]
 
   \vspace{\baselineskip}
   "Devolver el artículo si no es plátano, si es plátano devolver naranja".
+\end{frame}
+
+
+\section{Ordenar listas}
+
+
+\begin{frame}[fragile]
+  \frametitle{Ordenar lista alfanuméricamente}
+
+  Los objetos de lista tienen un método \textbf{sort()}
+  que ordenará la lista de forma alfanumérica, ascendente
+  de forma predeterminada:
+
+  \vspace{\baselineskip}
+  Ejemplo: Ordena la lista alfabéticamente
+  \begin{lstlisting}[language=Python]
+lista = ["manzana", "plátano", "limón", "cereza", "kiwi", "mango", "melón"]
+lista.sort()
+print(lista)
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  Ejemplo: Ordene la lista numéricamente
+  \begin{lstlisting}[language=Python]
+lista = [100, 50, 65, 82, 23]
+lista.sort()
+print(lista)
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Orden descendiente}
+
+  Para ordenar de forma descendente,
+  usa el argumento de palabra clave reverse = True.
+
+  \vspace{\baselineskip}
+  Ejemplo: Ordenar la lista de forma descendente
+  \begin{lstlisting}[language=Python]
+lista = ["manzana", "plátano", "limón", "cereza", "kiwi", "mango", "melón"]
+lista.sort(reverse = True)
+print(lista)
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  Ejemplo: Ordenar la lista de forma descendente:
+  \begin{lstlisting}[language=Python]
+lista = [100, 50, 65, 82, 23]
+lista.sort(reverse = True)
+print(lista)
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Personalizar la función de clasificación}
+
+  También puede personalizar su propia función utilizando el
+  argumento de palabra clave \textbf{.key = función}
+
+  \vspace{\baselineskip}
+  La función devolverá un número que se usará para ordenar la lista
+  (primero el número de menor valor).
+
+  \vspace{\baselineskip}
+  Ejemplo: Ordene la lista según lo cerca que esté el número de 50
+  \begin{lstlisting}[language=Python]
+def miFunc(n):
+  return abs( n - 50)
+
+lista = [100, 50, 65, 82, 23]
+lista.sort(key = miFunc)
+print(lista)
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Clasificación sensible a mayúsculas y minúsculas}
+
+  De forma predeterminada, el método \textbf{sort()} distingue entre
+  mayúsculas y minúsculas, lo que da como resultado que todas las
+  letras mayúsculas se clasifiquen antes que las minúsculas:
+
+  \vspace{\baselineskip}
+  Ejemplo: La clasificación entre mayúsculas y minúsculas puede dar
+  un resultado inesperado
+  \begin{lstlisting}[language=Python]
+lista = ["manzana", "Plátano", "Limón", "cereza", "Kiwi", "Mango", "melón"]
+lista.sort()
+print(lista)
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Clasificación sensible a mayúsculas y minúsculas}
+
+  Afortunadamente, podemos usar funciones integradas como funciones
+  clave al ordenar una lista.
+
+  \vspace{\baselineskip}
+  Entonces, si desea una función de clasificación que no distinga entre
+  mayúsculas y minúsculas, usa str.lower como una función clave.
+
+  \vspace{\baselineskip}
+  Ejemplo: Realice una ordenación de la lista que no distinga entre
+  mayúsculas y minúsculas:
+  \begin{lstlisting}[language=Python]
+lista = ["manzana", "Plátano", "Limón", "cereza", "Kiwi", "Mango", "melón"]
+lista.sort(key = str.lower)
+print(lista)
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Orden inverso}
+
+  ¿Qué sucede si desea invertir el orden de una lista,
+  independientemente del alfabeto?
+
+  El método reverse() invierte el orden de clasificación actual
+  de los elementos.
+
+  \vspace{\baselineskip}
+  Ejemplo: Invierta el orden de los elementos de la lista:
+  \begin{lstlisting}[language=Python]
+lista = ["manzana", "Plátano", "Limón", "cereza", "Kiwi", "Mango", "melón"]
+lista.reverse()
+print(lista)
+  \end{lstlisting}
+\end{frame}
+
+
+\section{Copiar y Unir listas}
+
+
+\begin{frame}[fragile]
+  \frametitle{Copiar una lista}
+
+  No puede copiar una lista simplemente escribiendo \textbf{list2 = list1},
+  porque: list2 solo será una referencia a list1, y los cambios realizados
+  en list1 automáticamente también se realizarán en list2.
+
+  \vspace{\baselineskip}
+  Hay formas de hacer una copia, una forma es usar el método incorporado de
+  las listas llamado \textbf{copy()}.
+
+  \vspace{\baselineskip}
+  Ejemplo: Haz una copia de una lista con el método copy():
+  \begin{lstlisting}[language=Python]
+lista1 = ["manzana", "Plátano", "Limón", "cereza", "Kiwi", "Mango", "melón"]
+lista2 = lista1.copy()
+print(lista2)
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Copiar una lista}
+
+  Otra forma de hacer una copia es usar el método incorporado de
+  \textbf{list()}.
+
+  \vspace{\baselineskip}
+  Ejemplo: Haz una copia de una lista con el método list():
+  \begin{lstlisting}[language=Python]
+lista1 = ["manzana", "Plátano", "Limón", "cereza", "Kiwi", "Mango", "melón"]
+lista2 = list(lista1)
+print(lista2)
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Unir dos listas}
+
+  Hay varias formas de unir o concatenar dos o más listas en Python.
+
+  Una de las formas más fáciles es usando el operador "+".
+
+  \vspace{\baselineskip}
+  Ejemplo: Uniendo dos listas
+  \begin{lstlisting}[language=Python]
+lista1 = ["a", "b", "c"]
+lista2 = [1, 2, 3]
+
+lista3 = lista1 + lista2
+print(lista3)
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Unir dos listas}
+
+  Otra forma de unir dos listas es agregar todos los elementos
+  de lista2 a lista1, uno por uno:
+
+  \vspace{\baselineskip}
+  Ejemplo: Agregando lista2 en lista1
+  \begin{lstlisting}[language=Python]
+lista1 = ["a", "b", "c"]
+lista2 = [1, 2, 3]
+
+for x in lista2:
+  lista1.append(x)
+
+print(lista1)
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Unir dos listas}
+
+  O puede usar el método \textbf{extend()}, cuyo propósito es
+  agregar elementos de una lista a otra lista:
+
+  \vspace{\baselineskip}
+  Ejemplo: Use el método extend() para agregar lista2 al final de lista1:
+  \begin{lstlisting}[language=Python]
+lista1 = ["a", "b", "c"]
+lista2 = [1, 2, 3]
+
+lista1.extend(lista2)
+
+print(lista1)
+  \end{lstlisting}
 \end{frame}
