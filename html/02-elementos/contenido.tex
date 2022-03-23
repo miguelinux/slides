@@ -235,7 +235,7 @@
 
   \vspace{\baselineskip}
   \begin{lstlisting}
-<img src="una_imagen.jpg" width="500" height="600"> 
+<img src="una_imagen.jpg" width="500" height="600">
   \end{lstlisting}
 \end{frame}
 
@@ -249,7 +249,7 @@
 
   \vspace{\baselineskip}
   \begin{lstlisting}
-<img src="imagen.jpg" alt="Explicación de la imagen"> 
+<img src="imagen.jpg" alt="Explicación de la imagen">
   \end{lstlisting}
 
   \vspace{\baselineskip}
@@ -265,7 +265,7 @@
 
   \vspace{\baselineskip}
   \begin{lstlisting}
-<p style="color:red;">Este es un párrafo rojo.</p> 
+<p style="color:red;">Este es un párrafo rojo.</p>
   \end{lstlisting}
 \end{frame}
 
@@ -310,4 +310,122 @@
 </body>
 </html>
   \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{El atributo del título}
+
+  El atributo \textbf{title} define alguna información adicional
+  sobre un elemento.
+
+  \vspace{\baselineskip}
+  El valor del atributo de título se mostrará como información
+  sobre herramientas cuando pase el mouse sobre el elemento:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<p title="Este mensajes se llma tooltip">Este es un párrafo.</p>
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[c]{Utiliza siempre atributos en minúsculas}
+
+  El estándar HTML no requiere nombres de atributos en minúsculas.
+
+  \vspace{\baselineskip}
+  El atributo de título (y todos los demás atributos) se
+  pueden escribir en mayúsculas o minúsculas como \textbf{title} o
+  \textbf{TITLE}.
+
+  \vspace{\baselineskip}
+  Sin embargo, W3C \textbf{recomienda} atributos en minúsculas en HTML y
+  \textbf{exige} atributos en minúsculas para tipos de documentos más
+  estrictos como XHTML.
+
+  \begin{block}{}
+    En este curso siempre usamos nombres de atributos en minúsculas.
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Usa commillas siempre en los valores de los atributos}
+
+  El estándar HTML no requiere comillas alrededor de los valores de
+  los atributos.
+
+  \vspace{\baselineskip}
+  Sin embargo, W3C \textbf{recomienda} usar comillas en HTML y
+  \textbf{exige} el uso de commillas para tipos de documentos más
+  estrictos como XHTML.
+
+  \vspace{\baselineskip}
+  \begin{exampleblock}{Bien}
+<a href="https://www.w3schools.com/html/">Tutorial de HTML</a>
+  \end{exampleblock}
+
+  \begin{alertblock}{Mal}
+<a href=https://www.w3schools.com/html/>Tutorial de HTML</a>
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Usa commillas siempre en los valores de los atributos}
+
+  A veces hay que usar comillas. Este ejemplo no mostrará el atributo
+  de título correctamente, porque contiene espacios:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<p title=Acerca de este curso>
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  \begin{block}{}
+    En este curso siempre usamos comillas alrededor de los valores de
+    los atributos.
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{¿Comillas simples o dobles?}
+
+  Las comillas dobles alrededor de los valores de atributo son la
+  más comunes en HTML, pero también se pueden usar comillas simples.
+
+  \vspace{\baselineskip}
+  En algunas situaciones, cuando el propio valor del atributo
+  contiene comillas dobles, es necesario utilizar comillas simples:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<p title='Javier "Chicharito" Hernandez Balcázar'>
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  O viceversa:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<p title="Javier 'Chicharito' Hernandez Balcázar">
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[c]{Resumen de atributos}
+  \begin{itemize}
+    \item Todos los elementos HTML pueden tener \textbf{atributos}
+    \item El atributo \atri{href} de \eti{<a>} especifica la
+          URL de la página a la que va el enlace
+    \item El atributo \atri{src} de \eti{<img>} especifica la
+          ruta a la imagen que se mostrará
+    \item Los atributos \atri{width} y \atri{height} de \eti{<img>}
+          proporcionan información sobre el tamaño de las imágenes.
+    \item El atributo \atri{alt} de \eti{<img>} proporciona un
+          texto alternativo para una imagen
+    \item El atributo \atri{style} se usa para agregar estilos a
+          un elemento, como color, fuente, tamaño y más
+    \item El atributo \atri{lang} de la etiqueta \eti{<html>}
+          declara el idioma de la página web.
+    \item El atributo \atri{title} define alguna información
+          adicional sobre un elemento.
+  \end{itemize}
 \end{frame}
