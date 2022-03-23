@@ -1,0 +1,370 @@
+% ex: ts=2 sw=2 sts=2 et filetype=tex
+% SPDX-License-Identifier: CC-BY-SA-4.0
+
+\section{Encabezados HTML}
+
+\begin{frame}[fragile]
+  \frametitle{Encabezados HTML}
+
+  Los encabezados HTML son títulos o subtítulos que desea
+  mostrar en una página web.
+
+  \vspace{\baselineskip}
+  Los encabezados (heading en ingles) del HTML se definen con
+  las etiquetas \eti{<h1>} a la \eti{<h6>}.
+
+  \vspace{\baselineskip}
+  \eti{<h1>} define el encabezado más importante.
+  \eti{<h6>} define el encabezado menos importante.
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<h1>Encabezado 1</h1>
+<h2>Encabezado 2</h2>
+<h3>Encabezado 3</h3>
+<h4>Encabezado 4</h4>
+<h5>Encabezado 5</h5>
+<h6>Encabezado 6</h6>
+  \end{lstlisting}
+
+  \begin{exampleblock}{Nota:}
+    Los navegadores agregan automáticamente un espacio en blanco
+    (un margen) antes y después de un encabezado.
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}[c]{Los encabezados son importantes}
+
+  Los motores de búsqueda utilizan los encabezados para indexar
+  la estructura y el contenido de sus páginas web.
+
+  \vspace{\baselineskip}
+  Los usuarios a menudo hojean una página por sus títulos.
+  Es importante utilizar encabezados para mostrar la estructura
+  del documento.
+
+  \vspace{\baselineskip}
+  La etiqueta \eti{<h1>} deben usarse para los encabezados principales,
+  seguidos de \eti{<h2>}, luego los menos importantes
+  \eti{<h3>}, y así sucesivamente.
+
+  \begin{block}{Nota:}
+    Use encabezados HTML solo para encabezados.
+    No use encabezados para hacer que el texto sea \textbf{GRANDE}
+    o en \textbf{negrita}.
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Encabezados más grandes}
+
+  Cada encabezado HTML tiene un tamaño predeterminado.
+  Sin embargo, puede especificar el tamaño de cualquier encabezado
+  con el tributo \atri{style}, utilizando la propiedad CSS \atri{font-size}:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<h1 style="font-size:60px;">Un gran título 1</h1>
+  \end{lstlisting}
+\end{frame}
+
+\section{Párrafos en HTML}
+
+\begin{frame}[fragile]
+  \frametitle{Párrafos en HTML}
+
+  Un párrafo siempre comienza en una nueva línea y suele ser un
+  bloque de texto.
+
+  \vspace{\baselineskip}
+  El elemento HTML \eti{<p>} define un párrafo.
+
+  \vspace{\baselineskip}
+  Un párrafo siempre comienza en una nueva línea y los navegadores
+  agregan automáticamente un espacio en blanco (un margen) antes
+  y después de un párrafo.
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<p>Este es un párrafo.</p>
+<p>Este es otro párrafo.</p>
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[c]{Mostrando HTML en pantalla}
+
+  No puede estar seguro de cómo se mostrará HTML.
+
+  \vspace{\baselineskip}
+  Las pantallas grandes o pequeñas y las ventanas redimensionadas
+  crearán resultados diferentes.
+
+  \vspace{\baselineskip}
+  Con HTML, no puede cambiar la visualización agregando espacios
+  adicionales o líneas adicionales en su código HTML.
+
+  \vspace{\baselineskip}
+  El navegador eliminará automáticamente cualquier espacio y
+  línea adicional cuando se muestre la página
+
+  \vspace{\baselineskip}
+  El siguiente ejemplo muestra que los espacios del código no se ven en un
+  navegador web (así es como funciona HTML).
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Ejemplo de espacios en párrafos}
+  \begin{lstlisting}
+<p>
+Este es un párrafo
+contiene varias líneas
+en el código pero el
+navegador web
+las ignora
+</p>
+
+<p>
+Este es un     párrafo
+contiene         varios     espacios
+en el      código   pero    el
+      navegador     web
+las     ignora
+</p>
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Líneas horizontales HTML}
+
+  La etiqueta \eti{<hr>} (horizontal rule) define una ruptura
+  temática en una página HTML y, con mayor frecuencia, se muestra
+  como una regla/línea horizontal.
+
+  \vspace{\baselineskip}
+  El elemento \eti{<hr>} se usa para separar el contenido (o definir
+  un cambio) en una página HTML:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<h1>Este es un título 1</h1>
+<p>Aquí algo de texto.</p>
+<hr>
+<h2>Este es un encabezado 2</h2>
+<p>Aqúi más texto.</p>
+<hr>
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  La etiqueta \eti{<hr>} es una etiqueta vacía, lo que significa
+  que no tiene una etiqueta final.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Saltos de línea HTML}
+
+  El elemento HTML \eti{<br>} define un salto de línea.
+
+  \vspace{\baselineskip}
+  Puedes usar \eti{<br>} si deseas un salto de línea
+  (una nueva línea) sin comenzar un nuevo párrafo:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<p>Este es un<br>párrafo que tiene<br>saltos de línea.</p>
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  La etiqueta \eti{<br>} es una etiqueta vacía, lo que significa
+  que no tiene una etiqueta final.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{El problema del Poeta}
+
+  Este poema se mostrará en una sola línea:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<p>
+    ¿Mi tierra?
+    Mi tierra eres tú.
+
+    ¿Mi gente?
+    Mi gente eres tú.
+
+    El destierro y la muerte
+    para mi están adonde
+    no estés tú.
+
+    ¿Y mi vida?
+    Dime, mi vida,
+    ¿qué es, si no eres tú?
+</p>
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Solución: el elemento HTML <pre>}
+
+  El elemento HTML \eti{<pre>} define texto con formato previo.
+
+  \vspace{\baselineskip}
+  El texto dentro de un elemento \eti{<pre>} se muestra en una fuente
+  (tipo de letra) de ancho fijo (generalmente Courier) y conserva tanto
+  los espacios como los saltos de línea:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<pre>
+    ¿Mi tierra?
+    Mi tierra eres tú.
+
+    ¿Mi gente?
+    Mi gente eres tú.
+
+    El destierro y la muerte
+    para mi están adonde
+    no estés tú.
+
+    ...
+</pre>
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[c]{Resumen de la sección}
+  \begin{table}[]
+  \begin{tabular}{cll}
+    \textbf{Etiqueta} &  \textbf{Descripción} \\
+    \rowcolor{light-gray}
+    <p>  &  Define un párrafo \\
+    <hr> &  Crea una linea horizontal \\
+    \rowcolor{light-gray}
+    <br> &  Inserta un salto de línea \\
+    <pre> &  Define un texto pre-formateado \\
+  \end{tabular}
+  \end{table}
+\end{frame}
+
+\section{Estilos HTML}
+
+\begin{frame}[fragile]
+  \frametitle{El atributo de estilo en HTML}
+
+  El atributo HTML \atri{style} se usa para agregar estilos a un
+  elemento, como color, fuente, tamaño y más.
+
+  \vspace{\baselineskip}
+  La configuración del estilo de un elemento HTML se puede hacer con
+  el atributo \atri{style}.
+
+  \vspace{\baselineskip}
+  El atributo HTML \atri{style} tiene la siguiente sintaxis:
+
+  \vspace{\baselineskip}
+  \eti{<etiqueta} \atri{style=}\propi{"propiedad:varlor;"}\eti{>}
+
+  \vspace{\baselineskip}
+  La \propi{propiedad} es una propiedad CSS.
+  El \propi{valor} es un valor CSS.
+
+  \begin{block}{}
+    Aprenderemos más sobre CSS más adelante en este curso.
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Color de fondo}
+
+  La propiedad CSS \propi{background-color} define el color de
+  fondo de un elemento HTML.
+
+  \vspace{\baselineskip}
+  Ejemplo: Establezca el color de fondo de una página en azul polvo:
+  \begin{lstlisting}
+<body style="background-color:powderblue;">
+
+<h1>Este es un encabezado</h1>
+<p>Este es un párrafo.</p>
+
+</body> 
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Color de fondo}
+
+  \vspace{\baselineskip}
+  Ejemplo: Establezca el color de fondo para dos elementos diferentes:
+  \begin{lstlisting}
+<body>
+
+<h1 style="background-color:powderblue;">Este es un encabezado</h1>
+<p  style="background-color:tomato;">Este es un párrafo.</p>
+
+</body> 
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Color de texto}
+
+  La propiedad CSS \propi{color} define el color del
+  texto de un elemento HTML:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<h1 style="color:blue;">Este es un encabezado</h1>
+<p  style="color:red;">Este es un párrafo.</p>
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Fuentes}
+
+  La propiedad CSS \propi{font-family} define la fuente
+  que se utilizará para un elemento HTML:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<h1 style="font-family:verdana;">Este es un encabezado</h1>
+<p  style="font-family:courier;">Este es un párrafo.</p>
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Tamaño del texto}
+
+  La propiedad CSS \propi{font-size} define el
+  tamaño del texto para un elemento HTML:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<h1 style="font-size:300%;">Este es un encabezado</h1>
+<p  style="font-size:160%;">Este es un párrafo.</p>
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Alineación del texto}
+
+  La propiedad CSS \propi{text-align} define la
+  alineación horizontal del texto para un elemento HTML:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<h1 style="text-align:center;">Este es un encabezado</h1>
+<p  style="text-align:right;">Este es un párrafo.</p>
+<p  style="text-align:center;">Este es otro párrafo.</p>
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[c]{Resumen de estilos}
+  \begin{itemize}
+    \item Use el atributo \atri{style} para diseñar elementos HTML
+    \item Utilizar \propi{background-color} para el color de fondo
+    \item Usar \propi{color} para colores de texto
+    \item Usar \propi{font-family} para fuentes de texto
+    \item Usar \propi{font-size} para tamaños de texto
+    \item Usar \propi{text-align} para alineación de texto
+  \end{itemize}
+\end{frame}
