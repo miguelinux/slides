@@ -1,0 +1,500 @@
+% ex: ts=2 sw=2 sts=2 et filetype=tex
+% SPDX-License-Identifier: CC-BY-SA-4.0
+
+\section{Variables en JavaScript}
+
+\begin{frame}[c]{Variables en JavaScript}
+
+  Hay 4 formas de declarar una variable de JavaScript:
+
+  \vspace{\baselineskip}
+  \begin{itemize}
+    \item Utilizando \eti{var}
+    \item Utilizando \eti{let}
+    \item Utilizando \eti{const}
+    \item Usando nada
+  \end{itemize}
+
+  \vspace{\baselineskip}
+  En seguida explicaremos cada una de ellas.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{¿Qué son las Variables?}
+
+  Las variables son contenedores para almacenar
+  datos (almacenar valores de datos).
+
+  \vspace{\baselineskip}
+  En este ejemplo \eti{x}, \eti{y} y \eti{z}, son variables
+  declaradas con la palabra clave \eti{var}:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+var x = 5;
+var y = 6;
+var z = x + y;
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{¿Qué son las Variables?}
+
+  En este ejemplo \eti{x}, \eti{y} y \eti{z}, son variables
+  declaradas con la palabra clave \eti{let}:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+let x = 5;
+let y = 6;
+let z = x + y;
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{¿Qué son las Variables?}
+
+  En este ejemplo \eti{x}, \eti{y} y \eti{z}, son variables
+  no declaradas:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+x = 5;
+y = 6;
+z = x + y;
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[c]{¿Qué son las Variables?}
+
+  De todos los ejemplos anteriores, se puede observar que:
+
+  \vspace{\baselineskip}
+  \begin{itemize}
+    \item x almacena el valor 5
+    \item y almacena el valor 6
+    \item z almacena el valor 11
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[c]{¿Cuándo usar \eti{var} en JavaScript?}
+
+  Declare siempre las variables de JavaScript con \eti{var},
+  \eti{let} o \eti{const}.
+
+  \vspace{\baselineskip}
+  La palabra clave \eti{var} se usa en todo el código JavaScript
+  desde 1995 hasta 2015.
+
+  \vspace{\baselineskip}
+  Las palabras clave \eti{let} y \eti{const} se agregaron
+  a JavaScript en 2015.
+
+  \vspace{\baselineskip}
+  Si deseas que tu código se ejecute en un navegador anterior,
+  debes usar \eti{var}.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{¿Cuándo usar \eti{const} en JavaScript?}
+
+  Si quieres una regla general: declara siempre las variables
+  con \eti{const}.
+
+  \vspace{\baselineskip}
+  Si cree que el valor de la variable puede cambiar, use \eti{let}.
+
+  \vspace{\baselineskip}
+  En este ejemplo \atri{price1}, \atri{price2} y \atri{total}, son variables:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+const price1 = 5;
+const price2 = 6;
+let total = price1 + price2;
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[c]{¿Cuándo usar \eti{const} en JavaScript?}
+
+  Las dos variables \atri{price1} y \atri{price2} se
+  declaran con la palabra clave \eti{const}.
+
+  \vspace{\baselineskip}
+  Estos son valores constantes y no se pueden cambiar.
+
+  \vspace{\baselineskip}
+  La variable \atri{total} se declara con la palabra clave \eti{let}.
+
+  \vspace{\baselineskip}
+  Este es un valor que se puede cambiar.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Al igual que el álgebra}
+
+  Al igual que en álgebra, las variables tienen valores:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+let x = 5;
+let y = 6;
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  Al igual que en álgebra, las variables se usan en expresiones:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+let z = x + y;
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  Del ejemplo anterior, puede ver que el total se calcula en 11.
+
+  \begin{exampleblock}{Nota:}
+    Las variables son contenedores para almacenar valores.
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}[c]{Identificadores JavaScript}
+
+  \textbf{Todas las variables} de JavaScript deben
+  \textbf{identificarse} con \textbf{nombres únicos}.
+
+  \vspace{\baselineskip}
+  Estos nombres únicos se denominan \textbf{identificadores}.
+
+  \vspace{\baselineskip}
+  Los identificadores pueden ser nombres cortos (como x e y)
+  o nombres más descriptivos (edad, suma, volumen total).
+\end{frame}
+
+\begin{frame}[c]{Identificadores de JavaScript}
+
+  Las reglas generales para construir nombres para variables
+  (identificadores únicos) son:
+
+  \vspace{\baselineskip}
+  \begin{itemize}
+    \item Los nombres pueden contener letras, dígitos,
+          guiones bajos y signos de peso/dólar.
+    \item Los nombres deben comenzar con una letra.
+    \item Los nombres también pueden comenzar con \$ y \_
+          (pero no lo usaremos en este curso)
+    \item Los nombres distinguen entre mayúsculas y
+          minúsculas (y e Y son variables diferentes)
+    \item Las palabras reservadas (como las palabras clave de
+          JavaScript) no se pueden usar como nombres de variables
+  \end{itemize}
+
+  \vspace{\baselineskip}
+  \begin{block}{Nota:}
+    Los identificadores de JavaScript distinguen entre
+    mayúsculas y minúsculas.
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{El operador de asignación}
+
+  En JavaScript, el signo igual (\atri{=}) es un operador de
+  "asignación", no un operador de comparación como en "igual a".
+
+  \vspace{\baselineskip}
+  Esto es diferente del álgebra. Lo siguiente no tiene sentido en álgebra:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+x = x + 5
+  \end{lstlisting}
+
+  En JavaScript, sin embargo, tiene mucho sentido: asigna el valor de x + 5 a x.
+  (Calcula el valor de x + 5 y pone el resultado en x. El valor de x se incrementa en 5).
+
+  \begin{exampleblock}{Nota:}
+    El operador de comparación "igual a" se escribe como
+    \atri{==} en JavaScript.
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Tipos de datos de JavaScript}
+
+  Las variables de JavaScript pueden contener números como
+  100 y valores de texto como "Juan Perez".
+
+  \vspace{\baselineskip}
+  En programación, los valores de texto se denominan \textbf{cadenas de
+  texto}.
+
+  \vspace{\baselineskip}
+  JavaScript puede manejar muchos tipos de datos, pero por ahora,
+  solo piense en números y cadenas.
+
+  \vspace{\baselineskip}
+  Las cadenas se escriben entre comillas simples o dobles.
+  Los números se escriben sin comillas.
+
+  \vspace{\baselineskip}
+  Si pone un número entre comillas, se tratará como una cadena de texto.
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+const pi = 3.1416;
+let person = "Juan Perez";
+let answer = '¡Si, yo soy!';
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Declarar una variable de JavaScript}
+
+  Crear una variable en JavaScript se llama "\textbf{declarar}"
+  una variable.
+
+  \vspace{\baselineskip}
+  Declaras una variable de JavaScript con la palabra clave \eti{var}
+  o \eti{let}:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+var nombre;
+  \end{lstlisting}
+o
+  \begin{lstlisting}
+let nombre;
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  Después de la declaración, la variable no tiene valor
+  (técnicamente se define como \atri{undefined}).
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Declarar una variable de JavaScript}
+  Para asignar un valor a la variable, utilice el signo igual:
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+nombre = "Maria";
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  También puede asignar un valor a la variable cuando la declara:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+let nombre = "Maria";
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Declarar una variable de JavaScript}
+
+  En el siguiente ejemplo, creamos una variable llamada
+  \atri{nombre} y le asignamos el valor "Maria".
+
+  \vspace{\baselineskip}
+  Luego, "damos salida" al valor dentro de un párrafo HTML con id="demo":
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<p id="demo"></p>
+
+<script>
+let nombre = "Maria";
+document.getElementById("demo").innerHTML = nombre;
+</script> 
+  \end{lstlisting}
+
+  \begin{exampleblock}{Nota:}
+    Es una buena práctica de programación declarar todas
+    las variables al comienzo de un script.
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Una declaración, muchas variables}
+
+  Puede declarar muchas variables en una declaración.
+
+  \vspace{\baselineskip}
+  Comience la declaración con \eti{let} y separe las variables
+  con \textbf{comas}:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+let persona = "Juan Perez", carro = "Volvo", precio = 200; 
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  Una declaración puede abarcar varias líneas:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+let persona = "Juan Perez",
+    carro = "Volvo",
+    precio = 200; 
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Valor = indefinido}
+
+  En los programas de computadora, las variables a menudo se declaran
+  sin valor. El valor puede ser algo que debe calcularse o algo que
+  se proporcionará más adelante, como una entrada del usuario.
+
+  \vspace{\baselineskip}
+  Una variable declarada sin valor tendrá el valor \atri{undefined}.
+
+  \vspace{\baselineskip}
+  La variable \textbf{nombre} tendrá el valor \atri{undefined} después de la
+  ejecución de esta sentencia:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+let nombre;
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Redeclaración de variables de JavaScript}
+
+  Si vuelve a declarar una variable de JavaScript declarada
+  con \eti{var}, no perderá su valor.
+
+  \vspace{\baselineskip}
+  La variable \textbf{carro} seguirá teniendo el valor
+  "Volvo" después de la ejecución de estas sentencias:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+var carro = "Volvo";
+var carro;
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Redeclaración de variables de JavaScript}
+
+  \begin{alertblock}{Nota:}
+    No puede volver a declarar una variable declarada con
+    \eti{let} o \eti{const}.
+
+    \vspace{\baselineskip}
+    Esto no funcionará:
+    \begin{lstlisting}
+let carro = "Volvo";
+let carro;
+    \end{lstlisting}
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Aritmética en JavaScript}
+
+  Al igual que con el álgebra, puedes hacer operaciones
+  aritméticas con variables de JavaScript,
+  usando operadores como \atri{=} y \atri{+}:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+let x = 5 + 2 + 3;
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  También puede agregar cadenas, pero las cadenas se concatenarán:
+  \begin{lstlisting}
+let x = "Juan" + "  " + "Perez";
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Aritmética en JavaScript}
+
+  Prueba también esto:
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+let x = "5" + 2 + 3;
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  \begin{alertblock}{Nota:}
+    Si pone un número entre comillas, el resto de los números se
+    tratarán como cadenas y se concatenarán.
+  \end{alertblock}
+
+  \vspace{\baselineskip}
+  Ahora prueba esto:
+  \begin{lstlisting}
+let x = 2 + 3 + "5";
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Aritmética en JavaScript}
+  \lstinputlisting{04-ejemplo01.html}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Signo de pesos/dólar en JavaScript \$}
+
+  Dado que JavaScript trata un signo de pesos/dólar como
+  una letra, los identificadores que contienen \textbf{\$} son
+  nombres de variables válidos:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+let $ = "Hola Mundo";
+let $$ = 2;
+let $miDinero = 5;
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  Usar el signo de pesos/dólar no es muy común en JavaScript,
+  pero los programadores profesionales a menudo lo usan como
+  un alias para la función principal en una biblioteca de
+  JavaScript.
+
+  \vspace{\baselineskip}
+  En la biblioteca JavaScript jQuery, por ejemplo, la función
+  principal se llama \eti{\$} se usa para seleccionar elementos
+  HTML. En jQuery \eti{\$("p");} significa "seleccionar todos
+  los elementos p".
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Guión bajo en JavaScript (\_)}
+
+  Dado que JavaScript trata el guión bajo como una letra,
+  los identificadores que contienen \textbf{\_} son nombres
+  de variables válidos:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+let _nombre = "Elena";
+let _x = 2;
+let _100 = 5;
+let _ = 3.5;
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  Usar el guión bajo no es muy común en JavaScript, pero una
+  convención entre los programadores profesionales es usarlo
+  como un alias para las variables "privadas (ocultas)".
+\end{frame}
+
+
+
+
+\begin{frame}[fragile]
+  \frametitle{}
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[c]{}
+\end{frame}
