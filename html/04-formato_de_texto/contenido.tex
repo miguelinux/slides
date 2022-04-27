@@ -331,15 +331,15 @@ Zapopan, Jal.
   \begin{tabular}{cll}
     \textbf{Etiqueta} &  \textbf{Descripción} \\
     \rowcolor{light-gray}
-      <abbr> & Define una abreviatura o acrónimo \\
-      <dirección>  & Define la información de contacto del \\
+      \eti{<abbr>} & Define una abreviatura o acrónimo \\
+      \eti{<dirección>}  & Define la información de contacto del \\
                    & autor/propietario de un documento \\
     \rowcolor{light-gray}
-      <bdo> & Define la dirección del texto \\
-      <blockquote>  & Define una sección que se cita de otra fuente \\
+      \eti{<bdo>} & Define la dirección del texto \\
+      \eti{<blockquote>}  & Define una sección que se cita de otra fuente \\
     \rowcolor{light-gray}
-      <cite> & Define el título de una obra \\
-      <q> & Define una cita corta en línea \\
+      \eti{<cite>} & Define el título de una obra \\
+      \eti{<q>} & Define una cita corta en línea \\
   \end{tabular}
   \end{table}
 
@@ -347,18 +347,96 @@ Zapopan, Jal.
 
 \section{Comentarios en HTML}
 
-
-
-
-\begin{frame}[c]{}
-
-\end{frame}
-
 \begin{frame}[fragile]
-  \frametitle{}
+  \frametitle{Etiqueta de comentario de HTML}
+
+  Los comentarios HTML no se muestran en el navegador,
+  pero pueden ayudar a documentar su código fuente HTML.
+
+  \vspace{\baselineskip}
+  Puede agregar comentarios a su fuente HTML usando la siguiente sintaxis:
 
   \vspace{\baselineskip}
   \begin{lstlisting}
+<!-- Escribe tu comentario aquí -->
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  Observe que hay un signo de exclamación (!) en la etiqueta inicial,
+  pero no en la etiqueta final.
+
+  \begin{alertblock}{Nota:}
+    el navegador no muestra los comentarios, pero pueden
+    ayudar a documentar su código fuente HTML.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Añadir comentarios}
+
+  Con los comentarios puedes colocar notificaciones y
+  recordatorios en tu código HTML:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<!-- Este es un comentario -->
+
+<p> Este es un párrafo. </p>
+
+<!-- Acuerdate agregar más información aquí -->
   \end{lstlisting}
 \end{frame}
 
+\begin{frame}[fragile]
+  \frametitle{Ocultar contenido}
+
+  Los comentarios se pueden utilizar para ocultar contenido.
+
+  \vspace{\baselineskip}
+  Lo que puede ser útil si oculta contenido temporalmente:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<p> Este es un párrafo. </p>
+
+<!-- <p> Este es otro párrafo. </p> -->
+
+<p> Este es un párrafo también. </p>
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Ocultar contenido}
+
+  También puede ocultar más de una línea, todo lo que esté
+  entre \eti{<!--} y se ocultará \eti{-->} de la pantalla.
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<p> Este es un párrafo. </p>
+
+<!--
+<p> En la siguiente imagen: </p>
+<img border="0" src="la_imagen.jpg" alt="Esta imagen">
+-->
+
+<p> Este es un párrafo también. </p>
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  Los comentarios también son excelentes para depurar HTML, ya
+  que puede comentar líneas de código HTML, una a la vez, para
+  buscar errores.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Ocultar contenido en línea}
+
+  Los comentarios se pueden usar para ocultar partes en
+  medio del código HTML.
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<p> Este <!-- texto de aquí --> es un párrafo. </p>
+  \end{lstlisting}
+\end{frame}
