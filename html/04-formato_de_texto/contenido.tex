@@ -1,0 +1,205 @@
+% ex: ts=2 sw=2 sts=2 et filetype=tex
+% SPDX-License-Identifier: CC-BY-SA-4.0
+
+\section{Formato de texto}
+
+\begin{frame}[c]{Elementos de formato HTML}
+
+  HTML contiene varios elementos para definir texto con
+  un significado especial.
+
+  \vspace{\baselineskip}
+  Los elementos de formato se diseñaron para mostrar tipos
+  especiales de texto:
+
+  \vspace{\baselineskip}
+  \begin{enumerate}
+    \item \eti{<b>} Texto en negrita
+    \item \eti{<strong>} Texto importante
+    \item \eti{<i>} Texto en cursiva/itálica
+    \item \eti{<em>} Texto enfatizado
+    \item \eti{<mark>} Texto marcado
+    \item \eti{<small>} Texto más pequeño
+    \item \eti{<del>} Texto eliminado
+    \item \eti{<ins>} Texto insertado
+    \item \eti{<sub>} Texto de subíndice
+    \item \eti{<sup>} Texto en superíndice
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Elementos HTML <b> y <strong>}
+
+  El elemento HTML \eti{<b>} define texto en negrita,
+  sin ninguna importancia adicional.
+
+  \begin{lstlisting}
+<b> Este texto esta en negritas </b>
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  El elemento HTML \eti{<strong>} define texto con gran importancia.
+  El contenido interior normalmente se muestra en negrita.
+
+  \begin{lstlisting}
+<strong> Este texto es importante </strong>
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  La diferencia esta en el sentido de como se lee el texto por un programa
+  de texto a voz, ejemplo: "Alexa". Alexa leerá el texto con un tono más
+  fuerte cuando lea una etiqueta \eti{<strong>}. \eti{<b>} es mas un aspecto
+  visual.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Elementos HTML <i> y <em>}
+
+  El elemento HTML \eti{<i>} define una parte del texto en una voz
+  o estado de ánimo alternativo. El contenido interior normalmente
+  se muestra en cursiva/itálica.
+
+  \vspace{\baselineskip}
+  \textbf{Sugerencia}: la \eti{<i>} etiqueta se usa a menudo para
+  indicar un término técnico, una frase de otro idioma, un
+  pensamiento, el nombre de un barco, etc.
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<i>Este es un texto en cursiva/itálica</i>
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Elementos HTML <i> y <em>}
+
+  El elemento HTML \eti{<em>} define texto enfatizado.
+  El contenido interior normalmente se muestra en cursiva/itálica.
+
+  \vspace{\baselineskip}
+  \textbf{Sugerencia}: un lector de pantalla como "Alexa"
+  pronunciará las palabras \eti{<em>} con énfasis, usando acento verbal.
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<em>Este texto esta enfatizado</em>
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Elemento HTML <small>}
+
+  El elemento HTML \eti{<small>} define texto más pequeño:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<small>Este es un texto mas pequeño</small>
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Elemento HTML <mark>}
+
+  El elemento HTML \eti{<mark>} define el texto que debe
+  marcarse o resaltarse:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<p>No se te olvide comprar <mark>leche</mark> el día de hoy.</p>
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Elemento HTML <del>}
+
+  El elemento HTML \eti{<del>} define el texto que se ha eliminado
+  de un documento. Los navegadores generalmente marcarán una línea
+  a través del texto eliminado:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<p>Mi color favorito es el <del>azul</del> rojo.</p>
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Elemento HTML <ins>}
+
+  El elemento HTML \eti{<ins>} define un texto que se ha insertado
+  en un documento. Los navegadores normalmente subrayarán el texto
+  insertado:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<p>Mi color favorito es el <del>azul</del> <ins>rojo</ins>.</p>
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Elemento HTML <sub>}
+
+  El elemento HTML \eti{<sub>} define el texto del subíndice.
+  El texto del subíndice aparece medio carácter por debajo de la
+  línea normal y, a veces, se representa en una fuente más pequeña.
+  El texto de subíndice se puede utilizar para fórmulas químicas,
+  como $H_2O$:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<p>Este es un <sub>texto como subíndice</sub>.</p>
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Elemento HTML <sup>}
+
+  El elemento HTML \eti{<sup>} define texto en superíndice.
+  El texto en superíndice aparece medio carácter por encima de
+  la línea normal y, a veces, se representa en una fuente más
+  pequeña. El texto en superíndice se puede usar para notas al
+  pie, como $WWW^{[1]}$:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<p>Este es un <sub>texto como superíndice</sub>.</p>
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[c]{Resumen de unos formatos de texto en HTML}
+  \begin{table}[]
+  \begin{tabular}{cll}
+    \textbf{Etiqueta} &  \textbf{Descripción} \\
+    \rowcolor{light-gray}
+    \eti{<b>} & Texto en negrita \\
+    \eti{<strong>} & Texto importante \\
+    \rowcolor{light-gray}
+    \eti{<i>} & Texto en cursiva/itálica \\
+    \eti{<em>} & Texto enfatizado \\
+    \rowcolor{light-gray}
+    \eti{<mark>} & Texto marcado \\
+    \eti{<small>} & Texto más pequeño \\
+    \rowcolor{light-gray}
+    \eti{<del>} & Texto eliminado \\
+    \eti{<ins>} & Texto insertado \\
+    \rowcolor{light-gray}
+    \eti{<sub>} & Texto de subíndice \\
+    \eti{<sup>} & Texto en superíndice \\
+  \end{tabular}
+  \end{table}
+\end{frame}
+
+\section{Citas de texto}
+
+
+\begin{frame}[c]{}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{}
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+  \end{lstlisting}
+\end{frame}
+
