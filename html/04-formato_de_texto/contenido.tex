@@ -8,7 +8,6 @@
   HTML contiene varios elementos para definir texto con
   un significado especial.
 
-  \vspace{\baselineskip}
   Los elementos de formato se diseñaron para mostrar tipos
   especiales de texto:
 
@@ -45,11 +44,12 @@
 <strong> Este texto es importante </strong>
   \end{lstlisting}
 
-  \vspace{\baselineskip}
-  La diferencia esta en el sentido de como se lee el texto por un programa
-  de texto a voz, ejemplo: "Alexa". Alexa leerá el texto con un tono más
-  fuerte cuando lea una etiqueta \eti{<strong>}. \eti{<b>} es mas un aspecto
-  visual.
+  \begin{block}{La diferencia}
+    esta en el sentido de como se lee el texto por un programa
+    de texto a voz, ejemplo: "Alexa". Alexa leerá el texto con un tono más
+    fuerte cuando lea una etiqueta \eti{<strong>}. \eti{<b>} es mas un aspecto
+    visual.
+  \end{block}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -66,7 +66,7 @@
 
   \vspace{\baselineskip}
   \begin{lstlisting}
-<i>Este es un texto en cursiva/itálica</i>
+<i> Este es un texto en cursiva/itálica </i>
   \end{lstlisting}
 \end{frame}
 
@@ -82,7 +82,7 @@
 
   \vspace{\baselineskip}
   \begin{lstlisting}
-<em>Este texto esta enfatizado</em>
+<em> Este texto esta enfatizado</em>
   \end{lstlisting}
 \end{frame}
 
@@ -93,7 +93,7 @@
 
   \vspace{\baselineskip}
   \begin{lstlisting}
-<small>Este es un texto mas pequeño</small>
+<small> Este es un texto mas pequeño </small>
   \end{lstlisting}
 \end{frame}
 
@@ -105,7 +105,7 @@
 
   \vspace{\baselineskip}
   \begin{lstlisting}
-<p>No se te olvide comprar <mark>leche</mark> el día de hoy.</p>
+<p> No se te olvide comprar <mark>leche</mark> el día de hoy.</p>
   \end{lstlisting}
 \end{frame}
 
@@ -118,7 +118,7 @@
 
   \vspace{\baselineskip}
   \begin{lstlisting}
-<p>Mi color favorito es el <del>azul</del> rojo.</p>
+<p> Mi color favorito es el <del>azul</del> rojo.</p>
   \end{lstlisting}
 \end{frame}
 
@@ -161,7 +161,7 @@
 
   \vspace{\baselineskip}
   \begin{lstlisting}
-<p>Este es un <sub>texto como superíndice</sub>.</p>
+<p>Este es un <sup>texto como superíndice</sup>.</p>
   \end{lstlisting}
 \end{frame}
 
@@ -189,6 +189,165 @@
 \end{frame}
 
 \section{Citas de texto}
+
+
+\begin{frame}[c]{Elementos de cita de texto}
+  En esta sección repasaremos los elementos
+  \eti{<blockquote>}, \eti{<q>}, \eti{<abbr>},
+  \eti{<address>}, \eti{<cite>} y
+  \eti{<bdo>} del HTML.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{HTML <blockquote> para citas}
+
+  El elemento HTML \eti{<blockquote>} define una sección
+  que se cita de otra fuente.
+
+  \vspace{\baselineskip}
+  Los navegadores suelen sangrar (poner una sangría) los
+  elementos \eti{<blockquote>}.
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<p>Aquí hay una cita del sitio del INEGI:</p>
+<blockquote cite="https://inegi.org.mx/inegi/quienes_somos.html">
+Somos un organismo público autónomo responsable de normar y coordinar
+el Sistema Nacional de Información Estadística y Geográfica, así como
+de captar y difundir información de México en cuanto al territorio,
+los recursos, la población y economía, que permita dar a conocer las
+características de nuestro país y ayudar a la toma de decisiones.
+</blockquote>
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{HTML <q> para citas cortas}
+
+  La etiqueta \eti{<q>} de HTML define una cita corta.
+
+  \vspace{\baselineskip}
+  Los navegadores normalmente insertan comillas alrededor de la cita.
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<p>El INEGI <q> norma y coordina el Sistema Nacional de
+   Información Estadística y Geográfica</q> </p>
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{HTML <abbr> para abreviaturas}
+
+  La etiqueta HTML \eti{<abbr>} define una abreviatura o un
+  acrónimo, como "HTML", "CSS", "Sr.", "Dr.", "OMS", "ATM".
+
+  \vspace{\baselineskip}
+  Marcar abreviaturas puede brindar información útil a los navegadores,
+  sistemas de traducción y motores de búsqueda.
+
+  \vspace{\baselineskip}
+  \textbf{Sugerencia}: use el atributo de \atri{title} global para mostrar
+  la descripción de la abreviatura/acrónimo cuando pase el mouse sobre
+  el elemento.
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<p>La <abbr title="Organización Mundial de la Salud">OMS</abbr>
+  fue fundada en 1948.</p>
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{HTML <address> para información de contacto}
+
+  La etiqueta HTML \eti{<address>} define la información de
+  contacto del autor/propietario de un documento o artículo.
+
+  \vspace{\baselineskip}
+  La información de contacto puede ser una dirección de correo
+  electrónico, URL, dirección física, número de teléfono,
+  identificador de redes sociales, etc.
+
+  \vspace{\baselineskip}
+  El texto del elemento \eti{<address>} generalmente se presenta
+  en cursiva/itálica y los navegadores siempre agregarán un salto
+  de línea antes y después del elemento \eti{<address>}.
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<address>
+Blvd. del Rodeo 401 <br>
+El Vigía <br>
+C.P. 45140 <br>
+Zapopan, Jal.
+</address>
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{HTML <cite> para título de trabajo}
+
+  La etiqueta HTML \eti{<cite>} define el título de un trabajo
+  creativo (por ejemplo, un libro, un poema, una canción,
+  una película, una pintura, una escultura, etc.).
+
+  \begin{exampleblock}{Nota:}
+    El nombre de una persona no es el título de una obra.
+  \end{exampleblock}
+
+  \vspace{\baselineskip}
+  El texto del elemento \eti{<cite>} normalmente se muestra en
+  cursiva/itálica.
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<p><cite> El grito </cite> por Edvard Munch. Pintado en 1893.</p>
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{HTML <bdo> para anulación bidirecciona}
+
+  BDO son las iniciales del ingles \emph{Bi-Directional Override},
+  que significa anulación bidireccional.
+
+  \vspace{\baselineskip}
+  La etiqueta HTML \eti{<bdo>} se utiliza para anular la
+  dirección del texto actual:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<bdo dir="rtl"> Este texto se escribirá de derecha a izquierda </bdo>
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  \textbf{rtl} significa right-to-left, que significa de derecha-a-izquierda
+
+\end{frame}
+
+\begin{frame}[c]{Resumen de la sección de citas de texto}
+  \begin{table}[]
+  \begin{tabular}{cll}
+    \textbf{Etiqueta} &  \textbf{Descripción} \\
+    \rowcolor{light-gray}
+      <abbr> & Define una abreviatura o acrónimo \\
+      <dirección>  & Define la información de contacto del \\
+                   & autor/propietario de un documento \\
+    \rowcolor{light-gray}
+      <bdo> & Define la dirección del texto \\
+      <blockquote>  & Define una sección que se cita de otra fuente \\
+    \rowcolor{light-gray}
+      <cite> & Define el título de una obra \\
+      <q> & Define una cita corta en línea \\
+  \end{tabular}
+  \end{table}
+
+\end{frame}
+
+\section{Comentarios en HTML}
+
+
 
 
 \begin{frame}[c]{}
