@@ -190,21 +190,176 @@ Host nube
     #ProxyCommand  connect-proxy -a none -S proxy.com:1234 %h %p
   \end{lstlisting}
 
-  \vspace{\baselineskip}
   Para hacer la conexión al servidor \texttt{nube} se utiliza:
   \begin{lstlisting}[language=Bash]
 ssh nube
   \end{lstlisting}
+
+  Para más información pueden consultar el manual usando:
+  \textbf{man ssh\_config}
 \end{frame}
 
+\begin{frame}[fragile]
+  \frametitle{Llave/Clave privada y publica}
 
+  Para utilizar la autenticación de clave pública,
+  las claves públicas deben intercambiarse entre el cliente y el servidor.
+
+  \vspace{\baselineskip}
+  Para generar una nueva llave privada y publica se hace con el siguiente
+  comando
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Bash]
+ssh-keygen -t ed25519 -C "un comentario o tu correo"
+  \end{lstlisting}
+  
+  \begin{alertblock}{Nota:}
+    Si vas a usar un sistema "viejo" que no soporte el algoritmo Ed25519 usa
+    el siguiente comando:
+
+    \begin{lstlisting}[language=Bash]
+ssh-keygen -t rsa -b 4096 -C "un comentario o tu correo"
+    \end{lstlisting}
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Creando una llave privada y publica}
+  \begin{lstlisting}[language=Bash,basicstyle={\footnotesize\ttfamily}]
+$ssh-keygen -t ed25519 -C "tu@correo.com"
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/home/linux/.ssh/id_ed25519): /ruta/de/llave.key      
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /ruta/de/llave.key
+Your public key has been saved in /ruta/de/llave.key.pub
+The key fingerprint is:
+SHA256:wORH6Q1UOYYglYKThePgoUjZX5OL+3zp5eX8H61kMhQ miguel@linux.com
+The key's randomart image is:
++--[ED25519 256]--+
+|  o=o.++++..     |
+|.+*..=.=+ +      |
+|=o.o..*.++ .E    |
+|o..  o +. .  .   |
+|       o oo += ..|
+|$       o. . oo.o|
++----[SHA256]-----+
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Llave privada}
+
+  Una llave privada se ve como sigue:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Bash,basicstyle={\footnotesize\ttfamily}]
+$ cat llave.key
+-----BEGIN OPENSSH PRIVATE KEY-----
+b3BlbnNzaC1rZXktdjEAAAAACmFlczI1Ni1jdHIAAAAGYmNyeXB0AAAAGAAAABBy+jTsNn
+RGbVHm4+tj17iXAAAAEAAAAAEAAAAzAAAAC3NzaC1lZDI1NTE5AAAAICyF8SypKpKQ3RM+
+sj/f1spMXDDZw8/0Jr6Y6jkqz4wRAAAAsIbtjd3GW8mJ7/rnh2c3uuoaO0MdvQVqNg62Sn
+Gm81ev+7Le8glK4Cm3TszQb7tbMKyhttlvMoj6ar2r6hTATSVHlZWCOs6mcA6YZWFuy5rN
+2EQULumaIOe/mbd8MTY7vFyHRT09fsf02lya3z78T04sz/4/KWtre5/q7n5avaswl/axZv
+z82f93E1bsE+8GCEWKzlnO5ZzryRCApWpC6jvrqR7StONAo8Ju2O3Py+Hi
+-----END OPENSSH PRIVATE KEY-----
+$
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Llave publica}
+
+  Una llave publica se ve como sigue:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Bash,basicstyle={\footnotesize\ttfamily}]
+$ cat llave.key.pub 
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICyF8SypKpKQ3RM+sj/f1spMXDDZw8/0Jr6Y6jkqz4wR tu@correo.com
+$
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[c]{Llaves autorizadas para entrar}
+  El archivo ~/.ssh/\textbf{authorized\_keys} enumera las claves
+  públicas que están permitidas para iniciar sesión. Cuando el
+  usuario inicia sesión, el programa ssh le dice al servidor qué
+  par de claves le gustaría usar para la autenticación.
+
+  \vspace{\baselineskip}
+  El cliente demuestra que tiene acceso a la clave privada y el servidor
+  comprueba que la clave pública correspondiente está autorizada para
+  aceptar la cuenta.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Llaves autorizadas para entrar}
+
+  \begin{lstlisting}[language=Bash,basicstyle={\footnotesize\ttfamily}]
+$ cat .ssh/authorized_keys 
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCkahdXcXSOlbiKXw5C25AlcIjMl9S75Vpp8w11IeJXblF6p25eD/zixHvZ6DriHvnOQfQ5ppBAmROUCjAyLGGFqb3J+nogqJVLjMyzyfV4m8G3zN6RXXc0prQ7t0t1Dv7qwgwaTWwkNI7JrVFOykDNIbU6ZJuqPT8jg4ChIoL9A9OzA2uiFOv2Bwh0qGEsqsBONvpe/wAJg1l85jraGGB/todkmZJdcQ6q6gnl4KKVrKeafwmoR4/KxX1P6uFJywbyOqk3g/x4GfDYyZN5TDiph0d0jFQz2JxvywcIxBp1rbwnkH219yIyjSqzyYPTtt2TvrETdSqzzVx11SNO8Jr miguel@correo.com
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOSPp+eEVfhtk3/z7VHuU3zl9Xe89SVi0VqeG9Nezsh miguel.bernal@correo.com
+ecdsa-sha2-nistp521 AAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIblzdHA1MEAAACFBAA12GxzSywo9vH2cAGdV92V5ZCu+APydWgTPjuQsi8cRzZjloNIV3VV0XlAhF4pSpEwBeQVPA+O9MWKRQZwS7AFSzFmPDUDhxKQ4+Z1H5vwRIb3NTd7DaEq/4uNkNHBNjsbwoc24D2fZ6Va4uV7AA9FgzD0fT3wDfeyvClP2/zrZg== miguel@correo.com_otro_servidor
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAIEB9FiIIsdP75cmyPMOlo5SvIODZFXePSjvtdRwG5L mG60
+$
+  \end{lstlisting}
+\end{frame}
 
 \section{Tunel SSH}
 
-\begin{frame}[c]{titutlo}
+\begin{frame}[c]{Reenvío de puertos}
+
+  OpenSSH tiene la característica de el reenvío de puertos
+  (canales encriptados para protocolos heredados)
+
+  \vspace{\baselineskip}
+  El reenvío de puertos permite el reenvío de conexiones TCP/IP a
+  una máquina remota a través de un canal cifrado. Las aplicaciones
+  de Internet inseguras como POP se pueden proteger con esto.
 \end{frame}
 
-\section{GitHub y SSH}
-
-\begin{frame}[c]{titutlo}
+\begin{frame}[c]{Tipos de reenvío de puertos (Port forwarding)}
+  \begin{enumerate}
+    \item Reenvío de puerto local (Local por fortwarding)
+    \item Reenvío de puerto remoto (Remote port forwarding)
+    \item Reenvío de puerto dinámico (Dynamic port forwarding)
+  \end{enumerate}
 \end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Reenvío de puerto local}
+
+  Para proteger la comunicación de un programa que no use conexiones
+  cifradas se puede usar el siguiente comando:
+
+  \begin{lstlisting}[language=Bash,basicstyle={\footnotesize\ttfamily}]
+ssh -L [dirección_a_escuchar:]puerto_local:servidor_remoto:puerto_remoto SERVIDOR
+  \end{lstlisting}
+
+  Ejemplo:
+  \begin{lstlisting}[language=Bash]
+ssh -L 1234:192.168.0.10:3389 mi.servidorssh.com
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Reenvío de puerto local}
+
+  Otros parámetros para de ssh que se usan cuando e hace reenvío de puerto
+  local son:
+
+  \begin{lstlisting}[language=Bash,basicstyle={\footnotesize\ttfamily}]
+$ssh -NT -o ServerAliveInterval=60 -o ExitOnForwardFailure=yes ...
+$
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  Para mayor información consulta el manual: \textbf{man ssh}
+
+\end{frame}
+
+
+%\section{GitHub y SSH}
+
+%\begin{frame}[c]{titutlo}
+%\end{frame}
