@@ -78,6 +78,31 @@
   \end{exampleblock}
 \end{frame}
 
+\begin{frame}[fragile]
+  \frametitle{Conexión a un servidor remoto}
+
+  Para conectarse aun servidor remoto usamos la siguiente instrucción:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Bash]
+ssh USUARIO@SERVIDOR
+  \end{lstlisting}
+
+  \pause
+  \vspace{\baselineskip}
+  También puede ser de la siguiente manera
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Bash]
+ssh -l USUARIO SERVIDOR
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  Donde \texttt{USUARIO} es el nombre de usuario en el servidor remoto y
+  \texttt{SERVIDOR} es la dirección \textbf{IP} o \textbf{nombre de dominio}
+  del servidor al que vamos a acceder.
+\end{frame}
+
 \section{Configuración y llaves}
 
 \begin{frame}[c]{Directorio de configuración}
@@ -107,12 +132,70 @@
 
   \begin{enumerate}
     \item opciones de línea de comandos
-    \item archivo de configuración del usuario (\~{}/.ssh/config)
-    \item archivo de configuración de todo el sistema (/etc/ssh/ssh\_config)
+    \pausa
+    \item archivo de configuración del usuario (\~{}/.ssh/\textbf{config})
+    \pausa
+    \item archivo de configuración de todo el sistema
+      (/etc/ssh/\textbf{ssh\_config})
   \end{enumerate}
 
+  \vspace{\baselineskip}
+  Para cada parámetro se utilizará el primer valor obtenido.
+
+  \begin{exampleblock}{Nota:}
+    El símbolo de \textbf{\~{}} representa el directorio de usuario. En
+    Linux y Mac se conoce como \textbf{\$HOME} y en Windows como
+    \textbf{\%USERPROFILE\%}
+  \end{exampleblock}
 \end{frame}
 
+\begin{frame}[fragile]
+  \frametitle{Archivo de configuración de SSH}
+
+  Los archivos de configuración contienen secciones separadas por
+  especificaciones de \textbf{Host}, y esa sección solo se aplica
+  a hosts/servidor que coinciden con uno de los patrones
+  proporcionados en la especificación.
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Bash,basicstyle={\footnotesize\ttfamily}]
+Host nube
+    Hostname nube.de.algodon
+    User     miusuario
+  \end{lstlisting}
+
+  \pause
+  \vspace{\baselineskip}
+  Para hacer la conexión al servidor \texttt{nube.de.algodon} se utiliza:
+  \begin{lstlisting}[language=Bash]
+ssh nube
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Archivo de configuración de SSH}
+
+  \begin{lstlisting}[language=Bash,basicstyle={\footnotesize\ttfamily}]
+Host nube
+    Hostname 1.2.3.4
+    User     miusuario
+    IdentityFile ~/.ssh/llave.key
+    PreferredAuthentications publickey
+    StrictHostKeyChecking  no
+    UserKnownHostsFile     /dev/null
+    LogLevel               error
+    ConnectTimeout         15
+    IdentitiesOnly         yes
+    AddressFamily          inet
+    #ProxyCommand  connect-proxy -a none -S proxy.com:1234 %h %p
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  Para hacer la conexión al servidor \texttt{nube} se utiliza:
+  \begin{lstlisting}[language=Bash]
+ssh nube
+  \end{lstlisting}
+\end{frame}
 
 
 

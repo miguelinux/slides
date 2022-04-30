@@ -27,38 +27,60 @@
 } % Date, can be changed to a custom date
 
 %New colors defined below
-\definecolor{codeBakground}{rgb}{0.95,0.95,0.92}
-\definecolor{codeComment}{rgb}{0.0, 0.0, 1.0}
-\definecolor{codeKeyword}{rgb}{0.647, 0.165, 0.165}
-\definecolor{codeKeyword2}{rgb}{0.0, 0.545,0.545}
 \definecolor{codeNumbers}{rgb}{0.5,0.5,0.5}
-\definecolor{codeString}{rgb}{1.0, 0.0, 1.0}
-\definecolor{light-gray}{gray}{0.90}
+\definecolor{editorGray}{rgb}{0.95, 0.95, 0.95}
+\definecolor{editorOcher}{rgb}{1, 0.5, 0} % #FF7F00 -> rgb(239, 169, 0)
+\definecolor{editorGreen}{rgb}{0, 0.5, 0} % #007C00 -> rgb(0, 124, 0)
+\definecolor{brown}{rgb}{0.69,0.31,0.31}
 
 %Code listing style named "mystyle"
 \lstdefinestyle{mystyle}{
-  backgroundcolor=\color{codeBakground},
-  commentstyle=\color{codeComment},
-  keywordstyle=\color{codeKeyword},
-  keywordstyle={[2]\color{codeKeyword2}}, % Built-in
+  % General design
+  backgroundcolor=\color{editorGray},
+  basicstyle={\ttfamily},
   numberstyle=\tiny\color{codeNumbers},
-  stringstyle=\color{codeString},
-  basicstyle=\ttfamily\footnotesize,
-  breakatwhitespace=false,
-  breaklines=true,
-  captionpos=b,
-  keepspaces=true,
-  numbers=left,
+  xleftmargin={0.2cm},
   numbersep=5pt,
+  numbers=left,
+  stepnumber=1,
+  firstnumber=1,
+  numberfirstline=true,
+  % Code design
+  identifierstyle=\color{black},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywordstyle=\color{editorGreen}\bfseries,
+  stringstyle=\color{editorOcher}\ttfamily,
+  commentstyle=\color{brown}\ttfamily,
+  % Code
+  alsodigit={.:;},
+  tabsize=2,
+  showtabs=false,
   showspaces=false,
   showstringspaces=false,
-  showtabs=false,
-  upquote=true,                      % requires textcomp
-  tabsize=2
+  extendedchars=true,
+  breaklines=true,
+  % Español
+  literate=%
+  {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+  {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+  {¡}{{!`}}1  {¿}{{?`}}1
+  {ñ}{{\~n}}1 {Ñ}{{\~N}}1
 }
 
 %"mystyle" code listing set
 \lstset{style=mystyle}
+
+%------------------------------------------------------------
+%The next block of commands puts the table of contents at the
+%beginning of each section and highlights the current section:
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Contenido}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+%------------------------------------------------------------
 
 \newcommand{\pausa}{\pause} % Para usar una pausa en las presentaciones
 %\newcommand{\pausa}{}      % Para que NO salgan las pausas
