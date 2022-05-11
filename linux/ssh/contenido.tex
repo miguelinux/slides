@@ -349,8 +349,7 @@ ssh -L 1234:192.168.0.10:3389 mi.servidorssh.com
   local son:
 
   \begin{lstlisting}[language=Bash,basicstyle={\footnotesize\ttfamily}]
-$ssh -NT -o ServerAliveInterval=60 -o ExitOnForwardFailure=yes ...
-$
+ssh -NT -o ServerAliveInterval=60 -o ExitOnForwardFailure=yes ...
   \end{lstlisting}
 
   \vspace{\baselineskip}
