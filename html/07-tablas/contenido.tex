@@ -3,57 +3,513 @@
 
 \section{Definir una tabla}
 
-\begin{frame}[c]{}
+\begin{frame}[fragile]
+  \frametitle{Tablas HTML}
+
+  Las tablas HTML permiten a los desarrolladores web organizar
+  los datos en filas y columnas.
+
+  Una tabla en HTML consta de celdas de tabla dentro de filas y columnas
+
+  \begin{lstlisting}
+<table>
+  <tr>
+    <th>Compañía</th>
+    <th>Contacto</th>
+    <th>País</th>
+  </tr>
+  <tr>
+    <td>Robots industriales</td>
+    <td>María Pérez</td>
+    <td>Alemania</td>
+  </tr>
+  <tr>
+    <td>Centro comercial Moctezuma</td>
+    <td>Francisco Hernández</td>
+    <td>México</td>
+  </tr>
+</table> 
+  \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{}
+  \frametitle{Celdas de tabla}
+
+  Cada celda de la tabla está definida por una etiqueta \eti{<td>}
+  y \eti{</td>}.
+
+  \begin{exampleblock}{td}
+    Significa "\emph{table data}" en inglés, que es datos de la tabla
+    en español.
+  \end{exampleblock}
+
+  Todo lo que está entre \eti{<td>} y \eti{</td>} es el contenido
+  de la celda de la tabla.
+
+  \begin{lstlisting}
+<table>
+  <tr>
+    <td>Miguel</td>
+    <td>Hidalgo</td>
+    <td>y Costilla</td>
+  </tr>
+</table> 
+  \end{lstlisting}
+
+  \begin{block}{Nota:}
+    Los elementos de datos de la tabla son los contenedores de datos
+    de la tabla. Pueden contener todo tipo de elementos HTML; texto,
+    imágenes, listas, otras tablas, etc.
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Filas de tabla}
+
+  Cada fila de la tabla comienza con una etiqueta \eti{<tr>} y
+  termina con \eti{</tr>}.
+
+  \begin{exampleblock}{tr}
+    Significa "\emph{table row}" en inglés, que es fila de la tabla
+    en español.
+  \end{exampleblock}
+
+  \begin{lstlisting}
+<table>
+  <tr>
+    <td>Miguel</td>
+    <td>Hidalgo</td>
+    <td>y Costilla</td>
+  </tr>
+  <tr>
+    <td>José</td>
+    <td>María</td>
+    <td>Morelos</td>
+  </tr>
+</table> 
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[c]{Filas de tabla}
+
+  Puede tener tantas filas como desee en una tabla, solo asegúrese
+  de que la cantidad de celdas sea la misma en cada fila.
 
   \vspace{\baselineskip}
-  \begin{lstlisting}
+  \begin{block}{Nota:}
+    hay ocasiones en las que una fila puede tener menos o más celdas
+    que otra. Aprenderá sobre eso en una sección posterior.
+  \end{block}
+\end{frame}
 
+\begin{frame}[fragile]
+  \frametitle{Encabezados de tabla}
+
+  A veces desea que sus celdas sean encabezados, en esos casos use la
+  etiqueta \eti{<th>} en lugar de la etiqueta \eti{<td>}. Hagamos que
+  la primera fila sean encabezados de tabla:
+
+  \begin{lstlisting}
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Apellido paterno</th>
+    <th>Apellido materno</th>
+  </tr>
+  <tr>
+    <td>Miguel</td>
+    <td>Hidalgo</td>
+    <td>y Costilla</td>
+  </tr>
+  <tr>
+    <td>José María</td>
+    <td>Morelos</td>
+    <td>y Pavón</td>
+  </tr>
+</table> 
   \end{lstlisting}
+\end{frame}
+
+\begin{frame}[c]{Encabezados de tabla}
+  De forma predeterminada, el texto de los elementos \eti{<th>}
+  está en negrita y centrado, pero puedes cambiar eso con CSS.
+\end{frame}
+
+\begin{frame}[c]{Resumen de etiquetas de tabla HTML}
+  \begin{table}[]
+  \begin{tabular}{cll}
+    \textbf{Etiqueta} &  \textbf{Descripción} \\
+    \rowcolor{light-gray}
+    \eti{<table>} & Define una tabla \\
+    \eti{<th>} & Define una celda de encabezado en una tabla \\
+    \rowcolor{light-gray}
+    \eti{<tr>} & Define una fila en una tabla \\
+    \eti{<td>} & Define una celda en una tabla \\
+    \rowcolor{light-gray}
+    \eti{<caption>} & Define un título de tabla \\
+    \eti{<colgroup>} & Especifica un grupo de una o más columnas \\
+                     & en una tabla para formatear \\
+    \rowcolor{light-gray}
+    \eti{<col>} & Especifica las propiedades de columna para cada \\
+                & columna dentro de un elemento <colgroup> \\
+    \eti{<thead>} & Agrupa el contenido del encabezado en una tabla \\
+    \rowcolor{light-gray}
+    \eti{<tbody>} & Agrupa el contenido del cuerpo en una tabla \\
+    \eti{<tfoot>} & Agrupa el contenido del pie de página en una tabla \\
+  \end{tabular}
+  \end{table}
 \end{frame}
 
 \section{Bordes de la tabla}
 
-\begin{frame}[c]{}
+\begin{frame}[c]{Cómo agregar un borde}
+  Las tablas HTML pueden tener bordes de diferentes estilos y formas.
+
+  \vspace{\baselineskip}
+  Cuando agrega un borde a una tabla, también agrega bordes alrededor
+  de cada celda de la tabla.
+
+  \vspace{\baselineskip}
+  Para agregar un borde, use la propiedad \atri{border} CSS en los
+  elementos \eti{table}, \eti{th} y \eti{td}.
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{}
+  \frametitle{Ejemplo 1 de bordes}
+  \lstinputlisting{0701-bordes01.html}
+  Continua en la siguiente página
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Ejemplo 1 de bordes (cont.)}
+  \lstinputlisting[firstnumber=14]{0701-bordes02.html}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Bordes de tabla contraídos}
+
+  Para evitar tener bordes dobles como en el ejemplo anterior,
+  establezca la propiedad \atri{border-collapse} CSS en \propi{collapse}.
+
+  \vspace{\baselineskip}
+  Esto hará que los bordes colapsen en un solo borde:
 
   \vspace{\baselineskip}
   \begin{lstlisting}
-
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
   \end{lstlisting}
 \end{frame}
 
-\section{Tamaños de la tabla}
-
-\begin{frame}[c]{}
-\end{frame}
-
 \begin{frame}[fragile]
-  \frametitle{}
+  \frametitle{Bordes de la tabla de estilo}
+
+  Si establece un color de fondo para cada celda y le da al
+  borde un color blanco (el mismo que el fondo del documento)
+  obtendrá la impresión de un borde invisible:
 
   \vspace{\baselineskip}
   \begin{lstlisting}
-
+table, th, td {
+  border: 1px solid white;
+  border-collapse: collapse;
+}
+th, td {
+  background-color: #96D4D4;
+}
   \end{lstlisting}
 \end{frame}
 
-\section{Encabezados de tabla}
-
-\begin{frame}[c]{}
-\end{frame}
-
 \begin{frame}[fragile]
-  \frametitle{}
+  \frametitle{Bordes de mesa redonda}
+
+  Con la propiedad \atri{border-radius}, los bordes obtienen
+  esquinas redondeadas:
 
   \vspace{\baselineskip}
   \begin{lstlisting}
+table, th, td {
+  border: 1px solid black;
+  border-radius: 10px;
+}
+  \end{lstlisting}
+\end{frame}
 
+\begin{frame}[fragile]
+  \frametitle{Bordes de mesa redonda}
+
+  Omita el borde alrededor de la tabla omitiendo \atri{table}
+  del selector css:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+th, td {
+  border: 1px solid black;
+  border-radius: 10px;
+}
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Bordes de tabla punteados}
+  Con la propiedad \atri{border-style}, puede establecer la
+  apariencia del borde.
+
+  \vspace{\baselineskip}
+  Se permiten los siguientes valores:
+
+  \begin{columns}
+    \column{0.5\textwidth}
+  \begin{itemize}
+    \item dotted
+    \item dashed
+    \item solid
+    \item double
+    \item groove
+  \end{itemize}
+    \column{0.6\textwidth}
+  \begin{itemize}
+    \item ridge
+    \item inset
+    \item outset
+    \item none
+    \item hidden
+  \end{itemize}
+  \end{columns}
+
+  \vspace{\baselineskip}
+  Ejemplo:
+  \begin{lstlisting}
+th, td {
+  border-style: dotted;
+}
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Color del borde}
+
+  Con la propiedad \atri{border-color}, puede establecer el color del borde.
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+th, td {
+  border-color: red;
+}
+  \end{lstlisting}
+\end{frame}
+
+\section{Tamaños de tabla}
+
+\begin{frame}[c]{Tamaños de tabla}
+  Las tablas HTML pueden tener diferentes tamaños para cada columna,
+  fila o la tabla completa.
+
+  \vspace{\baselineskip}
+  Utilice el atributo \atri{style} con las propiedades \propi{width} o
+  \propi{height} para especificar el tamaño de una tabla, fila o columna.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Ancho de la tabla HTML}
+
+  Para establecer el ancho de una tabla, agregue el atributo \atri{style}
+  al elemento \eti{<table>}:
+
+  Establezca el ancho de la tabla al 100\%:
+  \begin{lstlisting}
+<table style="width:100%">
+  <tr>
+    <th>Nombre</th>
+    <th>Apellido paterno</th>
+    <th>Apellido materno</th>
+  </tr>
+  <tr>
+    <td>Miguel</td>
+    <td>Hidalgo</td>
+    <td>y Costilla</td>
+  </tr>
+</table> 
+  \end{lstlisting}
+
+  \begin{exampleblock}{Nota:}
+    Usar un porcentaje como unidad de tamaño para un ancho significa
+    qué tan ancho será este elemento en comparación con su elemento
+    principal, que en este caso es el elemento \eti{<body>}.
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Ancho de columna de la tabla HTML}
+
+  Para establecer el tamaño de una columna específica,
+  agregue el atributo \atri{style} en un elemento \eti{<th>}
+  o \eti{<td>}:
+
+  \vspace{\baselineskip}
+  Establezca el ancho de la primera columna al 70%:
+  \begin{lstlisting}
+<table style="width:100%">
+  <tr>
+    <th style="width:70%">Nombre</th>
+    <th>Apellido paterno</th>
+    <th>Apellido materno</th>
+  </tr>
+  <tr>
+    <td>Miguel</td>
+    <td>Hidalgo</td>
+    <td>y Costilla</td>
+  </tr>
+</table> 
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Altura de fila de la tabla HTML}
+
+  Para establecer la altura de una fila específica, agregue el
+  atributo \atri{style} en un elemento de fila de la tabla:
+
+  \vspace{\baselineskip}
+  Establezca la altura de la segunda fila en 200 píxeles:
+  \begin{lstlisting}
+<table style="width:100%">
+  <tr>
+    <th>Nombre</th>
+    <th>Apellido paterno</th>
+    <th>Apellido materno</th>
+  </tr>
+  <tr style="height:200px">
+    <td>Miguel</td>
+    <td>Hidalgo</td>
+    <td>y Costilla</td>
+  </tr>
+</table> 
+  \end{lstlisting}
+\end{frame}
+
+\section{Encabezados de una tabla}
+
+\begin{frame}[fragile]
+  \frametitle{Encabezados de una tabla}
+
+  Las tablas HTML pueden tener encabezados para cada columna o
+  fila, o para muchas columnas/filas.
+
+  Los encabezados de las tablas se definen con elementos \eti{th},
+  cada elemento \eti{th} representa una celda de la tabla.
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Apellido paterno</th>
+    <th>Apellido materno</th>
+  </tr>
+  <tr>
+    <td>Miguel</td>
+    <td>Hidalgo</td>
+    <td>y Costilla</td>
+  </tr>
+</table> 
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Encabezados de tabla verticales}
+
+  Para usar la primera columna como encabezados de tabla,
+  defina la primera celda de cada fila como un elemento \eti{th}:
+
+  \begin{lstlisting}
+<table>
+  <tr>
+    <th>Nombre</th>
+    <td>Miguel</td>
+    <td>José María</td>
+  </tr>
+  <tr>
+    <th>Apellido paterno</th>
+    <td>Hidalgo</td>
+    <td>Morelos</td>
+  </tr>
+  <tr>
+    <th>Apellido materno</th>
+    <td>y Costilla</td>
+    <td>y Pavón</td>
+  </tr>
+</table> 
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Alinear encabezados de tabla}
+
+  De forma predeterminada, los encabezados de las tablas están
+  en negrita y centrados:
+
+  Para alinear a la izquierda los encabezados de la tabla,
+  use la propiedad \atri{text-align} CSS:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<style>
+th {
+  text-align: left;
+}
+</style>
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Encabezado para varias columnas}
+
+  Puede tener un encabezado que abarque dos o más columnas.
+
+  Para hacer esto, use el atributo \atri{colspan} en el elemento
+  \eti{<th>}:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th colspan="2">Apellidos</th>
+  </tr>
+  <tr>
+    <td>Miguel</td>
+    <td>Hidalgo</td>
+    <td>y Costilla</td>
+  </tr>
+</table> 
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Título de la tabla}
+
+  Puede agregar un título que sirva como encabezado para toda la tabla.
+  Para agregar un título a una tabla, use la etiqueta \eti{<caption>}:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<table style="width:100%">
+  <caption>Ahorros del mes</caption>
+  <tr>
+    <th>Mes</th>
+    <th>Ahorro</th>
+  </tr>
+  <tr>
+    <td>Enero</td>
+    <td>$100</td>
+  </tr>
+  <tr>
+    <td>Febrero</td>
+    <td>$100</td>
+  </tr>
+</table> 
   \end{lstlisting}
 \end{frame}
 
