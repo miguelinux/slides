@@ -16,12 +16,11 @@ let nombre = "Juan";                            // Cadena de texto
 let objeto = {nombre:"Juan", apellido:"Pérez"}; // Objeto 
   \end{lstlisting}
 
-  En programación, los tipos de datos son un concepto importante.
-
-  Para poder operar sobre variables, es importante saber algo sobre el tipo.
-
-  Sin tipos de datos, una computadora no puede resolver esto de manera segura:
-
+  \begin{itemize}
+    \item En programación, los tipos de datos son un concepto importante.
+    \item Para poder operar sobre variables, es importante saber algo sobre el tipo.
+    \item Sin tipos de datos, una computadora no puede resolver esto de manera segura:
+  \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -75,11 +74,12 @@ document.getElementById("demo").innerHTML = x;
 \begin{frame}[fragile]
   \frametitle{El concepto de tipos de datos}
 
+  ¿Cuál es el resultado de la siguiente expresión?
+
   \begin{lstlisting}
 let x = "Volvo" + 16;
   \end{lstlisting}
 
-  \vspace{\baselineskip}
   JavaScript evalúa las expresiones de izquierda a derecha.
   Diferentes secuencias pueden producir diferentes resultados:
 
@@ -95,11 +95,11 @@ let x = 16 + 4 + "Volvo";
 let x = "Volvo" + 16 + 4;
   \end{lstlisting}
 
-  En el primer ejemplo, JavaScript trata el 16 y el 4 como números,
+  En el segundo ejemplo, JavaScript trata el 16 y el 4 como números,
   hasta que llega a "Volvo".
 
   \vspace{\baselineskip}
-  En el segundo ejemplo, dado que el primer operando es una cadena,
+  En el tercer ejemplo, dado que el primer operando es una cadena,
   todos los operandos se tratan como cadenas.
 \end{frame}
 
@@ -113,7 +113,7 @@ let x = "Volvo" + 16 + 4;
   \begin{lstlisting}
 let x;           // ahora x es sin definir (undefined)
 x = 5;           // ahora x es un Numero
-x = "John";      // ahora x es una Cadena de Texto (String)
+x = "Juan";      // ahora x es una Cadena de Texto (String)
   \end{lstlisting}
 \end{frame}
 
@@ -123,8 +123,10 @@ x = "John";      // ahora x es una Cadena de Texto (String)
   Una cadena (o una cadena de texto) es una serie de
   caracteres como \textbf{"Juan Pérez"}.
 
+  \vspace{\baselineskip}
   Las cadenas se escriben con comillas. Puede utilizar
   comillas simples o dobles:
+
   \vspace{\baselineskip}
   \begin{lstlisting}
 let nombreDeCarro1 = "Volvo XC60";   // Usando comillas dobles
@@ -153,15 +155,14 @@ let respuesta3 = 'El se llama "Juan"'; // Comilla doble dentro de simples
 
   JavaScript tiene un solo tipo de números.
 
+  \vspace{\baselineskip}
   Los números se pueden escribir con o sin decimales:
+
   \vspace{\baselineskip}
   \begin{lstlisting}
-let x1 = 34.00;     // escrito con desimales
-let x2 = 34;        // escrito sin desimales
+let x1 = 34.00;     // escrito con decimales
+let x2 = 34;        // escrito sin decimales
   \end{lstlisting}
-\end{frame}
-
-\begin{frame}[c]{}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -173,66 +174,176 @@ let x2 = 34;        // escrito sin desimales
   \vspace{\baselineskip}
   \begin{lstlisting}
 let y = 123e5;      // 12300000 =  123 x 10^5
-let z = 123e-5;     // 0.00123 
+let z = 123e-5;     // 0.00123  = 123 x 10^(-5)
   \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Booleanos de JavaScript}
 
+  Los valores booleanos solo pueden tener dos valores:
+  \textbf{true} o \textbf{false}.
+
   \vspace{\baselineskip}
   \begin{lstlisting}
+let x = 5;
+let y = 5;
+let z = 6;
+(x == y)       // regresa true
+(x == z)       // regresa false 
+  \end{lstlisting}
+
+  Los booleanos se utilizan a menudo en pruebas condicionales.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Booleanos de JavaScript}
+  \begin{lstlisting}
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Booleanos JavaScript</h2>
+<p>Los valores booleanos solo pueden tener dos valores:
+   true o false:</p>
+
+<p id="demo"></p>
+<script>
+let x = 5;
+let y = 5;
+let z = 6;
+
+document.getElementById("demo").innerHTML = (x == y) + "<br>" + (x == z);
+</script>
+</body>
+</html>
   \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Matrices de JavaScript}
+  \frametitle{Matrices/Arreglos de JavaScript}
+
+  \begin{itemize}
+    \item Las matrices/arreglos de JavaScript se escriben con corchetes.
+    \item Los elementos de la matriz están separados por comas.
+  \end{itemize}
 
   \vspace{\baselineskip}
+  El siguiente código declara (crea) una matriz/arreglo llamada cars,
+  que contiene tres elementos (nombres de automóviles):
   \begin{lstlisting}
+const cars = ["Saab", "Volvo", "BMW"];
+document.getElementById("demo").innerHTML = cars[0];
   \end{lstlisting}
+
+  \vspace{\baselineskip}
+  Los índices de matriz se basan en cero, lo que significa que el
+  primer elemento es [0], el segundo es [1] y así sucesivamente.
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Objetos de JavaScript}
 
+  \begin{itemize}
+    \item Los objetos de JavaScript se escriben con llaves {}.
+    \item Las propiedades de los objetos se escriben como pares
+          nombre:valor, separados por comas.
+  \end{itemize}
+
   \vspace{\baselineskip}
   \begin{lstlisting}
+const persona = {nombre:"Juan", apellido:"Pérez", edad:50, color:"azul"};
+  \end{lstlisting}
+
+  El objeto (persona) en el ejemplo anterior tiene 4 propiedades:
+  nombre, apellido, edad y color.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Objetos de JavaScript}
+  \begin{lstlisting}
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Objetos de JavaScript</h2>
+
+<p id="demo"></p>
+<script>
+const persona = {
+  nombre : "Juan",
+  apellido : "Pérez",
+  edad     : 50,
+  color    : "azul"
+};
+
+document.getElementById("demo").innerHTML =
+persona.nombre + " tiene " + persona.edad + " años.";
+</script>
+</body>
+</html>
   \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{El operador "typeof"}
 
+  Puede utilizar el operador \textbf{typeof} de JavaScript para
+  encontrar el tipo de una variable de JavaScript.
+
+  El operador \textbf{typeof} devuelve el tipo de una variable o
+  una expresión:
+
   \vspace{\baselineskip}
   \begin{lstlisting}
+document.getElementById("demo").innerHTML = 
+typeof "" + "<br>" +
+typeof "Juan" + "<br>" + 
+typeof "Juan Pérez";
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+document.getElementById("demo").innerHTML = 
+typeof 0 + "<br>" + 
+typeof 314 + "<br>" +
+typeof 3.14 + "<br>" +
+typeof (3) + "<br>" +
+typeof (3 + 4);
   \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Indefinido}
 
+  En JavaScript, una variable sin valor, tiene el valor \textbf{undefined}.
+  El tipo también es \textbf{undefined}.
+
   \vspace{\baselineskip}
   \begin{lstlisting}
+let car;  // El valor es sin definir y el tipo es sin definir
   \end{lstlisting}
+
+  \vspace{\baselineskip}
+  Cualquier variable se puede vaciar, estableciendo el valor en
+  \textbf{undefined}. El tipo también será \textbf{undefined}.
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+car = undefined; // El valor ees sin definir y el tipo es sin definir
+  \end{lstlisting}
+
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Valores vacíos}
 
-  \vspace{\baselineskip}
-  \begin{lstlisting}
-  \end{lstlisting}
-\end{frame}
-
-\begin{frame}[c]{}
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{}
+  \begin{itemize}
+    \item Un valor vacío no tiene nada que ver con undefined.
+    \item Una cadena vacía tiene tanto un valor legal como un tipo.
+  \end{itemize}
 
   \vspace{\baselineskip}
   \begin{lstlisting}
+let car = "";    // El valor es "", el tipo de dato (typeof) es "string"
   \end{lstlisting}
 \end{frame}
-
