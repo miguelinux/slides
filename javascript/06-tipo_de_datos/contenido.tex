@@ -1,0 +1,238 @@
+% ex: ts=2 sw=2 sts=2 et filetype=tex
+% SPDX-License-Identifier: CC-BY-SA-4.0
+
+\section{Tipos de datos de JavaScript}
+
+\begin{frame}[fragile]
+  \frametitle{El concepto de tipos de datos}
+
+  Las variables de JavaScript pueden contener diferentes tipos de datos:
+  números, cadenas, objetos y más:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+let largo = 16;                                 // Numero
+let nombre = "Juan";                            // Cadena de texto
+let objeto = {nombre:"Juan", apellido:"Pérez"}; // Objeto 
+  \end{lstlisting}
+
+  En programación, los tipos de datos son un concepto importante.
+
+  Para poder operar sobre variables, es importante saber algo sobre el tipo.
+
+  Sin tipos de datos, una computadora no puede resolver esto de manera segura:
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{El concepto de tipos de datos}
+
+  \begin{lstlisting}
+let x = 16 + "Volvo";
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  ¿Tiene algún sentido agregar "Volvo" a dieciséis?,
+  ¿Producirá un error o producirá un resultado?
+
+  JavaScript tratará el ejemplo anterior como:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+let x = "16" + "Volvo";
+  \end{lstlisting}
+
+  \begin{block}{}
+    Al agregar un número y una cadena, JavaScript tratará el
+    número como una cadena.
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{El concepto de tipos de datos}
+  \begin{lstlisting}
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript</h2>
+
+<p>Cuando se suman un número y una cadena de texto,
+   JavaScript los tratará como texto</p>
+
+<p id="demo"></p>
+
+<script>
+let x = 16 + "Volvo";
+document.getElementById("demo").innerHTML = x;
+</script>
+
+</body>
+</html>
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{El concepto de tipos de datos}
+
+  \begin{lstlisting}
+let x = "Volvo" + 16;
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  JavaScript evalúa las expresiones de izquierda a derecha.
+  Diferentes secuencias pueden producir diferentes resultados:
+
+  \vspace{\baselineskip}
+¿Cuál es el resultado de la siguiente expresión?
+  \begin{lstlisting}
+let x = 16 + 4 + "Volvo";
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+¿Cuál es el resultado de la siguiente expresión?
+  \begin{lstlisting}
+let x = "Volvo" + 16 + 4;
+  \end{lstlisting}
+
+  En el primer ejemplo, JavaScript trata el 16 y el 4 como números,
+  hasta que llega a "Volvo".
+
+  \vspace{\baselineskip}
+  En el segundo ejemplo, dado que el primer operando es una cadena,
+  todos los operandos se tratan como cadenas.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Los tipos de JavaScript son dinámicos}
+
+  JavaScript tiene tipos dinámicos. Esto significa que la misma
+  variable se puede utilizar para contener diferentes tipos de datos:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+let x;           // ahora x es sin definir (undefined)
+x = 5;           // ahora x es un Numero
+x = "John";      // ahora x es una Cadena de Texto (String)
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Cadenas JavaScript}
+
+  Una cadena (o una cadena de texto) es una serie de
+  caracteres como \textbf{"Juan Pérez"}.
+
+  Las cadenas se escriben con comillas. Puede utilizar
+  comillas simples o dobles:
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+let nombreDeCarro1 = "Volvo XC60";   // Usando comillas dobles
+let nombreDeCarro2 = 'Volvo XC60';   // Usando comillas simples
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Cadenas JavaScript}
+
+  Puede usar comillas dentro de una cadena, siempre que no
+  coincidan con las comillas que rodean la cadena:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+let respuesta2 = "El se llama 'Juan'"; // Comilla simple dentro de dobles
+let respuesta3 = 'El se llama "Juan"'; // Comilla doble dentro de simples
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  Aprenderá más sobre las cadenas más adelante.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Números JavaScript}
+
+  JavaScript tiene un solo tipo de números.
+
+  Los números se pueden escribir con o sin decimales:
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+let x1 = 34.00;     // escrito con desimales
+let x2 = 34;        // escrito sin desimales
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[c]{}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Números JavaScript}
+
+  Los números extra grandes o extra pequeños se pueden escribir
+  con notación científica (exponencial):
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+let y = 123e5;      // 12300000 =  123 x 10^5
+let z = 123e-5;     // 0.00123 
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Booleanos de JavaScript}
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Matrices de JavaScript}
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Objetos de JavaScript}
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{El operador "typeof"}
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Indefinido}
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Valores vacíos}
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[c]{}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{}
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+  \end{lstlisting}
+\end{frame}
+
