@@ -122,7 +122,7 @@ document.getElementById("demo").innerHTML = carros[0];
   \end{lstlisting}
 
   \begin{exampleblock}{Nota:}
-    Los índices de matriz comienzan con \textf{0}.
+    Los índices de matriz comienzan con \textbf{0}.
 
     \vspace{\baselineskip}
     [0] es el primer elemento. [1] es el segundo elemento.
@@ -316,26 +316,76 @@ function miFuncion(value) {
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{}
+  \frametitle{Agregar elementos a un arreglo/matriz}
+
+  La forma más fácil de agregar un nuevo elemento a una
+  matriz es usando el método \textbf{push()}:
 
   \vspace{\baselineskip}
   \begin{lstlisting}
+<button onclick="miFuncion()">Agregar elemento</button>
+
+<p id="demo"></p>
+
+<script>
+const frutas = ["Banana", "Orange", "Apple"];
+document.getElementById("demo").innerHTML = frutas;
+
+function miFuncion() {
+  frutas.push("Lemon");
+  document.getElementById("demo").innerHTML = frutas;
+}
+</script>
   \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{}
+  \frametitle{Agregar elementos a un arreglo/matriz}
+
+  También se puede agregar un nuevo elemento a una
+  matriz usando la propiedad \textbf{length}:
 
   \vspace{\baselineskip}
   \begin{lstlisting}
+<button onclick="miFuncion()">Agregar elemento</button>
+
+<p id="demo"></p>
+
+<script>
+const frutas = ["Banana", "Orange", "Apple"];
+document.getElementById("demo").innerHTML = frutas;
+
+function miFuncion() {
+  frutas[frutas.length] = "Lemon";
+  document.getElementById("demo").innerHTML = frutas;
+}
+</script>
   \end{lstlisting}
+
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{}
+  \frametitle{Agregar elementos a un arreglo/matriz}
+
+  \begin{alertblock}{¡Advertencia!}
+    Agregar elementos con índices altos puede crear "agujeros"
+    \textbf{indefinidos} en una matriz:
+  \end{alertblock}
 
   \vspace{\baselineskip}
   \begin{lstlisting}
+<script>
+const frutas = ["Banana", "Orange", "Apple"];
+frutas[6] = "Lemon";
+
+let fLen = frutas.length;
+let text = "";
+for (i = 0; i < fLen; i++) {
+  text += frutas[i] + "<br>";
+}
+
+document.getElementById("demo").innerHTML = text;
+</script>
   \end{lstlisting}
 \end{frame}
 
