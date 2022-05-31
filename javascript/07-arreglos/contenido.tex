@@ -1,0 +1,380 @@
+% ex: ts=2 sw=2 sts=2 et filetype=tex
+% SPDX-License-Identifier: CC-BY-SA-4.0
+
+\section{Arreglos en JavaScript}
+
+\begin{frame}[fragile]
+  \frametitle{Arreglos/Matrices de JavaScript} 
+
+  Una arreglo o matriz es una variable especial,
+  que puede contener más de un valor:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+const carros = ["Saab", "Volvo", "BMW"];
+document.getElementById("demo").innerHTML = carros;
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{¿Por qué utilizar matrices?}
+
+  Si tiene una lista de elementos (una lista de nombres de automóviles,
+  por ejemplo), almacenar los automóviles en variables individuales podría
+  tener este aspecto:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+let carro1 = "Saab";
+let carro2 = "Volvo";
+let carro3 = "BMW"; 
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  Sin embargo, ¿qué sucede si desea recorrer los autos y encontrar uno
+  específico? ¿Y si no tuvieras 3 coches, sino 300?
+
+  \vspace{\baselineskip}
+  ¡La solución es un arreglo/matriz!
+
+  \vspace{\baselineskip}
+  Una matriz puede contener muchos valores bajo un solo nombre y puede
+  acceder a los valores haciendo referencia a un número de índice.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Crear un arreglo/matriz}
+
+  El uso de un literal de matriz es la forma más fácil de
+  crear una matriz de JavaScript.
+
+  \vspace{\baselineskip}
+  Sintaxis:
+  \begin{lstlisting}
+const nombre_arreglo = [ elemento1, elemento2, ... ];
+  \end{lstlisting}
+
+  \begin{block}{}
+    Es una práctica común declarar arreglos con la palabra clave const.
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Crear un arreglo/matriz}
+
+  Los espacios y los saltos de línea no son importantes.
+  Una declaración puede abarcar varias líneas:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+const carros = [
+  "Saab",
+  "Volvo",
+  "BMW"
+]; 
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  También puede crear una matriz y luego proporcionar los elementos:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+const carros = [];
+carros[0]= "Saab";
+carros[1]= "Volvo";
+carros[2]= "BMW";
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Uso de la palabra clave JavaScript new}
+
+  El siguiente ejemplo también crea un \textbf{Array} y le asigna valores:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+const carros = new Array("Saab", "Volvo", "BMW");
+document.getElementById("demo").innerHTML = carros;
+  \end{lstlisting}
+
+  \begin{exampleblock}{}
+    Los dos ejemplos anteriores hacen exactamente lo mismo.
+
+    \vspace{\baselineskip}
+    No hay necesidad de usar new Array().
+
+    \vspace{\baselineskip}
+    Por simplicidad, legibilidad y velocidad de ejecución,
+    utilice el método literal de matriz.
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Acceso a los elementos de la matriz}
+
+  Accede a un elemento de matriz haciendo referencia al
+  \textbf{número de índice}:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+const carros = ["Saab", "Volvo", "BMW"];
+document.getElementById("demo").innerHTML = carros[0];
+  \end{lstlisting}
+
+  \begin{exampleblock}{Nota:}
+    Los índices de matriz comienzan con \textf{0}.
+
+    \vspace{\baselineskip}
+    [0] es el primer elemento. [1] es el segundo elemento.
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Cambio de un elemento de matriz}
+
+  Esta declaración cambia el valor del primer elemento en carros:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+const cars = ["Saab", "Volvo", "BMW"];
+cars[0] = "Opel";
+document.getElementById("demo").innerHTML = cars;
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Acceda a la matriz completa}
+
+  Con JavaScript, se puede acceder a la matriz completa
+  haciendo referencia al nombre de la matriz:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+const cars = ["Saab", "Volvo", "BMW"];
+document.getElementById("demo").innerHTML = cars;
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Las matrices son objetos}
+
+  Las matrices son un tipo especial de objetos.
+  El operador \textbf{typeof} en JavaScript devuelve "objeto" para
+  arreglos/matrices.
+
+  \vspace{\baselineskip}
+  Pero, los arreglos de JavaScript se describen mejor como lista de
+  elementos.
+
+  \vspace{\baselineskip}
+  Las matrices usan números para acceder a sus "elementos".
+  En este ejemplo, persona[0] devuelve Juan:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+const persona = ["Juan", "Pérez", 16];
+document.getElementById("demo").innerHTML = persona[0];
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Las matrices son objetos}
+
+  Los objetos usan nombres para acceder a sus "miembros".
+  En este ejemplo, persona.nombre devuelve Juan:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+const persona = {nombre:"Juan", apellido:"Pérez", edad:16};
+document.getElementById("demo").innerHTML = person.nombre;
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Los elementos de matriz pueden ser objetos}
+
+  Las variables de JavaScript pueden ser objetos.
+  Las arreglos/matrices son tipos especiales de objetos.
+
+  Debido a esto, puedes tener variables de diferentes
+  tipos en el mismo \textbf{Array}.
+
+  Puedes tener objetos en un \textbf{Array}. Puedes tener
+  funciones en un \textbf{Array}. Puedes tener arreglos en
+  un \textbf{Array}:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+miArreglo[0] = Date.now;
+miArreglo[1] = miFuncion;
+miArreglo[2] = misCarros;
+  \end{lstlisting}
+
+  Después haremos ejercicios de este ejemplo.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Propiedades y métodos de matriz}
+
+  La verdadera fortaleza de las matrices de JavaScript
+  son las propiedades y los métodos de matriz integrados:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+carros.length   // Regresa el número de elementos
+carros.sort()   // Ordena el arreglo
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{La propiedad de longitud}
+
+  La propiedad \textbf{length} de una matriz/arreglo devuelve la
+  longitud de una matriz/arreglo (el número de elementos de
+  la matriz/arreglo).
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+const frutas = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = frutas.length;
+  \end{lstlisting}
+
+
+  \begin{block}{}
+    La propiedad \textbf{length} siempre es uno más que el índice
+    de matriz más alto.
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Acceso al primer elemento del arreglo}
+
+  El primer elemento es el indice 0.
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+const frutas = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = frutas[0];
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Acceso al último elemento del arreglo}
+
+  El último elemento es el tamaño del arreglo menos uno.
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+const frutas = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = frutas[frutas.length-1];
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Elementos de matriz en un ciclo/bucle}
+
+  Una forma de recorrer una matriz es usando un ciclo/bucle
+  \textbf{for}:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<script>
+const frutas = ["Banana", "Orange", "Apple", "Mango"];
+let fLen = frutas.length;
+
+let text = "<ul>";
+for (let i = 0; i < fLen; i++) {
+  text += "<li>" + frutas[i] + "</li>";
+}
+text += "</ul>";
+
+document.getElementById("demo").innerHTML = text;
+</script>
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Elementos de matriz en un ciclo/bucle}
+
+  También puedes usar la función \textbf{Array.forEach()}:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<script>
+const frutas = ["Banana", "Orange", "Apple", "Mango"];
+
+let text = "<ul>";
+frutas.forEach(miFuncion);
+text += "</ul>";
+document.getElementById("demo").innerHTML = text;
+
+function miFuncion(value) {
+  text += "<li>" + value + "</li>";
+} 
+</script>
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{}
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{}
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{}
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{}
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{}
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{}
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{}
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{}
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+  \end{lstlisting}
+\end{frame}

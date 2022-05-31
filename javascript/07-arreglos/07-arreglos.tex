@@ -1,0 +1,178 @@
+% ex: ts=2 sw=2 sts=2 et filetype=tex
+% SPDX-License-Identifier: CC-BY-SA-4.0
+\documentclass[aspectratio=169]{beamer}
+
+\usetheme{Boadilla}
+
+\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides
+
+\graphicspath{{../img/}}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} %% https://tex.stackexchange.com/questions/664/why-should-i-use-usepackaget1fontenc
+\usepackage{graphicx} % Allows including images
+\usepackage{listings}
+\usepackage{colortbl}
+
+\title{Arreglos/Matrices en JavaScript} % The short title appears at the bottom of every slide,
+                                               % the full title is only on the title page
+\author{Miguel Bernal Marin} % Your name
+\institute[Escuela] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{
+ Nombre de la Institución\\% Your institution for the title page
+\medskip
+\textit{correo} % Your email address
+}
+\date{
+    \today
+} % Date, can be changed to a custom date
+
+\definecolor{editorGray}{rgb}{0.95, 0.95, 0.95}
+\definecolor{editorOcher}{rgb}{1, 0.5, 0} % #FF7F00 -> rgb(239, 169, 0)
+\definecolor{editorGreen}{rgb}{0, 0.5, 0} % #007C00 -> rgb(0, 124, 0)
+\definecolor{codeNumbers}{rgb}{0.5,0.5,0.5}
+\definecolor{brown}{rgb}{0.69,0.31,0.31}
+\definecolor{light-gray}{gray}{0.90}
+
+% CSS
+\lstdefinelanguage{CSS}{
+  keywords={color,background-image:,margin,padding,font,weight,display,
+  position,top,left,right,bottom,list,style,border,size,white,space,min,
+  width, transition:, transform:, transition-property, transition-duration,
+  transition-timing-function
+  },
+  sensitive=true,
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]",
+  alsoletter={:},
+  alsodigit={-}
+}
+
+% JavaScript
+\lstdefinelanguage{JavaScript}{
+  morekeywords={typeof, new, true, false, catch, function, return, null, catch,
+  switch, var, if, in, while, do, else, case, break,
+  let},
+  morecomment=[s]{/*}{*/},
+  morecomment=[l]//,
+  morestring=[b]",
+  morestring=[b]'
+}
+
+\lstdefinelanguage{HTML5}{
+  language=html,
+  sensitive=true,
+  alsoletter={<>=-},
+  morecomment=[s]{<!-}{-->},
+  tag=[s],
+  otherkeywords={
+  %morekeywords={
+  % General
+  >,
+  % Standard tags
+	<!DOCTYPE,
+  </html, <html, <head, <title, </title, <style, </style, <link, </head, <meta, />,
+	% body
+	</body, <body,
+	% Divs
+	</div, <div, </div>,
+	% Paragraphs
+	</p, <p, </p>,
+	% scripts
+	</script, <script,
+  % More tags...
+  <canvas, /canvas>, <svg, <rect, <animateTransform, </rect>, </svg>,
+  <video, <source, <iframe, </iframe>, </video>, <image, </image>, <header,
+  </header, <article, </article, <button, </button, <h1, </h1, <h2, </h2,
+  <img
+  },
+  ndkeywords={
+  %morendkeywords={
+  %morekeywords=[2]{
+  % General
+  =,
+  % HTML attributes
+  charset=, src=, id=, width=, height=, style=, type=, rel=, href=,
+  onclick=,
+  % SVG attributes
+  fill=, attributeName=, begin=, dur=, from=, to=, poster=, controls=, x=, y=, repeatCount=, xlink:href=,
+  % properties
+  margin:, padding:, background-image:, border:, top:, left:, position:, width:, height:, margin-top:, margin-bottom:, font-size:, line-height:,
+	% CSS3 properties
+  transform:, -moz-transform:, -webkit-transform:,
+  animation:, -webkit-animation:,
+  transition:,  transition-duration:, transition-property:, transition-timing-function:,
+  }
+}
+
+\lstdefinestyle{htmlcssjs} {%
+  % General design
+  backgroundcolor=\color{editorGray},
+  basicstyle={\footnotesize\ttfamily},
+  %inputencoding=utf8,
+  %frame=b,
+  % line-numbers
+  numberstyle=\tiny\color{codeNumbers},
+  xleftmargin={0.2cm},
+  numbersep=5pt,
+  numbers=left,
+  stepnumber=1,
+  firstnumber=1,
+  numberfirstline=true,
+  % Code design
+  identifierstyle=\color{black},
+  keywordstyle=\color{blue}\bfseries,
+  %keywordstyle={[2]\color{editorGreen}},
+  ndkeywordstyle=\color{editorGreen}\bfseries,
+  stringstyle=\color{editorOcher}\ttfamily,
+  commentstyle=\color{brown}\ttfamily,
+  % Code
+  language=HTML5,
+  alsolanguage=JavaScript,
+  alsodigit={.:;},
+  tabsize=2,
+  showtabs=false,
+  showspaces=false,
+  showstringspaces=false,
+  extendedchars=true,
+  breaklines=true,
+  % Español
+  literate=%
+  {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+  {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+  {¡}{{!`}}1  {¿}{{?`}}1
+  {ñ}{{\~n}}1 {Ñ}{{\~N}}1
+}
+
+% Code listing set
+\lstset{style=htmlcssjs}
+
+\newcommand{\pausa}{\pause} % Para usar una pausa en las presentaciones
+%\newcommand{\pausa}{}      % Para que NO salgan las pausas
+
+\newcommand{\eti}[1]{\textbf{\textcolor{blue}{#1}}}
+\newcommand{\atri}[1]{\textbf{\textcolor{editorGreen}{#1}}}
+\newcommand{\propi}[1]{\textcolor{editorOcher}{#1}}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}
+    \frametitle{Contenido}
+    \tableofcontents
+\end{frame}
+
+\input{contenido.tex}
+
+\begin{frame}[c]{Créditos}
+  El material está basado en
+  \begin{itemize}
+    \item \href{https://www.w3schools.com/js/default.asp}{https://www.w3schools.com/js/default.asp}
+  \end{itemize}
+\end{frame}
+
+\end{document}
