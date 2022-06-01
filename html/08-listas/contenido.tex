@@ -1,37 +1,112 @@
 % ex: ts=2 sw=2 sts=2 et filetype=tex
 % SPDX-License-Identifier: CC-BY-SA-4.0
 
-\section{Definir una tabla}
+\section{Listas en HTML}
+
+\begin{frame}[c]{Listas}
+
+  Las listas HTML permiten a los desarrolladores web agrupar
+  un conjunto de elementos relacionados en listas.
+
+  \vspace{\baselineskip}
+  \begin{columns}
+    \column{0.5\textwidth}
+      Esta es una lista sin ordenar/numerar:
+      \begin{itemize}
+        \item un elemento
+        \item otro elemento
+        \item otro elemento más 
+      \end{itemize}
+    \column{0.6\textwidth}
+      Esta es una lista ordenada/numerada:
+      \begin{enumerate}
+        \item Primer elemento
+        \item Segundo elemento
+        \item Tercer elemento
+      \end{enumerate}
+  \end{columns}
+\end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{}
+  \frametitle{Listas sin numerar o sin orden (desordenada)}
+
+  Una lista desordenada (sin orden) comienza con la
+  etiqueta \eti{<ul>} (que en inglés
+  es: \textbf{u}norder \textbf{l}ist).
+  Cada elemento de la lista comienza con la etiqueta \eti{<li>} (que en
+  inglés es: \textbf{l}ist \textbf{i}tem.
+
+  \vspace{\baselineskip}
+  Los elementos de la lista se marcarán con viñetas
+  (pequeños círculos negros) de forma predeterminada:
 
   \vspace{\baselineskip}
   \begin{lstlisting}
+<ul>
+  <li>Café</li>
+  <li>Te</li>
+  <li>Leche</li>
+</ul>  
   \end{lstlisting}
 \end{frame}
 
-\begin{frame}[c]{Resumen de etiquetas de tabla HTML}
+\begin{frame}[fragile]
+  \frametitle{Lista ordenada}
+
+  Una lista ordenada comienza con la etiqueta \eti{<ol>} (que en ingés
+  es: \textbf{o}rdered \textbf{l}ist. Cada elemento de la lista
+  comienza con la etiqueta \eti{<li>} ( que en
+  inglés es: \textbf{l}ist \textbf{i}tem.
+
+  \vspace{\baselineskip}
+  Los elementos de la lista se marcarán con números de
+  forma predeterminada:
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<ol>
+  <li>Café</li>
+  <li>Te</li>
+  <li>Leche</li>
+</ol>  
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Listas de descripción}
+
+  HTML también admite listas de descripción.
+
+  \vspace{\baselineskip}
+  Una lista de descripción es una lista de términos,
+  con una descripción de cada término.
+
+  \vspace{\baselineskip}
+  La etiqueta \eti{<dl>} define la lista de descripciones,
+  la etiqueta \eti{<dt>} define el término (nombre) y
+  la etiqueta \eti{<dd>} describe cada término:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+ <dl>
+  <dt>Café</dt>
+  <dd>- Bebida caliente color negro</dd>
+  <dt>Leche</dt>
+  <dd>- Bebida fría color blanco</dd>
+</dl> 
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[c]{Resumen de etiquetas de listas en HTML}
   \begin{table}[]
   \begin{tabular}{cll}
     \textbf{Etiqueta} &  \textbf{Descripción} \\
     \rowcolor{light-gray}
-    \eti{<table>} & Define una tabla \\
-    \eti{<th>} & Define una celda de encabezado en una tabla \\
-    \rowcolor{light-gray}
-    \eti{<tr>} & Define una fila en una tabla \\
-    \eti{<td>} & Define una celda en una tabla \\
-    \rowcolor{light-gray}
-    \eti{<caption>} & Define un título de tabla \\
-    \eti{<colgroup>} & Especifica un grupo de una o más columnas \\
-                     & en una tabla para formatear \\
-    \rowcolor{light-gray}
-    \eti{<col>} & Especifica las propiedades de columna para cada \\
-                & columna dentro de un elemento <colgroup> \\
-    \eti{<thead>} & Agrupa el contenido del encabezado en una tabla \\
-    \rowcolor{light-gray}
-    \eti{<tbody>} & Agrupa el contenido del cuerpo en una tabla \\
-    \eti{<tfoot>} & Agrupa el contenido del pie de página en una tabla \\
+    \eti{<ul>} & Define una lista sin orden/numerar \\
+    \eti{<ol>} & Define una lista ordenada/numerada \\
+    \eti{<li>} & Define un elemento de una lista \\
+    \eti{<dl>} & Define una lista de descripción \\
+    \eti{<dt>} & Define un término en una lista de descripción \\
+    \eti{<dd>} & Describe el término en una lista de descripción \\
   \end{tabular}
   \end{table}
 \end{frame}
