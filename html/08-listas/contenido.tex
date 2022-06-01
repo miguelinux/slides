@@ -10,14 +10,15 @@
 
   \vspace{\baselineskip}
   \begin{columns}
-    \column{0.5\textwidth}
+    \column{0.05\textwidth}
+    \column{0.45\textwidth}
       Esta es una lista sin ordenar/numerar:
       \begin{itemize}
         \item un elemento
         \item otro elemento
         \item otro elemento más 
       \end{itemize}
-    \column{0.6\textwidth}
+    \column{0.5\textwidth}
       Esta es una lista ordenada/numerada:
       \begin{enumerate}
         \item Primer elemento
@@ -34,7 +35,7 @@
   etiqueta \eti{<ul>} (que en inglés
   es: \textbf{u}norder \textbf{l}ist).
   Cada elemento de la lista comienza con la etiqueta \eti{<li>} (que en
-  inglés es: \textbf{l}ist \textbf{i}tem.
+  inglés es: \textbf{l}ist \textbf{i}tem).
 
   \vspace{\baselineskip}
   Los elementos de la lista se marcarán con viñetas
@@ -54,9 +55,9 @@
   \frametitle{Lista ordenada}
 
   Una lista ordenada comienza con la etiqueta \eti{<ol>} (que en ingés
-  es: \textbf{o}rdered \textbf{l}ist. Cada elemento de la lista
+  es: \textbf{o}rdered \textbf{l}ist). Cada elemento de la lista
   comienza con la etiqueta \eti{<li>} ( que en
-  inglés es: \textbf{l}ist \textbf{i}tem.
+  inglés es: \textbf{l}ist \textbf{i}tem).
 
   \vspace{\baselineskip}
   Los elementos de la lista se marcarán con números de
@@ -87,7 +88,7 @@
 
   \vspace{\baselineskip}
   \begin{lstlisting}
- <dl>
+<dl>
   <dt>Café</dt>
   <dd>- Bebida caliente color negro</dd>
   <dt>Leche</dt>
@@ -103,8 +104,10 @@
     \rowcolor{light-gray}
     \eti{<ul>} & Define una lista sin orden/numerar \\
     \eti{<ol>} & Define una lista ordenada/numerada \\
+    \rowcolor{light-gray}
     \eti{<li>} & Define un elemento de una lista \\
     \eti{<dl>} & Define una lista de descripción \\
+    \rowcolor{light-gray}
     \eti{<dt>} & Define un término en una lista de descripción \\
     \eti{<dd>} & Describe el término en una lista de descripción \\
   \end{tabular}
