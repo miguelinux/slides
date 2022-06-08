@@ -1,7 +1,133 @@
 % ex: ts=2 sw=2 sts=2 et filetype=tex
 % SPDX-License-Identifier: CC-BY-SA-4.0
 
-\section{Definir una tabla}
+\section{Formularios HTML}
+
+\begin{frame}[c]{Formularios}
+  Se utiliza un formulario HTML para recopilar la entrada del usuario.
+  La entrada del usuario se envía con mayor frecuencia a un servidor
+  para su procesamiento.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{El elemento <form>}
+
+  El elemento HTML \eti{<form>} se utiliza para crear un
+  formulario HTML para la entrada del usuario:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+<form>
+.
+elementos del formulario
+.
+</form>
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  El elemento \eti{<form>} es un contenedor para diferentes tipos de
+  elementos de entrada, como: campos de texto, casillas de verificación,
+  botones de opción, botones de envío, etc.
+\end{frame}
+
+\begin{frame}[c]{El elemento <input>}
+
+  El elemento HTML \eti{<input>} es el elemento de formulario más utilizado.
+
+  \vspace{\baselineskip}
+  Un elemento \eti{<input>} se puede mostrar de muchas maneras,
+  según el atributo \atri{type}.
+
+  \vspace{\baselineskip}
+  Aquí hay unos ejemplos:
+
+  \begin{table}[]
+  \begin{tabular}{ll}
+    \textbf{Tipo} &  \textbf{Descripción} \\
+    \rowcolor{light-gray}
+    \eti{<input} \atri{type}="\propi{text}"\eti{>} &  Muestra un campo de entrada de texto de una sola línea \\
+    \eti{<input} \atri{type}="\propi{radio}"\eti{>} & Muestra un botón de radio (para seleccionar una de muchas \\ 
+                                                    & opciones)  \\
+    \rowcolor{light-gray}
+    \eti{<input} \atri{type}="\propi{checkbox}"\eti{>} & Muestra una casilla de verificación (para seleccionar cero \\
+    \rowcolor{light-gray}
+                                                     & o más de muchas opciones)  \\
+    \eti{<input} \atri{type}="\propi{submit}"\eti{>} &  Muestra un botón de envío (para enviar el formulario) \\
+    \rowcolor{light-gray}
+    \eti{<input} \atri{type}="\propi{button}"\eti{>} &  Muestra un botón en el que se puede hacer clic \\
+  \end{tabular}
+  \end{table}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Campos de texto}
+
+  Define un campo de entrada de una sola línea para la entrada 
+  de texto \eti{<input} \atri{type}="\propi{text}"\eti{>}
+
+  \vspace{\baselineskip}
+  Ejemplo: Un formulario con campos de entrada de texto:
+  \begin{lstlisting}
+<form>
+  <label for="nombre">Nombre:</label><br>
+  <input type="text" id="nombre" name="nombre"><br>
+  <label for="apellidos">Apellidos:</label><br>
+  <input type="text" id="apellidos" name="apellidos">
+</form>
+  \end{lstlisting}
+
+  \begin{block}{Nota:}
+    La etiqueta del formulario \eti{<form>} en sí no es visible.
+    También tenga en cuenta que el ancho predeterminado de un
+    campo de entrada es de 20 caracteres.
+  \end{block}
+\end{frame}
+
+\begin{frame}[c]{El elemento <label>}
+
+  Observe el uso del elemento \eti{<label>} en el ejemplo anterior.
+
+  \begin{itemize}
+    \item La etiqueta \eti{<label>} define una etiqueta para muchos
+      elementos de formulario.
+    \item El elemento \eti{<label>} es útil para los usuarios de lectores
+      de pantalla (como Alexa), porque el lector de pantalla leerá en voz
+      alta la etiqueta cuando el usuario se centre en el elemento de
+      entrada.
+    \item El elemento \eti{<label>} también ayuda a los usuarios que tienen
+      dificultades para hacer clic en regiones muy pequeñas (como botones
+      de radio o casillas de verificación), porque cuando el usuario hace
+      clic en el texto dentro del elemento \eti{<label>}, alterna el botón
+      de radio/casilla de verificación.
+    \item El atributo \atri{for} de la etiqueta \eti{<label>} debe ser igual
+      al atributo \atri{id} del elemento \eti{<input>} para unirlos.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Botones de radio}
+
+  \eti{<input} \atri{type}="\propi{radio}"\eti{>}
+  define un botón de opción.
+
+  \vspace{\baselineskip}
+  Los botones de opción le permiten al usuario seleccionar UNA de un
+  número limitado de opciones.
+
+  \vspace{\baselineskip}
+  Ejemplo: Un formulario con botones de radio:
+  \begin{lstlisting}
+<p>Escoje tu lenguaje Web favorito:</p>
+<form>
+  <input type="radio" id="html" name="leng_fav" value="HTML">
+  <label for="html">HTML</label><br>
+  <input type="radio" id="css" name="leng_fav" value="CSS">
+  <label for="css">CSS</label><br>
+  <input type="radio" id="javascript" name="leng_fav" value="JavaScript">
+  <label for="javascript">JavaScript</label>
+</form>
+  \end{lstlisting}
+\end{frame}
 
 \begin{frame}[fragile]
   \frametitle{}
@@ -11,27 +137,26 @@
   \end{lstlisting}
 \end{frame}
 
-\begin{frame}[c]{Resumen de etiquetas de tabla HTML}
-  \begin{table}[]
-  \begin{tabular}{cll}
-    \textbf{Etiqueta} &  \textbf{Descripción} \\
-    \rowcolor{light-gray}
-    \eti{<table>} & Define una tabla \\
-    \eti{<th>} & Define una celda de encabezado en una tabla \\
-    \rowcolor{light-gray}
-    \eti{<tr>} & Define una fila en una tabla \\
-    \eti{<td>} & Define una celda en una tabla \\
-    \rowcolor{light-gray}
-    \eti{<caption>} & Define un título de tabla \\
-    \eti{<colgroup>} & Especifica un grupo de una o más columnas \\
-                     & en una tabla para formatear \\
-    \rowcolor{light-gray}
-    \eti{<col>} & Especifica las propiedades de columna para cada \\
-                & columna dentro de un elemento <colgroup> \\
-    \eti{<thead>} & Agrupa el contenido del encabezado en una tabla \\
-    \rowcolor{light-gray}
-    \eti{<tbody>} & Agrupa el contenido del cuerpo en una tabla \\
-    \eti{<tfoot>} & Agrupa el contenido del pie de página en una tabla \\
-  \end{tabular}
-  \end{table}
+\begin{frame}[fragile]
+  \frametitle{}
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{}
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{}
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}
+  \end{lstlisting}
 \end{frame}
