@@ -137,3 +137,171 @@
     \includegraphics[scale=0.5]{distros.png}
   \end{center}
 \end{frame}
+
+\begin{frame}[c]{Entorno gráfico}
+  Los sistemas operativos GNU/Linux pueden funcionar tanto en
+  \textbf{entorno gráfico} como en \textbf{modo consola}, ya que el entorno
+  gráfico no va explícitamente unido al resto de programas de manejo del
+  sistema y puede usarse de forma opcional.
+
+  \vspace{\baselineskip}
+  La consola es común en distribuciones para servidores, mientras que la
+  interfaz gráfica está orientada al usuario final, tanto de hogar como
+  empresarial. Asimismo, también existen los \textbf{entornos de escritorio},
+  que son un conjunto de programas formado por \emph{gestores de ventanas},
+  iconos y muchas aplicaciones que facilitan la utilización de la
+  computadora en modo gráfico.
+
+\end{frame}
+
+\begin{frame}[c]{Entorno gráfico}
+  Los escritorios más populares en GNU/Linux son:
+
+  \begin{itemize}
+    \item GNOME
+    \item KDE Plasma
+    \item LXQt
+    \item Xfce
+    \item MATE
+    \item Cinnamon
+  \end{itemize}
+
+  Aunque existen muchos más, también puede usarse con solo los
+  \textbf{gestores de ventanas}, que son la columna vertebral de los entornos
+  de escritorio, y los encargados de dibujar la interfaz de las aplicaciones
+  y la composición.
+\end{frame}
+
+\section{Sistema de archivos}
+
+\begin{frame}[c]{Estándar de jerarquía del sistema de archivos}
+  El estándar de jerarquía del sistema de archivos (en inglés \textbf{Filesystem
+  Hierarchy Standard}, también conocido por sus siglas \textbf{FHS}) es una
+  norma que define los directorios principales y sus contenidos en el sistema
+  operativo \textbf{GNU/Linux} y otros sistemas de la \emph{familia Unix}.
+
+  \vspace{\baselineskip}
+  Se diseñó originalmente en 1994 para estandarizar el sistema de archivos de
+  las distribuciones de Linux, basándose en la tradicional organización de
+  directorios de los sistemas Unix. En 1995 se amplió el ámbito del estándar
+  a cualquier Unix que sea voluntariamente.
+\end{frame}
+
+\begin{frame}[c]{Estructura de los directorios}
+  En \textbf{UNIX} y sistemas similares como BSD, GNU/Linux, todos los
+  archivos y directorios aparecen bajo el directorio raíz, \textbf{/},
+  aun cuando se encuentren en distintos dispositivos físicos.
+
+  \vspace{\baselineskip}
+  La mayoría de estos directorios existe en todos los sistemas operativos
+  tipo UNIX, y generalmente son usados de igual forma, aunque no son
+  consideradas obligatorias por otras plataformas GNU/Linux.
+\end{frame}
+
+\begin{frame}[c]{Estructura de los directorios}
+	\begin{tikzpicture}
+	[-,thick]
+	\footnotesize
+	\node {\texttt{/}} [edge from parent fork down]
+		child {node {\texttt{bin}}}
+		child {node {\texttt{etc}}}
+		child {node {\texttt{home}}
+			child {node {\texttt{anne}}}
+			child {node {\texttt{sam}}}
+			child {node {$\dots$}}
+		}
+		child {node {\texttt{lib}}}
+		child {node {\texttt{opt}}}
+		child {node {\texttt{proc}}}
+		child {node {\texttt{tmp}}}
+		child {node {\texttt{usr}}
+			child {node {\texttt{bin}}
+				child {node {\texttt{acyclic}}}
+				child {node {\texttt{diff}}}
+				child {node {\texttt{dot}}}
+				child {node {\texttt{gc}}}
+				child {node {\texttt{neato}}}
+				child {node {$\dots$}}
+			}
+			child {node {\texttt{include}}}
+			child {node {\texttt{local}}}
+			child {node {\texttt{share}}}
+			child {node {\texttt{src}}}
+			child {node {$\dots$}}
+		}
+		child {node {$\dots$}};
+	\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[c]{Estructura general}
+  \begin{description}
+    \item [/] La raíz del sistema de archivos. Por lo general, se puede
+			escribir, pero esto no es obligatorio.
+		\item [/boot/] La partición de arranque utilizada para iniciar el sistema.
+			En los sistemas EFI, esta es posiblemente la partición del sistema EFI
+			(ESP).
+		\item [/boot/efi/] Si la partición de arranque /boot/ se mantiene
+			por separado de la partición del sistema EFI (ESP), esta última se monta
+			aquí.
+		\item [/etc/] Configuración específica del sistema. Este directorio puede
+			o no ser de solo lectura.
+		\item [/home/] La ubicación de los directorios de inicio del usuario
+			normal. Posiblemente compartido con otros sistemas y nunca de solo
+			lectura. Este directorio solo debe ser utilizado por usuarios normales,
+			nunca por usuarios del sistema.
+  \end{description}
+\end{frame}
+
+\begin{frame}[c]{Estructura general}
+  \begin{description}
+    \item [/root/] El directorio de inicio del usuario raíz. El directorio de
+			inicio del usuario raíz se encuentra fuera de /home/para asegurarse de
+			que el usuario raíz pueda iniciar sesión incluso sin /home/ estar
+			disponible y montado.
+    \item [/srv/] El lugar para almacenar información/archivos útiles del
+			servidor en general, administrado por el administrador del sistema.
+			No se imponen restricciones sobre cómo se organiza internamente este
+			directorio. Generalmente se puede escribir y posiblemente se comparte
+			entre sistemas.
+    \item [/tmp/] El lugar para pequeños archivos temporales. Este directorio
+			generalmente se monta como una instancia "tmpfs" y, por lo tanto, no
+			debe usarse para archivos más grandes. (Use /var/tmp/ para archivos más
+			grandes). Este directorio generalmente se vacía al arrancar. Además, los
+			archivos a los que no se accede dentro de un tiempo determinado pueden
+			eliminarse automáticamente.
+  \end{description}
+\end{frame}
+
+\begin{frame}[c]{Datos de tiempo de ejecución}
+  \begin{description}
+    \item [/run/] Un sistema de archivos "tmpfs" para que los paquetes del
+			sistema coloquen datos de tiempo de ejecución, archivos de socket y
+			similares. Este directorio se vacía en el arranque y, por lo general,
+			se puede escribir solo para programas privilegiados. Siempre se
+			puede escribir.
+    \item [/run/log/] Registros del sistema en tiempo de ejecución. Los
+			componentes del sistema pueden colocar registros privados en este
+			directorio. Siempre se puede escribir, incluso cuando /var/log/ es
+			posible que aún no esté accesible.
+    \item [/run/user/] Contiene directorios de tiempo de ejecución por
+			usuario, cada uno de los cuales suele ser una instancia "tmpfs" montada
+			individualmente. Siempre se puede escribir, vaciado en cada reinicio y
+			cuando el usuario cierra la sesión.
+  \end{description}
+\end{frame}
+
+\begin{frame}[c]{Recursos del sistema operativo proporcionados por el proveedor}
+  \begin{description}
+    \item [/usr/] Recursos del sistema operativo proporcionados por el
+			proveedor. Por lo general, es de solo lectura, pero esto no es
+			obligatorio. Posiblemente compartida entre varios hosts.
+			El administrador no debe modificar este directorio, excepto al
+			instalar o eliminar paquetes proporcionados por proveedores.
+    \item [/usr/bin/] Binarios y ejecutables para comandos de usuario que
+			aparecerán en la \$PATH ruta de búsqueda. Se recomienda no colocar
+			binarios en este directorio que no sean útiles para la invocación
+			desde un shell (como los binarios de daemon); estos deben colocarse en
+			un subdirectorio de /usr/lib/ en su lugar.
+
+  \end{description}
+\end{frame}
