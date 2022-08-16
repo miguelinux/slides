@@ -6,25 +6,22 @@
 \begin{frame}[c]{¿Qué es GNU/Linux?}
     \begin{columns}
         \column{0.5\textwidth}
+        \begin{center}
+            \includegraphics[scale=0.5]{tux.png}
+        \end{center}
+        \pausa
+        \column{0.5\textwidth}
         \textbf{GNU/Linux} es un sistema operativo (o una familia de sistemas
         operativos) tipo \textbf{Unix} compuesto por software libre y de código
         abierto. GNU/Linux surge de las contribuciones de varios proyectos
         de software, entre los cuales destacan GNU (iniciado por \emph{Richard
         Stallman} en 1983) y el kernel \textbf{Linux} (iniciado
         por \emph{Linus Torvalds} en 1991).
-        \column{0.5\textwidth}
-        \begin{center}
-            \includegraphics[scale=0.5]{tux.png}
-        \end{center}
     \end{columns}
 \end{frame}
 
 \begin{frame}[c]{¿Qué es GNU/Linux?}
     \begin{columns}
-        \column{0.5\textwidth}
-        \begin{center}
-            \includegraphics[scale=0.5]{tux.png}
-        \end{center}
         \column{0.5\textwidth}
         A pesar de que en la jerga cotidiana la mayoría de las personas usan
         el vocablo \textbf{Linux} para referirse a este sistema operativo, en
@@ -32,19 +29,111 @@
         el sistema completo está formado también por una gran cantidad de
         componentes del proyecto GNU junto a componentes de terceros, que
         van desde compiladores hasta entornos de escritorio.
+        \column{0.5\textwidth}
+        \begin{center}
+            \includegraphics[scale=0.5]{tux.png}
+        \end{center}
     \end{columns}
 \end{frame}
 
 \begin{frame}[c]{¿Qué es GNU/Linux?}
     \begin{columns}
         \column{0.5\textwidth}
+        \begin{center}
+            \includegraphics[scale=0.5]{tux.png}
+        \end{center}
+        \column{0.5\textwidth}
         Cabe señalar que existen derivados que usan el núcleo Linux pero que
         no tienen componentes GNU, como por ejemplo el sistema operativo
         \textbf{Android}. También existen distribuciones de software GNU
         donde el núcleo Linux está ausente.
+    \end{columns}
+\end{frame}
+
+\begin{frame}[c]{¿Qué es una distribución de Linux?}
+    \begin{columns}
         \column{0.5\textwidth}
         \begin{center}
-            \includegraphics[scale=0.5]{tux.png}
+            \includegraphics[scale=0.4]{distros.png}
         \end{center}
+        \pausa
+        \column{0.5\textwidth}
+        Una distribución (o \textbf{distro}) de Linux es una distribución
+        de software basada en
+        el núcleo Linux que incluye determinados paquetes de software para
+        satisfacer las necesidades de un grupo específico de usuarios,
+        dando así origen a ediciones domésticas, empresariales y para
+        servidores.
     \end{columns}
+\end{frame}
+
+\begin{frame}[c]{Formatos de paquetes en Linux}
+
+  \begin{block}{Los paquetes existentes en GNU/Linux}
+    Son dependientes de la
+    \textbf{distribución} en la que se estén usando; son usados comúnmente
+    para la compresión de aplicaciones en diferentes formatos para
+    distintos medios de instalación.
+  \end{block}
+
+  \vspace{\baselineskip}
+  Estos son un conjunto de ficheros que contienen instrucciones para la
+  reconstrucción de la aplicación dentro del sistema nuevo, dentro de estos,
+  podemos encontrar, Paquetes Binarios y Paquetes de código Fuente.
+\end{frame}
+
+\begin{frame}[c]{Formatos de paquetes en Linux}
+  \begin{description}
+    \item [DEB] Contienen ejecutables, archivos de configuración,
+      páginas de información, derechos de copyright y otras documentaciones,
+      los paquetes \textbf{Debian} se colocan en archivos .deb.
+
+      Estos paquetes también son usados por distribuciones basadas en la
+      distribución Debian, algunas de estas, son: \textbf{Ubuntu, Kubuntu,
+      ZorinOS, Linux Mint}, entre otras.
+
+    \pausa
+    \item [RPM] Por sus siglas en inglés \textbf{Redhat Package Manager},
+      este tipo de empaquetado para Linux fue desarrollado para la
+      distribución de Red Hat, con el fin de crear un sistema fácil de crear
+      e instalar.
+
+      Actualmente todas las distribuciones basadas en Red Hat ocupan los
+      paquetes RPM, algunas de ellas son: \textbf{Fedora, CentOS y openSuSe},
+      entre otras.
+  \end{description}
+\end{frame}
+
+\begin{frame}[c]{Formatos de paquetes en Linux}
+  \begin{description}
+    \item [TGZ] Es un archivo de paquetes específico para Unix, comprimido
+      con el compresor Gnu Zip. Es un paquete de código fuente, ocupado para
+      contener aplicaciones, y su código fuente, para no tener que crear un
+      tipo de paquete específico para cada distribución.
+
+      A diferencia de los
+      paquetes .deb, o .rpm, este no contiene instrucciones particulares de
+      instalación para cada distribución, por lo que la instalación del
+      contenido deberá ser compilado por el usuario.
+
+    \pausa
+    \item [Ebuild] Paquete usado solo por la distribución Gentoo, consiste en
+      un script bash, ejecutable solo en un entorno específico. Sus archivos,
+      deben de ser archivos de texto con la extensión .ebuild
+  \end{description}
+\end{frame}
+
+\begin{frame}[c]{Formatos de paquetes en Linux}
+  \begin{description}
+    \item [Pacman] Combina un paquete binario simple, con un sistema de fácil
+      construcción. La meta de pacman es el facilitamiento de la instalación
+      de paquetes, sea que estén dentro de los repositorios oficiales de Arch,
+      o creaciones de los mismos usuarios.
+  \end{description}
+\end{frame}
+
+\begin{frame}[c]{Identifica el sistema de paqueteria de cada distro}
+  \begin{center}
+    \includegraphics[scale=0.5]{distros.png}
+  \end{center}
 \end{frame}
