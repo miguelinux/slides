@@ -172,7 +172,7 @@
   y la composición.
 \end{frame}
 
-\section{Sistema de archivos}
+\section{Estructura de directorios}
 
 \begin{frame}[c]{Estándar de jerarquía del sistema de archivos}
   El estándar de jerarquía del sistema de archivos (en inglés \textbf{Filesystem
@@ -309,7 +309,7 @@
     \item [/usr/bin/] Binarios y ejecutables para comandos de usuario que
 			aparecerán en la \$PATH ruta de búsqueda. Se recomienda no colocar
 			binarios en este directorio que no sean útiles para la invocación
-			desde un shell (como los binarios de daemon); estos deben colocarse en
+			desde un shell (como los binarios de demonios); estos deben colocarse en
 			un subdirectorio de /usr/lib/ en su lugar.
     \pausa
     \item [/usr/include/] Archivos de encabezado de la API de C y C++ de
@@ -360,13 +360,17 @@
     \pausa
     \item [/var/lib/] Datos persistentes del sistema. Los componentes del
       sistema pueden colocar datos privados en este directorio
-    \pausa
+  \end{description}
+\end{frame}
+
+\begin{frame}[c]{Datos del sistema de variables persistentes}
+  \begin{description}
     \item [/var/log/] Registros persistentes del sistema. Los componentes del
       sistema pueden colocar registros privados en este directorio, aunque se
       recomienda realizar la mayoría de los registros a través de las
-      llamadas \textbf{syslog}(3)  y \textbf{sd_journal_print}(3).
+      llamadas \textbf{syslog}(3)  y \textbf{sd\_journal\_print}(3).
     \pausa
-    \item [/var/log/] El lugar para archivos temporales más grandes y
+    \item [/var/tmp/] El lugar para archivos temporales más grandes y
       persistentes. A diferencia de /tmp/, este directorio generalmente se
       monta desde un sistema de archivos físico persistente y, por lo tanto,
       puede aceptar archivos más grandes.
@@ -386,7 +390,11 @@
       lista de procesos y otras funciones. Este sistema de archivos es
       principalmente una API para interactuar con el kernel y no un lugar
       donde se puedan almacenar archivos normales.
-    \pausa
+  \end{description}
+\end{frame}
+
+\begin{frame}[c]{Kernel virtual y sistemas de archivos API}
+  \begin{description}
     \item [/proc/sys/] Una jerarquía debajo /proc/ que expone una cantidad de
       parámetros ajustables del kernel. La forma principal de configurar los
       ajustes en este árbol de archivos API es a través de los archivos
