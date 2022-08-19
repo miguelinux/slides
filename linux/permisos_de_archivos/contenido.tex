@@ -3,3 +3,341 @@
 
 \section{Permisos de archivos}
 
+\begin{frame}[c]{Permisos de archivos}
+  Aunque ya existen muchas funciones de seguridad buenas integradas en los
+  sistemas basados en Linux, puede existir una \textbf{vulnerabilidad}
+  potencial muy importante cuando se otorga el acceso local, es decir,
+  problemas basados en \textbf{permisos de archivos} que resultan de un
+  usuario que no asigna los \emph{permisos correctos} a los archivos y
+  directorios.
+
+  \vspace{\baselineskip}
+  Entonces, en función de la necesidad de los permisos adecuados,
+  veremos las formas de asignar permisos y se mostrará algunos ejemplos en
+  los que puede ser necesaria la modificación.
+\end{frame}
+
+\begin{frame}[c]{Grupos de permisos}
+
+  Cada archivo y directorio tiene tres grupos de permisos basados en usuarios:
+
+  \vspace{\baselineskip}
+  \begin{description}
+    \item [propietario] Los permisos de propietario se aplican solo al
+      propietario del archivo o directorio, no afectarán las acciones de
+      otros usuarios.
+    \pausa
+    \item [grupo] Los permisos de grupo se aplican solo al grupo que se ha
+      asignado al archivo o directorio, no afectarán las acciones de
+      otros usuarios.
+    \pausa
+    \item [otros] Los permisos de otros o también llamados todos los usuarios
+      se aplican a todos los demás usuarios del sistema; este es el grupo de
+      permisos que más desea ver.
+  \end{description}
+\end{frame}
+
+\begin{frame}[c]{Tipos de permisos}
+
+  Cada archivo o directorio tiene tres tipos de permisos básicos:
+
+  \vspace{\baselineskip}
+  \begin{description}
+    \item [lectura] El permiso de lectura se refiere a la capacidad de un
+      usuario para leer el contenido del archivo.
+    \pausa
+    \item [escritura] Los permisos de escritura se refieren a la capacidad
+      de un usuario para escribir o modificar un archivo o directorio.
+    \pausa
+    \item [ejecutar] Afecta la capacidad de un usuario
+      para ejecutar un archivo o ver el contenido de un directorio.
+  \end{description}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Ver los permisos}
+
+  Puede ver los permisos verificando los "permisos de archivo o directorio"
+  en su Administrador de archivos GUI favorito o revisando el resultado del
+  comando "\textbf{ls -l}" mientras está en la terminal y mientras trabaja
+  en el directorio que contiene el archivo o la carpeta.
+
+  \begin{lstlisting}[language=Bash]
+usuario@linux ~ $ ls -l
+total 0
+-rw-r--r--. 1 usuario grupo  0 Aug 19 10:49 un-archivo.txt
+-rw-rw-rw-. 1 usuario grupo  0 Aug 19 10:49 Un-archivo.txt
+drwxr-xr-x. 2 usuario grupo 40 Aug 19 10:49 un-directorio
+usuario@linux ~ $ ls -l /dev/null
+crw-rw-rw-. 1 root root 1, 3 Aug 19 07:14 /dev/null
+usuario@linux ~ $ ls -l /dev/sda
+brw-rw----. 1 root disk 8, 0 Aug 19 07:14 /dev/sda
+usuario@linux ~ $
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[c]{Ver los permisos}
+  El permiso en la línea de comando se muestra como: \textbf{\_rwxrwxrwx 1
+  propietario:grupo}
+
+  \begin{enumerate}
+    \item Derechos de usuario/Permisos
+      \begin{enumerate}
+        \item El primer carácter que se marco con un guión bajo es el indicador
+          de tipo de archivo.
+          \begin{description}
+            \item [-] es un archivo ordinario
+            \item [d] es un directorio
+            \item [d] es un enlace simbólico
+            \item [b] es un archivo/dispositivo de bloques
+            \item [c] es un archivo/dispositivo de caracteres
+            \item [s] es un archivo de socket
+          \end{description}
+        \item El siguiente conjunto de tres caracteres (rwx) es para los
+          permisos de \textbf{propietario}.
+        \item El segundo conjunto de tres caracteres (rwx) es para los
+          permisos de \textbf{grupo}.
+        \item El tercer conjunto de tres caracteres (rwx) es para los
+          permisos de \textbf{otros} o \textbf{todos los usuarios}.
+      \end{enumerate}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}[c]{Ver los permisos}
+  El permiso en la línea de comando se muestra como: \textbf{\_rwxrwxrwx 1
+  propietario:grupo}
+
+  \begin{enumerate}
+    \setcounter{enumi}{1}
+    \item Siguiendo esa agrupación ya que el número entero/número muestra el
+      número de enlaces duros al archivo.
+    \item La última parte es la asignación de propietario y grupo con el
+      formato \textbf{Propietario:Grupo}.
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}[c]{Modificación de los permisos}
+  Cuando está en la línea de comando, los permisos se editan usando el
+  comando \textbf{chmod}. Puede asignar los permisos explícitamente o
+  mediante una referencia binaria como se describe a continuación.
+\end{frame}
+
+\begin{frame}[c]{Definición explícita de permisos}
+  Para definir permisos de forma explícita, deberá hacer referencia al
+  grupo de permisos y los tipos de permisos.
+
+  \vspace{\baselineskip}
+  Los grupos de permisos utilizados son:
+  \begin{description}
+    \item [u] Propietario
+    \item [g] Grupo
+    \item [o] Otros
+    \item [a] Todos los usuarios
+  \end{description}
+
+  \vspace{\baselineskip}
+  Los operadores de asignación potenciales son \textbf{+} (más) y \textbf{–}
+  (menos); estos se utilizan para decirle al sistema si debe agregar o
+  eliminar los permisos específicos.
+\end{frame}
+
+\begin{frame}[c]{Definición explícita de permisos}
+
+  Los tipos de permisos que se utilizan son:
+
+  \begin{description}
+    \item [r] Leer
+    \item [w] Escribir
+    \item [x] Ejecutar
+  \end{description}
+
+  \vspace{\baselineskip}
+  Entonces, por ejemplo, supongamos que tengo un archivo llamado "archivo1"
+  que actualmente tiene los permisos establecidos en \textbf{-rw-rw-rw-},
+  lo que significa que el propietario, el grupo y otros tienen
+  permiso de lectura y escritura.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Definición explícita de permisos}
+  Ahora queremos eliminar los permisos de lectura y escritura del grupo de
+  todos los usuarios.
+
+  \vspace{\baselineskip}
+  Para realizar esta modificación, invocaría el comando:
+
+  \begin{lstlisting}[language=Bash]
+chmod a-rw archivo1
+  \end{lstlisting}
+
+  \pausa
+  \vspace{\baselineskip}
+  Para agregar los permisos anteriores, invocaría el comando:
+
+  \begin{lstlisting}[language=Bash]
+chmod a+rw archivo1
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  Como puede ver, si desea otorgar esos permisos, cambiaría el carácter
+  menos por un signo más para agregar esos permisos.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Uso de referencias binarias para establecer permisos}
+  Para establecer el permiso usando referencias binarias, primero debe
+  comprender que la entrada se realiza ingresando tres enteros/números.
+
+  \vspace{\baselineskip}
+  Una cadena de permiso de muestra sería
+  \begin{lstlisting}[language=Bash]
+chmod 640 archivo1
+  \end{lstlisting}
+  lo que significa que el propietario tiene permisos de lectura y escritura,
+  el grupo tiene permisos de lectura y otros (todos los demás usuarios) no
+  tienen derechos sobre el archivo.
+
+  \vspace{\baselineskip}
+  El primer número representa el permiso del propietario; el segundo
+  representa los permisos del Grupo; y el último número representa los
+  permisos para todos los demás usuarios.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Definición explícita de permisos}
+  Los números son una representación binaria de la cadena rwx.
+  \begin{description}
+    \item [r] = 4
+    \item [w] = 2
+    \item [x] = 1
+  \end{description}
+
+  \vspace{\baselineskip}
+  Agrega los números para obtener el número entero representa los
+  permisos que desea establecer. Deberá incluir los permisos binarios para
+  cada uno de los tres grupos de permisos.
+
+  Entonces, para configurar un archivo llamado arhivo1 con permisos
+  \textbf{-rwxr-----} , debe ingresar el comando
+  \begin{lstlisting}[language=Bash]
+chmod 740 archivo1
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Propietarios y Grupos}
+  El propietario como su nombre lo indica es el usuario al que pertenece el
+  archivo y el grupo es el nombre del grupo al que pertenece el archivo o
+  directorio.
+
+  Utiliza el comando \textbf{chown} para cambiar las asignaciones de
+  propietario y grupo, la sintaxis es simple
+  \begin{lstlisting}[language=Bash]
+chown  propietario:grupo  nombre-de-archivo
+  \end{lstlisting}
+  por lo tanto, para cambiar el propietario del archivo1 a usuario1 y el grupo
+  a familia, debe ingresar
+  \begin{lstlisting}[language=Bash]
+chown  usuario1:familia  archivo1
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[c]{Permisos especiales de Setuid/Setgid}
+  Los permisos setuid/setguid se utilizan para indicarle al sistema que
+  ejecute un ejecutable como propietario con los permisos del propietario
+  del archivo.
+
+  \vspace{\baselineskip}
+  Tenga cuidado al usar los bits setuid/setgid en los permisos. Si asigna
+  permisos incorrectamente a un archivo propiedad de root con el conjunto
+  de bits setuid/setgid, entonces puede abrir su sistema a la intrusión.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Permisos especiales de Setuid/Setgid}
+  Solo puede asignar el bit setuid/setgid definiendo explícitamente los
+  permisos. El carácter del bit setuid/setguid es "\textbf{s}" en la parte de
+  ejecución de los permisos de propietario o grupo.
+
+  \vspace{\baselineskip}
+  Para que configure el bit setuid/setguid en "script1.sh" 
+
+  \begin{lstlisting}[language=Bash]
+chmod g+s script1.sh
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Permisos especiales de Sticky Bit}
+  El sticky bit puede ser muy útil en un entorno compartido porque cuando
+  se ha asignado a los permisos en un directorio, lo configura para que solo
+  el propietario del archivo pueda cambiar el nombre o eliminar dicho archivo.
+
+  \vspace{\baselineskip}
+  Solo puede asignar el sticky bit definiendo explícitamente los permisos.
+  El carácter del sticky bit es "\textbf{t}" en la parte ejecutable de los
+  permisos de otros usuarios.
+
+  \vspace{\baselineskip}
+  Para establecer el sticky bit en un directorio llamado dir1, debe ejecutar
+  el comando
+  \begin{lstlisting}[language=Bash]
+chmod +t dir1
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[c]{Cuando los permisos son importantes}
+
+  Para algunos usuarios de computadoras basadas en Mac o Windows,
+  usted no piensa en los permisos, pero esos entornos no se enfocan tan
+  agresivamente en los derechos basados en el usuario sobre los archivos,
+  a menos que se encuentre en un entorno corporativo. Pero ahora está
+  ejecutando un sistema basado en Linux y la seguridad basada en permisos
+  se simplifica y se puede usar fácilmente para restringir el acceso a su
+  gusto.
+
+  \vspace{\baselineskip}
+  Entonces, se mostrarán algunos documentos y carpetas en los que desea
+  enfocarse y se mostrarán cómo se deben configurar los permisos óptimos.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Cuando los permisos son importantes}
+  \begin{itemize}
+    \item \textbf{Directorios de inicio}/\textbf{home directory}: los
+      directorios de inicio de los usuarios son importantes, porque no desea
+      que otros usuarios puedan ver y modificar los archivos en los documentos
+      de escritorio de otro usuario. Para remediar esto, querrá que el
+      directorio tenga los permisos \textbf{drwx------} (700), así que
+      digamos que queremos aplicar los permisos correctos en el directorio de
+      inicio del "usuario1", lo que se puede hacer emitiendo el comando
+      \begin{lstlisting}[language=Bash]
+chmod 700 /home/usuario1
+      \end{lstlisting}
+
+    \item \textbf{Archivos de configuración del gestor de arranque}: si decide
+      implementar una contraseña para arrancar sistemas operativos específicos,
+      entonces querrá eliminar los permisos de lectura y escritura del archivo
+      de configuración de todos los usuarios excepto root. Para ello puedes
+      cambiar los permisos del archivo a \textbf{700}.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[c]{Cuando los permisos son importantes}
+  \begin{itemize}
+    \item \textbf{Archivos de configuración del sistema y de demonios}: es muy
+      importante restringir los derechos a los archivos de configuración del
+      sistema y del demonio para impedir que los usuarios editen el contenido.
+      Puede que no sea aconsejable restringir los permisos de lectura, pero es
+      obligatorio restringir los permisos de escritura. En estos casos puede
+      ser mejor modificar los derechos a \textbf{644}.
+
+    \item \textbf{scripts de firewall}: puede que no siempre sea necesario
+      bloquear a todos los usuarios para que no lean el archivo de firewall,
+      pero es recomendable restringir que los usuarios escriban en el archivo
+      En este caso, el usuario raíz ejecuta automáticamente la secuencia de
+      comandos del cortafuegos en el arranque, por lo que todos los demás
+      usuarios no necesitan derechos, por lo que puede asignar los
+      \textbf{700} permisos.
+  \end{itemize}
+\end{frame}
