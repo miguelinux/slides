@@ -156,6 +156,118 @@
   \end{description}
 \end{frame}
 
+\section{Direccionamiento de entrada/salida}
+
+\begin{frame}[c]{Conceptos}
+  Las tres definiciones siguientes se denominan "\textbf{Flujos de archivos}".
+  Contienen información que se recibe de algún lugar o se envía a algún lugar.
+  En un sistema UNIX, la entrada del teclado (\textbf{entrada estándar}),
+  la información impresa en la pantalla (\textbf{salida estándar}) y la
+  \textbf{salida de error} (también impresa en la pantalla) se tratan como
+  flujos de archivos separados.
+\end{frame}
+
+\begin{frame}[c]{Flujos de archivos}
+  \begin{description}
+    \item[Salida estándar] 
+      La salida estándar es la salida del programa impresa en la pantalla,
+      sin incluir la salida de error (ver más abajo).
+    \pausa
+    \vspace{\baselineskip}
+    \item[Entrada estándar]
+      La entrada estándar es la entrada del usuario. Normalmente, el teclado
+      se utiliza como dispositivo de entrada estándar en un sistema UNIX.
+    \pausa
+    \vspace{\baselineskip}
+    \item[Error estándar]
+      El error estándar es la salida de error de los programas. Esta salida
+      también se envía a la pantalla y normalmente se verá mezclada con la
+      salida estándar. La diferencia entre la salida estándar y el error
+      estándar es que el error estándar no tiene búfer (aparece
+      inmediatamente en la pantalla) y el error estándar solo se imprime
+      cuando algo sale mal (le dará detalles de lo que salió mal).
+  \end{description}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Uso de los flujos de archivos}
+
+  \begin{description}
+    \item[>] 
+      El símbolo mayor que se usa para enviar información a algún lugar
+      (por ejemplo, un archivo de texto).
+      
+      \begin{lstlisting}[language=Bash]
+cat archivo1.txt archivo2.txt > archivo1_y_2.txt
+      \end{lstlisting}
+
+      Esto concatenará los archivos en un archivo grande llamado
+      "archivo1\_y\_2.txt". Tenga en cuenta que esto sobrescribirá
+      cualquier archivo existente.
+
+    \pausa
+    \vspace{\baselineskip}
+    \item[<]
+      El símbolo menor que insertará información de algún lugar (un archivo
+      de texto) como si lo hubiera escrito usted mismo. A menudo se usa con
+      comandos que están diseñados para obtener información solo de la
+      entrada estándar.
+
+      \begin{lstlisting}[language=Bash]
+tr '[AZ]' '[az]' < unArchivo.txt > archivoNuevo.txt
+      \end{lstlisting}
+  \end{description}
+\end{frame}
+
+\begin{frame}[c]{Uso de los flujos de archivos}
+  \begin{description}
+    \item[>{}>] 
+      El símbolo \textbf{>{}>} agrega información al final de un archivo o
+      crea una si el archivo no existe.
+  \end{description}
+\end{frame}
+
+\begin{frame}[c]{Uso de los flujos de archivos}
+  \begin{description}
+    \item[<{}<]
+      El símbolo \textbf{<{}<} a veces se usa con comandos que usan entrada
+      estándar para tomar información. Simplemente escriba \textbf{<{}<
+      palabra} (donde palabra puede ser cualquier cadena) al final del
+      comando. Sin embargo, su uso principal es en secuencias de comandos de
+      shell.
+
+      \vspace{\baselineskip}
+      El comando toma su entrada hasta que escribe "palabra",
+      lo que hace que el comando finalice y procese la entrada.
+
+      \vspace{\baselineskip}
+      Usar << es similar a usar \textbf{CTRL-D} (tecla \textbf{EOF}),
+      excepto que usa una cadena para realizar la función de fin de archivo.
+      Este diseño permite su uso en scripts de shell.
+  \end{description}
+\end{frame}
+
+\begin{frame}[c]{Uso de los flujos de archivos}
+  \begin{description}
+    \item[]
+      \vspace{\baselineskip}
+      Por ejemplo, escriba "\textbf{cat}" (sin opciones...) y funcionará con
+      la entrada estándar.
+
+      \vspace{\baselineskip}
+      Para dejar de ingresar la entrada estándar, normalmente presionaría
+      \textbf{CTRL-D}.
+
+      \vspace{\baselineskip}
+      Como alternativa, puede escribir "cat <{}< TERMINADO", luego escriba lo
+      que desee.
+
+      \vspace{\baselineskip}
+      Cuando haya terminado, en lugar de presionar \textbf{CTRL-D}, puede
+      escribir "TERMINADO" y terminará (la palabra TERIMANDO no se grabará).
+  \end{description}
+\end{frame}
+
 
 \section{Gestión de usuarios}
 
