@@ -3,15 +3,159 @@
 
 \section{La filosofía de las herramientas de Unix}
 
-\begin{frame}[c]{}
+\begin{frame}[c]{La filosofía de las herramientas de Unix}
+  \begin{itemize}
+    \item Una herramienta es un programa simple, generalmente diseñado para un
+      propósito específico, a veces se le denomina como un comando.
+
+    \pausa
+    \item La filosofía de herramientas de Unix, surge durante la creación del
+      sistema operativo UNIX, después de la revolucionaria invención del
+      tubo (o tubería) '|'.
+
+    \pausa
+    \item La tubería permitía enviar la \textbf{salida} de un programa a la
+      \textbf{entrada} de otro. La filosofía de las herramientas era tener
+      \textbf{pequeños programas} para realizar una \textbf{tarea
+      particular} en lugar de tratar de desarrollar grandes
+      programas monolíticos para realizar una gran cantidad de tareas.
+
+      Para realizar tareas más complejas, las herramientas simplemente se
+      conectarían entre sí mediante tuberías.
+  \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]
-  \frametitle{}
+\begin{frame}[c]{La filosofía de las herramientas de Unix}
+  \begin{itemize}
+    \item Todas las herramientas básicas del sistema UNIX se diseñaron para
+      que pudieran operar juntas. Los editores originales basados en texto (e
+      incluso TeX y LaTeX) usaban ASCII y ahora usan UTF-8 y puede usar
+      herramientas como: \textbf{sed, awk, vi, grep, cat, more, tr} y
+      varias otras herramientas basadas en texto junto con estos editores.
 
-  \begin{lstlisting}[language=Bash]
-  \end{lstlisting}
+    \pausa
+    \item Usando esta filosofía, los programadores evitaron escribir un
+      programa (dentro de su programa más grande) que ya había sido escrito
+      por otra persona (esto podría considerarse una forma de reciclaje de
+      código). Por ejemplo, varias aplicaciones diferentes utilizan los
+      correctores ortográficos de la línea de comandos en lugar de que cada
+      aplicación cree su propio corrector ortográfico.
+
+    \pausa
+    \item Esta filosofía vive hoy en GNU/Linux y varios otros sistemas
+      operativos basados en el sistema UNIX (FreeBSD, NetBSD, OpenBSD, etc.).
+  \end{itemize}
 \end{frame}
+
+\section{Manuales y Ayuda}
+
+\begin{frame}[c]{Comando man}
+  \begin{description}
+    \item[Nombre]
+      \textbf{man} - interfaz de los manuales de referencia del sistema
+
+    \vspace{\baselineskip}
+    \item[Sinopsis]
+      man [opciones de man] [[sección] página ...] ... \\
+      man -K [opciones de man] [sección] term ... \\
+      man -f [opciones de whatis] página ... \\
+
+    \vspace{\baselineskip}
+    \item[Descripción]
+      man es el paginador de manuales del sistema.
+      Cada argumento de página dado a man normalmente es el nombre de un
+      programa, utilidad o función. La página de manual asociada con cada
+      uno de estos argumentos es, pues, encontrada y mostrada.
+
+    \vspace{\baselineskip}
+    \item[Ejemplos]
+      \begin{itemize}
+        \item man ls
+        \item man -K ssh
+        \item man -f scp
+      \end{itemize}
+  \end{description}
+\end{frame}
+
+\begin{frame}[c]{Comando info}
+  \begin{description}
+    \item[Nombre]
+      \textbf{info} - lee los documentos Info
+
+    \vspace{\baselineskip}
+    \item[Sinopsis]
+      info [opciones] ... [menu-item ... ]
+
+    \vspace{\baselineskip}
+    \item[Descripción]
+      Lee la documentación que se encuentra en formato Info.
+
+    \vspace{\baselineskip}
+    \item[Ejemplos]
+      \begin{itemize}
+        \item info emacs
+        \item info -f ./archivo.info
+      \end{itemize}
+  \end{description}
+\end{frame}
+
+\begin{frame}[c]{Comando whatis}
+  \begin{description}
+    \item[Nombre]
+      \textbf{whatis} - muestra descripciones de una línea de las páginas
+      de manual
+
+    \vspace{\baselineskip}
+    \item[Sinopsis]
+      whatis [-dlv?V] [-r|-w] [-s lista] [-m sistema[,...]] [-M ruta] [-L localización] [-C archivo] nombre ...
+    \vspace{\baselineskip}
+    \item[Descripción]
+      Cada página de manual despone de una descripción breve. whatis busca
+      nombres de página de manual y muestra las descripciones de página de
+      cualquier nombre coincidente.
+
+      El nombre puede contener comodines (-w) o puede ser una expresión
+      regular (-r). Con estas opciones puede ser necesario entrecomillar el
+      nombre o escapar (\textbackslash{}) los caracteres especiales para impedir que la
+      shell los interprete.
+
+    \vspace{\baselineskip}
+    \item[Ejemplos]
+      \begin{itemize}
+        \item whatis ls
+        \item whatis ssh
+      \end{itemize}
+  \end{description}
+\end{frame}
+
+\begin{frame}[c]{Comando apropos}
+  \begin{description}
+    \item[Nombre]
+      \textbf{apropos} - busca nombres y descripciones de páginas de manual
+
+    \vspace{\baselineskip}
+    \item[Sinopsis]
+      apropos [-dalv?V] [-e|-w|-r] [-s listado] [-m sistema[,...]] [-M ruta] [-L local] [-C archivo] palabraclave ...
+
+    \vspace{\baselineskip}
+    \item[Descripción]
+      Cada página de manual contiene una breve descripción.
+      apropos busca las descripciones de las instancias de palabra clave.
+
+      Una palabraclave normalmente es una expresión regular, como si (-r)
+      fuera empleada, o quizá contenga comodines (-w), o coincida con la
+      palabra clave exacta (-e). Utilizando estas opciones, quizá sea
+      necesario entrecomillar la palabraclave o escapar (\textbackslash{})
+      los caracteres especiales para impedir que la shell los interprete.
+
+    \vspace{\baselineskip}
+    \item[Ejemplos]
+      \begin{itemize}
+        \item apropos ssh
+      \end{itemize}
+  \end{description}
+\end{frame}
+
 
 \section{Gestión de usuarios}
 
