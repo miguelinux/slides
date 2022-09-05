@@ -30,8 +30,8 @@
 
   \vspace{\baselineskip}
   \begin{lstlisting}[language=Python]
-  a = "Hola"
-  print(a)
+  variable = "Hola"
+  print(variable)
   \end{lstlisting}
 \end{frame}
 
@@ -42,25 +42,25 @@
   utilizando tres comillas:
 
   \begin{lstlisting}[language=Python]
-a = """Lorem ipsum dolor sit amet,
+texto = """Lorem ipsum dolor sit amet,
 consectetur adipiscing elit,
 sed do eiusmod tempor incididunt
 ut labore et dolore magna aliqua."""
-print(a) 
+print(texto)
   \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Asignar una cadena a una variable}
 
-  O tres comillas simples: 
+  O tres comillas simples:
 
   \begin{lstlisting}[language=Python]
-a = '''Lorem ipsum dolor sit amet,
+texto = '''Lorem ipsum dolor sit amet,
 consectetur adipiscing elit,
 sed do eiusmod tempor incididunt
 ut labore et dolore magna aliqua.'''
-print(a) 
+print(texto)
   \end{lstlisting}
 
   \begin{alertblock}{Nota}
@@ -80,7 +80,7 @@ print(a)
   carácter es simplemente una cadena con una longitud de 1.
 
   \vspace{\baselineskip}
-  Se pueden usar corchetes para acceder a elementos de la cadena. 
+  Se pueden usar corchetes para acceder a elementos de la cadena.
 
   \begin{lstlisting}[language=Python]
   a = "Hola Mundo"
@@ -97,21 +97,21 @@ print(a)
 
   \vspace{\baselineskip}
   \begin{lstlisting}[language=Python]
-  for x in "manzana":
-    print(x)
+  for letra in "manzana":
+    print(letra)
   \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Longitud de una cadena}
 
-  Para obtener la longitud de una cadena, se usa la función 
+  Para obtener la longitud de una cadena, se usa la función
   \textcolor{codeKeyword}{len}().
 
   \vspace{\baselineskip}
   \begin{lstlisting}[language=Python]
-  a = "Hola Mundo!"
-  print(len(a))
+  saludo = "Hola Mundo!"
+  print(len(saludo))
   \end{lstlisting}
 \end{frame}
 
@@ -140,7 +140,7 @@ print(a)
 \begin{frame}[fragile]
   \frametitle{Comprobando cadenas}
 
-  Para comprobar si una determinada frase o carácter \textbf{no} 
+  Para comprobar si una determinada frase o carácter \textbf{no}
   está presente en una cadena, podemos usar la palabra clave
   \textcolor{codeKeyword}{not in}.
 
@@ -170,13 +170,13 @@ print(a)
 
   \vspace{\baselineskip}
   Especifique el índice inicial y el índice final, separados por dos puntos,
-  para devolver una parte de la cadena. 
+  para devolver una parte de la cadena.
 
   \vspace{\baselineskip}
   Ejemplo: Obtener los caracteres de la posición 2 a la posición 5 (no incluida):
   \begin{lstlisting}[language=Python]
-  b = "Hola Mundo!"
-  print(b[2:5])
+  saludo = "Hola Mundo!"
+  print(saludo[2:5])
   \end{lstlisting}
 
   \begin{exampleblock}{Nota}
@@ -192,8 +192,8 @@ print(a)
   \vspace{\baselineskip}
   Ejemplo: Obtener los caracteres desde el principio hasta la posición 5 (no incluida):
   \begin{lstlisting}[language=Python]
-  b = "Hola Mundo!"
-  print(b[:5])
+  saludo = "Hola Mundo!"
+  print(saludo[:5])
   \end{lstlisting}
 \end{frame}
 
@@ -205,8 +205,8 @@ print(a)
   \vspace{\baselineskip}
   Ejemplo: Obtener los caracteres de la posición 2 hasta el final:
   \begin{lstlisting}[language=Python]
-  b = "Hola Mundo!"
-  print(b[2:])
+  saludo = "Hola Mundo!"
+  print(saludo[2:])
   \end{lstlisting}
 \end{frame}
 
@@ -218,8 +218,8 @@ print(a)
   Ejemplo: Obtener los caracteres de la posición -5 hasta la posición -2 (no
   incluida)
   \begin{lstlisting}[language=Python]
-  b = "Hola Mundo!"
-  print(b[-5:-2])
+  saludo = "Hola Mundo!"
+  print(saludo[-5:-2])
   \end{lstlisting}
 \end{frame}
 
@@ -233,10 +233,10 @@ print(a)
 
   \vspace{\baselineskip}
   Ejemplo: El método \textcolor{codeKeyword}{upper}() devuelve la
-  cadena en mayúsculas: 
+  cadena en mayúsculas:
   \begin{lstlisting}[language=Python]
-  a = "Hola Mundo!"
-  print(a.upper())
+  saludo = "Hola Mundo!"
+  print(saludo.upper())
   \end{lstlisting}
 \end{frame}
 
@@ -244,11 +244,11 @@ print(a)
   \frametitle{Minúsculas}
 
   El método \textcolor{codeKeyword}{lower}() devuelve la
-  cadena en minúsculas: 
+  cadena en minúsculas:
 
   \begin{lstlisting}[language=Python]
-  a = "Hola Mundo!"
-  print(a.lower())
+  saludo = "HOLA Mundo!"
+  print(saludo.lower())
   \end{lstlisting}
 \end{frame}
 
@@ -263,8 +263,8 @@ print(a)
   blanco al principio y al final de la cadena:
 
   \begin{lstlisting}[language=Python]
-  a = "  Hola Mundo!  "
-  print(a.strip()) # regresa "Hola Mundo!"
+  saludo = "  Hola Mundo!  "
+  print(saludo.strip()) # regresa "Hola Mundo!"
   \end{lstlisting}
 \end{frame}
 
@@ -275,8 +275,8 @@ print(a)
 
   \vspace{\baselineskip}
   \begin{lstlisting}[language=Python]
-  a = "Hola Mundo!"
-  print(a.replace("H","L"))
+  saludo = "Hola Mundo!"
+  print(saludo.replace("H","L"))
   \end{lstlisting}
 \end{frame}
 
@@ -291,8 +291,8 @@ print(a)
   El método \textcolor{codeKeyword}{split}() divide la cadena en
   subcadenas si encuentra instancias del separador:
   \begin{lstlisting}[language=Python]
-  a = "Hola,Mundo"
-  print(a.split(",")) # imprime ['Hola', 'Mundo']
+  saludo = "Hola,Mundo"
+  print(saludo.split(",")) # imprime ['Hola', 'Mundo']
   \end{lstlisting}
 \end{frame}
 
@@ -305,12 +305,12 @@ print(a)
   Para concatenar o combinar dos cadenas, puede usar el operador +.
 
   \begin{lstlisting}[language=Python]
-  a = "Hola"
-  b = "Mundo"
-  c = a + b
-  print(c)
-  c = a +  " " + b
-  print(c)
+  hola = "Hola"
+  mundo = "Mundo"
+  saludo = hola + mundo
+  print(saludo)
+  saludo = hola +  " " + mundo
+  print(saludo)
   \end{lstlisting}
 \end{frame}
 
@@ -329,7 +329,7 @@ print(a)
 
   \vspace{\baselineskip}
   Un ejemplo de un carácter ilegal es una comilla doble dentro
-  de una cadena que está rodeada por comillas dobles: 
+  de una cadena que está rodeada por comillas dobles:
 
   \vspace{\baselineskip}
   \begin{lstlisting}[language=Python]
