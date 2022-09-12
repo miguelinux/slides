@@ -34,6 +34,20 @@
 \definecolor{codeString}{rgb}{1.0, 0.0, 1.0}
 \definecolor{light-gray}{gray}{0.90}
 
+% Lenguaje PSeInt 
+\lstdefinelanguage{PSeInt}{
+  keywords={Algoritmo, FinAlgoritmo, Funcion, Escribir, Leer, Si, SiNo, Fin,
+  Segun, Hacer, De, Otro, Modo, Mientras, Repetir, Hasta, Que, Para, Hasta,
+  Con, Paso},
+  sensitive=False,
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]",
+  alsoletter={<>=-:;},
+  alsodigit={-}
+}
+
 %Code listing style named "mystyle"
 \lstdefinestyle{mystyle}{
   backgroundcolor=\color{codeBakground},
