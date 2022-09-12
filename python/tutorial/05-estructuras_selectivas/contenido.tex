@@ -1,7 +1,20 @@
 % ex: ts=2 sw=2 sts=2 et filetype=tex
 % SPDX-License-Identifier: CC-BY-SA-4.0
 
-\section{Condiciones lógicas y sentencias "si"}
+\section{Condiciones lógicas y sentencias selectivas}
+
+\begin{frame}[c]{Estructuras selectivas}
+  \begin{itemize}
+    \item Las estructuras selectivas se utilizan para tomar decisiones
+      lógicas y también son conocidas como estructuras de decisión o
+      alternativas.
+    \pausa
+    \item En las estructuras selectivas se evalúa una condición y en
+      función del resultado de la misma se realiza una opción u otra.
+    \pausa
+    \item Las condiciones se especifican usando expresiones/condiciones lógicas.
+  \end{itemize}
+\end{frame}
 
 \begin{frame}[c]{Condiciones lógicas}
 
@@ -24,32 +37,59 @@
 
   \vspace{\baselineskip}
   Estas condiciones se pueden utilizar de varias formas, más
-  comúnmente en "sentencias \textcolor{codeKeyword}{if}" y bucles.
+  comúnmente en "sentencias \textcolor{codeKeyword}{if}" y bucles/ciclos.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Sentencias selectivas}
+
+  \begin{columns}
+    \column{0.5\textwidth}
+    La representación de una estructura selectiva en pseudocódigo.
+    \vspace{\baselineskip}
+    \begin{lstlisting}[style=pseudocodigo]
+Si expresión_lógica Entonces
+		acciones_por_verdadero
+SiNo
+		acciones_por_falso
+Fin Si\end{lstlisting}
+
+    \column{0.5\textwidth}
+    \pausa
+    La representación de una estructura selectiva en diagrama de flujo.
+    \includegraphics[scale=0.3]{05-sentencia_selectiva.png}
+  \end{columns}
+
+  \pausa
+  \vspace{\baselineskip}
+  La representación de una estructura selectiva en Python.
+  \begin{lstlisting}[language=Python]
+if expresión_lógica:
+		acciones_por_verdadero
+else:
+		acciones_por_falso
+  \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Sentencias "si"}
 
-  Una "instrucción si" se escribe utilizando la palabra clave
-  \textcolor{codeKeyword}{if}.
+  \begin{columns}
+    \column{0.03\textwidth}
+    \column{0.6\textwidth}
+      Una "instrucción si" se escribe en Python utilizando la palabra clave
+      \textcolor{codeKeyword}{if}.
 
-  \vspace{\baselineskip}
-  \begin{lstlisting}[language=PSeInt]
-  Si numero1 > numero2 Entonces
-    Escribir "nose"
-  SiNo
-    Escribir "nose"
-  Fin Si
-  \end{lstlisting}
-
-  \vspace{\baselineskip}
-  \begin{lstlisting}[language=Python]
+      \vspace{\baselineskip}
+      \begin{lstlisting}[language=Python]
   a = 33
   b = 200
   if b > a:
-    print("b es mas grande que a")
-  \end{lstlisting}
+    print("b es mas grande que a")\end{lstlisting}
 
+    \column{0.37\textwidth}
+    \includegraphics[scale=0.35]{05-if-b-a.png}
+  \end{columns}
   En este ejemplo usamos dos variables, a y b, que se usan como parte de
   la instrucción \textcolor{codeKeyword}{if} para probar si b es mayor
   que a. Como a es 33 y b es 200, sabemos que 200 es mayor que 33,
@@ -222,6 +262,28 @@
 
   Puede tener sentencias if dentro de sentencias if, esto se llama
   \textbf{sentencias if anidadas}.
+
+  \begin{columns}
+    \column{0.55\textwidth}
+    \begin{lstlisting}[style=pseudocodigo]
+Si x > 10 Entonces
+  Escribir "mayor que diez,"
+  Si x > 20 Entonces
+    Escribir "y también mayor que 20!"
+  SiNo
+    Escribir "pero menor que 20."
+  Fin Si
+Fin Si\end{lstlisting}
+    \column{0.45\textwidth}
+    \pausa
+    \includegraphics[scale=0.3]{05-if-x-10-if-x-20.png}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{If anidados}
+
+  El código en Python sería:
 
   \vspace{\baselineskip}
   \begin{lstlisting}[language=Python]
