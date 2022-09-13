@@ -1,0 +1,69 @@
+% ex: ts=2 sw=2 sts=2 et filetype=tex
+% SPDX-License-Identifier: CC-BY-SA-4.0
+
+\section{Cortafuegos "Firewalls" con UFW}
+
+\begin{frame}[c]{Introducción}
+  El kernel de Linux incluye el subsistema \textbf{Netfilter}, que se
+  utiliza para manipular o decidir el destino del tráfico de red que se
+  dirige hacia o a través de su servidor. Todas las soluciones modernas
+  de cortafuegos de Linux utilizan este sistema para el filtrado de paquetes.
+\end{frame}
+
+\begin{frame}[c]{Introducción}
+  El sistema de filtrado de paquetes del kernel sería de poca utilidad para
+  los administradores sin una interfaz de espacio de usuario para
+  administrarlo. Este es el propósito de \textbf{iptables}: cuando un paquete
+  llega a su servidor, se entregará al subsistema \textbf{Netfilter} para su
+  aceptación, manipulación o rechazo según las reglas proporcionadas desde
+  el espacio de usuario a través de \emph{iptables}. Por lo tanto, iptables
+  es todo lo que necesita para administrar su firewall, si está familiarizado
+  con él, pero hay muchas interfaces disponibles para simplificar la tarea.
+\end{frame}
+
+\begin{frame}[c]{ufw - Cortafuegos sin complicaciones}
+  La herramienta de configuración de firewall predeterminada para Ubuntu es
+  \textbf{ufw}. Desarrollado para facilitar la configuración del cortafuegos
+  de \emph{iptables}, \emph{ufw} proporciona una forma sencilla de crear un
+  cortafuegos basado en host IPv4 o IPv6.
+
+  \vspace{\baselineskip}
+  ufw por defecto está inicialmente deshabilitado.
+\end{frame}
+
+\begin{frame}[c]{ufw - Cortafuegos sin complicaciones}
+  De la página de manual de ufw:
+
+  \vspace{\baselineskip}
+  “ufw no pretende proporcionar una funcionalidad de firewall completa a
+  través de su interfaz de comandos, sino que proporciona una manera fácil
+  de agregar o eliminar reglas simples.
+
+  \vspace{\baselineskip}
+  Actualmente se utiliza principalmente para cortafuegos basados en host”.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{ufw - Cortafuegos sin complicaciones}
+  Los siguientes son algunos ejemplos de cómo usar ufw:
+  \begin{itemize}
+    \item Primero, ufw debe estar habilitado. Desde un indicador de terminal,
+      ingrese:
+      \begin{lstlisting}[language=Bash]
+sudo ufw enable
+      \end{lstlisting}
+    \item Para abrir un puerto (SSH en este ejemplo):
+      \begin{lstlisting}[language=Bash]
+sudo ufw allow ssh
+      \end{lstlisting}
+      UFW registra el significado del puerto \textbf{allow ssh} porque está 
+      enumerado como servicio en el archivo \textbf{/etc/services}.
+
+      Sin embargo, podemos escribir la regla equivalente especificando el
+      puerto en vez del nombre del servicio. Por ejemplo, este comando
+      funciona como el anterior:
+      \begin{lstlisting}[language=Bash]
+sudo ufw allow ssh
+      \end{lstlisting}
+  \end{itemize}
+\end{frame}
