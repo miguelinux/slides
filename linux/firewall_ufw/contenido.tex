@@ -28,7 +28,9 @@
   cortafuegos basado en host IPv4 o IPv6.
 
   \vspace{\baselineskip}
-  ufw por defecto está inicialmente deshabilitado.
+  \begin{exampleblock}{ufw}
+    por defecto está inicialmente deshabilitado.
+  \end{exampleblock}
 \end{frame}
 
 \begin{frame}[c]{ufw - Cortafuegos sin complicaciones}
@@ -49,21 +51,170 @@
   \begin{itemize}
     \item Primero, ufw debe estar habilitado. Desde un indicador de terminal,
       ingrese:
-      \begin{lstlisting}[language=Bash]
+      \begin{lstlisting}[language=Bash,numbers=none]
 sudo ufw enable
       \end{lstlisting}
     \item Para abrir un puerto (SSH en este ejemplo):
-      \begin{lstlisting}[language=Bash]
+      \begin{lstlisting}[language=Bash,numbers=none]
 sudo ufw allow ssh
       \end{lstlisting}
-      UFW registra el significado del puerto \textbf{allow ssh} porque está 
+      UFW registra el significado del puerto \textbf{allow ssh} porque está
       enumerado como servicio en el archivo \textbf{/etc/services}.
 
       Sin embargo, podemos escribir la regla equivalente especificando el
       puerto en vez del nombre del servicio. Por ejemplo, este comando
       funciona como el anterior:
-      \begin{lstlisting}[language=Bash]
-sudo ufw allow ssh
+      \begin{lstlisting}[language=Bash,numbers=none]
+sudo ufw allow 22
       \end{lstlisting}
   \end{itemize}
 \end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{ufw - Cortafuegos sin complicaciones}
+  \begin{itemize}
+    \item Las reglas también se pueden agregar usando un formato
+      \emph{numerado}:
+      \begin{lstlisting}[language=Bash,numbers=none]
+sudo ufw insert 1 allow 80
+      \end{lstlisting}
+    \item Del mismo modo, para cerrar un puerto abierto:
+      \begin{lstlisting}[language=Bash,numbers=none]
+sudo ufw deny 22
+      \end{lstlisting}
+    \item Para eliminar una regla, use eliminar seguido de la regla:
+      \begin{lstlisting}[language=Bash,numbers=none]
+sudo ufw delete deny 22
+      \end{lstlisting}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{ufw - Cortafuegos sin complicaciones}
+  \begin{itemize}
+    \item También es posible permitir el acceso desde hosts o redes
+      específicas a un puerto. El siguiente ejemplo permite el acceso SSH
+      desde el host \textbf{192.168.0.2} a cualquier dirección IP en
+      este host:
+      \begin{lstlisting}[language=Bash,numbers=none]
+sudo ufw allow proto tcp from 192.168.0.2 to any port 22
+      \end{lstlisting}
+      Reemplace 192.168.0.2 con 192.168.0.0/24 para permitir el acceso
+      SSH desde toda la subred.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{ufw - Cortafuegos sin complicaciones}
+  \begin{exampleblock}{Nota:}
+    Si el puerto que desea abrir o cerrar está definido en
+    \textbf{/etc/services},
+    puede usar el nombre del puerto en lugar del número.
+  \end{exampleblock}
+  \begin{itemize}
+    \item Agregar la opción –dry-run a un comando ufw generará las reglas
+      resultantes, pero no las aplicará. Por ejemplo, lo siguiente es lo
+      que se aplicaría si se abriera el puerto HTTP:
+      \begin{lstlisting}[language=Bash,numbers=none]
+sudo ufw --dry-run allow http
+      \end{lstlisting}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{ufw - Cortafuegos sin complicaciones}
+  \begin{lstlisting}[language=Bash]
+*filter
+:ufw-user-input - [0:0]
+:ufw-user-output - [0:0]
+:ufw-user-forward - [0:0]
+:ufw-user-limit - [0:0]
+:ufw-user-limit-accept - [0:0]
+### RULES ###
+
+### tuple ### allow tcp 80 0.0.0.0/0 any 0.0.0.0/0
+-A ufw-user-input -p tcp --dport 80 -j ACCEPT
+
+### END RULES ###
+-A ufw-user-input -j RETURN
+-A ufw-user-output -j RETURN
+-A ufw-user-forward -j RETURN
+-A ufw-user-limit -m limit --limit 3/minute -j LOG --log-prefix "[UFW LIMIT]: "
+-A ufw-user-limit -j REJECT
+-A ufw-user-limit-accept -j ACCEPT
+COMMIT
+Rules updated
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{ufw - Cortafuegos sin complicaciones}
+  \begin{itemize}
+    \item ufw puede ser deshabilitado por:
+      \begin{lstlisting}[language=Bash,numbers=none]
+sudo ufw disable
+      \end{lstlisting}
+    \item Para ver el estado del firewall, ingrese:
+      \begin{lstlisting}[language=Bash,numbers=none]
+sudo ufw status
+      \end{lstlisting}
+    \item Y para obtener información de estado más detallada, use:
+      \begin{lstlisting}[language=Bash,numbers=none]
+sudo ufw status verbose
+      \end{lstlisting}
+    \item Para ver el formato numerado :
+      \begin{lstlisting}[language=Bash,numbers=none]
+sudo ufw status numbered
+      \end{lstlisting}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[c]{Integración de aplicaciones en ufw}
+  Las aplicaciones que abren puertos pueden incluir un perfil ufw,
+  que detalla los puertos necesarios para que la aplicación funcione
+  correctamente. Los perfiles se mantienen en
+  \textbf{/etc/ufw/applications.d} y
+  se pueden editar si se han cambiado los puertos predeterminados.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Integración de aplicaciones en ufw}
+  \begin{itemize}
+    \item Para ver qué aplicaciones han instalado un perfil,
+      ingrese lo siguiente en una terminal:
+      \begin{lstlisting}[language=Bash,numbers=none]
+sudo ufw app list
+      \end{lstlisting}
+    \item Similar a permitir el tráfico a un puerto, el uso de un
+      perfil de aplicación se logra ingresando:
+      \begin{lstlisting}[language=Bash,numbers=none]
+sudo ufw allow Samba
+      \end{lstlisting}
+    \item También está disponible una sintaxis extendida:
+      \begin{lstlisting}[language=Bash,numbers=none]
+sudo ufw allow from 192.168.0.0/24 to any app Samba
+      \end{lstlisting}
+      Reemplace Samba y 192.168.0.0/24 con el perfil de aplicación que
+      está utilizando y el rango de IP para su red.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Integración de aplicaciones en ufw}
+
+  \begin{block}{Nota:}
+    No es necesario especificar el \emph{protocolo} para la aplicación,
+    porque esa información se detalla en el perfil. Además, tenga en cuenta
+    que el nombre de la \emph{aplicación} reemplaza el número
+    de\emph{puerto}.
+  \end{block}
+
+  \begin{itemize}
+    \item Para ver detalles sobre qué puertos, protocolos, etc.,
+      están definidos para una aplicación, ingrese:
+      \begin{lstlisting}[language=Bash,numbers=none]
+sudo ufw app info Samba
+      \end{lstlisting}
+  \end{itemize}
+\end{frame}
+
