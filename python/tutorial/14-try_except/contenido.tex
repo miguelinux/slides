@@ -3,15 +3,198 @@
 
 \section{Manejo de excepciones}
 
-\begin{frame}[c]{}
+\begin{frame}[c]{En resumen}
+  Veremos los siguientes bloques de manejo de excepciones:
 
   \vspace{\baselineskip}
-  \textcolor{codeKeyword2}{open}().
+  \begin{itemize}
+    \item El bloque \textcolor{codeKeyword2}{try} le permite probar un
+      bloque de código en busca de errores.
+    \pausa
+    \item El bloque \textcolor{codeKeyword2}{except} le permite manejar el
+      error.
+    \pausa
+    \item El bloque \textcolor{codeKeyword2}{else} te permite ejecutar
+      código cuando no hay ningún error.
+    \pausa
+    \item El bloque \textcolor{codeKeyword2}{finally} le permite ejecutar
+      código, independientemente del resultado de los bloques de prueba y
+      excepción.
+  \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{}
+  \frametitle{Manejo de excepciones}
+  Cuando ocurre un error, o una excepción como lo llamamos, Python
+  normalmente se detendrá y generará un mensaje de error.
 
+  \vspace{\baselineskip}
+  Estas excepciones se pueden manejar usando la declaración
+  \textcolor{codeKeyword2}{try}:
+
+  \vspace{\baselineskip}
+  Ejemplo: El bloque \textcolor{codeKeyword2}{try} generará una excepción,
+  porque \textbf{x} no está definida:
   \begin{lstlisting}[language=Python]
+  try:
+      print(x)
+  except:
+      print("Ocurrió una excepción ")
   \end{lstlisting}
 \end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Manejo de excepciones}
+  Dado que el bloque de prueba genera un error, se ejecutará el
+  bloque de excepción.
+
+  \vspace{\baselineskip}
+  Sin que el bloque de prueba del programa fallará y generará un error:
+
+  \vspace{\baselineskip}
+  Ejemplo: Esta declaración generará un error,
+  porque \textbf{x} no está definida:
+  \begin{lstlisting}[language=Python]
+  print(x)
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Muchas excepciones}
+
+  Puede definir tantos bloques de excepción como desee, por ejemplo,
+  si desea ejecutar un bloque de código especial para un tipo especial
+  de error:
+
+  \vspace{\baselineskip}
+  Ejemplo: Imprimir un mensaje si el bloque try genera un
+  \textbf{NameError} y otro para otros errores:
+  \begin{lstlisting}[language=Python]
+  try:
+      print(x)
+  except NameError:
+      print("La variable x no esta definida")
+  except:
+      print("Algo más salio mal") 
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Muchas excepciones}
+
+  Puede definir tantos bloques de excepción como desee, por ejemplo,
+  si desea ejecutar un bloque de código especial para un tipo especial
+  de error:
+
+  \vspace{\baselineskip}
+  Ejemplo: Imprimir un mensaje si el bloque try genera un
+  \textbf{NameError} y otro para otros errores:
+  \begin{lstlisting}[language=Python]
+  try:
+      print(x)
+  except NameError:
+      print("La variable x no esta definida")
+  except:
+      print("Algo más salio mal") 
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Más/Si no}
+
+  Puede usar la palabra clave \textcolor{codeKeyword2}{else}
+  para definir un bloque de código que se ejecutará si no se generan errores:
+
+  \vspace{\baselineskip}
+  Ejemplo: En este ejemplo, el bloque \textcolor{codeKeyword2}{try}
+  no genera ningún error:
+  \begin{lstlisting}[language=Python]
+  try:
+      print("Hola")
+  except:
+      print("Algo salio mal") 
+  else:
+      print("Nada salio mal") 
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Finalmente}
+
+  Si se especifica el bloque \textcolor{codeKeyword2}{finally}, se ejecutará
+  independientemente de si el bloque try genera un error o no.
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  try:
+      print(x)
+  except:
+      print("Algo salio mal") 
+  finally:
+      print("El bloque de 'try except' ha terminado") 
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Finalmente}
+
+  Esto puede ser útil para cerrar objetos y limpiar recursos:
+
+  \vspace{\baselineskip}
+  Ejemplo: Intente abrir y escribir en un archivo que no se puede escribir:
+  \begin{lstlisting}[language=Python]
+  try:
+      f = open("demo.txt")
+      try:
+          f.write("Algún texto ...")
+      except:
+          print("Algo salio mal al escribir en el archivo")
+      finally:
+          f.close()
+  except:
+      print("Algo salio mal al abrir el archivo")
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  El programa puede continuar, sin dejar abierto el objeto de archivo.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Levantar una excepción}
+
+  Como desarrollador de Python, puede optar por generar una excepción si
+  se produce una condición.
+
+  \vspace{\baselineskip}
+  Para lanzar (o generar) una excepción, use la palabra clave
+  \textcolor{codeKeyword2}{raise}.
+
+  \vspace{\baselineskip}
+  Ejemplo: Genera un error y detiene el programa si x es menor que 0:
+  \begin{lstlisting}[language=Python]
+  x = -1
+
+  if x < 0:
+      raise Exception("Lo siento, no se permiten números menores a cero")
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Levantar una excepción}
+
+  La palabra clave \textcolor{codeKeyword2}{raise} se utiliza para
+  generar una excepción.
+
+  \vspace{\baselineskip}
+  Puede definir qué tipo de error generar y el texto para imprimir al usuario.
+
+  \vspace{\baselineskip}
+  Ejemplo: Genera un TypeError si x no es un número entero:
+  \begin{lstlisting}[language=Python]
+  x = "hello"
+
+  if not type(x) is int:
+      raise TypeError("Solo enteros son permitidos")
+  \end{lstlisting}
+\end{frame}
+
