@@ -373,6 +373,83 @@ among other things).
 \end{frame}
 
 \begin{frame}[c]{El proceso de desarrollo}
+  El proceso de desarrollo del kernel de Linux actualmente consta de
+  algunas "\textbf{ramas}" diferentes del kernel principal y muchas
+  ramas del kernel específicas de subsistemas diferentes.
+  Estas diferentes ramas son$^{\hyperlink{creditos}{[7]}}$:
+
+  \vspace{\baselineskip}
+  \begin{itemize}
+    \item Árbol principal (\textbf{mainline}) de Linus
+    \item Varios árboles estables con múltiples números principales
+    \item Árboles específicos del \href{https://git.kernel.org/}{subsistema}
+    \item Árbol de pruebas de integración \textbf{linux-next}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[c]{Informes de problemas}
+
+  \begin{itemize}
+    \item ¿Se enfrenta a una regresión con un \textbf{kernel vainilla}
+      de la misma serie de la rama estable o de largo plazo?
+    \item ¿Todavía es mantenida?
+  \end{itemize}
+
+  \vspace{\baselineskip}
+  Entonces busque en \href{https://lore.kernel.org/lkml/}{LKML} y en
+  los archivos de la \href{lista de correo
+  estable}{https://lore.kernel.org/stable/} de Linux para encontrar
+  informes coincidentes para unirse. Si no encuentra ninguno, instale
+  la \href{https://kernel.org/}{última versión de esa
+  serie}$^{\hyperlink{creditos}{[8]}}$.
+
+  \vspace{\baselineskip}
+  Si aún muestra el problema, repórtelo a la lista de correo estable
+  (\textbf{stable@vger.kernel.org}) y copie (CC)la lista de regresiones
+  (\textbf{regressions@lists.linux.dev}); idealmente, también copie (CC)
+  el mantenedor y la lista de correo para el subsistema en cuestión.
+\end{frame}
+
+\begin{frame}[c]{Informes de problemas}
+  En todos los demás casos, intente averiguar qué parte del kernel podría
+  estar causando el problema. Consulte el archivo
+  \href{https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/MAINTAINERS}
+  {MAINTAINERS} para saber cómo esperan que los desarrolladores
+  sean informados sobre los problemas, que la mayoría de las veces será
+  por correo electrónico con una lista de correo en copia
+  (CC)$^{\hyperlink{creditos}{[8]}}$.
+
+  \vspace{\baselineskip}
+  Verifique los archivos del destino para buscar informes coincidentes;
+  busque en \href{https://lore.kernel.org/lkml/}{LKML} y en la web también.
+  Si no encuentra ninguno para unirse, instale el kernel principal más
+  reciente. Si el problema está presente allí, envíe un informe.
+
+\end{frame}
+
+\begin{frame}[c]{Informes de problemas}
+  El problema se solucionó allí, pero ¿le gustaría verlo resuelto en una
+  serie estable o a largo plazo aún compatible?.
+
+  \vspace{\baselineskip}
+  Entonces instale su última versión. Si muestra el problema, busque el
+  cambio que lo arregló en la línea principal y verifique si el
+  \textbf{backporting} está en proceso o fue descartado; si no es
+  ninguno, pregunte a quienes manejaron el
+  cambio$^{\hyperlink{creditos}{[8]}}$.
+
+  \vspace{\baselineskip}
+  \begin{alertblock}{Observaciones generales}
+    Al instalar y probar un kernel como se describe anteriormente,
+    asegúrese de que sea estándar (\textbf{vainilla}) (sin parches y sin
+    módulos complementarios).
+
+    \vspace{\baselineskip}
+    También asegúrese de que esté construido y funcionando en un
+    entorno saludable y que no esté contaminado antes de que ocurra
+    el problema.
+  \end{alertblock}
+
 \end{frame}
 
 %\section{}
