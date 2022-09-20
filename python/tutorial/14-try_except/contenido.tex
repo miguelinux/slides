@@ -80,26 +80,6 @@
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Muchas excepciones}
-
-  Puede definir tantos bloques de excepción como desee, por ejemplo,
-  si desea ejecutar un bloque de código especial para un tipo especial
-  de error:
-
-  \vspace{\baselineskip}
-  Ejemplo: Imprimir un mensaje si el bloque try genera un
-  \textbf{NameError} y otro para otros errores:
-  \begin{lstlisting}[language=Python]
-  try:
-      print(x)
-  except NameError:
-      print("La variable x no esta definida")
-  except:
-      print("Algo más salio mal") 
-  \end{lstlisting}
-\end{frame}
-
-\begin{frame}[fragile]
   \frametitle{Más/Si no}
 
   Puede usar la palabra clave \textcolor{codeKeyword2}{else}

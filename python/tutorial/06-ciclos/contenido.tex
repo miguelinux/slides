@@ -1,28 +1,78 @@
 % ex: ts=2 sw=2 sts=2 et filetype=tex
 % SPDX-License-Identifier: CC-BY-SA-4.0
 
+\begin{frame}[c]{Estructuras repetitivas}
+  \begin{columns}
+    \column{0.5\textwidth}
+      \begin{center}
+        \includegraphics[scale=0.5]{06-while.png}
+      \end{center}
+    \column{0.5\textwidth}
+    \begin{itemize}
+      \item Son tambíen conocidas como \textbf{ciclos} o \textbf{bucles}.
+      \pausa
+      \item Un ciclo es utilizado para ejecutar instrucciones repetidamente.
+      \pausa
+      \item Python, tiene dos tipos de estructuras repetitivas:
+        \begin{itemize}
+          \item \textcolor{codeKeyword}{while}
+          \item \textcolor{codeKeyword}{for}
+        \end{itemize}
+    \end{itemize}
+  \end{columns}
+\end{frame}
+
 \section{El ciclo/bucle "mientras"}
 
-\begin{frame}[c]{Ciclos en Python}
-  Python tiene dos comandos de ciclo/bucle primitivos:
-  \begin{itemize}
-    \item el ciclo/bucle \textcolor{codeKeyword}{while}
-    \item el ciclo/bucle \textcolor{codeKeyword}{for}
-  \end{itemize}
+\begin{frame}[fragile]
+  \frametitle{Sentencia Mientras}
+  Con en ciclo \textbf{mientras} podemos ejecutar un conjunto de
+  declaraciones siempre que una condición sea verdadera.
+
+  \begin{columns}
+    \column{0.5\textwidth}
+    La representación de un ciclo mientras en pseudocódigo.
+    \vspace{\baselineskip}
+    \begin{lstlisting}[style=pseudocodigo]
+Mientras condición_lógica Hacer
+		secuencia_de_acciones
+Fin Mientras
+    \end{lstlisting}
+
+    \column{0.5\textwidth}
+    \pausa
+    La representación de un ciclo mientras en diagrama de flujo.
+    \includegraphics[scale=0.4]{06-while.png}
+  \end{columns}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{El bucle while}
+  \frametitle{Sentencia Mientras}
 
-  Con el ciclo while podemos ejecutar un conjunto de declaraciones
-  siempre que una condición sea verdadera.
+  En Python la sentencia del ciclo \textbf{mientras} es
+  \textcolor{codeKeyword}{while} y termina con dos puntos ":".
 
   \vspace{\baselineskip}
   \begin{lstlisting}[language=Python]
-  i = 1
-  while i < 6:
-    print(i)
-    i += 1
+  while condicion:
+     accion_1
+     accion_2
+     accion_3
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Sentencia Mientras}
+
+  Ejemplo: mientras \textbf{contador} sea menor a 6, imprimir el valor
+  de \textbf{contador}.
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  contador = 1
+  while contador < 6:
+    print(contador)
+    contador += 1 # es lo mismo que: contador = contador + 1
   \end{lstlisting}
 
   \pausa
@@ -32,7 +82,7 @@
   \end{alertblock}
 
   El \emph{ciclo while} requiere que las variables relevantes estén listas,
-  en este ejemplo necesitamos definir una variable de indexación, i,
+  en este ejemplo necesitamos definir una variable de indexación, contador,
   que establecemos en 1.
 \end{frame}
 
@@ -44,12 +94,12 @@
 
   \vspace{\baselineskip}
   \begin{lstlisting}[language=Python]
-  i = 1
-  while i < 6:
-    print(i)
-    if i == 3:
+  contador = 1
+  while contador < 6:
+    print(contador)
+    if contador == 3:
       break
-    i += 1
+    contador += 1
   \end{lstlisting}
 \end{frame}
 
@@ -61,12 +111,12 @@
 
   \vspace{\baselineskip}
   \begin{lstlisting}[language=Python]
-  i = 0
-  while i < 6:
-    i += 1
-    if i == 3:
+  contador = 0
+  while contador < 6:
+    contador += 1
+    if contador == 3:
       continue
-    print(i)
+    print(contador)
   \end{lstlisting}
 \end{frame}
 
@@ -78,19 +128,18 @@
 
   \vspace{\baselineskip}
   \begin{lstlisting}[language=Python]
-  i = 1
-  while i < 6:
-    print(i)
-    i += 1
+  contador = 1
+  while contador < 6:
+    print(contador)
+    contador += 1
   else:
-    print("i ya no es menor que 6")
+    print("contador ya no es menor que 6")
   \end{lstlisting}
 \end{frame}
 
-
 \section{El ciclo/bucle "para"}
 
-\begin{frame}[c]{El bucle for}
+\begin{frame}[c]{El ciclo for}
 
   Un bucle \textcolor{codeKeyword}{for} se usa para iterar sobre una secuencia
   (que es una lista, una tupla, un diccionario, un conjunto o una cadena).
@@ -229,6 +278,25 @@
     print(x)
   \end{lstlisting}
 \end{frame}
+
+%\begin{frame}[c]{Pseudocodigo \textbf{para}}
+  %\includegraphics[scale=0.3]{12-psc_for.png}
+  %\pausa
+  %\includegraphics[scale=0.35]{12-df_for.png}
+%\end{frame}
+\begin{frame}[fragile]
+  \frametitle{Pseudocódigo \textbf{para}}
+  La representación de un ciclo \textbf{para} en pseudocódigo.
+  \begin{lstlisting}[style=pseudocodigo]
+Para variable_numerica <- valor_inicial Hasta valor_final Con Paso incremento Hacer
+		secuencia_de_acciones
+Fin Para
+  \end{lstlisting}
+
+  La representación de un ciclo \textbf{para} en diagrama de flujo.
+  \includegraphics[scale=0.4]{06-for.png}
+\end{frame}
+
 
 \begin{frame}[fragile]
   \frametitle{\textbf{Else} en ciclo \textbf{for}}
