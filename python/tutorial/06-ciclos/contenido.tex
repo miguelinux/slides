@@ -159,9 +159,9 @@ Fin Mientras
 
   \vspace{\baselineskip}
   \begin{lstlisting}[language=Python]
-  frutas = ["manzana", "platano", "cereza"]
-  for x in frutas:
-    print(x)
+  lista_de_frutas = ["manzana", "platano", "cereza"]
+  for fruta in lista_de_frutas:
+    print(fruta)
   \end{lstlisting}
 
   \vspace{\baselineskip}
@@ -177,8 +177,8 @@ Fin Mientras
 
   \vspace{\baselineskip}
   \begin{lstlisting}[language=Python]
-  for x in "manzana":
-    print(x)
+  for letra in "manzana":
+    print(letra)
   \end{lstlisting}
 \end{frame}
 
@@ -191,20 +191,20 @@ Fin Mientras
 
   \vspace{\baselineskip}
   \begin{lstlisting}[language=Python]
-  frutas = ["manzana", "platano", "naranja"]
-  for x in frutas:
-    print(x)
-    if x == "platano":
+  lista_de_frutas = ["manzana", "platano", "cereza"]
+  for fruta in lista_de_frutas:
+    print(fruta)
+    if fruta == "platano":
       break
   \end{lstlisting}
 
   \pausa
   \begin{lstlisting}[language=Python]
-  frutas = ["manzana", "platano", "naranja"]
-  for x in frutas:
-    if x == "platano":
+  lista_de_frutas = ["manzana", "platano", "cereza"]
+  for fruta in lista_de_frutas:
+    if fruta == "platano":
       break
-    print(x)
+    print(fruta)
   \end{lstlisting}
 \end{frame}
 
@@ -216,11 +216,11 @@ Fin Mientras
 
   \vspace{\baselineskip}
   \begin{lstlisting}[language=Python]
-  frutas = ["manzana", "platano", "naranja"]
-  for x in frutas:
-    if x == "platano":
+  lista_de_frutas = ["manzana", "platano", "cereza"]
+  for fruta in lista_de_frutas:
+    if fruta == "platano":
       continue
-    print(x)
+    print(fruta)
   \end{lstlisting}
 \end{frame}
 
@@ -238,8 +238,8 @@ Fin Mientras
 
   \vspace{\baselineskip}
   \begin{lstlisting}[language=Python]
-  for x in range(6):
-    print(x)
+  for numero in range(6):
+    print(numero)
   \end{lstlisting}
 
   \pausa
@@ -259,8 +259,8 @@ Fin Mientras
 
   \vspace{\baselineskip}
   \begin{lstlisting}[language=Python]
-  for x in range(2, 6):
-    print(x)
+  for numero in range(2, 6):
+    print(numero)
   \end{lstlisting}
 \end{frame}
 
@@ -274,8 +274,8 @@ Fin Mientras
 
   \vspace{\baselineskip}
   \begin{lstlisting}[language=Python]
-  for x in range(2, 30, 3):
-    print(x)
+  for numero in range(2, 30, 3):
+    print(numero)
   \end{lstlisting}
 \end{frame}
 
@@ -307,8 +307,8 @@ Fin Para
 
   \vspace{\baselineskip}
   \begin{lstlisting}[language=Python]
-  for x in range(6):
-    print(x)
+  for numero in range(6):
+    print(numero)
   else:
     print("Al fin termino!")
   \end{lstlisting}
@@ -324,9 +324,9 @@ Fin Para
 
   \vspace{\baselineskip}
   \begin{lstlisting}[language=Python]
-  for x in range(6):
-    if x == 3: break
-    print(x)
+  for numero in range(6):
+    if numero == 3: break
+    print(numero)
   else:
     print("Al fin termino!")
   \end{lstlisting}
@@ -343,12 +343,12 @@ Fin Para
 
   \vspace{\baselineskip}
   \begin{lstlisting}[language=Python]
-  adjetivo = ["roja", "grande", "dulce"]
-  frutas = ["manzana", "platano", "naranja"]
+  lista_de_adjetivos = ["roja", "grande", "dulce"]
+  lista_de_frutas = ["manzana", "piña", "naranja"]
 
-  for x in adjetivo:
-    for y in frutas:
-      print(y, x)
+  for adjetivo in lista_de_adjetivos:
+      for fruta in lista_de_frutas:
+          print("La", fruta, "es", adjetivo)
   \end{lstlisting}
 \end{frame}
 
@@ -361,7 +361,7 @@ Fin Para
 
   \vspace{\baselineskip}
   \begin{lstlisting}[language=Python]
-  for x in [0, 1, 2]:
+  for numeros in [0, 1, 2]:
     pass
   \end{lstlisting}
 \end{frame}
