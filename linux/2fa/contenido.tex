@@ -4,22 +4,101 @@
 \section{Autenticación de múltiples factores (MFA)}
 
 \begin{frame}[c]{La autenticación de múltiples factores (AMF)}
-
   \begin{itemize}
     \item Más comúnmente conocida por sus siglas en inglés \textbf{MFA}
       (\emph{Multi Factor Authentication})
 
     \pausa
-    \item Es un método de control de acceso informático en el que a un
-      usuario se le concede acceso al sistema solo después de que
-      presente dos o más pruebas diferentes de que es quien dice ser.
+    \item Es un método de \textbf{control de acceso informático} en el
+      que a un usuario se le concede acceso al sistema solo después de que
+      presente \textbf{dos o más pruebas diferentes} de que es quien dice ser.
 
     \pausa
     \item Estas pruebas pueden ser diversas, como una contraseña, que
       posea una \textbf{clave secundaria rotativa}, o un \textbf{certificado
       digital} instalado en el equipo, \emph{biometría}, entre otros.
-  \vspace{\baselineskip}
+  \end{itemize}
 \end{frame}
+
+\begin{frame}[c]{La autenticación de dos factores (A2F)}
+  \begin{itemize}
+    \item También usada la sigla inglesa \textbf{2FA} (\emph{de two-factor
+      authentication})
+
+    \pausa
+    \item Es un \underline{método} que confirma que un \underline{usuario
+      es quien dice ser} combinando dos componentes diferentes de entre:
+      \begin{enumerate}
+        \item algo que saben
+        \item algo que tienen
+        \item algo que son
+      \end{enumerate}
+
+    \pausa
+    \item Es el \textbf{método más extendido en la actualidad} para acceder a
+      cuentas de correo y otra aplicaciones, pero generalmente se solicita que
+      el \textbf{usuario active voluntariamente esta capa de protección
+      adicional}.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[c]{Ejemplo de 2FA}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+          \item Un ejemplo de la vida cotidiana de este tipo de
+            autenticación es la retirada de efectivo de un \textbf{cajero
+            automático}.
+          \pausa
+          \item Solo tras combinar una tarjeta de crédito —\textbf{algo que
+            el usuario posee}— y un pin —\textbf{algo que el usuario sabe}—
+            se permite que la transacción se lleve a cabo.
+        \end{itemize}
+        \column{0.5\textwidth}
+        \begin{center}
+            \includegraphics[scale=0.5]{lfs/2fa-cajero.png}
+        \end{center}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[c]{La autenticación de dos factores (A2F)}
+  \begin{block}{}
+      La \textbf{autenticación en dos pasos} o \textbf{verificación en
+      dos pasos} es un método de confirmar la identidad de un usuario
+      utilizando algo que conocen (contraseña) y un segundo factor distinto
+      a lo que sean o posean.
+  \end{block}
+
+  \pausa
+  \vspace{\baselineskip}
+  Un ejemplo de un segundo paso es que el usuario tenga que introducir algo
+  que le sea \textbf{enviado a través de un medio alternativo},
+  o que tenga que introducir una serie de \textbf{dígitos generados por una
+  aplicación} conocida por el usuario y el sistema de autenticación. 
+\end{frame}
+
+\begin{frame}[c]{Factores de autenticación}
+
+  Los factores de autenticación de un patrón de autenticación de
+  múltiples factores podría incluir:
+
+  \vspace{\baselineskip}
+  \begin{itemize}
+    \item Algún objeto físico en posesión del usuario, como una memoria
+      USB con un identificador único, una tarjeta de crédito, una llave, etc.
+
+    \pausa
+    \item Algún secreto conocido por el usuario, como una contraseña,
+      un pin, etc.
+
+    \pausa
+    \item Alguna característica biométrica propia del usuario, como una
+      huella dactilar, iris, voz, velocidad de escritura, patrón en los
+      intervalos de pulsación de teclas, etc.
+  \end{itemize}
+\end{frame}
+
+\section{Software para la autenticación a 2 pasos}
 
 \begin{frame}[c]{}
   \vspace{\baselineskip}
