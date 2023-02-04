@@ -1,0 +1,49 @@
+% ex: ts=2 sw=2 sts=2 et filetype=tex
+% SPDX-License-Identifier: CC-BY-SA-4.0
+
+% Lenguaje PSeInt 
+\lstdefinelanguage{PSeInt}{
+  keywords={Algoritmo, FinAlgoritmo, Funcion, Escribir, Leer, Si, Entonces,
+  SiNo, Fin, Segun, Hacer, De, Otro, Modo, Mientras, Repetir, Hasta, Que,
+  Para, Hasta, Con, Paso},
+  sensitive=False,
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]",
+  alsoletter={<>=-:;},
+  alsodigit={-}
+}
+
+\lstdefinestyle{pseudocodigo} {%
+  backgroundcolor=\color{light-gray},
+  basicstyle={\footnotesize\ttfamily},
+  numberstyle=\tiny\color{codeNumbers},
+  xleftmargin={0.2cm},
+  numbersep=5pt,
+  numbers=left,
+  stepnumber=1,
+  firstnumber=1,
+  numberfirstline=true,
+  % Code design
+  identifierstyle=\color{black},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywordstyle=\color{red}\bfseries,
+  stringstyle=\color{codeString2}\ttfamily,
+  commentstyle=\color{codeNumbers}\ttfamily,
+  % Code
+  language=PSeInt,
+  alsodigit={.:;},
+  tabsize=2,
+  showtabs=false,
+  showspaces=false,
+  showstringspaces=false,
+  extendedchars=true,
+  breaklines=true,
+  % Español
+  literate=%
+  {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+  {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+  {¡}{{!`}}1  {¿}{{?`}}1
+  {ñ}{{\~n}}1 {Ñ}{{\~N}}1
+}
