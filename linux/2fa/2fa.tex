@@ -33,14 +33,18 @@
 %}
 %------------------------------------------------------------
 
+\newcommand{\nologo}{\setbeamertemplate{logo}{}} % command to set the logo to nothing
 \newcommand{\pausa}{\pause} % Para usar una pausa en las presentaciones
 %\newcommand{\pausa}{}      % Para que NO salgan las pausas
 
 \begin{document}
 
+{
+\nologo
 \begin{frame}
     \titlepage
 \end{frame}
+}
 
 \begin{frame}
     \frametitle{Contenido}
