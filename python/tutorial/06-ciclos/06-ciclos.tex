@@ -22,6 +22,16 @@
 \newcommand{\pausa}{\pause} % Para usar una pausa en las presentaciones
 %\newcommand{\pausa}{}      % Para que NO salgan las pausas
 
+%------------------------------------------------------------
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Contenido}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+%------------------------------------------------------------
+
 \begin{document}
 
 {
