@@ -1,7 +1,49 @@
 % ex: ts=2 sw=2 sts=2 et filetype=tex
 % SPDX-License-Identifier: CC-BY-SA-4.0
 
+
 \section{La filosofía de las herramientas de Unix}
+
+\begin{frame}[c]{¿Qué es un comando Linux?}
+  \begin{itemize}
+    \item Un comando Linux es un programa o utilidad que se ejecuta en la CLI,
+      una consola que interactúa con el sistema a través de textos y procesos.
+      Es similar a la aplicación Símbolo del Sistema en Windows.
+    \item Los comandos de Linux se ejecutan en el Terminal pulsando Enter al
+      final de la línea. Puedes ejecutar comandos para realizar diversas
+      tareas, desde la instalación de paquetes hasta la gestión de usuarios
+      y la manipulación de archivos.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Sintaxis}
+  La sintaxis general de un comando Linux es la siguiente:
+
+  \begin{lstlisting}[language=Bash]
+NombreDelComando [opcion(es)] [parametro(s)]
+  \end{lstlisting}
+
+  \vspace{\baselineskip}
+  Los comandos Linux pueden contener una \textbf{opción o un parámetro}.
+  En algunos casos, pueden ejecutarse sin ellos. Estas son las tres partes
+  más comunes de un comando:
+
+  \vspace{\baselineskip}
+  \begin{description}
+    \item [NombreDelComando] es la regla que desea ejecutar.
+    \item [opciones o vanderas] modifica el funcionamiento de un comando.
+      Para ejecutarla, utiliza guiones (-) o guiones dobles (--).
+    \item [parametros o argumentos] especifica cualquier información
+      necesaria para el comando.
+  \end{description}
+\end{frame}
+
+\begin{frame}[c]{Sintaxis}
+  \begin{alertblock}{Nota:}
+    Ten en cuenta que todos los comandos de Linux distinguen entre mayúsculas y minúsculas.
+  \end{alertblock}
+\end{frame}
 
 \begin{frame}[c]{La filosofía de las herramientas de Unix}
   \begin{itemize}
@@ -152,6 +194,39 @@
     \item[Ejemplos]
       \begin{itemize}
         \item apropos ssh
+      \end{itemize}
+  \end{description}
+\end{frame}
+
+\section{Comandos más usados}
+
+\begin{frame}[c]{Comando ls}
+  \begin{description}
+    \item[Nombre]
+      \textbf{ls} - lista el contenido de un directorio
+
+    \vspace{\baselineskip}
+    \item[Sinopsis]
+      ls [opciones] ... [ARCHIVO] ...
+
+    \vspace{\baselineskip}
+    \item[Descripción]
+      Por  defecto,  muestra  información de los ARCHIVO (pueden ser uno o
+      varios) del directorio actual. Ordena alfabéticamente la salida si no
+      se especifica ninguna de las opciones -cftuvSUX ni --sort.
+
+      \begin{itemize}
+        \item [-a] no oculta las entradas que comienzan con .
+        \item [-l] utiliza un formato de listado largo
+        \item [-R] muestra los subdirectorios recursivamente
+      \end{itemize}
+
+    \vspace{\baselineskip}
+    \item[Ejemplos]
+      \begin{itemize}
+        \item ls -l
+        \item ls -la
+        \item ls -R
       \end{itemize}
   \end{description}
 \end{frame}
