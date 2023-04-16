@@ -224,9 +224,69 @@ NombreDelComando [opcion(es)] [parametro(s)]
     \vspace{\baselineskip}
     \item[Ejemplos]
       \begin{itemize}
-        \item ls -l
-        \item ls -la
-        \item ls -R
+        \item ls -l  /
+        \item ls -la \$HOME
+        \item ls -R  /etc
+      \end{itemize}
+  \end{description}
+\end{frame}
+
+\begin{frame}[c]{Comando cd}
+  \begin{description}
+    \item[Nombre]
+      \textbf{cd} - cambia de directorio
+
+    \vspace{\baselineskip}
+    \item[Sinopsis]
+      cd [-L|[-P [-e]] [-@]] [dir]
+
+    \vspace{\baselineskip}
+    \item[Descripción]
+      Cambia el cual directorio al directorio \emph{dir}. Si no se
+      especifica \emph{dir}, el valor de la variable \textbf{HOME} es usado.
+
+      \begin{itemize}
+        \item [-L] sigue los enlaces simbólicos y se cambia a este
+          directorio.
+      \end{itemize}
+
+    \vspace{\baselineskip}
+    \item[Ejemplos]
+      \begin{itemize}
+        \item cd
+        \item cd /etc
+        \item cd /tmp
+      \end{itemize}
+  \end{description}
+\end{frame}
+
+\begin{frame}[c]{Comando pwd}
+  \begin{description}
+    \item[Nombre]
+      \textbf{pwd} - imprime el nombre del directorio de trabajo actual (print working directory)
+
+    \vspace{\baselineskip}
+    \item[Sinopsis]
+      pwd [opciones]
+
+    \vspace{\baselineskip}
+    \item[Descripción]
+      Muestra la ruta completa del directorio de trabajo actual.
+
+      \begin{itemize}
+        \item [-L] utiliza PWD del entorno, incluso si contiene enlaces
+          simbólicos
+        \item [-P] evita todos los enlaces simbólicos
+      \end{itemize}
+
+      \vspace{\baselineskip}
+      Si no se especifica ninguna opción, se supone -L.
+
+    \vspace{\baselineskip}
+    \item[Ejemplos]
+      \begin{itemize}
+        \item pwd
+        \item pwd -P
       \end{itemize}
   \end{description}
 \end{frame}
