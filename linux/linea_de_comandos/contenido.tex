@@ -291,6 +291,135 @@ NombreDelComando [opcion(es)] [parametro(s)]
   \end{description}
 \end{frame}
 
+\begin{frame}[c]{Comando cat}
+  \begin{description}
+    \item[Nombre]
+      \textbf{cat} - concatenar archivos e imprimir en la salida estándar
+
+    \vspace{\baselineskip}
+    \item[Sinopsis]
+      cat [opciones] ... [ARCHIVO] ...
+
+    \vspace{\baselineskip}
+    \item[Descripción]
+      Concatenar ARCHIVO(s) a la salida estándar. \\
+      Sin ARCHIVO, o cuando el ARCHIVO es -, lee la entrada estándar.
+
+    \vspace{\baselineskip}
+    \item[Ejemplos]
+      \begin{itemize}
+        \item cat /etc/passwd
+        \item cat -
+      \end{itemize}
+  \end{description}
+\end{frame}
+
+\begin{frame}[c]{Comando cp}
+  \begin{description}
+    \item[Nombre]
+      \textbf{cp} - copiar archivos y directorios
+
+    \vspace{\baselineskip}
+    \item[Sinopsis]
+      cp [opciones] ... [-T] ORIGEN DESTINO \\
+      cp [opciones] ... ORIGEN ... DIRECTORIO \\
+      cp [opciones] ... -t DIRECTORIO  ORIGEN ...
+
+    \vspace{\baselineskip}
+    \item[Descripción]
+      Copia ORIGEN a DESTINO, o varias ORIGEN(es) a DIRECTORIO.
+
+      \begin{itemize}
+        \item [-a] igual que -dR --preserve=all
+        \item [-i] pregunta antes de sobrescribir (anula una opción -n
+          anterior)
+        \item [-r] copiar directorios recursivamente
+        \item [-v] explicar lo que se está haciendo
+      \end{itemize}
+
+    \vspace{\baselineskip}
+    \item[Ejemplos]
+      \begin{itemize}
+        \item cp /etc/passwd /tmp/passwords
+        \item cp /etc/passwd /usr/bin/ls /tmp
+        \item cp -r /etc /tmp
+      \end{itemize}
+  \end{description}
+\end{frame}
+
+\begin{frame}[c]{Comando mv}
+  \begin{description}
+    \item[Nombre]
+      \textbf{mv} - mueve (renombra) archivos
+
+    \vspace{\baselineskip}
+    \item[Sinopsis]
+      mv [opciones] ... [-T] ORIGEN DESTINO \\
+      mv [opciones] ... ORIGEN ... DIRECTORIO \\
+      mv [opciones] ... -t DIRECTORIO  ORIGEN ...
+
+    \vspace{\baselineskip}
+    \item[Descripción]
+      Copia ORIGEN a DESTINO, o varios ORIGEN(es) a DIRECTORIO.
+
+      \begin{itemize}
+        \item [-f] no pregunta nunca antes de sobreescribir
+        \item [-i] pide confirmación antes de sobreescribir
+      \end{itemize}
+
+    \vspace{\baselineskip}
+    \item[Ejemplos]
+      \begin{itemize}
+        \item mv /etc/passwd /tmp/passwords
+        \item mv /tmp/passwords /tmp/passwords2
+        \item mv -i /tmp/passwords2 /tmp/passwords3
+      \end{itemize}
+  \end{description}
+\end{frame}
+
+\begin{frame}[c]{Comando mkdir}
+  \begin{description}
+    \item[Nombre]
+      \textbf{mkdir} - crea directorios
+
+    \vspace{\baselineskip}
+    \item[Sinopsis]
+      mkdir [opciones] ... DIRECTORIO
+
+    \vspace{\baselineskip}
+    \item[Descripción]
+      Crea los DIRECTORIO(s), si no existen aún.
+
+      \begin{itemize}
+        \item [-p] no hay error si existen, crea los directorios
+          padres en caso necesario
+      \end{itemize}
+
+    \vspace{\baselineskip}
+    \item[Ejemplos]
+      \begin{itemize}
+        \item mkdir /tmp/uno
+        \item mkdir -p /tmp/uno/dos/tres
+      \end{itemize}
+  \end{description}
+\end{frame}
+
+\section{Comodines/Wildcards}
+
+\begin{frame}[c]{Comodines}
+  Los comodines son útiles de muchas maneras para un sistema GNU/Linux y
+  para varios otros usos. Los comandos pueden usar comodines para actuar
+  en más de un archivo a la vez,o para encontrar parte de una frase en un
+  archivo de texto.
+
+  \vspace{\baselineskip}
+  Hay muchos usos para los comodines, hay dos formas diferentes importantes
+  en que se usan los comodines, estos son englobando (globbing)
+  patrones/comodines estándar que a menudo usa el shell. La otra
+  alternativa es expresiones regulares, popular con muchos otros comandos y
+  popular para usarla con la búsqueda de textos y su manipulación.
+\end{frame}
+
 \section{Direccionamiento de entrada/salida}
 
 \begin{frame}[c]{Conceptos}
