@@ -1,0 +1,45 @@
+% ex: ts=2 sw=2 sts=2 et filetype=tex
+% SPDX-License-Identifier: CC-BY-SA-4.0
+
+\section{Manejo de excepciones}
+
+\begin{frame}[c]{En resumen}
+  Veremos los siguientes bloques de manejo de excepciones:
+
+  \vspace{\baselineskip}
+  \begin{itemize}
+    \item El bloque \textcolor{codeKeyword2}{try} le permite probar un
+      bloque de código en busca de errores.
+    \pausa
+    \item El bloque \textcolor{codeKeyword2}{except} le permite manejar el
+      error.
+    \pausa
+    \item El bloque \textcolor{codeKeyword2}{else} te permite ejecutar
+      código cuando no hay ningún error.
+    \pausa
+    \item El bloque \textcolor{codeKeyword2}{finally} le permite ejecutar
+      código, independientemente del resultado de los bloques de prueba y
+      excepción.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Manejo de excepciones}
+  Cuando ocurre un error, o una excepción como lo llamamos, Python
+  normalmente se detendrá y generará un mensaje de error.
+
+  \vspace{\baselineskip}
+  Estas excepciones se pueden manejar usando la declaración
+  \textcolor{codeKeyword2}{try}:
+
+  \vspace{\baselineskip}
+  Ejemplo: El bloque \textcolor{codeKeyword2}{try} generará una excepción,
+  porque \textbf{x} no está definida:
+  \begin{lstlisting}[language=Python]
+  try:
+      print(x)
+  except:
+      print("Ocurrió una excepción ")
+  \end{lstlisting}
+\end{frame}
+
