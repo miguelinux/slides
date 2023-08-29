@@ -1,45 +1,230 @@
 % ex: ts=2 sw=2 sts=2 et filetype=tex
 % SPDX-License-Identifier: CC-BY-SA-4.0
 
-\section{Manejo de excepciones}
+\section{PseInt a Python}
 
-\begin{frame}[c]{En resumen}
-  Veremos los siguientes bloques de manejo de excepciones:
+\begin{frame}[fragile]
+  \frametitle{Nombre del algoritmo}
 
+  Para hacer un algoritmo en pseudocódigo y su codificación en Python,
+  el cuerpo del programa tiene la estructura:
   \vspace{\baselineskip}
-  \begin{itemize}
-    \item El bloque \textcolor{codeKeyword2}{try} le permite probar un
-      bloque de código en busca de errores.
+  \begin{columns}
+    \column{0.05\textwidth}
+    \column{0.5\textwidth}
+      \textbf{PseInt}
+      \begin{lstlisting}[style=pseudocodigo]
+Algoritmo nombre_del_algoritmo
+  ...
+  <instrucciones>
+  ...
+FinAlgoritmo
+      \end{lstlisting}
+    \column{0.05\textwidth}
     \pausa
-    \item El bloque \textcolor{codeKeyword2}{except} le permite manejar el
-      error.
-    \pausa
-    \item El bloque \textcolor{codeKeyword2}{else} te permite ejecutar
-      código cuando no hay ningún error.
-    \pausa
-    \item El bloque \textcolor{codeKeyword2}{finally} le permite ejecutar
-      código, independientemente del resultado de los bloques de prueba y
-      excepción.
-  \end{itemize}
+    \column{0.4\textwidth}
+      \textbf{Python}
+      \begin{lstlisting}[language=Python]
+...
+<instrucciones>
+...
+
+      \end{lstlisting}
+  \end{columns}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Manejo de excepciones}
-  Cuando ocurre un error, o una excepción como lo llamamos, Python
-  normalmente se detendrá y generará un mensaje de error.
+  \frametitle{Comentarios}
 
+  Los comentarios se usan con:
   \vspace{\baselineskip}
-  Estas excepciones se pueden manejar usando la declaración
-  \textcolor{codeKeyword2}{try}:
-
-  \vspace{\baselineskip}
-  Ejemplo: El bloque \textcolor{codeKeyword2}{try} generará una excepción,
-  porque \textbf{x} no está definida:
-  \begin{lstlisting}[language=Python]
-  try:
-      print(x)
-  except:
-      print("Ocurrió una excepción ")
-  \end{lstlisting}
+  \begin{columns}
+    \column{0.05\textwidth}
+    \column{0.5\textwidth}
+      \textbf{PseInt}
+      \begin{lstlisting}[style=pseudocodigo]
+// este es un comentario
+      \end{lstlisting}
+    \column{0.05\textwidth}
+    \pausa
+    \column{0.4\textwidth}
+      \textbf{Python}
+      \begin{lstlisting}[language=Python]
+# este es un comentario
+      \end{lstlisting}
+  \end{columns}
 \end{frame}
 
+\begin{frame}[fragile]
+  \frametitle{Salida a pantalla}
+
+  Para mostrar algo en pantalla se usa:
+  \vspace{\baselineskip}
+  \begin{columns}
+    \column{0.05\textwidth}
+    \column{0.4\textwidth}
+      \textbf{PseInt}
+      \begin{lstlisting}[style=pseudocodigo]
+Escribir "!Hola Mundo!"
+      \end{lstlisting}
+    \column{0.05\textwidth}
+    \pausa
+    \column{0.5\textwidth}
+      \textbf{Python}
+      \begin{lstlisting}[language=Python]
+print("¡Hola Mundo!")
+      \end{lstlisting}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Lectura de teclado}
+
+  Para introducir datos por el teclado se usa:
+  \vspace{\baselineskip}
+  \begin{columns}
+    \column{0.05\textwidth}
+    \column{0.4\textwidth}
+      \textbf{PseInt}
+      \begin{lstlisting}[style=pseudocodigo]
+Leer num1
+      \end{lstlisting}
+    \column{0.05\textwidth}
+    \pausa
+    \column{0.5\textwidth}
+      \textbf{Python}
+      \begin{lstlisting}[language=Python]
+num1 = eval(input())
+      \end{lstlisting}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Para escribir y leer}
+
+  Para mostrar un mensaje y leer un dato:
+  \vspace{\baselineskip}
+  \begin{columns}
+    \column{0.05\textwidth}
+    \column{0.45\textwidth}
+      \textbf{PseInt}
+      \begin{lstlisting}[style=pseudocodigo]
+Escribir "Escribe un número"
+Leer num1
+      \end{lstlisting}
+    \column{0.05\textwidth}
+    \pausa
+    \column{0.55\textwidth}
+      \textbf{Python}
+      \begin{lstlisting}[language=Python]
+num1 = eval(input("Escribe un número"))
+      \end{lstlisting}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Asignación}
+
+  Para asignar un valor a una variable se usa:
+  \vspace{\baselineskip}
+  \begin{columns}
+    \column{0.05\textwidth}
+    \column{0.45\textwidth}
+      \textbf{PseInt}
+      \begin{lstlisting}[style=pseudocodigo]
+num1 <- 5
+num2 <- 3.4
+suma <- num1 + num2
+      \end{lstlisting}
+    \column{0.05\textwidth}
+    \pausa
+    \column{0.55\textwidth}
+      \textbf{Python}
+      \begin{lstlisting}[language=Python]
+num1 = 5
+num2 = 3.4
+suma = num1 + num2
+      \end{lstlisting}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Operaciones aritméticas}
+
+  Ejemplo de operaciones aritméticas básicas:
+  \vspace{\baselineskip}
+  \begin{columns}
+    \column{0.05\textwidth}
+    \column{0.45\textwidth}
+      \textbf{PseInt}
+      \begin{lstlisting}[style=pseudocodigo]
+suma <- num1 + num2
+resta <- num1 - num2
+multiplicacion <- num1 * num2
+division <- num1 / num2
+modulo <- num1 % num2
+potencia <- num1 ^ 2
+      \end{lstlisting}
+    \column{0.05\textwidth}
+    \pausa
+    \column{0.55\textwidth}
+      \textbf{Python}
+      \begin{lstlisting}[language=Python]
+suma = num1 + num2
+resta = num1 - num2
+multiplicacion = num1 * num2
+division = num1 / num2
+modulo = num1 % num2
+potencia = num1 ** 2
+      \end{lstlisting}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Raíz cuadrada}
+
+  La raíz cuadrada en Python necesita una biblioteca especial:
+
+  \vspace{\baselineskip}
+  \begin{columns}
+    \column{0.05\textwidth}
+    \column{0.45\textwidth}
+      \textbf{PseInt}
+      \begin{lstlisting}[style=pseudocodigo]
+resultado <- raiz(num1)
+      \end{lstlisting}
+    \column{0.05\textwidth}
+    \pausa
+    \column{0.55\textwidth}
+      \textbf{Python}
+      \begin{lstlisting}[language=Python]
+# se pone al principio del archivo
+import math
+...
+resultado = math.sqrt(num1)
+      \end{lstlisting}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Formula general de las cuadráticas}
+
+  La formula general para la solución de las ecuaciones cuadradas es:
+  $x_{1,2} = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$
+
+  \vspace{\baselineskip}
+  \textbf{PseInt}
+  \begin{lstlisting}[style=pseudocodigo]
+x1 <- (-b + raiz( b^2 - 4*a*c)) / (2*a)
+x2 <- (-b - raiz( b^2 - 4*a*c)) / (2*a)
+  \end{lstlisting}
+  \pausa
+
+  \textbf{Python}
+  \begin{lstlisting}[language=Python]
+import math
+...
+x1 = (-b + math.sqrt( b**2 - 4*a*c)) / (2*a)
+x2 = (-b - math.sqrt( b**2 - 4*a*c)) / (2*a)
+  \end{lstlisting}
+\end{frame}
