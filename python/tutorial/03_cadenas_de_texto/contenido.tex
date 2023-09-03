@@ -296,6 +296,21 @@ print(texto)
   \end{lstlisting}
 \end{frame}
 
+\begin{frame}[fragile]
+  \frametitle{Contando letras}
+
+  El método \textcolor{codeKeyword}{count}() devuelve el número de veces que
+  un valor especificado aparece en una cadena de texto.
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Python]
+  txt = "Me gustan las manzanas, la manzana es mi fruta favorita"
+  num_manzana = txt.count("manzana")
+  num_a = txt.count("a")
+  print("La palabra manzana se repite", num_manzana, "veces")
+  print("Hay", num_a, "letras 'a' en el texto")
+  \end{lstlisting}
+\end{frame}
 
 \section{Concatenación}
 

@@ -5,14 +5,15 @@
 
 \begin{frame}[c]{Estructuras selectivas}
   \begin{itemize}
-    \item Las estructuras selectivas se utilizan para tomar decisiones
-      lógicas y también son conocidas como estructuras de decisión o
+    \item Las \textbf{estructuras selectivas} se utilizan para tomar decisiones
+      lógicas y también son conocidas como \textbf{estructuras de decisión} o
       alternativas.
     \pausa
-    \item En las estructuras selectivas se evalúa una condición y en
+    \item En las estructuras selectivas se evalúa una \textbf{condición} y en
       función del resultado de la misma se realiza una opción u otra.
     \pausa
-    \item Las condiciones se especifican usando expresiones/condiciones lógicas.
+    \item Las condiciones se especifican usando \textbf{expresiones/condiciones
+    lógicas}.
   \end{itemize}
 \end{frame}
 
@@ -99,9 +100,9 @@ else:
 \begin{frame}[fragile]
   \frametitle{Sangría}
 
-  Python se basa en la sangría (espacio en blanco al comienzo de una línea)
-  para definir el alcance en el código. Otros lenguajes de programación a
-  menudo usan corchetes para este propósito.
+  Python se basa en la \textbf{sangría} (\emph{espacio en blanco al comienzo
+  de una línea}) para definir el alcance en el código. Otros lenguajes
+  de programación a menudo usan corchetes para este propósito.
 
   \pausa
   \vspace{\baselineskip}
@@ -122,8 +123,8 @@ else:
   \frametitle{Elif}
 
   La palabra clave \textcolor{codeKeyword}{elif} es la forma que usa Python
-  para decir "si las condiciones anteriores no eran verdaderas, entonces
-  pruebe esta condición".
+  para decir "\textbf{si las condiciones anteriores no eran verdaderas,
+  entonces pruebe esta condición}".
 
   \vspace{\baselineskip}
   \begin{lstlisting}[language=Python]
@@ -136,8 +137,8 @@ else:
   \end{lstlisting}
 
   En este ejemplo, a es igual a b, por lo que la primera condición no es
-  verdadera, pero la condición elif es verdadera, por lo que imprimimos en
-  la pantalla que "a y b son iguales".
+  verdadera, pero la condición \textcolor{codeKeyword}{elif} es verdadera,
+  por lo que imprimimos en la pantalla que "\textbf{a y b son iguales}".
 \end{frame}
 
 \begin{frame}[fragile]
@@ -158,9 +159,52 @@ else:
     print("a es mayor que b")
   \end{lstlisting}
 
-  En este ejemplo, a es mayor que b, por lo que la primera condición no es
-  verdadera, también la condición elif no es verdadera, así que vamos a la
-  condición else e imprimimos en la pantalla que "a es mayor que b". 
+  En este ejemplo, a es mayor que b, por lo que la primera condición
+  \emph{no es verdadera}, también la condición \textcolor{codeKeyword}{elif}
+  \emph{no es verdadera}, así que vamos a la condición
+  \textcolor{codeKeyword}{else} e imprimimos en la pantalla
+  que "\textbf{a es mayor que b}".
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{if elif else y Pseudocódigo}
+
+  Para escoger un valor entre varios se usa:
+  \begin{columns}
+    \column{0.02\textwidth}
+    \column{0.525\textwidth}
+      \begin{lstlisting}[language=Python]
+num = eval(input("Escribe un número: "))
+if num == 1:
+  print("Escogiste 1")
+elif num == 2:
+  print("Escogiste 2")
+elif num == 3:
+  print("Escogiste 3")
+elif num == 4:
+  print("Escogiste 4")
+else:
+  print("Escogiste otro número")
+      \end{lstlisting}
+    \pausa
+    \column{0.49\textwidth}
+      \begin{lstlisting}[style=pseudocodigo]
+Escribir "Escribe un número:"
+Leer num
+Segun num Hacer
+  1:
+    Escribir "Escogiste 1"
+  2:
+    Escribir "Escogiste 2"
+  3:
+    Escribir "Escogiste 3"
+  4:
+    Escribir "Escogiste 4"
+  De Otro Modo:
+    Escribir "Escogiste otro número"
+Fin Segun
+      \end{lstlisting}
+  \end{columns}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -169,15 +213,30 @@ else:
   Se puede tener \textcolor{codeKeyword}{else} sin el
   \textcolor{codeKeyword}{elif}
 
-  \vspace{\baselineskip}
-  \begin{lstlisting}[language=Python]
+  \begin{columns}
+    \column{0.02\textwidth}
+    \column{0.50\textwidth}
+      \begin{lstlisting}[language=Python]
   a = 200
   b = 33
   if b > a:
     print("b es más grande que a")
   else:
-    print("b no es mayor que a")
-  \end{lstlisting}
+    print("b NO es mayor que a")
+      \end{lstlisting}
+    \pausa
+    \column{0.02\textwidth}
+    \column{0.49\textwidth}
+      \begin{lstlisting}[style=pseudocodigo]
+  a <- 200
+  b <- 33
+  Si b > a Entonces
+    Escribir "b es más grande que a"
+  SiNo
+    Escribir "b NO es mayor que a"
+  Fin Si
+      \end{lstlisting}
+  \end{columns}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -235,7 +294,7 @@ else:
   \frametitle{And}
 
   La palabra clave \textcolor{codeKeyword}{and} es un operador lógico y
-  se utiliza para combinar declaraciones condicionales: 
+  se utiliza para combinar declaraciones condicionales:
 
   \vspace{\baselineskip}
   \begin{lstlisting}[language=Python]
@@ -251,7 +310,7 @@ else:
   \frametitle{Or}
 
   La palabra clave \textcolor{codeKeyword}{or} es un operador lógico y
-  se utiliza para combinar declaraciones condicionales: 
+  se utiliza para combinar declaraciones condicionales:
 
   \vspace{\baselineskip}
   \begin{lstlisting}[language=Python]
@@ -309,7 +368,7 @@ Fin Si\end{lstlisting}
 
   Las declaraciones if no pueden estar vacías, pero si por alguna razón
   tiene una declaración if sin contenido, coloque la declaración pass
-  para evitar errores. 
+  para evitar errores.
 
   \vspace{\baselineskip}
   \begin{lstlisting}[language=Python]
