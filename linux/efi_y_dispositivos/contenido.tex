@@ -24,7 +24,7 @@
       \item El propósito fundamental del BIOS es \textbf{iniciar}, y
         \textbf{probar el hardware} del sistema y cargar un \emph{gestor de
         arranque} o un sistema operativo desde un dispositivo de
-        almacenamiento de datos. 
+        almacenamiento de datos.
     \end{itemize}
   \end{columns}
 \end{frame}
@@ -68,7 +68,7 @@
     \begin{itemize}
       \item UEFI reemplaza la antigua interfaz del Sistema Básico de Entrada
         y Salida (BIOS) estándar presentado en las computadoras personales
-        IBM PC como IBM PC ROM BIOS. 
+        IBM PC como IBM PC ROM BIOS.
       \pausa
       \item La interfaz UEFI incluye \textbf{bases de datos} con información
         de la plataforma, \textbf{inicio y tiempo de ejecución} de los
@@ -106,9 +106,162 @@
   16 bits, como su predecesora.
 \end{frame}
 
-\section{Tabla de particiones}
+\section{Arranque y tabla de particiones}
+
+\begin{frame}[c]{Tabla de particiones}
+  \begin{itemize}
+    \item Una tabla de particiones es un \textbf{índice} que divide el
+      espacio de almacenamiento en distintas secciones, llamadas
+      particiones.
+    \pausa
+    \item Da ciertas características de cada partición, como por ejemplo
+      el sistema de ficheros usado en ella o si la partición es arrancable,
+      de solo lectura, etc.
+    \pausa
+    \item Hay distintos alternativas para definir la tabla de particiones:
+      \pausa
+      \begin{itemize}
+        \item Tabla de particiones en el MBR, también llamada tabla de
+          particiones DOS. Usada en IBM PC y compatibles con sistemas BIOS.
+        \pausa
+        \item GUID Partition Table. Propuesta por la especificación EFI y
+          permite ser usada por IBM PC y compatibles con BIOS y con UEFI.
+        \pausa
+        \item Apple Partition Map (APM)
+        \item Sun partition table (BSD disklabel)
+        \item SGI (IRIX) partition table
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[c]{Partición de disco}
+  \begin{center}
+    \begin{tikzpicture}
+      \draw[draw=black!60, fill=black!5, very thick] (0,0) rectangle (10,2);
+      \draw[draw=red, fill=red!5, thick] (0.2,0.2) rectangle (1,1.8);
+      \draw[draw=green!60, fill=green!5, thick] (1.2,0.2) rectangle (4,1.8);
+      \draw[draw=green!60, fill=green!5, thick] (4.2,0.2) rectangle (5,1.8);
+      \draw[draw=magenta!60, fill=magenta!5, thick] (5.2,0.2) rectangle (9.8,1.8);
+      \draw[draw=blue!60, fill=blue!5, thick] (5.4,0.4) rectangle (7.8,1.6);
+      \draw[draw=blue!60, fill=blue!5, thick] (8,0.4) rectangle (9.6,1.6);
+    \end{tikzpicture}
+  \end{center}
+  \begin{itemize}
+    \item Una \textbf{partición de un disco duro} es una \textbf{división
+      lógica} en una unidad de almacenamiento (por ejemplo, un disco duro o
+      unidad flash),
+    \pausa
+    \item Se alojan y organizan los archivos mediante un \textbf{sistema de
+    archivos}.
+    \pausa
+    \item Existen distintos esquemas de particiones para la distribución de
+      particiones en un disco. Los más conocidos y difundidos son
+      \textbf{MBR} (Master Boot Record) y \textbf{GPT} (GUID Partition Table).
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[c]{Tabla de particiones tipo MBR o DOS}
+  En el esquema de particiones \textbf{MBR} o \textbf{DOS} existen 3 tipos
+  diferentes de particiones:
+
+  \pausa
+  \vspace{\baselineskip}
+  \begin{description}
+    \item[Partición primaria] Son las divisiones crudas o primarias del disco,
+      solo puede haber como máximo 4 de éstas o 3 primarias y una extendida.
+    \pausa
+    \item[Partición extendida] También conocida como partición secundaria es
+      otro tipo de partición que actúa como una partición primaria; sirve
+      ara contener múltiples unidades lógicas en su interior.
+    \pausa
+    \item[Partición lógica] Ocupa una porción de la partición extendida o la
+      totalidad de la misma, la cual se ha formateado con un tipo específico
+      de sistema de archivos y se le ha asignado una unidad, así el sistema
+      operativo reconoce las particiones lógicas o su sistema de archivos.
+  \end{description}
+\end{frame}
+
+\begin{frame}[c]{Tabla de particiones tipo MBR o DOS}
+  \begin{center}
+    \begin{tikzpicture}
+      \draw[draw=black!60, fill=black!5, very thick] (0,0) rectangle (10,2);
+      \draw[draw=red, fill=red!5, thick] (0.2,0.2) rectangle (1,1.8);
+      \node[rotate=90] at (0.6,0.9) {\textbf{MBR}};
+      \draw[draw=green!60, fill=green!5, thick] (1.2,0.2) rectangle (3,1.8);
+      \draw[draw=green!60, fill=green!5, thick] (3.2,0.2) rectangle (5,1.8);
+      \draw[draw=green!60, fill=green!5, thick] (5.2,0.2) rectangle (7,1.8);
+      \draw[draw=green!60, fill=green!5, thick] (7.2,0.2) rectangle (9.8,1.8);
+      \node at (2.1,1) {\footnotesize{/dev/xxx1}};
+      \node at (4.1,1) {\footnotesize{/dev/xxx2}};
+      \node at (6.1,1) {\footnotesize{/dev/xxx3}};
+      \node at (8.1,1) {\footnotesize{/dev/xxx4}};
+    \end{tikzpicture}
+  \end{center}
+  \pausa
+  \begin{center}
+    \begin{tikzpicture}
+      \draw[draw=black!60, fill=black!5, very thick] (0,0) rectangle (10,2);
+      \draw[draw=red, fill=red!5, thick] (0.2,0.2) rectangle (1,1.8);
+      \node[rotate=90] at (0.6,0.9) {\textbf{MBR}};
+      \draw[draw=green!60, fill=green!5, thick] (1.2,0.2) rectangle (3,1.8);
+      \draw[draw=green!60, fill=green!5, thick] (3.2,0.2) rectangle (5,1.8);
+      \draw[draw=magenta!60, fill=magenta!5, thick] (5.2,0.2) rectangle (9.8,1.8);
+      \draw[draw=blue!60, fill=blue!5, thick] (5.4,0.4) rectangle (7.4,1.6);
+      \draw[draw=blue!60, fill=blue!5, thick] (7.6,0.4) rectangle (9.6,1.6);
+      \node at (2.1,1) {\footnotesize{/dev/xxx1}};
+      \node at (4.1,1) {\footnotesize{/dev/xxx2}};
+      \node at (6.3,1) {\footnotesize{/dev/xxx5}};
+      \node at (8.5,1) {\footnotesize{/dev/xxx6}};
+    \end{tikzpicture}
+  \end{center}
+  \pausa
+  \begin{center}
+    \begin{tikzpicture}
+      \draw[draw=black!60, fill=black!5, very thick] (0,0) rectangle (10,2);
+      \draw[draw=red, fill=red!5, thick] (0.2,0.2) rectangle (1,1.8);
+      \node[rotate=90] at (0.6,0.9) {\textbf{MBR}};
+      \draw[draw=green!60, fill=green!5, thick] (1.2,0.2) rectangle (3,1.8);
+      \draw[draw=magenta!60, fill=magenta!5, thick] (3.2,0.2) rectangle (9.8,1.8);
+      \draw[draw=blue!60, fill=blue!5, thick] (3.4,0.4) rectangle (5.4,1.6);
+      \draw[draw=blue!60, fill=blue!5, thick] (5.6,0.4) rectangle (7.4,1.6);
+      \draw[draw=blue!60, fill=blue!5, thick] (7.6,0.4) rectangle (9.6,1.6);
+      \node at (2.1,1) {\footnotesize{/dev/xxx1}};
+      \node at (4.2,1) {\footnotesize{/dev/xxx5}};
+      \node at (6.5,1) {\footnotesize{/dev/xxx6}};
+      \node at (8.5,1) {\footnotesize{/dev/xxx7}};
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
 
 \begin{frame}[c]{MBR: Master Boot Record}
+  Un \textbf{registro de arranque principal}, conocido también como
+  \textbf{registro de arranque maestro} (por su nombre en inglés
+  \textbf{master boot record}, MBR) es el
+  primer sector de un dispositivo de almacenamiento de datos, como un disco
+  duro.
+
+  \vspace{\baselineskip}
+  El MBR casi siempre se refiere al sector de arranque de \textbf{512 bytes},
+  o el \textbf{partition sector} de una partición para ordenadores
+  compatibles con IBM PC.
+
+  \vspace{\baselineskip}
+  \begin{center}
+    \begin{tikzpicture}
+      \draw[draw=black!60, fill=black!5, very thick] (0,0) rectangle (10,2);
+      \draw[draw=red, fill=red!5, thick] (0.2,0.2) rectangle (1,1.8);
+      \node[rotate=90] at (0.6,0.9) {\textbf{MBR}};
+      \draw[draw=green!60, fill=green!5, thick] (1.2,0.2) rectangle (4,1.8);
+      \draw[draw=green!60, fill=green!5, thick] (4.2,0.2) rectangle (5,1.8);
+      \draw[draw=magenta!60, fill=magenta!5, thick] (5.2,0.2) rectangle (9.8,1.8);
+      \draw[draw=blue!60, fill=blue!5, thick] (5.4,0.4) rectangle (7.8,1.6);
+      \draw[draw=blue!60, fill=blue!5, thick] (8,0.4) rectangle (9.6,1.6);
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+\begin{frame}[c]{Tabla de particiones GUID: GPT}
+
 \end{frame}
 
 \section{Sistemas de almacenamiento}
