@@ -2,10 +2,116 @@
 % SPDX-License-Identifier: CC-BY-SA-4.0
 
 
-\section{La filosofía de las herramientas de Unix}
+\section{BIOS, UEFI/EFI}
 
-\begin{frame}[c]{¿Qué es un comando Linux?}
+\begin{frame}[c]{¿Qué es la BIOS?}
+  \begin{columns}
+    \column{0.3\textwidth}
+      \begin{center}
+        \includegraphics[scale=1.0]{lfs/amiBIOS.jpg}
+      \end{center}
+    \column{0.7\textwidth}
+    \begin{itemize}
+      \item El sistema básico de entrada-salida o \textbf{BIOS}
+        (del inglés \textbf{Basic Input/Output System}) es un estándar de
+        facto que define la interfaz de \textbf{firmware} para computadoras
+        IBM PC compatibles.
+      \pausa
+      \item El firmware del BIOS es instalado dentro de la computadora
+        personal (PC), y es el primer programa que se ejecuta cuando se
+        \emph{enciende la computadora}.
+      \pausa
+      \item El propósito fundamental del BIOS es \textbf{iniciar}, y
+        \textbf{probar el hardware} del sistema y cargar un \emph{gestor de
+        arranque} o un sistema operativo desde un dispositivo de
+        almacenamiento de datos. 
+    \end{itemize}
+  \end{columns}
 \end{frame}
+
+\begin{frame}[c]{¿Qué es un firmware?}
+  \begin{itemize}
+    \item El \textbf{firmware} o \textbf{soporte lógico inalterable} es u
+      programa informático que establece la lógica de más \emph{bajo nivel}
+      que controla los \emph{circuitos electrónicos} de un dispositivo de
+      cualquier tipo.
+    \pausa
+    \item Está fuertemente integrado con la electrónica del dispositivo.
+    \pausa
+    \item Un \emph{firmware} es un software que maneja físicamente al
+      \textbf{hardware}.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[c]{¿Qué es la UEFI/EFI?}
+  \begin{columns}
+    \column{0.4\textwidth}
+      \begin{center}
+        \includegraphics[scale=0.45]{lfs/uefi_pila.png}
+      \end{center}
+    \column{0.6\textwidth}
+    \begin{itemize}
+      \item La \textbf{Unified Extensible Firmware Interface} (UEFI, "interfaz
+        unificada de firmware extensible" en español) es una especificación
+        que define una interfaz entre el sistema operativo y el firmware.
+    \end{itemize}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[c]{¿Qué es la UEFI/EFI?}
+  \begin{columns}
+    \column{0.3\textwidth}
+      \begin{center}
+        \includegraphics[scale=0.5]{lfs/uefi.png}
+      \end{center}
+    \column{0.7\textwidth}
+    \begin{itemize}
+      \item UEFI reemplaza la antigua interfaz del Sistema Básico de Entrada
+        y Salida (BIOS) estándar presentado en las computadoras personales
+        IBM PC como IBM PC ROM BIOS. 
+      \pausa
+      \item La interfaz UEFI incluye \textbf{bases de datos} con información
+        de la plataforma, \textbf{inicio y tiempo de ejecución} de los
+        servicios disponibles listos para cargar el sistema operativo.
+    \end{itemize}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[c]{Unified Extensible Firmware Interface}
+  UEFI destaca principalmente por:
+    Diseño modular.
+  \begin{itemize}
+    \item Compatibilidad y emulación del BIOS para los sistemas operativos
+      solo compatibles con esta última.
+    \pausa
+    \item Soporte completo para la \textbf{Tabla de particiones GUID} (GPT),
+      se pueden crear hasta 128 particiones por disco, con una capacidad
+      total de 8 ZB.
+    \pausa
+    \item Capacidad de arranque desde unidades de almacenamiento grandes,
+      dado que no sufren de las limitaciones del MBR.
+    \pausa
+    \item Independiente de la arquitectura y controladores de la CPU.
+    \pausa
+    \item Entorno amigable y flexible Pre-Sistema Operativo, incluyendo
+      capacidades de red.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[c]{Unified Extensible Firmware Interface}
+  La EFI hereda las nuevas características avanzadas del BIOS como
+  \textbf{ACPI} (Interfaz Avanzada de Configuración y Energía) y el
+  \textbf{SMBIOS} (Sistema de Gestión de BIOS), y se le pueden añadir
+  muchas otras, ya que el entorno se ejecuta en \textbf{64 bits} y no en
+  16 bits, como su predecesora.
+\end{frame}
+
+\section{Tabla de particiones}
+
+\begin{frame}[c]{MBR: Master Boot Record}
+\end{frame}
+
+\section{Sistemas de almacenamiento}
 
 \begin{frame}[fragile]
   \frametitle{Sintaxis}
