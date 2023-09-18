@@ -162,19 +162,19 @@
 
 \begin{frame}[c]{Tabla de particiones tipo MBR o DOS}
   En el esquema de particiones \textbf{MBR} o \textbf{DOS} existen 3 tipos
-  diferentes de particiones:
+  diferentes de \textbf{particiones}:
 
   \pausa
   \vspace{\baselineskip}
   \begin{description}
-    \item[Partición primaria] Son las divisiones crudas o primarias del disco,
+    \item[primaria] Son las divisiones crudas o primarias del disco,
       solo puede haber como máximo 4 de éstas o 3 primarias y una extendida.
     \pausa
-    \item[Partición extendida] También conocida como partición secundaria es
+    \item[extendida] También conocida como partición secundaria es
       otro tipo de partición que actúa como una partición primaria; sirve
       ara contener múltiples unidades lógicas en su interior.
     \pausa
-    \item[Partición lógica] Ocupa una porción de la partición extendida o la
+    \item[lógica] Ocupa una porción de la partición extendida o la
       totalidad de la misma, la cual se ha formateado con un tipo específico
       de sistema de archivos y se le ha asignado una unidad, así el sistema
       operativo reconoce las particiones lógicas o su sistema de archivos.
@@ -206,8 +206,8 @@
       \draw[draw=green!60, fill=green!5, thick] (1.2,0.2) rectangle (3,1.8);
       \draw[draw=green!60, fill=green!5, thick] (3.2,0.2) rectangle (5,1.8);
       \draw[draw=magenta!60, fill=magenta!5, thick] (5.2,0.2) rectangle (9.8,1.8);
-      \draw[draw=blue!60, fill=blue!5, thick] (5.4,0.4) rectangle (7.4,1.6);
-      \draw[draw=blue!60, fill=blue!5, thick] (7.6,0.4) rectangle (9.6,1.6);
+      \draw[draw=blue!60, fill=blue!5, thick] (5.4,0.5) rectangle (7.4,1.5);
+      \draw[draw=blue!60, fill=blue!5, thick] (7.6,0.5) rectangle (9.6,1.5);
       \node at (2.1,1) {\footnotesize{/dev/xxx1}};
       \node at (4.1,1) {\footnotesize{/dev/xxx2}};
       \node at (6.3,1) {\footnotesize{/dev/xxx5}};
@@ -222,9 +222,9 @@
       \node[rotate=90] at (0.6,0.9) {\textbf{MBR}};
       \draw[draw=green!60, fill=green!5, thick] (1.2,0.2) rectangle (3,1.8);
       \draw[draw=magenta!60, fill=magenta!5, thick] (3.2,0.2) rectangle (9.8,1.8);
-      \draw[draw=blue!60, fill=blue!5, thick] (3.4,0.4) rectangle (5.4,1.6);
-      \draw[draw=blue!60, fill=blue!5, thick] (5.6,0.4) rectangle (7.4,1.6);
-      \draw[draw=blue!60, fill=blue!5, thick] (7.6,0.4) rectangle (9.6,1.6);
+      \draw[draw=blue!60, fill=blue!5, thick] (3.4,0.5) rectangle (5.4,1.5);
+      \draw[draw=blue!60, fill=blue!5, thick] (5.6,0.5) rectangle (7.4,1.5);
+      \draw[draw=blue!60, fill=blue!5, thick] (7.6,0.5) rectangle (9.6,1.5);
       \node at (2.1,1) {\footnotesize{/dev/xxx1}};
       \node at (4.2,1) {\footnotesize{/dev/xxx5}};
       \node at (6.5,1) {\footnotesize{/dev/xxx6}};
@@ -254,8 +254,8 @@
       \draw[draw=green!60, fill=green!5, thick] (1.2,0.2) rectangle (4,1.8);
       \draw[draw=green!60, fill=green!5, thick] (4.2,0.2) rectangle (5,1.8);
       \draw[draw=magenta!60, fill=magenta!5, thick] (5.2,0.2) rectangle (9.8,1.8);
-      \draw[draw=blue!60, fill=blue!5, thick] (5.4,0.4) rectangle (7.8,1.6);
-      \draw[draw=blue!60, fill=blue!5, thick] (8,0.4) rectangle (9.6,1.6);
+      \draw[draw=blue!60, fill=blue!5, thick] (5.4,0.5) rectangle (7.8,1.5);
+      \draw[draw=blue!60, fill=blue!5, thick] (8,0.5) rectangle (9.6,1.5);
     \end{tikzpicture}
   \end{center}
 \end{frame}
