@@ -1,0 +1,101 @@
+% ex: ts=2 sw=2 sts=2 et filetype=tex
+% SPDX-License-Identifier: CC-BY-SA-4.0
+
+\documentclass[aspectratio=169]{beamer}
+
+\usetheme{Boadilla}
+
+%\definecolor{ccosscolor}{rgb}{0.0, 0.545, 0.545}
+%\usecolortheme[named=ccosscolor]{structure}
+
+\setbeamertemplate{navigation symbols}{}
+
+\graphicspath{{../img/}{img/}}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{colortbl}
+\usepackage{tikz}
+\usetikzlibrary{trees}
+
+\title{¿Cómo contribuir al kernel de Linux?}
+\author[\textcircled{cc} BY-SA]{Miguel Bernal Marin} % Your name
+
+\institute[]
+{
+Nombre del evento \\
+}
+\date{
+    21 de septiembre de 2023
+}
+
+%\logo{\includegraphics[height=1cm]{contribu-logo.png}}
+\newcommand{\nologo}{\setbeamertemplate{logo}{}} % command to set the logo to nothing
+
+%------------------------------------------------------------
+%The next block of commands puts the table of contents at the
+%beginning of each section and highlights the current section:
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Contenido}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+%------------------------------------------------------------
+
+\newcommand{\pausa}{\pause} % Para usar una pausa en las presentaciones
+%\newcommand{\pausa}{}      % Para que NO salgan las pausas
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+{\nologo\input{../ccoss21/intel-disclaimer.tex}}
+\input{../ccoss21/about-me.tex}
+
+\begin{frame}
+    \frametitle{Contenido}
+    \tableofcontents
+\end{frame}
+
+\input{contenido.tex}
+
+\begin{frame}[c]{Créditos}
+  \label{creditos}
+  El material está basado en
+  \begin{enumerate}
+    \item
+      \href{https://es.wikipedia.org/wiki/Historia_de_Linux}
+      {https://es.wikipedia.org/wiki/Historia\_de\_Linux}
+    \item
+      \href{https://www.cs.cmu.edu/~awb/linux.history.html}
+      {https://www.cs.cmu.edu/\~{}awb/linux.history.html}
+    \item
+      \href{https://en.wikipedia.org/wiki/Linux_kernel_version_history}
+      {https://en.wikipedia.org/wiki/Linux\_kernel\_version\_history}
+    \item
+      \href{https://kernel.org/category/releases.html}
+      {https://kernel.org/category/releases.html}
+    \item
+      \href{https://www.kernel.org/doc/html/latest/process/index.html}
+      {https://www.kernel.org/doc/html/latest/process/index.html}
+    \item
+      \href{https://www.kernel.org/cloning-linux-from-a-bundle.html}
+      {https://www.kernel.org/cloning-linux-from-a-bundle.html}
+    \item
+      \href{https://www.kernel.org/doc/html/latest/process/howto.html}
+      {https://www.kernel.org/doc/html/latest/process/howto.html}
+    \item
+      \href{https://www.kernel.org/doc/html/latest/admin-guide/reporting-issues.html}
+      {https://www.kernel.org/doc/html/latest/admin-guide/reporting-issues.html}
+%    \item
+%      \href{}
+%      {}
+  \end{enumerate}
+\end{frame}
+
+\end{document}
