@@ -261,13 +261,146 @@
 \end{frame}
 
 \begin{frame}[c]{Tabla de particiones GUID: GPT}
+  \begin{columns}
+    \column{0.5\textwidth}
+    \begin{itemize}
+      \item La \textbf{tabla de particiones GUID} (GPT) es un estándar para la
+            colocación de la tabla de particiones en un disco duro físico.
+      \item El \textbf{identificador único global}, en inglés:
+            \textbf{globally unique identifier} (GUID) es un número
+            pseudoaleatorio empleado en aplicaciones de software.
+    \end{itemize}
+    \column{0.5\textwidth}
+      \begin{center}
+        \includegraphics[scale=0.35]{lfs/gtp_scheme.png}
+      \end{center}
+  \end{columns}
+\end{frame}
 
+\begin{frame}[c]{Partición del sistema EFI: ESP}
+  La \textbf{partición del sistema EFI} (Extensible Firmware Interface) o ESP
+  es una partición en un dispositivo de almacenamiento de datos.
+
+  \vspace{\baselineskip}
+  Cuando se inicia una computadora, el firmware UEFI carga archivos
+  almacenados en el ESP para comenzar a iniciar sistemas operativos.
+
+  \begin{center}
+    \begin{tikzpicture}
+      \draw[draw=black!60, fill=black!5, very thick] (0,0) rectangle (10,2);
+      \draw[draw=green, fill=green!5, thick] (0.2,0.2) rectangle (1,1.8);
+      \node[rotate=90] at (0.6,0.9) {\textbf{ESP}};
+      \draw[draw=blue!60, fill=blue!5, thick] (1.2,0.2) rectangle (4,1.8);
+      \draw[draw=blue!60, fill=blue!5, thick] (4.2,0.2) rectangle (7,1.8);
+      \draw[draw=blue!60, fill=blue!5, thick] (7.2,0.2) rectangle (9.8,1.8);
+    \end{tikzpicture}
+  \end{center}
+
+  La ESP contiene los \textbf{cargadores de arranque} o \textbf{imágenes del
+  kernel} para todos los sistemas operativos instalados y esta
+  formateada con el formato \textbf{FAT32}
+\end{frame}
+
+\begin{frame}[c]{Tipos de particiones}
+  \pausa
+  {\tiny
+  \begin{columns}
+  \column{0.3\textwidth}
+  \begin{table}[]
+  \begin{tabular}{rll}
+  1&EFI System                     \\
+  2&MBR partition scheme           \\
+  3&Intel Fast Flash               \\
+  4&BIOS boot                      \\
+  5&Sony boot partition            \\
+  6&Lenovo boot partition          \\
+  7&PowerPC PReP boot              \\
+  8&ONIE boot                      \\
+  9&ONIE config                    \\
+ 10&Microsoft reserved             \\
+ 11&Microsoft basic data           \\
+ 12&Microsoft LDM metadata         \\
+ 13&Microsoft LDM data             \\
+ 14&Windows recovery environment   \\
+ 15&IBM General Parallel Fs        \\
+ 16&Microsoft Storage Spaces       \\
+ 17&HP-UX data                     \\
+ 18&HP-UX service                  \\
+ 19&Linux swap                     \\
+ 20&Linux filesystem               \\
+ 21&Linux server data              \\
+ 22&Linux root (x86)               \\
+ 23&Linux root (x86-64)            \\
+ 24&Linux root (Alpha)             \\
+ 25&Linux root (ARC)               \\
+  \end{tabular}
+  \end{table}
+\column{0.3\textwidth}
+  \begin{table}[]
+  \begin{tabular}{rll}
+ 26&Linux root (ARM)               \\
+ 27&Linux root (ARM-64)            \\
+ 28&Linux root (IA-64)             \\
+ 29&Linux root (LoongArch-64)      \\
+ 30&Linux root (MIPS-32 LE)        \\
+ 31&Linux root (MIPS-64 LE)        \\
+ 32&Linux root (PPC)               \\
+ 33&Linux root (PPC64)             \\
+ 34&Linux root (PPC64LE)           \\
+ 35&Linux root (RISC-V-32)         \\
+ 36&Linux root (RISC-V-64)         \\
+ 37&Linux root (S390)              \\
+ 38&Linux root (S390X)             \\
+ 39&Linux root (TILE-Gx)           \\
+ 40&Linux reserved                 \\
+ 41&Linux home                     \\
+ 42&Linux RAID                     \\
+ 43&Linux LVM                      \\
+ 44&Linux variable data            \\
+ 45&Linux temporary data           \\
+ 46&Linux /usr (x86)               \\
+ 47&Linux /usr (x86-64)            \\
+ 48&Linux /usr (Alpha) \\
+ 49&Linux /usr (ARC)  \\
+ 50&Linux /usr (ARM) \\
+  \end{tabular}
+  \end{table}
+\column{0.3\textwidth}
+  \begin{table}[]
+  \begin{tabular}{rll}
+ 51&Linux /usr (ARM-64)   \\
+ $\vdots$ & $\ddots$ \\
+179&MidnightBSD swap              \\
+180&MidnightBSD UFS               \\
+181&MidnightBSD ZFS               \\
+182&MidnightBSD Vinum             \\
+183&Ceph Journal                  \\
+184&Ceph Encrypted Journal        \\
+185&Ceph OSD                      \\
+186&Ceph crypt OSD                \\
+187&Ceph disk in creation         \\
+188&Ceph crypt disk in creation    \\
+189&VMware VMFS                    \\
+190&VMware Diagnostic              \\
+191&VMware Virtual SAN             \\
+192&VMware Virsto                  \\
+193&VMware Reserved                \\
+194&OpenBSD data                   \\
+195&QNX6 file system               \\
+196&Plan 9 partition               \\
+197&HiFive FSBL                    \\
+198&HiFive BBL                     \\
+199&Haiku BFS                      \\
+200&Marvell Armada 3700 Boot partition \\
+  \end{tabular}
+  \end{table}
+  \end{columns}
+}
 \end{frame}
 
 \section{Sistemas de archivos}
 
 \begin{frame}[c]{Sistemas de archivos}
-
 \end{frame}
 
 \begin{frame}[c]{Volúmenes Lógicos}
