@@ -401,13 +401,223 @@
 \section{Sistemas de archivos}
 
 \begin{frame}[c]{Sistemas de archivos}
+  \begin{itemize}
+    \item Un \textbf{sistema de archivos} o sistema de ficheros, (\textbf{file
+          system}: fs), en informática, es un elemento que controla
+          \emph{cómo se almacenan y recuperan los datos}.
+    \pausa
+    \item Sus principales funciones son la \textbf{asignación de espacio a los
+          archivos}, la administración del espacio libre y del acceso a los
+          datos resguardados.
+    \pausa
+    \item La \textbf{estructura de directorios} suele ser jerárquica,
+      ramificada o "en árbol", aunque en algún caso podría ser plana. 
+    \pausa
+    \item En los sistemas de archivos jerárquicos, usualmente,
+      se declara la ubicación precisa de un archivo con una cadena de texto
+      llamada \textbf{ruta} (\textbf{path}, en inglés). 
+  \end{itemize}
 \end{frame}
 
-\begin{frame}[c]{Volúmenes Lógicos}
-
+\begin{frame}[c]{Sistemas de archivos}
+  \pausa
+  \begin{description}
+    \item[9p] Plan 9 Resource Sharing for Linux
+    \pausa
+    \item[btrfs] (B-tree FS) es un sistema de archivos copy-on-write (COW) 
+    \pausa
+    \item[ceph] Distributed File System
+    \pausa
+    \item[efivarfs] a (U)EFI variable filesystem
+    \pausa
+    \item[ext2] The Second Extended Filesystem
+    \pausa
+    \item[ext3] The Third Extended Filesystem
+    \pausa
+    \item[ext4] The Fourth Extended Filesystem
+    \pausa
+    \item[f2fs] Flash-Friendly File System
+    \pausa
+    \item[hfsplus] Macintosh HFSPlus Filesystem for Linux
+    \pausa
+    \item[nfs] Network File System (sistema de archivos de red)
+    \pausa
+    \item[ntfs] New Technology File System, usado en Windows
+  \end{description}
 \end{frame}
+
+\begin{frame}[c]{Sistemas de archivos (cont.)}
+  \begin{description}
+    \item[overlayfs] Overlay Filesystem
+    \pausa
+    \item[smb] Server Message Block; CIFS Common Internet File System
+    \pausa
+    \item[squashfs] is a compressed read-only filesystem for Linux.
+    \pausa
+    \item[tmpfs] is a file system which keeps all of its files in virtual memory.
+    \pausa
+    \item[vfat] FAT16, FAT32: Tabla de asignación de archivos
+    \pausa
+    \item[xfs]  es un sistema de archivos de 64 bits con registro de
+      bitácora o journaling de alto rendimiento.
+  \end{description}
+
+  \vspace{\baselineskip}
+   \emph{Otros sistemas de archivos soportados por Linux son}: adfs, affs, afs,
+   autofs, autofs-mount-control, befs, bfs, coda, configfs, cramfs, dax,
+   debugfs, dlmfs, ecryptfs, erofs, gfs2, gfs2-uevents, gfs2-glocks, hfs,
+   hpfs, fuse, fuse-io, inotify, isofs, nilfs2, ntfs3, ocfs2,
+   ocfs2-online-filecheck, omfs, orangefs, proc, qnx6, ramfs-rootfs-initramfs,
+   relay, romfs, spufs, sysfs, sysv-fs, ubifs, ubifs-authentication, udf,
+   virtiofs, xfs-delayed-logging-design, xfs-maintainer-entry-profile,
+   xfs-self-describing-metadata, xfs-online-fsck-design, zonefs.
+\end{frame}
+
+%\begin{frame}[c]{Volúmenes Lógicos}
+%
+%\end{frame}
 
 \section{Sistemas de almacenamiento}
+
+\begin{frame}[c]{Sistemas de almacenamiento}
+  \begin{columns}
+    \column{0.3\textwidth}
+      \begin{center}
+        \includegraphics[scale=0.4]{tux.png}
+      \end{center}
+    \column{0.7\textwidth}
+      \begin{itemize}
+        \item En Linux y Unix todo es un archivo.
+        \pausa
+        \item El directorio \textbf{/dev} contiene los archivos de dispositivos
+          especiales para todos los dispositivos hardware.
+        \pausa
+        \item Estos son archivos de \textbf{bloques} y archivos de
+          \textbf{caracteres}.
+        \pausa
+        \item \textbf{b}rw-rw----. 1 root disk 259, 0 Sep 24 1027
+          /dev/nvme0n1
+    \end{itemize}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[c]{Floppy disk}
+
+  \begin{columns}
+    \column{0.5\textwidth}
+      {\huge /dev/fd{\color{red}x}}
+      \begin{itemize}
+        \item {\color{red}x} puede ser \textbf{a} o \textbf{b}
+      \end{itemize}
+    \column{0.5\textwidth}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[c]{Hard disk (Parallel ATA) PATA - IDE}
+
+  \begin{columns}
+    \column{0.5\textwidth}
+      {\huge /dev/hd{\color{red}x}{\color{blue}y}}
+      \begin{itemize}
+        \item {\color{red}x} puede ser \textbf{a},\textbf{b},\textbf{c},\textbf{d}
+        \item {\color{blue}y} puede ser \textbf{1}-\textbf{16}
+      \end{itemize}
+    \column{0.5\textwidth}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[c]{Hard disk (Parallel ATA) PATA - IDE}
+
+  \begin{columns}
+    \column{0.5\textwidth}
+      {\huge /dev/hd{\color{red}x}{\color{blue}y}}
+      \begin{itemize}
+        \item {\color{red}x} puede ser \textbf{a},\textbf{b},\textbf{c},\textbf{d}
+        \item {\color{blue}y} puede ser \textbf{1}-\textbf{16}
+      \end{itemize}
+    \column{0.5\textwidth}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[c]{SCSI (Small Computer System Interface) disk}
+
+  \begin{columns}
+    \column{0.5\textwidth}
+      {\huge /dev/sd{\color{red}x}{\color{blue}y}}
+      \begin{itemize}
+        \item {\color{red}x} puede ser \textbf{a}-\textbf{z}
+        \item {\color{blue}y} puede ser \textbf{1}-\textbf{16}
+      \end{itemize}
+    \column{0.5\textwidth}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[c]{SATA (Serial ATA) disk}
+
+  \begin{columns}
+    \column{0.5\textwidth}
+      {\huge /dev/sd{\color{red}x}{\color{blue}y}}
+      \begin{itemize}
+        \item {\color{red}x} puede ser \textbf{a}-\textbf{z}
+        \item {\color{blue}y} puede ser \textbf{1}-\textbf{16}
+      \end{itemize}
+    \column{0.5\textwidth}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[c]{SAS (Serial Attached SCSI) disk}
+
+  \begin{columns}
+    \column{0.5\textwidth}
+      {\huge /dev/sd{\color{red}x}{\color{blue}y}}
+      \begin{itemize}
+        \item {\color{red}x} puede ser \textbf{a}-\textbf{z}
+        \item {\color{blue}y} puede ser \textbf{1}-\textbf{16}
+      \end{itemize}
+    \column{0.5\textwidth}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[c]{USB key disk}
+
+  \begin{columns}
+    \column{0.5\textwidth}
+      {\huge /dev/sd{\color{red}x}{\color{blue}y}}
+      \begin{itemize}
+        \item {\color{red}x} puede ser \textbf{a}-\textbf{z}
+        \item {\color{blue}y} puede ser \textbf{1}-\textbf{16}
+      \end{itemize}
+    \column{0.5\textwidth}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[c]{eMMC (embedded Multimedia Card) -> SD}
+
+  \begin{columns}
+    \column{0.5\textwidth}
+      {\huge /dev/mmcblk{\color{red}x}p{\color{blue}y}}
+      \begin{itemize}
+        \item {\color{red}x} puede ser \textbf{0}-\textbf{9}
+        \item {\color{blue}y} puede ser \textbf{1}-\textbf{16}
+      \end{itemize}
+    \column{0.5\textwidth}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[c]{nvme (Non-Volatile Memory Express) disk}
+
+  \begin{columns}
+    \column{0.5\textwidth}
+      {\huge /dev/nvme{\color{red}x}n{\color{blue}y}p{\color{magenta}z}}
+      \begin{itemize}
+        \item {\color{red}x} puede ser \textbf{0}-\textbf{9}
+        \item {\color{blue}y} puede ser \textbf{1}-\textbf{9}
+        \item {\color{magenta}z} puede ser \textbf{1}-\textbf{16}
+      \end{itemize}
+    \column{0.5\textwidth}
+  \end{columns}
+\end{frame}
+
 
 \begin{frame}[fragile]
   \frametitle{Sintaxis}
