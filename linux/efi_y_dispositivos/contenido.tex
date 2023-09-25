@@ -509,7 +509,15 @@
       \begin{itemize}
         \item {\color{red}x} puede ser \textbf{a} o \textbf{b}
       \end{itemize}
+      \href{http://distro.ibiblio.org/baslinux/}{http://distro.ibiblio.org/baslinux/}
+      \begin{center}
+        \includegraphics[scale=0.1]{lfs/diskette_varios.png}
+      \end{center}
     \column{0.5\textwidth}
+      \begin{center}
+        \includegraphics[scale=0.18]{lfs/diskette_caja.png}
+        \includegraphics[scale=0.2]{lfs/diskette_abierto.png}
+      \end{center}
   \end{columns}
 \end{frame}
 
@@ -522,7 +530,14 @@
         \item {\color{red}x} puede ser \textbf{a},\textbf{b},\textbf{c},\textbf{d}
         \item {\color{blue}y} puede ser \textbf{1}-\textbf{16}
       \end{itemize}
+      \begin{center}
+        \includegraphics[scale=0.4]{lfs/ide_conector.png}
+      \end{center}
     \column{0.5\textwidth}
+      \begin{center}
+        \includegraphics[scale=0.6]{lfs/ide_disco.png}
+        \includegraphics[scale=0.5]{lfs/ide_cable.png}
+      \end{center}
   \end{columns}
 \end{frame}
 
@@ -535,33 +550,83 @@
         \item {\color{red}x} puede ser \textbf{a},\textbf{b},\textbf{c},\textbf{d}
         \item {\color{blue}y} puede ser \textbf{1}-\textbf{16}
       \end{itemize}
+      \begin{center}
+        \includegraphics[scale=0.5]{lfs/ide_conector2.png}
+      \end{center}
     \column{0.5\textwidth}
+      \begin{center}
+        \includegraphics[scale=0.4]{lfs/ide_pines.png}
+      \end{center}
   \end{columns}
+\end{frame}
+
+\begin{frame}[c]{maestro/esclavo: Julio 2020}
+  \begin{columns}[t]
+    \column{0.5\textwidth}
+      Alternativas propuestas para \\
+      \textbf{master}/\textbf{slave}:
+
+      \vspace{\baselineskip}
+      \begin{itemize}
+        \item primary/secondary
+        \item main/replica or subordinate
+        \item initiator/target
+        \item requester/responder
+        \item controller/device
+        \item host/worker or proxy
+        \item leader/follower
+        \item director/performer
+      \end{itemize}
+    \column{0.5\textwidth}
+      Alternativas propuestas para \textbf{blacklist}/\textbf{whitelist}:
+
+      \vspace{\baselineskip}
+      \begin{itemize}
+        \item denylist/allowlist
+        \item blocklist/passlist
+      \end{itemize}
+  \end{columns}
+
+  \vspace{\baselineskip}
+  {\footnotesize
+  \href{https://www.zdnet.com/article/linux-team-approves-new-terminology-bans-terms-like-blacklist-and-slave/}
+  {https://www.zdnet.com/article/linux-team-approves-new-terminology-bans-terms-like-blacklist-and-slave/}
+  }
 \end{frame}
 
 \begin{frame}[c]{SCSI (Small Computer System Interface) disk}
 
   \begin{columns}
-    \column{0.5\textwidth}
+    \column{0.4\textwidth}
       {\huge /dev/sd{\color{red}x}{\color{blue}y}}
       \begin{itemize}
         \item {\color{red}x} puede ser \textbf{a}-\textbf{z}
         \item {\color{blue}y} puede ser \textbf{1}-\textbf{16}
       \end{itemize}
-    \column{0.5\textwidth}
+    \column{0.6\textwidth}
+      \begin{center}
+        \includegraphics[scale=0.2]{lfs/scsi_disco.png}
+      \end{center}
   \end{columns}
 \end{frame}
 
 \begin{frame}[c]{SATA (Serial ATA) disk}
 
   \begin{columns}
-    \column{0.5\textwidth}
+    \column{0.4\textwidth}
       {\huge /dev/sd{\color{red}x}{\color{blue}y}}
       \begin{itemize}
         \item {\color{red}x} puede ser \textbf{a}-\textbf{z}
         \item {\color{blue}y} puede ser \textbf{1}-\textbf{16}
       \end{itemize}
-    \column{0.5\textwidth}
+      \begin{center}
+        \includegraphics[scale=0.5]{lfs/sata_cable.png}
+      \end{center}
+    \column{0.6\textwidth}
+      \begin{center}
+        \includegraphics[scale=0.6]{lfs/sata_disco.png}
+        \includegraphics[scale=0.5]{lfs/sata_cable2.png}
+      \end{center}
   \end{columns}
 \end{frame}
 
@@ -574,24 +639,33 @@
         \item {\color{red}x} puede ser \textbf{a}-\textbf{z}
         \item {\color{blue}y} puede ser \textbf{1}-\textbf{16}
       \end{itemize}
+      \begin{center}
+        \includegraphics[scale=0.3]{lfs/sas_conector.png}
+      \end{center}
     \column{0.5\textwidth}
+      \begin{center}
+        \includegraphics[scale=0.5]{lfs/sas_disco.png}
+      \end{center}
   \end{columns}
 \end{frame}
 
 \begin{frame}[c]{USB key disk}
 
   \begin{columns}
-    \column{0.5\textwidth}
+    \column{0.4\textwidth}
       {\huge /dev/sd{\color{red}x}{\color{blue}y}}
       \begin{itemize}
         \item {\color{red}x} puede ser \textbf{a}-\textbf{z}
         \item {\color{blue}y} puede ser \textbf{1}-\textbf{16}
       \end{itemize}
-    \column{0.5\textwidth}
+    \column{0.6\textwidth}
+      \begin{center}
+        \includegraphics[scale=0.5]{lfs/usb_key.png}
+      \end{center}
   \end{columns}
 \end{frame}
 
-\begin{frame}[c]{eMMC (embedded Multimedia Card) -> SD}
+\begin{frame}[c]{eMMC (embedded Multimedia Card) $\Rightarrow$ SD}
 
   \begin{columns}
     \column{0.5\textwidth}
@@ -600,29 +674,40 @@
         \item {\color{red}x} puede ser \textbf{0}-\textbf{9}
         \item {\color{blue}y} puede ser \textbf{1}-\textbf{16}
       \end{itemize}
+      \begin{center}
+        \includegraphics[scale=0.6]{lfs/mmc_embedded.png}
+      \end{center}
     \column{0.5\textwidth}
+      \begin{center}
+        \includegraphics[scale=0.5]{lfs/mmc_sd.png}
+        \includegraphics[scale=0.5]{lfs/mmc_varias.png}
+      \end{center}
   \end{columns}
 \end{frame}
 
 \begin{frame}[c]{nvme (Non-Volatile Memory Express) disk}
 
   \begin{columns}
-    \column{0.5\textwidth}
+    \column{0.4\textwidth}
       {\huge /dev/nvme{\color{red}x}n{\color{blue}y}p{\color{magenta}z}}
       \begin{itemize}
         \item {\color{red}x} puede ser \textbf{0}-\textbf{9}
         \item {\color{blue}y} puede ser \textbf{1}-\textbf{9}
         \item {\color{magenta}z} puede ser \textbf{1}-\textbf{16}
       \end{itemize}
-    \column{0.5\textwidth}
+      \begin{center}
+        \includegraphics[scale=0.6]{lfs/nvme_disco.png}
+      \end{center}
+    \column{0.6\textwidth}
+      \begin{center}
+        \includegraphics[scale=0.6]{lfs/nvme_tamanio.png}
+      \end{center}
   \end{columns}
 \end{frame}
 
-
-\begin{frame}[fragile]
-  \frametitle{Sintaxis}
+%\begin{frame}[fragile]
+%  \frametitle{Sintaxis}
   %\begin{lstlisting}[language=Bash]
   %\end{lstlisting}
-
-  \vspace{\baselineskip}
-\end{frame}
+%  \vspace{\baselineskip}
+%\end{frame}
