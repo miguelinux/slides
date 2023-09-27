@@ -412,7 +412,7 @@ NombreDelComando [opcion(es)] [parametro(s)]
     \vspace{\baselineskip}
     \item[Sinopsis]
         rmdir [OPCIÓN]... DIRECTORIO...
-      
+
     \vspace{\baselineskip}
     \item[Descripción]
       Borra el/los DIRECTORIO(s), si están vacíos.
@@ -440,7 +440,7 @@ NombreDelComando [opcion(es)] [parametro(s)]
     \vspace{\baselineskip}
     \item[Sinopsis]
       rm [OPCIÓN]... [ARCHIVO]...
-      
+
     \vspace{\baselineskip}
     \item[Descripción]
       Esta aplicación elimina cada uno de los archivos dados. Por defecto,
@@ -474,7 +474,7 @@ NombreDelComando [opcion(es)] [parametro(s)]
 
     \vspace{\baselineskip}
     \item[Sinopsis]
-      
+
     \vspace{\baselineskip}
     \item[Descripción]
       sudo permite a un usuario autorizado ejecutar un comando como
@@ -490,8 +490,8 @@ NombreDelComando [opcion(es)] [parametro(s)]
     \vspace{\baselineskip}
     \item[Ejemplos]
       \begin{itemize}
-        \item sudo -i 
-        \item sudo -i -u otroUsuario 
+        \item sudo -i
+        \item sudo -i -u otroUsuario
         \item sudo fdisk -l
       \end{itemize}
   \end{description}
@@ -505,7 +505,7 @@ NombreDelComando [opcion(es)] [parametro(s)]
     \vspace{\baselineskip}
     \item[Sinopsis]
       touch [OPCIÓN]... ARCHIVO...
-      
+
     \vspace{\baselineskip}
     \item[Descripción]
       Actualiza la fecha de acceso y modificación de cada ARCHIVO a la hora
@@ -517,7 +517,7 @@ NombreDelComando [opcion(es)] [parametro(s)]
       \begin{itemize}
         \item [-c] no crea ningún archivo
         \item [-h] afecta a cada enlace simbólico en lugar de a los
-          archivos referidos 
+          archivos referidos
         \item [-a] cambia solamente la fecha de acceso
       \end{itemize}
 
@@ -537,7 +537,7 @@ NombreDelComando [opcion(es)] [parametro(s)]
     \vspace{\baselineskip}
     \item[Sinopsis]
       find  [-H]  [-L] [-P] [-D debugopts] [-Olevel] [starting-point...] [expression]
-      
+
     \vspace{\baselineskip}
     \item[Descripción]
       Busca en el árbol de directorios enraizado en cada punto de partida
@@ -555,7 +555,7 @@ NombreDelComando [opcion(es)] [parametro(s)]
     \vspace{\baselineskip}
     \item[Ejemplos]
       \begin{itemize}
-        \item find -name nombredearchivo.txt 
+        \item find -name nombredearchivo.txt
         \item find ./ -type d -name nombredeldirectorio
       \end{itemize}
   \end{description}
@@ -571,8 +571,8 @@ NombreDelComando [opcion(es)] [parametro(s)]
     \item[Sinopsis]
       grep [OPCIÓN...] PATRONES [ARCHIVO...] \\
       grep [OPCIÓN...] -e PATRONES ... [ARCHIVO...] \\
-      grep [OPCIÓN...] -f ARCHIVO_PATRÓN ... [ARCHIVO...]
-      
+      grep [OPCIÓN...] -f ARCHIVO\_PATRÓN ... [ARCHIVO...]
+
     \vspace{\baselineskip}
     \item[Descripción]
       grep busca PATRONES en cada ARCHIVO. PATRONES consistirá en uno o más
@@ -582,8 +582,9 @@ NombreDelComando [opcion(es)] [parametro(s)]
       orden de la shell.
 
       \begin{itemize}
-        \item [-E] nterpreta PATRONES como una expresión regular extendida 
-        \item [-F] Interpreta PATRONES como una cadena de texto, no como expresiones regulares.
+        \item [-E] interpreta PATRONES como una expresión regular extendida
+        \item [-F] Interpreta PATRONES como una cadena de texto, no como
+          expresiones regulares.
       \end{itemize}
 
     \vspace{\baselineskip}
@@ -604,7 +605,7 @@ NombreDelComando [opcion(es)] [parametro(s)]
     \vspace{\baselineskip}
     \item[Sinopsis]
       df [OPCIÓN]... [FICHERO]...
-      
+
     \vspace{\baselineskip}
     \item[Descripción]
       df muestra el nivel de uso del sistema de archivos que contiene a cada
@@ -637,7 +638,7 @@ NombreDelComando [opcion(es)] [parametro(s)]
     \item[Sinopsis]
       du [OPCIÓN]... [FICHERO]... \\
       du [OPCIÓN]... --files0-from=F
-      
+
     \vspace{\baselineskip}
     \item[Descripción]
       Muestra un resumen del uso de disco para el conjunto dado de ARCHIVOS,
@@ -684,6 +685,42 @@ NombreDelComando [opcion(es)] [parametro(s)]
   (también conocidos como patrones globales) para trabajar con varios
   archivos.
 
+  \vspace{\baselineskip}
+  Los comodines estándar se utilizan en casi cualquier comando
+  (incluidos mv, cp, rm y muchos otros).
+
+  \begin{description}
+    \item[?] (signo de interrogación) esto puede representar cualquier
+      carácter individual . Si especificó algo en la línea de comando
+      como "hd?" GNU/Linux buscaría hda, hdb, hdc y cualquier otra
+      letra/número entre az, 0-9.
+  \end{description}
+\end{frame}
+
+\begin{frame}[c]{Comodines estándar (patrones globales)}
+  \begin{description}
+    \item[*] (asterisco) esto puede representar cualquier número de
+      caracteres (incluido cero; en otras palabras, cero o más caracteres).
+      Si especificaste un "cd*", usaría "cda", "cdrom", "cdrecord" y
+      cualquier cosa que comience con "cd", incluido también el propio "cd".
+      "m*l" podría ser mill, mull, ml y cualquier cosa que comience con m y
+      termine con l.
+  \end{description}
+\end{frame}
+
+\begin{frame}[c]{Comodines estándar (patrones globales)}
+  \begin{description}
+    \item[ [ ] (corchetes) especifica un rango. Si hiciste m$[a,o,u]$m puede
+      convertirse en: mam, mum, mom si hiciste: m$[ad]$m puede convertirse en
+      cualquier cosa que comience y termine con my tenga cualquier carácter
+      entre a y d en el medio. Por ejemplo, estos funcionarían: mam, mbm,
+      mcm, mdm. Este tipo de comodín especifica una relación "o" (sólo
+      necesita que coincida una).
+    \item[\{ \}] (llaves) Los términos están separados por comas y cada
+      término debe ser el nombre de algo o un comodín. Este comodín copiará
+      todo lo que coincida con los comodines o con los nombres exactos (una
+      relación "o", uno u otro). Ejemplo: cp \{*.doc,*.pdf\} ~
+  \end{description}
 \end{frame}
 
 \section{Direccionamiento de entrada/salida}
@@ -699,7 +736,7 @@ NombreDelComando [opcion(es)] [parametro(s)]
 
 \begin{frame}[c]{Flujos de archivos}
   \begin{description}
-    \item[Salida estándar] 
+    \item[Salida estándar]
       La salida estándar es la salida del programa impresa en la pantalla,
       sin incluir la salida de error (ver más abajo).
     \pausa
@@ -723,10 +760,10 @@ NombreDelComando [opcion(es)] [parametro(s)]
   \frametitle{Uso de los flujos de archivos}
 
   \begin{description}
-    \item[>] 
+    \item[>]
       El símbolo mayor que se usa para enviar información a algún lugar
       (por ejemplo, un archivo de texto).
-      
+
       \begin{lstlisting}[language=Bash]
 cat archivo1.txt archivo2.txt > archivo1_y_2.txt
       \end{lstlisting}
@@ -753,7 +790,7 @@ tr '[:lower:]' '[:upper:]' < unArchivo.txt > archivoNuevo.txt
 
 \begin{frame}[c]{Uso de los flujos de archivos}
   \begin{description}
-    \item[>{}>] 
+    \item[>{}>]
       El símbolo \textbf{>{}>} agrega información al final de un archivo o
       crea una si el archivo no existe.
   \end{description}
