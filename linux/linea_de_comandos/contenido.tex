@@ -404,6 +404,262 @@ NombreDelComando [opcion(es)] [parametro(s)]
   \end{description}
 \end{frame}
 
+\begin{frame}[c]{Comando rmdir}
+  \begin{description}
+    \item[Nombre]
+      \textbf{rmdir} - borra directorios vacíos
+
+    \vspace{\baselineskip}
+    \item[Sinopsis]
+        rmdir [OPCIÓN]... DIRECTORIO...
+      
+    \vspace{\baselineskip}
+    \item[Descripción]
+      Borra el/los DIRECTORIO(s), si están vacíos.
+
+      \begin{itemize}
+        \item [-p] Elimina DIRECTORIO y sus prdecesores; por ejemplo
+          'rmdir -p a/b/c' es lo mismo que 'rmdir a/b/c a/b a'
+        \item [-v] muestra un mensaje por cada archivo procesado
+      \end{itemize}
+
+    \vspace{\baselineskip}
+    \item[Ejemplos]
+      \begin{itemize}
+        \item rmdir /tmp/uno/dos/tres
+        \item rmdir -p /tmp/uno
+      \end{itemize}
+  \end{description}
+\end{frame}
+
+\begin{frame}[c]{Comando rm}
+  \begin{description}
+    \item[Nombre]
+      \textbf{rm} - borra archivos o directorios
+
+    \vspace{\baselineskip}
+    \item[Sinopsis]
+      rm [OPCIÓN]... [ARCHIVO]...
+      
+    \vspace{\baselineskip}
+    \item[Descripción]
+      Esta aplicación elimina cada uno de los archivos dados. Por defecto,
+      no elimina directorios.
+
+      Si se dan las opciones -I, o --interactive=once; si hay más de tres
+      archivos o se dan las opciones -r, -R, o --recursive, rm pregunta al
+      usuario cómo proceder con la orden dada. Si no la respuesta no es
+      afirmativa, no se ejecuta nada.
+
+      \begin{itemize}
+        \item [-f] descarta los ficheros y argumentos que no existan,
+          sin preguntar
+        \item [-i] pregunta antes de cada borrado
+        \item [-r] borra los contenidos de los directorios recursivamente
+      \end{itemize}
+
+    \vspace{\baselineskip}
+    \item[Ejemplos]
+      \begin{itemize}
+        \item rm /tmp/uno/dos/tres/archivo.txt
+        \item rm -rf /tmp/uno
+      \end{itemize}
+  \end{description}
+\end{frame}
+
+\begin{frame}[c]{Comando sudo}
+  \begin{description}
+    \item[Nombre]
+      \textbf{sudo} - ejecuta un comando como otro usuario
+
+    \vspace{\baselineskip}
+    \item[Sinopsis]
+      
+    \vspace{\baselineskip}
+    \item[Descripción]
+      sudo permite a un usuario autorizado ejecutar un comando como
+      superusuario u otro usuario, según lo especificado por la política de
+      seguridad.
+
+      \begin{itemize}
+        \item [-E] preserva las variables de entorno del usuario
+        \item [-i] Simula un login inicial y corre una nueva linea de
+          comandos con el nuevo usuario.
+      \end{itemize}
+
+    \vspace{\baselineskip}
+    \item[Ejemplos]
+      \begin{itemize}
+        \item sudo -i 
+        \item sudo -i -u otroUsuario 
+        \item sudo fdisk -l
+      \end{itemize}
+  \end{description}
+\end{frame}
+
+\begin{frame}[c]{Comando touch}
+  \begin{description}
+    \item[Nombre]
+      \textbf{touch} - cambia la fecha de un archivo
+
+    \vspace{\baselineskip}
+    \item[Sinopsis]
+      touch [OPCIÓN]... ARCHIVO...
+      
+    \vspace{\baselineskip}
+    \item[Descripción]
+      Actualiza la fecha de acceso y modificación de cada ARCHIVO a la hora
+      actual.
+
+      Si no existe el argumento ARCHIVO , se creará uno vacío, a menos que
+      se especifique -c o -h.
+
+      \begin{itemize}
+        \item [-c] no crea ningún archivo
+        \item [-h] afecta a cada enlace simbólico en lugar de a los
+          archivos referidos 
+        \item [-a] cambia solamente la fecha de acceso
+      \end{itemize}
+
+    \vspace{\baselineskip}
+    \item[Ejemplos]
+      \begin{itemize}
+        \item touch /tmp/holamundo
+      \end{itemize}
+  \end{description}
+\end{frame}
+
+\begin{frame}[c]{Comando find}
+  \begin{description}
+    \item[Nombre]
+      \textbf{find} - busca archivos en una jerarquia de directorios
+
+    \vspace{\baselineskip}
+    \item[Sinopsis]
+      find  [-H]  [-L] [-P] [-D debugopts] [-Olevel] [starting-point...] [expression]
+      
+    \vspace{\baselineskip}
+    \item[Descripción]
+      Busca en el árbol de directorios enraizado en cada punto de partida
+      dado evaluando la expresión dada de izquierda a derecha, de acuerdo
+      con las reglas de precedencia, hasta que se conoce el resultado,
+      momento en el que buscar pasa al siguiente nombre de archivo.
+
+      Si no se especifica ningún punto de partida, `.' se supone.
+
+      \begin{itemize}
+        \item [-P] No sigue los enlaces simbólicos
+        \item [-L] Si sigue los enlaces simbólicos
+      \end{itemize}
+
+    \vspace{\baselineskip}
+    \item[Ejemplos]
+      \begin{itemize}
+        \item find -name nombredearchivo.txt 
+        \item find ./ -type d -name nombredeldirectorio
+      \end{itemize}
+  \end{description}
+\end{frame}
+
+\begin{frame}[c]{Comando grep}
+  \begin{description}
+    \item[Nombre]
+      \textbf{grep, egrep, fgrep - rgrep} - muestran líneas que concuerdan
+      con un patrón
+
+    \vspace{\baselineskip}
+    \item[Sinopsis]
+      grep [OPCIÓN...] PATRONES [ARCHIVO...] \\
+      grep [OPCIÓN...] -e PATRONES ... [ARCHIVO...] \\
+      grep [OPCIÓN...] -f ARCHIVO_PATRÓN ... [ARCHIVO...]
+      
+    \vspace{\baselineskip}
+    \item[Descripción]
+      grep busca PATRONES en cada ARCHIVO. PATRONES consistirá en uno o más
+      patrones separados entre sí por un salto de línea; grep mostrará cada
+      línea donde encuentre una concordancia con dicho patrón. En general,
+      deben entrecomillarse los patrones si se ejecut grep dentro de otra
+      orden de la shell.
+
+      \begin{itemize}
+        \item [-E] nterpreta PATRONES como una expresión regular extendida 
+        \item [-F] Interpreta PATRONES como una cadena de texto, no como expresiones regulares.
+      \end{itemize}
+
+    \vspace{\baselineskip}
+    \item[Ejemplos]
+      \begin{itemize}
+        \item grep azul notepad.txt
+        \item ps aux | grep gnome
+      \end{itemize}
+  \end{description}
+\end{frame}
+
+\begin{frame}[c]{Comando df}
+  \begin{description}
+    \item[Nombre]
+      \textbf{df} - informa de la utilización del espacio de disco en
+      sistemas de ficheros
+
+    \vspace{\baselineskip}
+    \item[Sinopsis]
+      df [OPCIÓN]... [FICHERO]...
+      
+    \vspace{\baselineskip}
+    \item[Descripción]
+      df muestra el nivel de uso del sistema de archivos que contiene a cada
+      archivo que se especifica como argumento. Si no se proporciona ningún
+      nombre de archivo, se muestra el nivel de uso del espacio en todos los
+      sistemas de archivos montados.
+
+      \begin{itemize}
+        \item [-h] muestra los tamaños en potencias de 1024 (p.e. 1023M)
+        \item [-i] muestra la información de nodos-i en lugar del uso de
+          bloques
+        \item [-T] muestra el tipo del sistema de ficheros
+      \end{itemize}
+
+    \vspace{\baselineskip}
+    \item[Ejemplos]
+      \begin{itemize}
+        \item df -h
+        \item df -T
+      \end{itemize}
+  \end{description}
+\end{frame}
+
+\begin{frame}[c]{Comando du}
+  \begin{description}
+    \item[Nombre]
+      \textbf{du} - estima el uso de espacio de ficheros
+
+    \vspace{\baselineskip}
+    \item[Sinopsis]
+      du [OPCIÓN]... [FICHERO]... \\
+      du [OPCIÓN]... --files0-from=F
+      
+    \vspace{\baselineskip}
+    \item[Descripción]
+      Muestra un resumen del uso de disco para el conjunto dado de ARCHIVOS,
+      en el caso de los directorios lo hará de forma recursiva.
+
+      \begin{itemize}
+        \item [-a] muestra resultados para todos los ficheros,
+          no solo para los directorios
+        \item [-s] muestra solamente un total para cada argumento
+        \item [-h] muestra los tamaños de forma legible (p. ej., 1K 234M 2G)
+      \end{itemize}
+
+    \vspace{\baselineskip}
+    \item[Ejemplos]
+      \begin{itemize}
+        \item du /tmp
+        \item du -sh \$HOME
+      \end{itemize}
+  \end{description}
+\end{frame}
+
+
 \section{Comodines/Wildcards}
 
 \begin{frame}[c]{Comodines}
@@ -415,9 +671,19 @@ NombreDelComando [opcion(es)] [parametro(s)]
   \vspace{\baselineskip}
   Hay muchos usos para los comodines, hay dos formas diferentes importantes
   en que se usan los comodines, estos son englobando (globbing)
-  patrones/comodines estándar que a menudo usa el shell. La otra
-  alternativa es expresiones regulares, popular con muchos otros comandos y
-  popular para usarla con la búsqueda de textos y su manipulación.
+  patrones/comodines estándar que a menudo usa el shell.
+
+  \vspace{\baselineskip}
+  La otra alternativa es expresiones regulares, popular con muchos otros
+  comandos y popular para usarla con la búsqueda de textos y su
+  manipulación.
+\end{frame}
+
+\begin{frame}[c]{Comodines estándar (patrones globales)}
+  Varias utilidades de línea de comandos utilizan comodines estándar
+  (también conocidos como patrones globales) para trabajar con varios
+  archivos.
+
 \end{frame}
 
 \section{Direccionamiento de entrada/salida}
