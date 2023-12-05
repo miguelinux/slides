@@ -1,0 +1,57 @@
+% ex: ts=2 sw=2 sts=2 et filetype=tex
+% SPDX-License-Identifier: CC-BY-SA-4.0
+
+\documentclass[aspectratio=169]{beamer}
+
+\usetheme{Boadilla}
+
+\setbeamertemplate{navigation symbols}{}
+
+\graphicspath{{../img/}}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+%\usepackage{listings}
+%\usepackage{colortbl}
+\usepackage{tikz}
+%\usetikzlibrary{trees}
+
+\title[Linux containers]{Introducción a los Contenedores}
+
+\input{../../common/author}
+\input{../../common/date}
+%\input{../../common/lstGris}
+
+%------------------------------------------------------------
+%The next block of commands puts the table of contents at the
+%beginning of each section and highlights the current section:
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Contenido}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+%------------------------------------------------------------
+
+\newcommand{\nologo}{\setbeamertemplate{logo}{}} % command to set the logo to nothing
+\newcommand{\pausa}{\pause} % Para usar una pausa en las presentaciones
+%\newcommand{\pausa}{}      % Para que NO salgan las pausas
+
+\begin{document}
+
+{
+\nologo
+\begin{frame}
+    \titlepage
+\end{frame}
+}
+
+\begin{frame}
+    \frametitle{Contenido}
+    \tableofcontents
+\end{frame}
+
+\input{contenido.tex}
+
+\end{document}
