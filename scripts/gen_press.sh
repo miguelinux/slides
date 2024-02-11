@@ -29,12 +29,12 @@ compile_teacher() {
 }
 
 without_pausa() {
-    sed -i "/^\\\newcommand/ s/./%&/" ${1}
+    sed -i "/^\\\newcommand..pausa/ s/./%&/" ${1}
     sed -i "/^%\\\newcommand..pausa... .*/ s/.//" ${1}
 }
 
 with_pausa() {
-    sed -i "/^%\\\newcommand/ s/.//" ${1}
+    sed -i "/^%\\\newcommand..pausa/ s/.//" ${1}
     sed -i "/^\\\newcommand..pausa... .*/ s/./%&/" ${1}
 }
 
