@@ -5,32 +5,43 @@
 
 \usetheme{Boadilla}
 
+\definecolor{fslcolor}{rgb}{0.0, 0.564, 0.549} % #00908C
+\usecolortheme[named=fslcolor]{structure}
+
 \setbeamertemplate{navigation symbols}{}
 
-\graphicspath{{../../img/}}
+\graphicspath{{../../img/}{../../../linux/img/}}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
-%\usepackage{listings}
+\usepackage{listings}
 %\usepackage{colortbl}
 \usepackage{tikz}
 %\usetikzlibrary{trees}
 
-\title[Autenticación de dos factores (2FA)]{Verificación en dos pasos o 2FA: qué es, para qué sirve.}
+\title[Autenticación de dos factores (2FA)]{Verificación en dos pasos o 2FA: \\
+¿Qué es? y ¿Para qué sirve?}
 
-\author{Miguel Bernal Marin}
+\author[\textcircled{cc} BY-SA 4.0]{Miguel Bernal Marin}
 
 \institute[Escuela]
 {
 Festival de Software Libre Vallarta 2024\\
 \medskip
-\textit{miguel.bernal.marin@gmail.com} \\
-\textit{Telegram: @miguelinux} \\
+\textit{\href{mailto:miguel.bernal.marin@gmail.com}{miguel.bernal.marin@gmail.com}}\\
+Telegram: \textit{\href{https://t.me/miguelinux}{@miguelinux}}
 }
 \date{
   3 de mayo de 2024
 }
-%\input{../../common/lstGris}
+
+\input{../../../common/lstGris}
+
+\logo{\includegraphics[height=1cm]{fsl.png}}
+
+\titlegraphic{
+    \includegraphics[width=3cm]{fsl.png}
+}
 
 %------------------------------------------------------------
 %The next block of commands puts the table of contents at the
