@@ -65,8 +65,8 @@
   \begin{block}{}
       La \textbf{autenticación en dos pasos} o \textbf{verificación en
       dos pasos} es un método de confirmar la identidad de un usuario
-      utilizando algo que conocen (contraseña) y un segundo factor distinto
-      a lo que sean o posean.
+      utilizando algo que \textbf{conocen} (contraseña) y un segundo
+      factor distinto a lo que \textbf{sean} o \textbf{posean}.
   \end{block}
 
   \pausa
@@ -84,29 +84,315 @@
 
   \vspace{\baselineskip}
   \begin{itemize}
-    \item Algún objeto físico en posesión del usuario, como una memoria
-      USB con un identificador único, una tarjeta de crédito, una llave, etc.
+    \item Algún objeto físico en \textbf{posesión del usuario}, como una
+      memoria USB con un identificador único, una tarjeta de crédito,
+      una llave, etc.
 
     \pausa
-    \item Algún secreto conocido por el usuario, como una contraseña,
+    \item Algún \textbf{secreto conocido} por el usuario, como una contraseña,
       un pin, etc.
 
     \pausa
-    \item Alguna característica biométrica propia del usuario, como una
-      huella dactilar, iris, voz, velocidad de escritura, patrón en los
-      intervalos de pulsación de teclas, etc.
+    \item Alguna \textbf{característica biométrica propia del usuario},
+      como una huella dactilar, iris, voz, velocidad de escritura,
+      patrón en los intervalos de pulsación de teclas, etc.
   \end{itemize}
 \end{frame}
 
-\section{Software para la autenticación a 2 pasos}
+\begin{frame}[c]{2FA vs. MFA: ¿Cuál es la diferencia?}
+  \begin{itemize}
+    \item La autenticación de dos factores (2FA) requiere que los
+      usuarios presenten \textbf{dos tipos de autenticación}
 
-\begin{frame}[c]{}
+    \pausa
+    \item La autenticación de factores múltiples (MFA) requiere que
+      los usuarios presenten al menos \textbf{dos, si no más},
+      tipos de autenticación.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[c]{Qué métodos de verificación en dos pasos hay}
+  \begin{description}
+    \item [Verificación por SMS] Tras escribir tu nombre y contraseña,
+      se te envía una contraseña temporal por SMS para que la escribas.
+    \pausa
+    \item [Verificación por correo electrónico] Tras escribir tu nombre y
+      contraseña, se te envía una contraseña temporal por correo electrónico. 
+    \pausa
+    \item [Pregunta de seguridad] Tras escribir tu nombre y contraseña,
+      tendrás que responder a una pregunta de seguridad cuyas respuestas
+      hayas configurado antes. 
+    \pausa
+    \item [Aplicaciones de autenticación] Tras escribir tu nombre y contraseña,
+      tendrás que verificar tu identidad con la contraseña temporal que se te
+      genera en la aplicación de verificación en dos pasos que tengas
+      configurada. 
+  \end{description}
+\end{frame}
+
+\begin{frame}[c]{Qué métodos de verificación en dos pasos hay}
+  \begin{description}
+    \item [Códigos en la propia app] Algunas aplicaciones móviles de servicios
+      como Facebook también tienen función de generar códigos para cuando
+      inicies sesión en nuevos dispositivos. 
+    \pausa
+    \item [Llaves de seguridad] Puedes crear una llave de seguridad USB,
+      aunque también puede ser NFC o Bluetooth.
+    \pausa
+    \item [Biometría] Muy común en móviles, tabletas y que se ve en
+      ordenadores y portátiles a veces. 
+    \pausa
+    \item [Códigos de recuperación] Cuando te identificas en algunos servicios,
+      estos pueden generar un código de recuperación que te piden que anotes
+      o imprimas. 
+  \end{description}
+\end{frame}
+
+\section{Algoritmos para la autenticación a 2 pasos}
+
+\begin{frame}[c]{Iniciativa para la Autenticación Abierta}
+  \textbf{Initiative for Open Authentication} (\textbf{OATH}) es una
+  colaboración a nivel de toda la industria para desarrollar una arquitectura
+  de referencia abierta que utilice estándares abiertos para promover la
+  adopción de una \textbf{autenticación fuerte}. 
+
   \vspace{\baselineskip}
+  La OATH no está relacionada con la \textbf{OAuth}, un estándar
+  abierto de autorización. 
+\end{frame}
+
+\begin{frame}[c]{Autenticación con contraseña de un solo uso}
+
+  Una contraseña de un solo uso u \textbf{OTP} (del inglés
+  \textbf{One-Time Password}) es una contraseña que pierde su
+  validez después de su uso, de ahí su denominación.
+
+  \vspace{\baselineskip}
+  Por lo general, se emplea como parte de una autenticación de
+  doble factor.
+\end{frame}
+
+\begin{frame}[c]{HMAC}
+  En la criptografía, un \textbf{HMAC} (a veces expandido como
+  \textbf{código de autentificación de mensajes en clave-hash} o
+  \textbf{código de autenticación de mensaje basado en hash}) es una
+  construcción específica para calcular un \underline{código de
+  autentificación de mensaje (MAC)} que implica una función
+  \textbf{hash criptográfica} en combinación con una \textbf{llave
+  criptográfica secreta}.
+
+  \vspace{\baselineskip}
+  Como cualquier MAC, puede ser utilizado para verificar simultáneamente
+  la integridad de los datos y la autentificación de un mensaje. 
+\end{frame}
+
+\begin{frame}[c]{Algoritmo de contraseña de un solo uso basado en HMAC}
+  \textbf{HOTP} es un algoritmo de autenticación basado en \textbf{HMAC}
+  y \textbf{one-time password}, que nació por la necesidad de crear un
+  mecanismo de autenticación robusto y que supliese a los esquemas de
+  autenticación débiles.
+
+  \vspace{\baselineskip}
+  Con HOTP se necesita de un segundo factor de autenticación, que solo
+  es válido para una sola vez, OTP (One Time Password).
+
+  \vspace{\baselineskip}
+  La IETF publicó HOTP en el \textbf{RFC 4226} en diciembre de 2005.
+\end{frame}
+
+\begin{frame}[c]{Algoritmo de contraseña de un solo uso basado en HMAC}
+  El algoritmo \textbf{HOTP} se basa en un valor de un \textbf{contador
+  creciente} y una \underline{clave simétrica} conocida solo por el
+  usuario y el servidor.
+
+  \vspace{\baselineskip}
+  Con el fin de crear el valor HOTP, se usa HMAC, como puede ser HMAC-SHA1.
+  Usando este algoritmo de hash, lo que se hace es generar un token usando
+  el algoritmo HMAC elegido.
+
+  \begin{description}
+    \item[K] Clave simétrica
+    \item[C] Contador, que cuenta las iteraciones
+    \item[HMAC-SHA1(K,C)] Genera el token
+  \end{description}
+
+  \vspace{\baselineskip}
+  Una vez tenemos el token, lo enviamos al servidor, que hará la misma
+  operación, y si el token es válido autentica al usuario en el sistema.
+\end{frame}
+
+\begin{frame}[c]{Algoritmo de contraseña de un solo uso basada en el tiempo}
+  El algoritmo de contraseña de un solo uso o \textbf{TOTP} (Time-based one
+  time password en inglés) es un algoritmo que permite generar una contraseña
+  de un solo uso (\textbf{OTP}) que utiliza la \textbf{hora actual}
+  como fuente de singularidad.
+
+  \vspace{\baselineskip}
+  Es una extensión del algoritmo de contraseña de un solo uso basado en
+  \textbf{HMAC} (HOTP).
+
+  \vspace{\baselineskip}
+  El algoritmo TOTP es la base de la Iniciativa para la
+  autenticación abierta (OATH).
+  En mayo de 2011, el algoritmo TOTP se convirtió oficialmente en
+  el estándar \textbf{RFC 6238}
+\end{frame}
+
+\begin{frame}[c]{Algoritmo TOTP}
+  Para establecer la autenticación \textbf{TOTP}, el usuario y el
+  autenticador deben disponer tanto de los \textbf{parámetros HOTP}
+  como los siguientes parámetros propios:
+
+  \begin{description}
+    \item [$T_0$] el tiempo Unix a partir de la cual empezar a contar
+      las unidades de tiempo (por defecto es $0$).
+    \item [$T_X$] un intervalo que se utilizará para calcular el valor
+      del contador $C_T$ (por defecto es 30 segundos).
+  \end{description}
+\end{frame}
+
+\begin{frame}[c]{Algoritmo TOTP}
+  TOTP usa internamente el algoritmo \textbf{HOTP}, reemplazando
+  el contador con un valor no decreciente basado en la hora actual:
+  \begin{displaymath}
+    V_{TOTP}(K) = V_{HOTP}(K, C_T)
+  \end{displaymath}
+  Donde el valor del contador se calcula como:
+  \begin{displaymath}
+    C_T = \left\lfloor \frac{T - T_0}{T_X} \right\rfloor
+  \end{displaymath}
+  \begin{description}
+    \item [$C_T$] es el recuento del número de intervalos $T_X$ entre
+      $T_0$ y $T$.
+    \item [$T$] es el tiempo actual en segundos desde una época en particular.
+    \item [$T_0$] es la época especificada en segundos contando a partir
+      de la época Unix (si se usa \textbf{Tiempo Unix}, entonces $T_0$ será
+      $0$).
+    \item [$T_X$] es la duración de un intervalo de tiempo (por ejemplo,
+      \textbf{30 segundos}).
+  \end{description}
+\end{frame}
+
+\section{Aplicaciones para la autenticación a 2 pasos}
+
+\begin{frame}[c]{LinOTP}
+
+  \textbf{LinOTP}: la solución de código abierto para la
+  autenticación multifactor
+
+  \vspace{\baselineskip}
+  LinOTP es verdaderamente abierto en dos sentidos.
+  Sus módulos y componentes tienen licencia AGPLv3 y le
+  brindan una solución de código abierto completa y
+  funcional para una autenticación multifactor sólida.
+
+  \vspace{\baselineskip}
+  \href{https://github.com/LinOTP/LinOTP}{https://github.com/LinOTP/LinOTP}
+\end{frame}
+
+\begin{frame}[c]{Aegis Authenticator}
+  \textbf{Aegis Authenticator} es una aplicación 2FA gratuita, segura y
+  de código abierto para Android. Su objetivo es proporcionar un
+  autenticador seguro para sus servicios en línea, al tiempo que incluye 
+  lgunas funciones que faltan en las aplicaciones de autenticación
+  existentes, como cifrado y copias de seguridad adecuados.
+
+  \vspace{\baselineskip}
+  Aegis admite HOTP y TOTP, lo que lo hace compatible con miles de servicios.
+
+  \vspace{\baselineskip}
+  \href{https://github.com/beemdevelopment/Aegis}{https://github.com/beemdevelopment/Aegis}
+\end{frame}
+
+\begin{frame}[c]{FreeOTP}
+
+  \textbf{FreeOTP} es un de software gratuito y de código abierto generador
+  de tokens que se puede utilizar para la autenticación de dos factores.
+
+  \vspace{\baselineskip}
+  Proporciona implementaciones de HOTP y TOTP. Los tokens se pueden agregar
+  escaneando un código QR o ingresando manualmente a la configuración del
+  token. Red Hat lo mantiene bajo la licencia Apache 2.0 y es compatible
+  con Android e iOS.
+
+  \vspace{\baselineskip}
+  \href{https://github.com/freeotp}{https://github.com/freeotp}
+\end{frame}
+
+\begin{frame}[c]{2FAS}
+
+  \textbf{2FAS} es la forma más sencilla de habilitar la autenticación
+  de dos factores para verificar su identidad e iniciar sesión de
+  forma segura en cuentas con contraseñas de un solo uso basadas en el
+  tiempo (TOTP) para mantener sus datos personales y contraseñas
+  protegidos contra amenazas cibernéticas,
+  todo desde una sola aplicación, 100\%. ¡gratis!
+
+  \vspace{\baselineskip}
+  \href{https://github.com/twofas}{https://github.com/twofas}
+
+\end{frame}
+
+\begin{frame}[c]{OATH Toolkit}
+
+  \textbf{OATH Toolkit} proporciona componentes para crear sistemas de
+  autenticación de contraseña de un solo uso.
+
+  \vspace{\baselineskip}
+  Contiene bibliotecas C compartidas, herramientas de línea de comandos y
+  un módulo PAM. Las tecnologías admitidas incluyen el algoritmo HOTP
+  basado en eventos (RFC 4226), el algoritmo TOTP basado en tiempo
+  (RFC 6238) y el contenedor de claves simétricas portátil (PSKC, RFC 6030)
+  para administrar datos de claves secretas.
+
+  \vspace{\baselineskip}
+  OATH significa Open AuTHentication, que es la organización que
+  especifica los algoritmos.
+
+  \vspace{\baselineskip}
+  \href{https://gitlab.com/oath-toolkit/oath-toolkit}{https://gitlab.com/oath-toolkit/oath-toolkit}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{}
-  \vspace{\baselineskip}
+  \frametitle{Ejemplo con OATH Toolkit}
+  Generamos una llave, la ciframos y la guardamos
   \begin{lstlisting}[language=Bash,numbers=none]
+$ echo "FSL - Vallarta 2024" | base32
+IZJUYIBNEBLGC3DMMFZHIYJAGIYDENAK
+$ echo "IZJUYIBNEBLGC3DMMFZHIYJAGIYDENAK" > $HOME/.2fa/fsl.key
+$ gpg --symmetric --cipher-algo AES256 $HOME/.2fa/fsl.key
+$ ls $HOME/.2fa/fsl*
+fsl.key fsl.key.gpg
+$ rm ~/.2fa/fsl.key
   \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Ejemplo con OATH Toolkit}
+  Desciframos y usamos nuestra llave con oathtool
+  \begin{lstlisting}[language=Bash,numbers=none]
+$ gpg --decrypt --quiet --cipher-algo AES256 \
+  $HOME/.2fa/fsl.key.gpg | oathtool --base32 --totp -
+030524
+  \end{lstlisting}
+
+  \pausa
+  \vspace{\baselineskip}
+  Si lo hacemos directo también sale
+  \begin{lstlisting}[language=Bash,numbers=none]
+$ oathtool --base32 --totp "IZJUYIBNEBLGC3DMMFZHIYJAGIYDENAK"
+030524
+$
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[c]{Aplicaciones que no son de código abierto}
+  \begin{description}
+    \item [Google Authenticator] genera verificación a 2 pasos para tu
+      teléfono.
+    \item [Microsoft Authenticator] una aplicación para verificar de forma
+      rápida y segura su identidad en línea, para todas sus cuentas.
+    \item [Authy] es una forma sencilla de administrar cuentas de
+      autenticación de dos factores.
+  \end{description}
 \end{frame}
