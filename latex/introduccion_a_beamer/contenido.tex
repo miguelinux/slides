@@ -1,10 +1,10 @@
 % ex: ts=2 sw=2 sts=2 et filetype=tex
 % SPDX-License-Identifier: CC-BY-SA-4.0
 
-\section{\LaTeX y Beamer}
+\section{\LaTeX{} y Beamer}
 
-\begin{frame}[c]{¿Qué es \LaTeX?}
-  \LaTeX (escrito LaTeX en texto sin formato) es un sistema de composición
+\begin{frame}[c]{¿Qué es \LaTeX{}?}
+  \LaTeX{} (escrito LaTeX en texto sin formato) es un sistema de composición
   de textos orientado a la \textbf{creación de documentos} escritos que
   presenten una alta calidad tipográfica.
 
@@ -28,7 +28,21 @@
   matemáticas, el fuerte de dicho sistema de maquetación.
 \end{frame}
 
-\section{\LaTeX y Git}
+\begin{frame}[c]{Lista de códigos}
+  \textbf{listados (listings)} es usado para componer listados de código
+  fuente usando LaTeX
+
+  \vspace{\baselineskip}
+  El paquete permite al usuario componer programas (código de programación)
+  dentro de LaTeX; TeX lee el código fuente directamente; no se necesita
+  ningún procesador frontal.
+
+  \vspace{\baselineskip}
+  Las palabras clave, los comentarios y las cadenas se pueden componer
+  usando diferentes estilos.
+\end{frame}
+
+\section{\LaTeX{} y Git}
 
 \begin{frame}[c]{Git}
   \textbf{Git} es un software de control de versiones diseñado por
@@ -76,6 +90,49 @@ $
   \end{lstlisting}
 \end{frame}
 
+\begin{frame}[fragile]
+  \frametitle{Divide y venceras}
+  Crea diferentes branches para cada una de las versiones/estilos de las
+  presentaciones.
+  \begin{lstlisting}[language=Bash,numbers=none]
+$ git branch
+estilo1
+estilo2
+main
+oscuro1
+oscuro2
+$
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[c]{Usando diferentes estilos}
+  \includegraphics[height=3.8cm]{s1v1.png}
+  \includegraphics[height=3.8cm]{s1v2.png}
+  \includegraphics[height=3.8cm]{s1v3.png}
+  \includegraphics[height=3.8cm]{s1v4.png}
+\end{frame}
+
+\begin{frame}[c]{Git Large File Storage (LFS)}
+  LFS es una extensión Git de código abierto para versionar archivos
+  grandes.
+
+  \vspace{\baselineskip}
+  Git Large File Storage (LFS) reemplaza archivos grandes, como muestras
+  de audio, videos, conjuntos de datos y gráficos con punteros de texto
+  dentro de Git, mientras almacena el contenido del archivo en un servidor
+  remoto como GitHub.com o GitHub Enterprise.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Git LFS}
+  El archivo de atributos para el git LFS es:
+  \begin{lstlisting}[language=Bash,numbers=none]
+$ cat .gitattributes
+*.png filter=lfs diff=lfs merge=lfs -text
+*.jpg filter=lfs diff=lfs merge=lfs -text
+$
+  \end{lstlisting}
+\end{frame}
 
 \begin{frame}[c]{}
   \pausa
