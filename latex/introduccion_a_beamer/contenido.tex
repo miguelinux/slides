@@ -1,0 +1,84 @@
+% ex: ts=2 sw=2 sts=2 et filetype=tex
+% SPDX-License-Identifier: CC-BY-SA-4.0
+
+\section{\LaTeX y Beamer}
+
+\begin{frame}[c]{¿Qué es \LaTeX?}
+  \LaTeX (escrito LaTeX en texto sin formato) es un sistema de composición
+  de textos orientado a la \textbf{creación de documentos} escritos que
+  presenten una alta calidad tipográfica.
+
+  \vspace{\baselineskip}
+  Por sus características y posibilidades, se usa de forma especialmente
+  intensa en la generación de \textbf{artículos y libros científicos} que
+  incluyen, entre otros elementos, \textbf{expresiones matemáticas}.
+\end{frame}
+
+\begin{frame}[c]{¿Qué es Beamer?}
+  \textbf{Beamer} es una clase de LaTeX para la creación de presentaciones.
+
+  \vspace{\baselineskip}
+  Funciona con \textbf{pdflatex}, \textbf{dvips} y \textbf{LyX}.
+  El nombre viene del vocablo alemán "beamer", un pseudo-anglicismo que
+  significa videoproyector.
+
+  \vspace{\baselineskip}
+  Al estar basado en LaTeX, Beamer es especialmente útil para preparar
+  presentaciones en las que es necesario mostrar gran cantidad de expresiones
+  matemáticas, el fuerte de dicho sistema de maquetación.
+\end{frame}
+
+\section{\LaTeX y Git}
+
+\begin{frame}[c]{Git}
+  \textbf{Git} es un software de control de versiones diseñado por
+  \texttt{Linus Torvalds},
+  pensando en la eficiencia, la confiabilidad y compatibilidad del
+  mantenimiento de versiones de aplicaciones cuando estas tienen un
+  gran número de archivos de código fuente.
+
+  \vspace{\baselineskip}
+  Su propósito es llevar registro de los cambios en archivos de computadora
+  incluyendo coordinar el trabajo que varias personas realizan sobre archivos
+  compartidos en un repositorio de código.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Ejemplo de Beamer}
+  \begin{lstlisting}[language={[LaTeX]TeX}]
+\documentclass{beamer}
+\title{Titulo}
+\author{Anónimo}
+\institute{FSL}
+\date{2021}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}[c]{Titulo}
+  Texto
+\end{frame }
+
+\end{document}
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Divide y venceras}
+  Separar el contenido de la portada/configuración de la presentación.
+  \begin{lstlisting}[language=Bash,numbers=none]
+$ tree ssh
+ssh/
+|-- contenido.tex
+|-- ssh.tex
+$
+  \end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[c]{}
+  \pausa
+  \vspace{\baselineskip}
+\end{frame}
+
