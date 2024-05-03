@@ -28,35 +28,6 @@
   matemáticas, el fuerte de dicho sistema de maquetación.
 \end{frame}
 
-\begin{frame}[c]{Lista de códigos}
-  \textbf{listados (listings)} es usado para componer listados de código
-  fuente usando LaTeX
-
-  \vspace{\baselineskip}
-  El paquete permite al usuario componer programas (código de programación)
-  dentro de LaTeX; TeX lee el código fuente directamente; no se necesita
-  ningún procesador frontal.
-
-  \vspace{\baselineskip}
-  Las palabras clave, los comentarios y las cadenas se pueden componer
-  usando diferentes estilos.
-\end{frame}
-
-\section{\LaTeX{} y Git}
-
-\begin{frame}[c]{Git}
-  \textbf{Git} es un software de control de versiones diseñado por
-  \texttt{Linus Torvalds},
-  pensando en la eficiencia, la confiabilidad y compatibilidad del
-  mantenimiento de versiones de aplicaciones cuando estas tienen un
-  gran número de archivos de código fuente.
-
-  \vspace{\baselineskip}
-  Su propósito es llevar registro de los cambios en archivos de computadora
-  incluyendo coordinar el trabajo que varias personas realizan sobre archivos
-  compartidos en un repositorio de código.
-\end{frame}
-
 \begin{frame}[fragile]
   \frametitle{Ejemplo de Beamer}
   \begin{lstlisting}[language={[LaTeX]TeX}]
@@ -77,6 +48,71 @@
 \end{document}
   \end{lstlisting}
 \end{frame}
+
+
+\begin{frame}[c]{Lista de códigos}
+  \textbf{listados (listings)} es usado para componer listados de código
+  fuente usando LaTeX
+
+  \vspace{\baselineskip}
+  El paquete permite al usuario componer programas (código de programación)
+  dentro de LaTeX; TeX lee el código fuente directamente; no se necesita
+  ningún procesador frontal.
+
+  \vspace{\baselineskip}
+  Las palabras clave, los comentarios y las cadenas se pueden componer
+  usando diferentes estilos.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Ejemplo de listings}
+  \begin{lstlisting}[language={[LaTeX]TeX}]
+
+\begin{frame}[fragile]
+  \frametitle{Ejemplo de listings}
+  \begin{lstlisting}[language=C]
+#include <stdio.h>
+
+int main (int argc, char *argv[])
+{
+  printf("Hola mundo\n");
+  return 0;
+}
+  \end{ lstlisting }
+\end{ frame }
+
+
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Ejemplo de listings}
+  \begin{lstlisting}[language=C]
+#include <stdio.h>
+
+int main (int argc, char *argv[])
+{
+  printf("Hola mundo\n");
+  return 0;
+}
+  \end{lstlisting}
+\end{frame}
+
+\section{\LaTeX{} y Git}
+
+\begin{frame}[c]{Git}
+  \textbf{Git} es un software de control de versiones diseñado por
+  \texttt{Linus Torvalds},
+  pensando en la eficiencia, la confiabilidad y compatibilidad del
+  mantenimiento de versiones de aplicaciones cuando estas tienen un
+  gran número de archivos de código fuente.
+
+  \vspace{\baselineskip}
+  Su propósito es llevar registro de los cambios en archivos de computadora
+  incluyendo coordinar el trabajo que varias personas realizan sobre archivos
+  compartidos en un repositorio de código.
+\end{frame}
+
 
 \begin{frame}[fragile]
   \frametitle{Divide y venceras}
@@ -134,8 +170,45 @@ $
   \end{lstlisting}
 \end{frame}
 
-\begin{frame}[c]{}
-  \pausa
+\section{Aplicaciones de presentación }
+
+\begin{frame}[c]{pdfpc}
+  \textbf{pdfpc} Una consola de presentador con soporte multimonitor
+  para archivos PDF
+
   \vspace{\baselineskip}
+  pdfpc es un visor de presentaciones basado en GTK que utiliza una salida
+  de múltiples monitores similar a Keynote para proporcionar metainformación
+  al orador durante la presentación.
+
+  \vspace{\baselineskip}
+  Es capaz de mostrar una ventana de presentación normal en una pantalla
+  mientras muestra una descripción general más sofisticada en la otra,
+  proporcionando información como una imagen de la siguiente diapositiva,
+  así como el tiempo restante de la presentación.
+
+  \vspace{\baselineskip}
+  pdfpc procesa documentos PDF, que se pueden crear utilizando casi todos
+  los programas de presentación modernos.
 \end{frame}
 
+\begin{frame}[c]{Pympress}
+  \textbf{Pympress} es una herramienta de presentación en PDF diseñada
+  para configuraciones de pantalla dual, como presentaciones y charlas
+  públicas. Altamente configurable, con todas las funciones y portable.
+
+  \vspace{\baselineskip}
+  Viene con muchas características excelentes:
+
+  \begin{itemize}
+    \item Admite gifs integrados (listos para usar), videos y audios
+      (con integración VLC o Gstreamer)
+    \item anotaciones de texto mostradas en la ventana del presentador
+    \item Admite de forma nativa las notas del proyector en la segunda
+      pantalla, ¡así como las páginas de notas de Libreoffice!
+  \end{itemize}
+
+  \vspace{\baselineskip}
+  Pympress es un software gratuito, distribuido bajo los términos de la
+  licencia GPL (versión 2 o posterior).
+\end{frame}
