@@ -14,7 +14,7 @@
 \lstdefinestyle{mystyle} {%
   % General design
   backgroundcolor=\color{codeBakground},
-  basicstyle={\ttfamily\footnotesize},
+  basicstyle={\footnotesize\ttfamily},
   numberstyle=\tiny\color{codeNumbers},
   xleftmargin={0.2cm},
   numbersep=5pt,
@@ -23,10 +23,11 @@
   firstnumber=1,
   numberfirstline=true,
   % Code design
-  keywordstyle=\color{codeKeyword},
-  keywordstyle={[2]\color{codeKeyword2}}, % Built-in
-  stringstyle=\color{codeString},
-  commentstyle=\color{codeComment},
+  identifierstyle=\color{black},
+  keywordstyle=\color{codeKeyword}\bfseries,
+  ndkeywordstyle=\color{codeKeyword2}\bfseries,
+  stringstyle=\color{codeString}\ttfamily,
+  commentstyle=\color{codeComment}\ttfamily,
   % Code
   tabsize=2,
   showtabs=false,
