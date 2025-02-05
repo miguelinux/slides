@@ -1,12 +1,12 @@
 % ex: ts=2 sw=2 sts=2 et filetype=tex
 % SPDX-License-Identifier: CC-BY-SA-4.0
 
-\definecolor{codeBakground}{rgb}{0.95,0.95,0.92}
-\definecolor{codeComment}{rgb}{0.0, 0.0, 1.0}
-\definecolor{codeKeyword}{rgb}{0.647, 0.165, 0.165}
+\definecolor{codeBakground}{rgb}{0.95,0.95,0.95}
+\definecolor{codeComment}{RGB}{169, 169, 169}
+\definecolor{codeKeyword}{RGB}{127, 0, 85}
 \definecolor{codeKeyword2}{rgb}{0.0, 0.545,0.545}
 \definecolor{codeNumbers}{rgb}{0.5,0.5,0.5}
-\definecolor{codeString}{rgb}{1.0, 0.0, 1.0}
+\definecolor{codeString}{RGB}{0, 100, 0}
 \definecolor{light-gray}{gray}{0.90}
 
 %Code listing style named "mystyle"
@@ -24,8 +24,8 @@
   numberfirstline=true,
   % Code design
   identifierstyle=\color{black},
-  keywordstyle=\color{codeKeyword}\bfseries,
-  ndkeywordstyle=\color{codeKeyword2}\bfseries,
+  keywordstyle=\color{codeKeyword},
+  keywordstyle={[2]\color{codeKeyword}},
   stringstyle=\color{codeString}\ttfamily,
   commentstyle=\color{codeComment}\ttfamily,
   % Code
