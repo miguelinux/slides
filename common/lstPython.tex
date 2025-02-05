@@ -1,7 +1,6 @@
 % ex: ts=2 sw=2 sts=2 et filetype=tex
 % SPDX-License-Identifier: CC-BY-SA-4.0
 
-%New colors defined below
 \definecolor{codeBakground}{rgb}{0.95,0.95,0.92}
 \definecolor{codeComment}{rgb}{0.0, 0.0, 1.0}
 \definecolor{codeKeyword}{rgb}{0.647, 0.165, 0.165}
@@ -11,26 +10,30 @@
 \definecolor{light-gray}{gray}{0.90}
 
 %Code listing style named "mystyle"
+
 \lstdefinestyle{mystyle}{
   % General design
   backgroundcolor=\color{codeBakground},
-  commentstyle=\color{codeComment},
+  basicstyle=\ttfamily\footnotesize,
+  numberstyle=\tiny\color{codeNumbers},
+  numbersep=5pt,
+  numbers=left,
+  % Code design
   keywordstyle=\color{codeKeyword},
   keywordstyle={[2]\color{codeKeyword2}}, % Built-in
-  numberstyle=\tiny\color{codeNumbers},
   stringstyle=\color{codeString},
-  basicstyle=\ttfamily\footnotesize,
-  breakatwhitespace=false,
-  breaklines=true,
-  captionpos=b,
-  keepspaces=true,
-  numbers=left,
-  numbersep=5pt,
+  commentstyle=\color{codeComment},
+  % Code
+  tabsize=2,
+  showtabs=false,
   showspaces=false,
   showstringspaces=false,
-  showtabs=false,
+  breaklines=true,
+
+  breakatwhitespace=false,
+  captionpos=b,
+  keepspaces=true,
   upquote=true,                      % requires textcomp
-  tabsize=2,
   % Español
   literate=%
   {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
