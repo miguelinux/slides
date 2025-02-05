@@ -18,23 +18,23 @@
 
   \begin{table}[]
   \begin{tabular}{ll}
-    Texto & \textcolor{codeKeyword2}{str} \\
+    Texto & \textcolor{codeKeyword}{str} \\
     \pausa
-    Numérico & \textcolor{codeKeyword2}{int}, \textcolor{codeKeyword2}{float},
-     \textcolor{codeKeyword2}{complex} \\
+    Numérico & \textcolor{codeKeyword}{int}, \textcolor{codeKeyword}{float},
+     \textcolor{codeKeyword}{complex} \\
     \pausa
-    Secuencia & \textcolor{codeKeyword2}{list}, \textcolor{codeKeyword2}{tuple},
-     \textcolor{codeKeyword2}{range} \\
+    Secuencia & \textcolor{codeKeyword}{list}, \textcolor{codeKeyword}{tuple},
+     \textcolor{codeKeyword}{range} \\
     \pausa
-    Mapeo & \textcolor{codeKeyword2}{dict} \\
+    Mapeo & \textcolor{codeKeyword}{dict} \\
     \pausa
-    Conjunto & \textcolor{codeKeyword2}{set},
-     \textcolor{codeKeyword2}{frozenset} \\
+    Conjunto & \textcolor{codeKeyword}{set},
+     \textcolor{codeKeyword}{frozenset} \\
     \pausa
-    Booleano & \textcolor{codeKeyword2}{bool} \\
+    Booleano & \textcolor{codeKeyword}{bool} \\
     \pausa
-    Binario & \textcolor{codeKeyword2}{bytes},
-     \textcolor{codeKeyword2}{bytearray}, \textcolor{codeKeyword2}{memoryview} \\
+    Binario & \textcolor{codeKeyword}{bytes},
+     \textcolor{codeKeyword}{bytearray}, \textcolor{codeKeyword}{memoryview} \\
   \end{tabular}
   \end{table}
 \end{frame}
@@ -43,7 +43,7 @@
   \frametitle{Obteniendo el tipo de dato}
 
   Se puede obtener el tipo de dato con la función
-  \textcolor{codeKeyword2}{type}()
+  \textcolor{codeKeyword}{type}()
 
   \vspace{\baselineskip}
   \begin{lstlisting}[language=Python]
@@ -116,9 +116,9 @@ x = memoryview(bytes(5))                     # memoryview
   Hay tres tipos numéricos en Python:
 
   \begin{itemize}
-    \item \textcolor{codeKeyword2}{int}
-    \item \textcolor{codeKeyword2}{float}
-    \item \textcolor{codeKeyword2}{complex}
+    \item \textcolor{codeKeyword}{int}
+    \item \textcolor{codeKeyword}{float}
+    \item \textcolor{codeKeyword}{complex}
   \end{itemize}
 
   Las variables numéricas son creadas cuando se le asigna su valor:
@@ -131,7 +131,7 @@ x = memoryview(bytes(5))                     # memoryview
 
   \pausa
   Para verificar el tipo de dato de cualquier objeto en Python, se usa la
-  función \textcolor{codeKeyword2}{type}():
+  función \textcolor{codeKeyword}{type}():
 
   \begin{lstlisting}[language=Python]
   print( type(x) )
@@ -143,7 +143,7 @@ x = memoryview(bytes(5))                     # memoryview
 \begin{frame}[fragile]
   \frametitle{Números Enteros}
 
-  Un entero (\textcolor{codeKeyword2}{int}) es un número positivo o
+  Un entero (\textcolor{codeKeyword}{int}) es un número positivo o
   negativo, sin decimales de longitud ilimitada.
 
   \vspace{\baselineskip}
@@ -161,7 +161,7 @@ x = memoryview(bytes(5))                     # memoryview
 \begin{frame}[fragile]
   \frametitle{Números de punto flotante}
 
-  Un número de punto flotante (\textcolor{codeKeyword2}{float}), es un número
+  Un número de punto flotante (\textcolor{codeKeyword}{float}), es un número
   positivo o negativo, que contiene uno o más decimales.
 
   \vspace{\baselineskip}
@@ -179,7 +179,7 @@ x = memoryview(bytes(5))                     # memoryview
 \begin{frame}[fragile]
   \frametitle{Números de punto flotante}
 
-  Los número de punto flotante (\textcolor{codeKeyword2}{float}) pueden ser
+  Los número de punto flotante (\textcolor{codeKeyword}{float}) pueden ser
   escritos como números en \emph{notación científica} con una "\textbf{e}"
   o una "\textbf{E}" para indicar la potencia de 10.
 
@@ -218,8 +218,8 @@ x = memoryview(bytes(5))                     # memoryview
 
   \vspace{\baselineskip}
   Se pueden convertir de un tipo de dato a otro con las siguientes
-  funciones \textcolor{codeKeyword2}{int}(), \textcolor{codeKeyword2}{float}()
-  y \textcolor{codeKeyword2}{complex}():
+  funciones \textcolor{codeKeyword}{int}(), \textcolor{codeKeyword}{float}()
+  y \textcolor{codeKeyword}{complex}():
 
   \begin{lstlisting}[language=Python]
   x = 1    # int
@@ -337,15 +337,15 @@ x = memoryview(bytes(5))                     # memoryview
 \begin{frame}[fragile]
   \frametitle{Valores Lógicos (\emph{Booleanos})}
   Los booleanos representan uno de dos valores: Verdadero
-  (\textcolor{codeKeyword2}{True}) o Falso
-  (\textcolor{codeKeyword2}{False}).
+  (\textcolor{codeKeyword}{True}) o Falso
+  (\textcolor{codeKeyword}{False}).
 
   \pausa
   \vspace{\baselineskip}
   En programación, a menudo es necesario saber si una expresión es verdadera
   o falsa. Se puede evaluar cualquier expresión en Python y obtener una de
-  dos respuestas, Verdadero (\textcolor{codeKeyword2}{True})
-  o Falso (\textcolor{codeKeyword2}{False}).
+  dos respuestas, Verdadero (\textcolor{codeKeyword}{True})
+  o Falso (\textcolor{codeKeyword}{False}).
 
   \pausa
   \vspace{\baselineskip}
@@ -364,13 +364,13 @@ x = memoryview(bytes(5))                     # memoryview
 
   Cuando se corre una condición en una sentencia
   \textcolor{codeKeyword}{if}, Python regresa Verdadero
-  (\textcolor{codeKeyword2}{True}) o Falso
-  (\textcolor{codeKeyword2}{False}):
+  (\textcolor{codeKeyword}{True}) o Falso
+  (\textcolor{codeKeyword}{False}):
 
   \vspace{\baselineskip}
   Ejemplo: imprimir un mensaje en función de si la condición es Verdadero
-  (\textcolor{codeKeyword2}{True}) o Falso
-  (\textcolor{codeKeyword2}{False}):
+  (\textcolor{codeKeyword}{True}) o Falso
+  (\textcolor{codeKeyword}{False}):
   \begin{lstlisting}[language=Python]
 a = 200
 b = 33
@@ -385,7 +385,7 @@ else:
 \begin{frame}[fragile]
   \frametitle{Evaluando valores y variables}
 
-  La función \textcolor{codeKeyword2}{bool}() permite evaluar cualquier
+  La función \textcolor{codeKeyword}{bool}() permite evaluar cualquier
   valor y a cambio, regresa el valor Verdadero o Falso.
 
   \vspace{\baselineskip}
@@ -405,7 +405,7 @@ print(bool(y))
   \frametitle{La mayoría de los valores son verdadero}
 
   \vspace{\baselineskip}
-  La función \textcolor{codeKeyword2}{bool}() permite evaluar cualquier
+  La función \textcolor{codeKeyword}{bool}() permite evaluar cualquier
   valor y a cambio, regresa el valor Verdadero o Falso.
 
   \pausa
@@ -506,7 +506,7 @@ else:
   \frametitle{Las funciones pueden regresar valores lógicos (booleanos)}
 
   Python también tiene muchas funciones integradas que devuelven un valor
-  booleano, como la función \textcolor{codeKeyword2}{isinstance}(),
+  booleano, como la función \textcolor{codeKeyword}{isinstance}(),
   que se puede usar para determinar si un objeto es de un determinado
   tipo de dato: 
 
@@ -777,8 +777,8 @@ print("x >> 2 = {:>3d} = {:>6b}".format(x >> 2, x >> 2))
 \begin{frame}[fragile]
   \frametitle{Funciones matemáticas integradas}
 
-  Las funciones \textcolor{codeKeyword2}{min}() y
-  \textcolor{codeKeyword2}{max}() se pueden
+  Las funciones \textcolor{codeKeyword}{min}() y
+  \textcolor{codeKeyword}{max}() se pueden
   usar para encontrar el valor más bajo o más alto en un iterable:
 
   \begin{lstlisting}[language=Python]
@@ -793,7 +793,7 @@ print("x >> 2 = {:>3d} = {:>6b}".format(x >> 2, x >> 2))
 \begin{frame}[fragile]
   \frametitle{Funciones matemáticas integradas}
 
-  La función \textcolor{codeKeyword2}{abs}() devuelve el
+  La función \textcolor{codeKeyword}{abs}() devuelve el
   valor absoluto (positivo) del número especificado:
 
   \begin{lstlisting}[language=Python]
@@ -806,7 +806,7 @@ print("x >> 2 = {:>3d} = {:>6b}".format(x >> 2, x >> 2))
 \begin{frame}[fragile]
   \frametitle{Funciones matemáticas integradas}
 
-  La función \textcolor{codeKeyword2}{pow(x, y)} devuelve el valo
+  La función \textcolor{codeKeyword}{pow(x, y)} devuelve el valo
   de x a la potencia de y ($x^y$).
 
   \vspace{\baselineskip}
