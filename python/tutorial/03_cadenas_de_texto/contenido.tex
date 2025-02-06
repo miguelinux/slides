@@ -80,13 +80,16 @@ print(texto)
   carácter es simplemente una cadena con una longitud de 1.
 
   \vspace{\baselineskip}
-  Se pueden usar corchetes para acceder a elementos de la cadena.
+  Se pueden usar corchetes para acceder a elementos de la cadena. También
+  se puede enumerar de forma negativa del final al principio empezando con
+  el último elemento que sería -1.
 
   \begin{lstlisting}[language=Python]
   a = "Hola Mundo"
   #    0123456789
   print(a[1])
-  \end{lstlisting}
+  # - 10987654321
+  print(a[-1])\end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -176,7 +179,7 @@ print(texto)
   Ejemplo: Obtener los caracteres de la posición 2 a la posición 5 (no incluida):
   \begin{lstlisting}[language=Python]
   saludo = "Hola Mundo!"
-  print(saludo[2:5])
+  print(saludo[5:10])
   \end{lstlisting}
 
   \begin{exampleblock}{Nota}
@@ -277,6 +280,7 @@ print(texto)
   \begin{lstlisting}[language=Python]
   saludo = "Hola Mundo!"
   print(saludo.replace("H","L"))
+  print(saludo.replace("Hola","Saludos"))
   \end{lstlisting}
 \end{frame}
 

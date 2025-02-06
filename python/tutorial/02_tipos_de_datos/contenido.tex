@@ -47,13 +47,13 @@
 
   \vspace{\baselineskip}
   \begin{lstlisting}[language=Python]
-  x = str(3)   # x guarda '3'
-  y = int(3)   # y guarda 3
-  z = float(3) # z guarda 3.0
+  cadena = str(3)   # x guarda '3'
+  entero = int(3)   # y guarda 3
+  flotante = float(3) # z guarda 3.0
 
-  print( type(x) )
-  print( type(y) )
-  print( type(z) )
+  print( type(cadena) )
+  print( type(entero) )
+  print( type(flotante) )
   \end{lstlisting}
 \end{frame}
 
@@ -124,20 +124,18 @@ x = memoryview(bytes(5))                     # memoryview
   Las variables numéricas son creadas cuando se le asigna su valor:
 
   \begin{lstlisting}[language=Python]
-  x = 1    # int
-  y = 2.8  # float
-  z = 1j   # complex
-  \end{lstlisting}
+  entero = 1    # int
+  flotante = 2.8  # float
+  complejo = 1j   # complex\end{lstlisting}
 
   \pausa
   Para verificar el tipo de dato de cualquier objeto en Python, se usa la
   función \textcolor{codeKeyword}{type}():
 
   \begin{lstlisting}[language=Python]
-  print( type(x) )
-  print( type(y) )
-  print( type(z) )
-  \end{lstlisting}
+  print( type(entero) )
+  print( type(flotante) )
+  print( type(complejo) )\end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -186,8 +184,8 @@ x = memoryview(bytes(5))                     # memoryview
   \vspace{\baselineskip}
   \begin{lstlisting}[language=Python]
   x = 35e3
-  y = 12E4
-  z = -87.7e100
+  y = -12E4
+  z = -87.7e10
 
   print( type(x) )
   print( type(y) )
@@ -203,13 +201,13 @@ x = memoryview(bytes(5))                     # memoryview
 
   \vspace{\baselineskip}
   \begin{lstlisting}[language=Python]
-  x = 3+5j
-  y = 5j
-  z = -2.5j
+  z1 = 3 + 5j
+  z2 = -5j
+  z3 = -1.02 - 2.5j
 
-  print( type(x) )
-  print( type(y) )
-  print( type(z) )
+  print( type(z1) )
+  print( type(z2) )
+  print( type(z3) )
   \end{lstlisting}
 \end{frame}
 
@@ -222,19 +220,17 @@ x = memoryview(bytes(5))                     # memoryview
   y \textcolor{codeKeyword}{complex}():
 
   \begin{lstlisting}[language=Python]
-  x = 1    # int
-  y = 2.8  # float
-  z = -1j  # complex
+  entero = 1234    # int
+  flotante = -2.85  # float
+  complejo = 3 + 2j  # complex
 
   # convertir de int a float:
-  a = float(x)
+  otro_flotante = float(entero)
   # convertir de float a int:
-  b = int(y)
+  otro_entero = int(flotante)
   # convertir de int a complex:
-  c = complex(x)
-  \end{lstlisting}
+  otro_complejo = complex(entero)\end{lstlisting}
 
-  \pausa
   \begin{alertblock}{Nota}
     No se puede convertir un \textbf{número complejo} en otro tipo de dato numérico.
   \end{alertblock}
@@ -276,7 +272,8 @@ x = memoryview(bytes(5))                     # memoryview
   \end{lstlisting}
 
   \begin{alertblock}{Nota}
-    Este es un alias del método \textbf{random.randrange(inicio, fin+1)}
+    Este es un alias del método \textbf{random.randrange(inicio, fin+1)},
+    que sería random.randrange(1,11).
   \end{alertblock}
 \end{frame}
 
@@ -813,7 +810,7 @@ print("x >> 2 = {:>3d} = {:>6b}".format(x >> 2, x >> 2))
   Ejemplo:
 
   \vspace{\baselineskip}
-  Devuelve el valor de 4 a la potencia de 3 (lo mismo que 4 * 4 * 4):
+  Devuelve el valor de 4 a la potencia de 3 ($4^3 = 4 * 4 * 4$):
   \begin{lstlisting}[language=Python]
   resultado = pow(4,3)
 
@@ -881,8 +878,8 @@ print("x >> 2 = {:>3d} = {:>6b}".format(x >> 2, x >> 2))
   \begin{lstlisting}[language=Python]
   import math
 
-  pi = math.pi
+  valor_de_pi = math.pi
 
-  print("El valor de pi es:", pi)
+  print("El valor de pi es:", valor_de_pi)
   \end{lstlisting}
 \end{frame}
