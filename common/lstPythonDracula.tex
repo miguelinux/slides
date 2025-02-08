@@ -1,0 +1,49 @@
+% ex: ts=2 sw=2 sts=2 et filetype=tex
+% SPDX-License-Identifier: CC-BY-SA-4.0
+
+\definecolor{codeBakground}{gray}{0.2}
+\definecolor{codeKeyword}{RGB}{139,  233,  253}
+\definecolor{codeNumbers}{rgb}{0.5,0.5,0.5}
+\definecolor{codeString}{RGB}{100, 200, 100}
+
+%Code listing style named "mystyle"
+
+\lstdefinestyle{mystyle} {%
+  % General design
+  backgroundcolor=\color{codeBakground},
+  basicstyle=\small,
+  numberstyle=\tiny\color{codeNumbers},
+  xleftmargin={0.2cm},
+  numbersep=5pt,
+  numbers=left,
+  stepnumber=1,
+  firstnumber=1,
+  numberfirstline=true,
+  % Code design
+  identifierstyle=\color{draculafg},
+  keywordstyle=\color{blue}\bfseries,
+  keywordstyle={[2]\color{blue}},
+  stringstyle=\color{codeString}\ttfamily,
+  commentstyle=\color{yellow}\ttfamily,
+  % Code
+  tabsize=2,
+  showtabs=false,
+  showspaces=false,
+  showstringspaces=false,
+  extendedchars=true,
+  breaklines=true,
+  breakatwhitespace=false,
+  captionpos=b,
+  keepspaces=true,
+  upquote=true,                      % requires textcomp
+  % Español
+  literate=%
+  {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+  {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+  {¡}{{!`}}1  {¿}{{?`}}1
+  {ñ}{{\~n}}1 {Ñ}{{\~N}}1
+}
+
+%"mystyle" code listing set
+\lstset{style=mystyle}
+
