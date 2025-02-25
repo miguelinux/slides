@@ -1,0 +1,213 @@
+% vi: ts=2 sw=2 sts=2 et filetype=tex
+% SPDX-License-Identifier: CC-BY-SA-4.0
+
+\section{Linter}
+
+\begin{frame}[c]{What is a Linter?}
+  \begin{definition}
+    A linter is a software tool that \textbf{analyzes source code} for errors,
+    style issues, and vulnerabilities. Its goal is to improve code quality.
+  \end{definition}
+
+  \vspace{\baselineskip}
+  The name comes from the original tool called \textbf{Lint}, which was
+  designed to check C code for errors and inefficiencies.
+\end{frame}
+
+\begin{frame}[c]{Linter functions}
+  \begin{itemize}
+    \item Identify syntax errors, logical errors, typos, and
+      potential security vulnerabilities
+    \pausa
+    \item Comply with coding standards and style guidelines
+    \pausa
+    \item Suggest or apply corrections
+    \pausa
+    \item Format code
+    \pausa
+    \item Enforce coding standards.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[c]{Importance of lintering}
+  \begin{itemize}
+    \item Identify errors before they become real problems at runtime
+    \pausa
+    \item Maintain code more consistently
+    \pausa
+    \item Simplify tasks
+    \pausa
+    \item Ensure code quality.
+  \end{itemize}
+\end{frame}
+
+\section{Linter Python tools}
+
+\begin{frame}[c]{Ruff}
+  \begin{itemize}
+    \item An extremely fast Python linter and code formatter,
+      written in Rust.
+    \item \href{https://docs.astral.sh/ruff/}{https://docs.astral.sh/ruff/}
+    \pausa
+    \item Ruff aims to be orders of magnitude faster than alternative tools
+      while integrating more functionality behind a single, common interface.
+    \pausa
+    \item Ruff can be used to replace Flake8 (plus dozens of plugins), Black,
+      isort, pydocstyle, pyupgrade, autoflake, and more, all while executing
+      tens or hundreds of times faster than any individual tool.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[c]{Black}
+  \begin{itemize}
+    \item The uncompromising code formatter
+    \item \href{https://black.readthedocs.io/en/stable/}{https://black.readthedocs.io/en/stable/}
+    \pausa
+    \item Black gives you speed, determinism, and freedom from pycodestyle
+      nagging about formatting
+    \pausa
+    \item Black makes code review faster by producing the smallest diffs
+      possible. 
+    \item Blackened code looks the same regardless of the project you’re
+      reading.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[c]{Bandit}
+  \begin{itemize}
+    \item Bandit is a tool designed to find common security issues in
+      Python code. 
+    \item \href{https://bandit.readthedocs.io/en/latest/}{https://bandit.readthedocs.io/en/latest/}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[c]{Reorder Python imports}
+  \begin{itemize}
+    \item Tool for automatically reordering python imports
+    \item \href{https://github.com/asottile/reorder-python-imports}{https://github.com/asottile/reorder-python-imports}
+    \pausa
+    \item Similar to isort but uses static analysis more.
+  \end{itemize}
+\end{frame}
+
+\section{Pre-commit Tool}
+
+\begin{frame}[c]{Pre-commit}
+  \begin{itemize}
+    \item A framework for managing and maintaining multi-language pre-commit
+      hooks.
+    \item \href{https://pre-commit.com/}{https://pre-commit.com/}
+    \pausa
+    \item Git hook scripts are useful for identifying simple issues before
+      submission to code review
+    \pausa
+    \item We run our hooks on every commit to automatically point out issues
+      in code such as missing semicolons, trailing whitespace, and debug
+      statements.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Pre-commit installation}
+
+  Using pip:
+  
+  \begin{lstlisting}[language=Bash]
+ pip install pre-commit
+  \end{lstlisting}
+  \vspace{\baselineskip}
+
+  RPM based Linux:
+  
+  \begin{lstlisting}[language=Bash]
+ dnf install pre-commit
+  \end{lstlisting}
+  \vspace{\baselineskip}
+
+  DEB based Linux:
+  
+  \begin{lstlisting}[language=Bash]
+ apt install pre-commit
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Pre-commit configuration file}
+  \begin{itemize}
+    \item create a file named \textbf{.pre-commit-config.yaml}
+    \pausa
+    \item you can generate a very basic configuration using
+      \textbf{pre-commit sample-config}
+      or copy from our repo ;-)
+  \end{itemize}
+
+  \begin{lstlisting}[language=Bash]
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-merge-conflict
+      - id: debug-statements
+      - id: fix-byte-order-marker
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+      - id: detect-private-key
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Install the git hook scripts}
+  \begin{itemize}
+    \item run \textbf{pre-commit install} to set up the git hook scripts
+  \end{itemize}
+
+  \begin{lstlisting}[language=Bash]
+$ pre-commit install
+pre-commit installed at .git/hooks/pre-commit
+$
+  \end{lstlisting}
+
+  \begin{itemize}
+    \item now \textbf{pre-commit} will run automatically on \textbf{git
+      commit}!
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Run against all the files (optional)}
+  \begin{itemize}
+    \item it's usually a good idea to run the hooks against all of the
+      files when adding new hooks 
+    \item usually \textbf{pre-commit} will only run on the changed files
+      during git hooks
+  \end{itemize}
+
+  %\begin{lstlisting}[language=Bash, basicstyle=\tiny]
+\begin{tiny}
+\begin{verbatim}
+$ pre-commit run --all-files
+[INFO] Initializing environment for https://github.com/pre-commit/pre-commit-hooks.
+[INFO] Initializing environment for https://github.com/psf/black.
+[INFO] Installing environment for https://github.com/pre-commit/pre-commit-hooks.
+[INFO] Once installed this environment will be reused.
+[INFO] This may take a few minutes...
+[INFO] Installing environment for https://github.com/psf/black.
+[INFO] Once installed this environment will be reused.
+[INFO] This may take a few minutes...
+Check Yaml...............................................................Passed
+Fix End of Files.........................................................Passed
+Trim Trailing Whitespace.................................................Failed
+- hook id: trailing-whitespace
+- exit code: 1
+
+Files were modified by this hook. Additional output:
+
+Fixing sample.py
+
+black....................................................................Passed
+\end{verbatim}
+\end{tiny}
+  %\end{lstlisting}
+\end{frame}
