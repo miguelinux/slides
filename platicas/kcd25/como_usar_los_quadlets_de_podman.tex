@@ -1,0 +1,99 @@
+% ex: ts=2 sw=2 sts=2 et filetype=tex
+% SPDX-License-Identifier: CC-BY-SA-4.0
+
+\documentclass[aspectratio=169]{beamer}
+
+\usetheme{Boadilla}
+
+\definecolor{fslcolor}{rgb}{0.0, 0.564, 0.549} % #00908C
+\usecolortheme[named=fslcolor]{structure}
+%\usepackage{../../../styles/beamercolorthemedracula}
+
+\setbeamertemplate{navigation symbols}{}
+
+\graphicspath{{../img/}{../../linux/img/}}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{listings}
+%\usepackage{colortbl}
+\usepackage{tikz}
+%\usetikzlibrary{trees}
+
+\title[Quadlets de Podman]{Como usar los Quadlets de Podman}
+
+\author[\textcircled{cc} BY-SA 4.0]{Miguel Bernal Marin}
+
+\institute[KCD 2025]
+{
+Kubernetes Community Day Guadalajara \\
+\medskip
+\textit{\href{mailto:miguel.bernal.marin@gmail.com}{miguel.bernal.marin@gmail.com}}\\
+Telegram: \textit{\href{https://t.me/miguelinux}{@miguelinux}}
+}
+\date{
+  29 de marzo de 2025
+}
+
+\input{../../common/lstGris}
+
+%------------------------------------------------------------
+%The next block of commands puts the table of contents at the
+%beginning of each section and highlights the current section:
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Contenido}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+%------------------------------------------------------------
+
+\newcommand{\nologo}{\setbeamertemplate{logo}{}} % command to set the logo to nothing
+\newcommand{\pausa}{\pause} % Para usar una pausa en las presentaciones
+%\newcommand{\pausa}{}      % Para que NO salgan las pausas
+
+\begin{document}
+
+{
+\nologo
+\begin{frame}
+    \titlepage
+\end{frame}
+}
+
+\input{../common/about-me.tex}
+\input{../common/intel-disclaimer.tex}
+
+\begin{frame}
+    \frametitle{Contenido}
+    \tableofcontents
+\end{frame}
+
+\input{../../linux/podman/contenido.tex}
+
+\begin{frame}{Agradecimientos y créditos}
+
+  \begin{center}
+    \huge ¡Gracias!
+  \end{center}
+
+  El código fuente de esta presentación la puedes encontrar en
+  \begin{itemize}
+    \item \href{https://github.com/miguelinux/slides}
+      {https://github.com/miguelinux/slides}
+      \{platicas/fsl24/introduccion\_a\_beamer\}
+
+  \end{itemize}
+
+
+  \vspace{\baselineskip}
+  El material está basado en
+  \begin{itemize}
+    \item
+      \href{https://es.wikipedia.org/wiki/Wikipedia:Portada}
+      {https://es.wikipedia.org/}
+  \end{itemize}
+\end{frame}
+
+\end{document}
