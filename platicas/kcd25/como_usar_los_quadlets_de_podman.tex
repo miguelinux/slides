@@ -5,9 +5,8 @@
 
 \usetheme{Boadilla}
 
-\definecolor{fslcolor}{rgb}{0.0, 0.564, 0.549} % #00908C
-\usecolortheme[named=fslcolor]{structure}
-%\usepackage{../../../styles/beamercolorthemedracula}
+\definecolor{kcdcolor}{rgb}{0.255, 0.412, 0.882}
+\usecolortheme[named=kcdcolor]{structure}
 
 \setbeamertemplate{navigation symbols}{}
 
@@ -37,15 +36,21 @@ Telegram: \textit{\href{https://t.me/miguelinux}{@miguelinux}}
 
 \input{../../common/lstGris}
 
+\logo{\includegraphics[height=2cm]{img/kcd.png}}
+
 %------------------------------------------------------------
 %The next block of commands puts the table of contents at the
 %beginning of each section and highlights the current section:
 \AtBeginSection[]
 {
+{
+\nologo
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{img/kcd-agenda.png}}
   \begin{frame}
     \frametitle{Contenido}
     \tableofcontents[currentsection]
   \end{frame}
+}
 }
 %------------------------------------------------------------
 
@@ -57,6 +62,8 @@ Telegram: \textit{\href{https://t.me/miguelinux}{@miguelinux}}
 
 {
 \nologo
+\setbeamertemplate{footline}{}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{img/kcd-titulo.png}}
 \begin{frame}
     \titlepage
 \end{frame}
@@ -65,10 +72,15 @@ Telegram: \textit{\href{https://t.me/miguelinux}{@miguelinux}}
 \input{../common/about-me.tex}
 \input{../common/intel-disclaimer.tex}
 
+{
+\nologo
+\setbeamertemplate{footline}{}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{img/kcd-agenda.png}}
 \begin{frame}
     \frametitle{Contenido}
     \tableofcontents
 \end{frame}
+}
 
 \input{../../linux/podman/contenido.tex}
 
