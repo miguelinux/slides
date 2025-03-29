@@ -41,7 +41,6 @@
   Los archivos de quadlets para el usuario \textbf{root} se pueden
   colocar en los siguientes directorios, ordenados por prioridad.
 
-  \vspace{\baselineskip}
   Esto significa que los quadlets con nombre duplicado que se
   encuentren en \textbf{/run} tienen prioridad sobre los de
   \textbf{/etc} y \textbf{/usr}:
@@ -90,11 +89,113 @@
 
 \section{Unidades de systemd}
 
-\begin{frame}[c]{Container units [Container]}
+\begin{frame}[c]{Generador de Systemd}
+  \begin{itemize}
+    \item Podman permite la \textbf{creación e inicio} de contenedores
+          (y la creación de volúmenes) a través de systemd
+          mediante un \textbf{generador systemd}.
+    \pausa
+    \item Estos archivos se leen durante el arranque (y al ejecutar
+      \textbf{systemctl daemon-reload}) y generan los archivos de
+      unidad de \textbf{servicio systemd} correspondientes.
+    \pausa
+    \item El generador Podman lee las rutas de búsqueda anteriores y
+      lee archivos con las extensiones
+      \begin{itemize}
+        \item .container
+        \pausa
+        \item .volume
+        \pausa
+        \item .network
+        \pausa
+        \item .build
+        \pausa
+        \item .pod
+        \pausa
+        \item .kube
+      \end{itemize}
+      y para cada archivo genera un archivo \textbf{.service} con el
+      mismo nombre.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[c]{Generador de Systemd}
+  \begin{itemize}
+    \item Los archivos de unidad generados se pueden iniciar y
+          gestionar con \textbf{systemctl} como cualquier otro
+          servicio systemd.
+    \pausa
+    \item \textbf{systemctl {--user} list-unit-files} enumera
+          los archivos de unidades existentes en el sistema.
+  \end{itemize}
 \end{frame}
 
 \begin{frame}[c]{Container units [Container]}
+
+  Se utilizan para administrar contenedores mediante la ejecución del
+  comando \textbf{podman run}.
+
+  \vspace{\baselineskip}
+  \begin{itemize}
+    \item Extensión de archivo: \textbf{.container}
+    \item Nombre de la sección: \textbf{[Container]}
+    \item Campos requeridos: \textbf{Image} que describe la imagen del
+      contenedor que ejecuta el servicio.
+  \end{itemize}
 \end{frame}
 
-\begin{frame}[c]{Container units [Container]}
+\begin{frame}[c]{Kube units [Kube]}
+  Se utilizan para administrar contenedores definidos en archivos
+  \textbf{YAML} de \textbf{Kubernetes} mediante la ejecución del
+  comando \textbf{podman kube play}.
+  \begin{itemize}
+    \item Extensión de archivo: \textbf{.kube}
+    \item Nombre de la sección: \textbf{[Kube]}
+    \item Campos requeridos: \textbf{Yaml} que define la ruta al
+      archivo YAML de \textbf{Kubernetes}.
+  \end{itemize}
 \end{frame}
+
+\begin{frame}[c]{Network units [Network]}
+  Se utilizan para crear \textbf{redes Podman} que pueden referenciarse en
+  archivos .container o .kube.
+  \begin{itemize}
+    \item Extensión de archivo: \textbf{.network}
+    \item Nombre de la sección: \textbf{[Network]}
+    \item Campos requeridos: Ninguno
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[c]{Volume units [Volume]}
+  Se utilizan para crear \textbf{volúmenes Podman} que pueden
+  referenciarse en archivos .container.
+  \begin{itemize}
+    \item Extensión de archivo: \textbf{.volume}
+    \item Nombre de la sección: \textbf{[Volume]}
+    \item Campos requeridos: Ninguno
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[c]{Build units [Build]}
+  Se utilizan para describir el comando para \textbf{construir}
+  una imagen.
+  \begin{itemize}
+    \item Extensión de archivo: \textbf{.build}
+    \item Nombre de la sección: \textbf{[Build]}
+    \item Campos requeridos: \textbf{ImageTag} y cualquiera de
+      \textbf{File} o \textbf{SetWorkingDirectory}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[c]{Pod units [Pod]}
+  Se utilizan para crear pods mediante la ejecución del
+  comando \textbf{podman pod create}.
+  \begin{itemize}
+    \item Extensión de archivo: \textbf{.pod}
+    \item Nombre de la sección: \textbf{[Pod]}
+    \item Campos requeridos: Ninguno
+  \end{itemize}
+\end{frame}
+
+\section{Ejemplo 1: Contenedor mínimo}
+
