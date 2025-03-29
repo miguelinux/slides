@@ -1,5 +1,100 @@
 % ex: ts=2 sw=2 sts=2 et filetype=tex
 % SPDX-License-Identifier: CC-BY-SA-4.0
 
-\section{¿Qué son los contenedores?}
+\section{Podman y Quadlets}
 
+\begin{frame}[c]{Podman (Pod Manager)}
+    \begin{columns}
+        \column{0.4\textwidth}
+        \begin{center}
+            \includegraphics[scale=0.4]{lfs/podman.png}
+        \end{center}
+        \column{0.6\textwidth}
+        \begin{itemize}
+          \item Es una herramienta sencilla y \textbf{sin demonio}.
+          \pausa
+          \item Un \textbf{motor de contenedores} con todas las funciones.
+          \pausa
+          \item Proporciona una línea de comandos comparable a
+            \textbf{Docker-CLI}
+            que facilita la transición desde otros motores de contenedores
+            y permite la gestión de \textbf{pods, contenedores e imágenes}.
+        \end{itemize}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[c]{Quadlets}
+  \begin{itemize}
+    \item Está disponible a partir de Podman v4.4.
+    \pausa
+    \item Se \textbf{describe} cómo ejecutar un contenedor en un formato
+      muy similar al de los archivos de unidad de \textbf{systemd}.
+    \pausa
+    \item Las descripciones del contenedor se centran en los
+      \textbf{detalles relevantes} del contenedor y \underline{ocultan}
+      los detalles técnicos de su ejecución en \textbf{systemd}.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[c]{Directorios}
+
+  Los archivos de quadlets para el usuario \textbf{root} se pueden
+  colocar en los siguientes directorios, ordenados por prioridad.
+
+  \vspace{\baselineskip}
+  Esto significa que los quadlets con nombre duplicado que se
+  encuentren en \textbf{/run} tienen prioridad sobre los de
+  \textbf{/etc} y \textbf{/usr}:
+  \pausa
+  \begin{alertblock}{Cuadlets temporales, generalmente usados para pruebas:}
+    \begin{itemize}
+      \item /run/containers/systemd/
+    \end{itemize}
+  \end{alertblock}
+  \pausa
+  \begin{exampleblock}{Cuadlets definidos por el administrador del sistema:}
+    \begin{itemize}
+      \item /etc/containers/systemd/
+    \end{itemize}
+  \end{exampleblock}
+  \pausa
+  \begin{block}{Cuadlets definidos por la distribución:}
+    \begin{itemize}
+      \item /usr/share/containers/systemd/
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}[c]{Directorios}
+
+  Los archivos de quadlets para los usuario \textbf{no-root} se pueden
+  colocar en los siguientes directorios:
+
+  \vspace{\baselineskip}
+  \begin{exampleblock}{Usuario no-root:}
+    \begin{itemize}
+      \item \$XDG\_RUNTIME\_DIR/containers/systemd/
+      \pausa
+      \item \$XDG\_CONFIG\_HOME/containers/systemd/
+      \pausa
+        \begin{itemize}
+          \item \$HOME/.config/containers/systemd/
+        \end{itemize}
+      \pausa
+      \item /etc/containers/systemd/users/\$(UID)
+      \pausa
+      \item /etc/containers/systemd/users/
+    \end{itemize}
+  \end{exampleblock}
+\end{frame}
+
+\section{Unidades de systemd}
+
+\begin{frame}[c]{Container units [Container]}
+\end{frame}
+
+\begin{frame}[c]{Container units [Container]}
+\end{frame}
+
+\begin{frame}[c]{Container units [Container]}
+\end{frame}
