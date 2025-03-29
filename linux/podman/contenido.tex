@@ -196,6 +196,13 @@
   \lstinputlisting{ejemplo01/test.volume}
 \end{frame}
 
+\begin{frame}[fragile]
+  \frametitle{s3fs.volume}
+  \lstinputlisting{ejemplo01/s3fs.volume}
+  \href{https://github.com/s3fs-fuse/s3fs-fuse}
+       {https://github.com/s3fs-fuse/s3fs-fuse}
+\end{frame}
+
 \begin{frame}[c]{Build units [Build]}
   Se utilizan para describir el comando para \textbf{construir}
   una imagen.
@@ -259,3 +266,239 @@ $ mkdir -p $HOME/.config/containers/systemd/
   \end{block}
 \end{frame}
 
+\begin{frame}[fragile]
+  \frametitle{Volúmenes}
+  Creo el archivo \textbf{matefacil-postgres.volume}
+  \pausa
+  \lstinputlisting{ejemplo02/matefacil-postgres.volume}
+  \pausa
+  Y después
+  \begin{lstlisting}
+$ systemctl --user daemon-reload
+$
+  \end{lstlisting}
+  \pausa
+  Pero ...
+  \begin{lstlisting}
+$ podman volume ls
+$
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Volúmenes}
+  Ejecuto ...
+  \begin{lstlisting}
+$ systemctl --user list-unit-files
+UNIT FILE                               STATE     PRESET 
+...
+matefacil-postgres-volume.service       generated -
+...
+$
+  \end{lstlisting}
+  \pausa
+  Entonces ...
+  \begin{lstlisting}
+$ systemctl --user status matefacil-postgres-volume.service
+o matefacil-postgres-volume.service
+     Loaded: loaded (/run/user/1980/containers/systemd/matefacil-postgres.volume; generated)
+     Active: inactive (dead)
+$
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Volúmenes}
+  Ejecuto ...
+  \begin{lstlisting}
+$ systemctl --user start matefacil-postgres-volume.service
+$
+  \end{lstlisting}
+  \pausa
+  Y descubro ...
+  \begin{lstlisting}
+$ podman volume ls
+DRIVER      VOLUME NAME
+local       mfDBvol
+$
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Redes}
+  Vemos las redes creadas
+  \begin{lstlisting}
+$ podman network ls
+NETWORK ID    NAME        DRIVER
+2f259bab93aa  podman      bridge
+$
+  \end{lstlisting}
+  Creo el archivo \textbf{matefacil.network}
+  \pausa
+  \lstinputlisting{ejemplo02/matefacil.network}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Redes}
+  Y ejecuto ...
+  \begin{lstlisting}
+$ systemctl --user daemon-reload
+$ systemctl --user list-unit-files
+UNIT FILE                               STATE     PRESET
+...
+matefacil-network.service               generated -
+matefacil-postgres-volume.service       generated -
+...
+$ systemctl --user status matefacil-network.service
+o matefacil-network.service
+     Loaded: loaded (/run/user/1980/containers/systemd/matefacil.network; generated)
+     Active: inactive (dead)
+$ systemctl --user start matefacil-network.service
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Redes}
+  Y finalmente ...
+  \begin{lstlisting}
+$ podman network ls
+NETWORK ID    NAME        DRIVER
+db2824b9d435  mfnet       bridge
+2f259bab93aa  podman      bridge
+$
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Contenedor}
+  Creo el archivo \textbf{matefacil-postgres.container}
+  \lstinputlisting{ejemplo02/matefacil-postgres-mal.container}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Contenedor}
+  La parte de  \textbf{[Install]}, sirve para ejecutar el contenedor cuando
+  inicia sesión el usuario.
+  \lstinputlisting[firstline=1,lastline=2]{ejemplo02/matefacil-postgres-mal.container}
+  \pausa
+  \begin{alertblock}{Nota:}
+    Si omitimos el \textbf{[Install]}, NO se iniciará el contenedor al
+    iniciar sesión del usuario.
+  \end{alertblock}
+  Esto puede servir en nuestras maquinas de desarrollo.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Contenedor}
+  Usamos las otras unidades de systemd:
+  \lstinputlisting[firstline=4,lastline=8]{ejemplo02/matefacil-postgres-mal.container}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Contenedor}
+  Ponemos las variables que usará Postgres:
+  \lstinputlisting[linerange={4,9-11}]{ejemplo02/matefacil-postgres-mal.container}
+  \pausa
+  \begin{alertblock}{Pregunta:}
+    ¿Alguien ve algo raro?
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Secretos}
+  Podman puede manejar secretos 
+  \begin{lstlisting}
+podman secret COMANDO
+  \end{lstlisting}
+
+  \begin{itemize}
+    \item \textbf{create} Crea un nuevo secreto
+    \pausa
+    \item \textbf{exists} Verifica si el secreto existe en el
+      almacenamiento local
+    \pausa
+    \item \textbf{inspect} Inspecciona un secreto
+    \pausa
+    \item \textbf{ls} Lista los secretos
+    \pausa
+    \item \textbf{rm} Remueve uno o más secretos
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Secretos}
+  \lstinputlisting[basicstyle=\tiny]{ejemplo02/01-crear-secretos.sh}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Secretos}
+  Archivo \textbf{.env}
+  \lstinputlisting{ejemplo02/ejemplo.env}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Secretos}
+  Verificamos que los secretos hayan sido guardados correctamente:
+  \begin{lstlisting}[basicstyle=\tiny]
+$ podman secret list
+ID                         NAME               DRIVER      CREATED        UPDATED
+00d96f478a401ef409ec85b7e  postgres-password  file        7 minutes ago  7 minutes ago
+59579d85e5578ee0ebfc582c1  postgres-db        file        7 minutes ago  7 minutes ago
+e9a2525df0b5bff47aac2beab  postgres-user      file        7 minutes ago  7 minutes ago
+$
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Contenedor}
+  Usando secretos de Podman
+  \lstinputlisting[linerange={4,9-11}]{ejemplo02/matefacil-postgres.container}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Contenedor}
+  Finalmente queda así:
+  \lstinputlisting{ejemplo02/matefacil-postgres.container}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Contenedor}
+  Y ejecuto ...
+  \begin{lstlisting}
+$ systemctl --user daemon-reload
+$ systemctl --user list-unit-files
+UNIT FILE                               STATE     PRESET
+...
+matefacil-network.service               generated -
+matefacil-postgres-volume.service       generated -
+matefacil-postgres.service              generated -
+...
+$ systemctl --user start matefacil-network.service
+$
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Contenedor}
+  Y verifico
+  \begin{lstlisting}
+$ podman ps
+CONTAINER ID  IMAGE                            COMMAND 
+c3cb478f05f0  docker.io/library/postgres:15.3  postgres
+$
+  \end{lstlisting}
+  \begin{lstlisting}
+CREATED        STATUS        PORTS       NAMES
+6 minutes ago  Up 6 minutes  5432/tcp    matefacil-postgres
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Contenedor}
+  Y para detenerlo
+  \begin{lstlisting}
+$ systemctl --user stop matefacil-postgres.service
+$ podman ps
+CONTAINER ID  IMAGE  COMMAND   CREATED  STATUS  PORTS  NAMES
+  \end{lstlisting}
+\end{frame}
