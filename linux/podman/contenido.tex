@@ -144,6 +144,11 @@
   \end{itemize}
 \end{frame}
 
+\begin{frame}[fragile]
+  \frametitle{test.container}
+  \lstinputlisting[basicstyle=\tiny]{ejemplo01/test.container}
+\end{frame}
+
 \begin{frame}[c]{Kube units [Kube]}
   Se utilizan para administrar contenedores definidos en archivos
   \textbf{YAML} de \textbf{Kubernetes} mediante la ejecución del
@@ -156,6 +161,11 @@
   \end{itemize}
 \end{frame}
 
+\begin{frame}[fragile]
+  \frametitle{test.kube}
+  \lstinputlisting{ejemplo01/test.kube}
+\end{frame}
+
 \begin{frame}[c]{Network units [Network]}
   Se utilizan para crear \textbf{redes Podman} que pueden referenciarse en
   archivos .container o .kube.
@@ -166,6 +176,11 @@
   \end{itemize}
 \end{frame}
 
+\begin{frame}[fragile]
+  \frametitle{test.network}
+  \lstinputlisting{ejemplo01/test.network}
+\end{frame}
+
 \begin{frame}[c]{Volume units [Volume]}
   Se utilizan para crear \textbf{volúmenes Podman} que pueden
   referenciarse en archivos .container.
@@ -174,6 +189,11 @@
     \item Nombre de la sección: \textbf{[Volume]}
     \item Campos requeridos: Ninguno
   \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{test.volume}
+  \lstinputlisting{ejemplo01/test.volume}
 \end{frame}
 
 \begin{frame}[c]{Build units [Build]}
@@ -187,6 +207,13 @@
   \end{itemize}
 \end{frame}
 
+\begin{frame}[fragile]
+  \frametitle{test.build}
+  \lstinputlisting{ejemplo01/test.build}
+  test.container
+  \lstinputlisting{ejemplo01/test2.container}
+\end{frame}
+
 \begin{frame}[c]{Pod units [Pod]}
   Se utilizan para crear pods mediante la ejecución del
   comando \textbf{podman pod create}.
@@ -197,5 +224,38 @@
   \end{itemize}
 \end{frame}
 
-\section{Ejemplo 1: Contenedor mínimo}
+\begin{frame}[fragile]
+  \frametitle{test.pod}
+  \lstinputlisting{ejemplo01/test.pod}
+  centos.container
+  \lstinputlisting{ejemplo01/centos.container}
+\end{frame}
+
+\section{Ejemplo: Proyecto Matefacil}
+
+\begin{frame}[fragile]
+  \frametitle{Volúmenes}
+
+  Vemos si tenemos volúmenes creados
+
+  \begin{lstlisting}
+$ podman volume ls
+$
+  \end{lstlisting}
+
+  No hay ningún volumen, vamos creando uno
+
+  \pausa
+  \begin{exampleblock}{Si es temporal:}
+    \begin{lstlisting}
+$ mkdir -p $XDG_RUNTIME_DIR/containers/systemd/
+    \end{lstlisting}
+  \end{exampleblock}
+  \pausa
+  \begin{block}{Si es permanente:}
+    \begin{lstlisting}
+$ mkdir -p $HOME/.config/containers/systemd/
+    \end{lstlisting}
+  \end{block}
+\end{frame}
 

@@ -1,0 +1,11 @@
+[Install]
+WantedBy=default.target
+
+[Container]
+Image=docker.io/library/postgres:15.3
+ContainerName=matefacil-postgres
+Volume=matefacil-postgres.volume:/var/lib/postgresql
+Network=matefacil.network
+Secret=postgres-user,type=env,target=POSTGRES_USER
+Secret=postgres-password,type=env,target=POSTGRES_PASSWORD
+Secret=postgres-db,type=env,target=POSTGRES_DB

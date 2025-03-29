@@ -1,0 +1,4 @@
+[Container]
+Image=quay.io/centos/centos:latest
+Exec=sh -c "sleep inf"
+Pod=test.pod
