@@ -1,5 +1,504 @@
 % ex: ts=2 sw=2 sts=2 et filetype=tex
 % SPDX-License-Identifier: CC-BY-SA-4.0
 
-\section{¿Qué son los contenedores?}
+\section{Podman y Quadlets}
 
+\begin{frame}[c]{Podman (Pod Manager)}
+    \begin{columns}
+        \column{0.4\textwidth}
+        \begin{center}
+            \includegraphics[scale=0.4]{lfs/podman.png}
+        \end{center}
+        \column{0.6\textwidth}
+        \begin{itemize}
+          \item Es una herramienta sencilla y \textbf{sin demonio}.
+          \pausa
+          \item Un \textbf{motor de contenedores} con todas las funciones.
+          \pausa
+          \item Proporciona una línea de comandos comparable a
+            \textbf{Docker-CLI}
+            que facilita la transición desde otros motores de contenedores
+            y permite la gestión de \textbf{pods, contenedores e imágenes}.
+        \end{itemize}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[c]{Quadlets}
+  \begin{itemize}
+    \item Está disponible a partir de Podman v4.4.
+    \pausa
+    \item Se \textbf{describe} cómo ejecutar un contenedor en un formato
+      muy similar al de los archivos de unidad de \textbf{systemd}.
+    \pausa
+    \item Las descripciones del contenedor se centran en los
+      \textbf{detalles relevantes} del contenedor y \underline{ocultan}
+      los detalles técnicos de su ejecución en \textbf{systemd}.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[c]{Directorios}
+
+  Los archivos de quadlets para el usuario \textbf{root} se pueden
+  colocar en los siguientes directorios, ordenados por prioridad.
+
+  Esto significa que los quadlets con nombre duplicado que se
+  encuentren en \textbf{/run} tienen prioridad sobre los de
+  \textbf{/etc} y \textbf{/usr}:
+  \pausa
+  \begin{alertblock}{Cuadlets temporales, generalmente usados para pruebas:}
+    \begin{itemize}
+      \item /run/containers/systemd/
+    \end{itemize}
+  \end{alertblock}
+  \pausa
+  \begin{exampleblock}{Cuadlets definidos por el administrador del sistema:}
+    \begin{itemize}
+      \item /etc/containers/systemd/
+    \end{itemize}
+  \end{exampleblock}
+  \pausa
+  \begin{block}{Cuadlets definidos por la distribución:}
+    \begin{itemize}
+      \item /usr/share/containers/systemd/
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}[c]{Directorios}
+
+  Los archivos de quadlets para los usuario \textbf{no-root} se pueden
+  colocar en los siguientes directorios:
+
+  \vspace{\baselineskip}
+  \begin{exampleblock}{Usuario no-root:}
+    \begin{itemize}
+      \item \$XDG\_RUNTIME\_DIR/containers/systemd/
+      \pausa
+      \item \$XDG\_CONFIG\_HOME/containers/systemd/
+      \pausa
+        \begin{itemize}
+          \item \$HOME/.config/containers/systemd/
+        \end{itemize}
+      \pausa
+      \item /etc/containers/systemd/users/\$(UID)
+      \pausa
+      \item /etc/containers/systemd/users/
+    \end{itemize}
+  \end{exampleblock}
+\end{frame}
+
+\section{Unidades de systemd}
+
+\begin{frame}[c]{Generador de Systemd}
+  \begin{itemize}
+    \item Podman permite la \textbf{creación e inicio} de contenedores
+          (y la creación de volúmenes) a través de systemd
+          mediante un \textbf{generador systemd}.
+    \pausa
+    \item Estos archivos se leen durante el arranque (y al ejecutar
+      \textbf{systemctl daemon-reload}) y generan los archivos de
+      unidad de \textbf{servicio systemd} correspondientes.
+    \pausa
+    \item El generador Podman lee las rutas de búsqueda anteriores y
+      lee archivos con las extensiones
+      \begin{itemize}
+        \item .container
+        \pausa
+        \item .volume
+        \pausa
+        \item .network
+        \pausa
+        \item .build
+        \pausa
+        \item .pod
+        \pausa
+        \item .kube
+      \end{itemize}
+      y para cada archivo genera un archivo \textbf{.service} con el
+      mismo nombre.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[c]{Generador de Systemd}
+  \begin{itemize}
+    \item Los archivos de unidad generados se pueden iniciar y
+          gestionar con \textbf{systemctl} como cualquier otro
+          servicio systemd.
+    \pausa
+    \item \textbf{systemctl {--user} list-unit-files} enumera
+          los archivos de unidades existentes en el sistema.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[c]{Container units [Container]}
+
+  Se utilizan para administrar contenedores mediante la ejecución del
+  comando \textbf{podman run}.
+
+  \vspace{\baselineskip}
+  \begin{itemize}
+    \item Extensión de archivo: \textbf{.container}
+    \item Nombre de la sección: \textbf{[Container]}
+    \item Campos requeridos: \textbf{Image} que describe la imagen del
+      contenedor que ejecuta el servicio.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{test.container}
+  \lstinputlisting[basicstyle=\tiny]{ejemplo01/test.container}
+\end{frame}
+
+\begin{frame}[c]{Kube units [Kube]}
+  Se utilizan para administrar contenedores definidos en archivos
+  \textbf{YAML} de \textbf{Kubernetes} mediante la ejecución del
+  comando \textbf{podman kube play}.
+  \begin{itemize}
+    \item Extensión de archivo: \textbf{.kube}
+    \item Nombre de la sección: \textbf{[Kube]}
+    \item Campos requeridos: \textbf{Yaml} que define la ruta al
+      archivo YAML de \textbf{Kubernetes}.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{test.kube}
+  \lstinputlisting{ejemplo01/test.kube}
+\end{frame}
+
+\begin{frame}[c]{Network units [Network]}
+  Se utilizan para crear \textbf{redes Podman} que pueden referenciarse en
+  archivos .container o .kube.
+  \begin{itemize}
+    \item Extensión de archivo: \textbf{.network}
+    \item Nombre de la sección: \textbf{[Network]}
+    \item Campos requeridos: Ninguno
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{test.network}
+  \lstinputlisting{ejemplo01/test.network}
+\end{frame}
+
+\begin{frame}[c]{Volume units [Volume]}
+  Se utilizan para crear \textbf{volúmenes Podman} que pueden
+  referenciarse en archivos .container.
+  \begin{itemize}
+    \item Extensión de archivo: \textbf{.volume}
+    \item Nombre de la sección: \textbf{[Volume]}
+    \item Campos requeridos: Ninguno
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{test.volume}
+  \lstinputlisting{ejemplo01/test.volume}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{s3fs.volume}
+  \lstinputlisting{ejemplo01/s3fs.volume}
+  \href{https://github.com/s3fs-fuse/s3fs-fuse}
+       {https://github.com/s3fs-fuse/s3fs-fuse}
+\end{frame}
+
+\begin{frame}[c]{Build units [Build]}
+  Se utilizan para describir el comando para \textbf{construir}
+  una imagen.
+  \begin{itemize}
+    \item Extensión de archivo: \textbf{.build}
+    \item Nombre de la sección: \textbf{[Build]}
+    \item Campos requeridos: \textbf{ImageTag} y cualquiera de
+      \textbf{File} o \textbf{SetWorkingDirectory}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{test.build}
+  \lstinputlisting{ejemplo01/test.build}
+  test.container
+  \lstinputlisting{ejemplo01/test2.container}
+\end{frame}
+
+\begin{frame}[c]{Pod units [Pod]}
+  Se utilizan para crear pods mediante la ejecución del
+  comando \textbf{podman pod create}.
+  \begin{itemize}
+    \item Extensión de archivo: \textbf{.pod}
+    \item Nombre de la sección: \textbf{[Pod]}
+    \item Campos requeridos: Ninguno
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{test.pod}
+  \lstinputlisting{ejemplo01/test.pod}
+  centos.container
+  \lstinputlisting{ejemplo01/centos.container}
+\end{frame}
+
+\section{Ejemplo: Proyecto Matefacil}
+
+\begin{frame}[fragile]
+  \frametitle{Volúmenes}
+
+  Vemos si tenemos volúmenes creados
+
+  \begin{lstlisting}
+$ podman volume ls
+$
+  \end{lstlisting}
+
+  No hay ningún volumen, vamos creando uno
+
+  \pausa
+  \begin{exampleblock}{Si es temporal:}
+    \begin{lstlisting}
+$ mkdir -p $XDG_RUNTIME_DIR/containers/systemd/
+    \end{lstlisting}
+  \end{exampleblock}
+  \pausa
+  \begin{block}{Si es permanente:}
+    \begin{lstlisting}
+$ mkdir -p $HOME/.config/containers/systemd/
+    \end{lstlisting}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Volúmenes}
+  Creo el archivo \textbf{matefacil-postgres.volume}
+  \pausa
+  \lstinputlisting{ejemplo02/matefacil-postgres.volume}
+  \pausa
+  Y después
+  \begin{lstlisting}
+$ systemctl --user daemon-reload
+$
+  \end{lstlisting}
+  \pausa
+  Pero ...
+  \begin{lstlisting}
+$ podman volume ls
+$
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Volúmenes}
+  Ejecuto ...
+  \begin{lstlisting}
+$ systemctl --user list-unit-files
+UNIT FILE                               STATE     PRESET 
+...
+matefacil-postgres-volume.service       generated -
+...
+$
+  \end{lstlisting}
+  \pausa
+  Entonces ...
+  \begin{lstlisting}
+$ systemctl --user status matefacil-postgres-volume.service
+o matefacil-postgres-volume.service
+     Loaded: loaded (/run/user/1980/containers/systemd/matefacil-postgres.volume; generated)
+     Active: inactive (dead)
+$
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Volúmenes}
+  Ejecuto ...
+  \begin{lstlisting}
+$ systemctl --user start matefacil-postgres-volume.service
+$
+  \end{lstlisting}
+  \pausa
+  Y descubro ...
+  \begin{lstlisting}
+$ podman volume ls
+DRIVER      VOLUME NAME
+local       mfDBvol
+$
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Redes}
+  Vemos las redes creadas
+  \begin{lstlisting}
+$ podman network ls
+NETWORK ID    NAME        DRIVER
+2f259bab93aa  podman      bridge
+$
+  \end{lstlisting}
+  Creo el archivo \textbf{matefacil.network}
+  \pausa
+  \lstinputlisting{ejemplo02/matefacil.network}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Redes}
+  Y ejecuto ...
+  \begin{lstlisting}
+$ systemctl --user daemon-reload
+$ systemctl --user list-unit-files
+UNIT FILE                               STATE     PRESET
+...
+matefacil-network.service               generated -
+matefacil-postgres-volume.service       generated -
+...
+$ systemctl --user status matefacil-network.service
+o matefacil-network.service
+     Loaded: loaded (/run/user/1980/containers/systemd/matefacil.network; generated)
+     Active: inactive (dead)
+$ systemctl --user start matefacil-network.service
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Redes}
+  Y finalmente ...
+  \begin{lstlisting}
+$ podman network ls
+NETWORK ID    NAME        DRIVER
+db2824b9d435  mfnet       bridge
+2f259bab93aa  podman      bridge
+$
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Contenedor}
+  Creo el archivo \textbf{matefacil-postgres.container}
+  \lstinputlisting{ejemplo02/matefacil-postgres-mal.container}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Contenedor}
+  La parte de  \textbf{[Install]}, sirve para ejecutar el contenedor cuando
+  inicia sesión el usuario.
+  \lstinputlisting[firstline=1,lastline=2]{ejemplo02/matefacil-postgres-mal.container}
+  \pausa
+  \begin{alertblock}{Nota:}
+    Si omitimos el \textbf{[Install]}, NO se iniciará el contenedor al
+    iniciar sesión del usuario.
+  \end{alertblock}
+  Esto puede servir en nuestras maquinas de desarrollo.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Contenedor}
+  Usamos las otras unidades de systemd:
+  \lstinputlisting[firstline=4,lastline=8]{ejemplo02/matefacil-postgres-mal.container}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Contenedor}
+  Ponemos las variables que usará Postgres:
+  \lstinputlisting[linerange={4,9-11}]{ejemplo02/matefacil-postgres-mal.container}
+  \pausa
+  \begin{alertblock}{Pregunta:}
+    ¿Alguien ve algo raro?
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Secretos}
+  Podman puede manejar secretos 
+  \begin{lstlisting}
+podman secret COMANDO
+  \end{lstlisting}
+
+  \begin{itemize}
+    \item \textbf{create} Crea un nuevo secreto
+    \pausa
+    \item \textbf{exists} Verifica si el secreto existe en el
+      almacenamiento local
+    \pausa
+    \item \textbf{inspect} Inspecciona un secreto
+    \pausa
+    \item \textbf{ls} Lista los secretos
+    \pausa
+    \item \textbf{rm} Remueve uno o más secretos
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Secretos}
+  \lstinputlisting[basicstyle=\tiny]{ejemplo02/01-crear-secretos.sh}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Secretos}
+  Archivo \textbf{.env}
+  \lstinputlisting{ejemplo02/ejemplo.env}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Secretos}
+  Verificamos que los secretos hayan sido guardados correctamente:
+  \begin{lstlisting}[basicstyle=\tiny]
+$ podman secret list
+ID                         NAME               DRIVER      CREATED        UPDATED
+00d96f478a401ef409ec85b7e  postgres-password  file        7 minutes ago  7 minutes ago
+59579d85e5578ee0ebfc582c1  postgres-db        file        7 minutes ago  7 minutes ago
+e9a2525df0b5bff47aac2beab  postgres-user      file        7 minutes ago  7 minutes ago
+$
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Contenedor}
+  Usando secretos de Podman
+  \lstinputlisting[linerange={4,9-11}]{ejemplo02/matefacil-postgres.container}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Contenedor}
+  Finalmente queda así:
+  \lstinputlisting{ejemplo02/matefacil-postgres.container}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Contenedor}
+  Y ejecuto ...
+  \begin{lstlisting}
+$ systemctl --user daemon-reload
+$ systemctl --user list-unit-files
+UNIT FILE                               STATE     PRESET
+...
+matefacil-network.service               generated -
+matefacil-postgres-volume.service       generated -
+matefacil-postgres.service              generated -
+...
+$ systemctl --user start matefacil-postgres.service
+$
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Contenedor}
+  Y verifico
+  \begin{lstlisting}
+$ podman ps
+CONTAINER ID  IMAGE                            COMMAND 
+c3cb478f05f0  docker.io/library/postgres:15.3  postgres
+$
+  \end{lstlisting}
+  \begin{lstlisting}
+CREATED        STATUS        PORTS       NAMES
+6 minutes ago  Up 6 minutes  5432/tcp    matefacil-postgres
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Contenedor}
+  Y para detenerlo
+  \begin{lstlisting}
+$ systemctl --user stop matefacil-postgres.service
+$ podman ps
+CONTAINER ID  IMAGE  COMMAND   CREATED  STATUS  PORTS  NAMES
+  \end{lstlisting}
+\end{frame}
