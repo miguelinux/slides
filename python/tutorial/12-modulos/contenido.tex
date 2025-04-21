@@ -12,11 +12,163 @@
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{}
+  \frametitle{Crear un módulo}
+  Para crear un módulo simplemente guarde el código que desea en un
+  archivo con la extensión de archivo \textbf{.py}:
 
-
-  \vspace{\baselineskip}
-  \begin{lstlisting}[language=Python]
-  \end{lstlisting}
+  \begin{exampleblock}{Ejemplo:}
+  Guarde este código en un archivo llamado \textbf{mimodulo.py}
+    \begin{lstlisting}[language=Python]
+def saludo(nombre):
+  print("Hola, " + nombre)
+    \end{lstlisting}
+  \end{exampleblock}
 \end{frame}
 
+\begin{frame}[fragile]
+  \frametitle{Utilizar un módulo}
+  Ahora podemos utilizar el módulo que acabamos de crear,
+  usando la declaración \textbf{import}:
+
+  \begin{exampleblock}{Ejemplo:}
+  Importa el módulo llamado \textbf{mimodulo} y llama a la función de saludo:
+    \begin{lstlisting}[language=Python]
+import mimodulo
+
+mimodulo.saludo("Maria")
+    \end{lstlisting}
+  \end{exampleblock}
+
+  \begin{block}{Nota:}
+    Al utilizar una función de un módulo, utilice la sintaxis:
+    \textbf{nombre\_de\_modulo.nombre\_de\_función}.
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Variables en el módulo}
+
+  El módulo puede contener funciones, como ya se ha descrito,
+  pero también variables de todo tipo (listas, diccionarios, objetos, etc.):
+
+  \begin{exampleblock}{Ejemplo:}
+    Guarda este código en el archivo \textbf{mimodulo.py}
+    \begin{lstlisting}[language=Python]
+persona1 = {
+  "nombre": "Juan",
+  "edad": 23,
+  "país": "México"
+}
+    \end{lstlisting}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Variables en el módulo}
+
+  \begin{exampleblock}{Ejemplo:}
+    Importa el módulo llamado \textbf{mimodulo} y acceda al diccionario
+    \textbf{persona1}:
+    \begin{lstlisting}[language=Python]
+import mimodulo
+
+edad = mimodulo.persona1["edad"]
+
+print(edad)
+    \end{lstlisting}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Cambiar el nombre de un módulo}
+
+  \begin{block}{Nombrar un módulo:}
+    Puedes nombrar el archivo del módulo como quieras,
+    pero debe tener la extensión de archivo \textbf{.py}
+  \end{block}
+  \pausa
+  Puedes crear un alias al importar un módulo,
+  utilizando la palabra clave \textbf{as}:
+
+  \begin{exampleblock}{Ejemplo:}
+    Crear un alias para mimodulo llamado mm:
+    \begin{lstlisting}[language=Python]
+import mimodulo as mm
+
+nombre = mm.persona1["nombre"]
+
+print(nombre)
+    \end{lstlisting}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Módulos integrados}
+  Hay varios módulos integrados en Python que puedes importar cuando quieras.
+
+  \begin{exampleblock}{Ejemplo:}
+    Importar y utilizar el módulo math:
+    \begin{lstlisting}[language=Python]
+import math
+
+raiz = math.sqrt(9)
+print(raiz)
+    \end{lstlisting}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Usando la función dir()}
+  Hay una función integrada para listar todos los nombres de
+  funciones (o variables) de un módulo. La función \textbf{dir()}:
+  \begin{exampleblock}{Ejemplo:}
+    Enumere todos los nombres definidos que pertenecen al módulo de math:
+    \begin{lstlisting}[language=Python]
+import math
+
+lista = dir(math)
+print(lista)
+    \end{lstlisting}
+  \end{exampleblock}
+  \begin{block}{Nota:}
+    La función dir() se puede utilizar en todos los módulos,
+    también en los que uno mismo crea.
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Importar desde el módulo}
+  Puede elegir importar solo partes de un módulo,
+  utilizando la palabra clave \textbf{from}.
+  \begin{exampleblock}{Ejemplo:}
+    El módulo nombrado \textbf{mimodulo} tiene una función y un diccionario:
+    \begin{lstlisting}[language=Python]
+def saludo(nombre):
+  print("Hola, " + nombre)
+
+persona1 = {
+  "nombre": "Juan",
+  "edad": 23,
+  "país": "México"
+}
+    \end{lstlisting}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Importar desde el módulo}
+
+  \begin{exampleblock}{Ejemplo:}
+    Importamos únicamente el diccionario persona1 del módulo:
+    \begin{lstlisting}[language=Python]
+from mimodulo import persona1
+
+print(persona1["nombre"])
+    \end{lstlisting}
+  \end{exampleblock}
+  \begin{alertblock}{Nota:}
+    Al importar con la palabra clave \textbf{from}, no utilizamos
+    el nombre del módulo al referirse a los elementos del módulo.
+    Ejemplo: \textbf{persona1["nombre"]}, y no mimodulo.persona1["nombre"]
+  \end{alertblock}
+\end{frame}
