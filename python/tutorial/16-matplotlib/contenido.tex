@@ -99,19 +99,188 @@ import matplotlib.pyplot as plt
           \lstinputlisting{ejemplos/e01.py}
         \end{exampleblock}
       \column{0.5\textwidth}
+      \pausa
       \begin{center}
           \includegraphics[scale=0.5]{ejemplos/e01.pdf}
       \end{center}
   \end{columns}
 \end{frame}
 
+\begin{frame}[c]{Graficando los puntos "x" y "y"}
+  \begin{itemize}
+    \item La función \textbf{plot()} se utiliza para dibujar puntos
+      (marcadores) en un diagrama.
+    \item De forma predeterminada, la función \textbf{plot()} dibuja
+      una línea de un punto a otro.
+    \item La función toma parámetros para especificar puntos en el diagrama.
+    \item El parámetro 1 es una matriz que contiene los puntos en el
+      \textbf{eje x}.
+    \item El parámetro 2 es una matriz que contiene los puntos en el
+      \textbf{eje y}.
+    \item Si necesitamos trazar una línea desde (1, 3) a (8, 10),
+      tenemos que pasar dos matrices [1, 8] y [3, 10] a la función de trazado.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Graficando los puntos "x" y "y"}
+  \begin{columns}
+      \column{0.5\textwidth}
+        \begin{exampleblock}{Ejemplo:}
+          Se dibuja una línea en un diagrama desde la posición
+          (1, 3) a la posición (8, 10):
+          \lstinputlisting{ejemplos/e02.py}
+        \end{exampleblock}
+      \column{0.5\textwidth}
+      \pausa
+      \begin{center}
+          \includegraphics[scale=0.4]{ejemplos/e02.pdf}
+      \end{center}
+      \begin{itemize}
+        \item El eje x es el eje horizontal.
+        \item El eje y es el eje vertical.
+      \end{itemize}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Trazando sin línea}
+  Para trazar solo los marcadores, puede utilizar el parámetro
+  de notación de cadena de acceso directo "o", que significa "anillos".
+  \begin{columns}
+      \column{0.5\textwidth}
+        \begin{exampleblock}{Ejemplo:}
+          Dibuje dos puntos en el diagrama, uno en la
+          posición (1, 3) y otro en la posición (8, 10):
+          \lstinputlisting{ejemplos/e03.py}
+        \end{exampleblock}
+      \column{0.5\textwidth}
+      \pausa
+      \begin{center}
+          \includegraphics[scale=0.5]{ejemplos/e03.pdf}
+      \end{center}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Puntos múltiples}
+  Puedes trazar tantos puntos como desees, sólo asegúrate de
+  tener la misma cantidad de puntos en ambos ejes.
+  \begin{columns}
+      \column{0.5\textwidth}
+        \begin{exampleblock}{Ejemplo:}
+          Dibuje una línea en un diagrama desde la posición
+          (1, 3) a (2, 8), luego a (6, 1) y finalmente a
+          la posición (8, 10):
+          \lstinputlisting{ejemplos/e04.py}
+        \end{exampleblock}
+      \column{0.5\textwidth}
+      \pausa
+      \begin{center}
+          \includegraphics[scale=0.5]{ejemplos/e04.pdf}
+      \end{center}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Puntos X predeterminados}
+  Si no especificamos los puntos en el eje x, obtendrán los
+  valores predeterminados 0, 1, 2, 3, etc., dependiendo de la
+  longitud de los puntos y.
+
+  Entonces, si tomamos el mismo ejemplo anterior y omitimos los
+  puntos x, el diagrama se verá así:
+  \begin{columns}
+      \column{0.6\textwidth}
+        \begin{exampleblock}{Ejemplo:}
+          Trazando sin puntos x:
+          \lstinputlisting{ejemplos/e05.py}
+        \end{exampleblock}
+      \column{0.4\textwidth}
+      \pausa
+      \begin{center}
+          \includegraphics[scale=0.3]{ejemplos/e05.pdf}
+      \end{center}
+      \begin{itemize}
+        \item Los puntos x en el ejemplo son [0, 1, 2, 3, 4, 5].
+      \end{itemize}
+  \end{columns}
+\end{frame}
+
+\section{Gráfica de barras}
+
+\begin{frame}[fragile]
+  \frametitle{Creación de barras}
+  Con Pyplot, puedes utilizar la función \textbf{bar()}
+  para dibujar gráficos de barras:
+  \begin{columns}
+      \column{0.5\textwidth}
+        \begin{exampleblock}{Ejemplo:}
+          Dibuja 4 barras:
+          \lstinputlisting{ejemplos/e06.py}
+        \end{exampleblock}
+      \column{0.5\textwidth}
+      \pausa
+      \begin{center}
+          \includegraphics[scale=0.5]{ejemplos/e06.pdf}
+      \end{center}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Creación de barras}
+  La función \textbf{bar()} toma argumentos que describen
+  el diseño de las barras.
+
+  Las categorías y sus valores representados por el primer
+  y segundo argumento como matrices.
+  \begin{columns}
+      \column{0.5\textwidth}
+        \begin{exampleblock}{Ejemplo:}
+          Dibuja 4 barras:
+          \lstinputlisting{ejemplos/e07.py}
+        \end{exampleblock}
+      \column{0.5\textwidth}
+      \pausa
+      \begin{center}
+          \includegraphics[scale=0.5]{ejemplos/e07.pdf}
+      \end{center}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Barras horizontales}
+  Si desea que las barras se muestren horizontalmente
+  en lugar de verticalmente, utilice la función \textbf{barh()}:
+  \begin{columns}
+      \column{0.5\textwidth}
+        \begin{exampleblock}{Ejemplo:}
+          \lstinputlisting{ejemplos/e08.py}
+        \end{exampleblock}
+      \column{0.5\textwidth}
+      \pausa
+      \begin{center}
+          \includegraphics[scale=0.5]{ejemplos/e08.pdf}
+      \end{center}
+  \end{columns}
+\end{frame}
+
 \begin{frame}[fragile]
   \frametitle{}
-
-  \begin{exampleblock}{Ejemplo:}
-    \begin{lstlisting}[language=Python]
-    \end{lstlisting}
-  \end{exampleblock}
+  \begin{columns}
+      \column{0.5\textwidth}
+        \begin{exampleblock}{Ejemplo:}
+          \lstinputlisting{ejemplos/e02.py}
+        \end{exampleblock}
+      \column{0.5\textwidth}
+      \pausa
+      \begin{center}
+          \includegraphics[scale=0.4]{ejemplos/e02.pdf}
+      \end{center}
+      \begin{itemize}
+        \item 
+      \end{itemize}
+  \end{columns}
 \end{frame}
 
 \begin{frame}[fragile]
