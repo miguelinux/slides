@@ -110,13 +110,18 @@ import matplotlib.pyplot as plt
   \begin{itemize}
     \item La función \textbf{plot()} se utiliza para dibujar puntos
       (marcadores) en un diagrama.
+    \pausa
     \item De forma predeterminada, la función \textbf{plot()} dibuja
       una línea de un punto a otro.
+    \pausa
     \item La función toma parámetros para especificar puntos en el diagrama.
+    \pausa
     \item El parámetro 1 es una matriz que contiene los puntos en el
       \textbf{eje x}.
+    \pausa
     \item El parámetro 2 es una matriz que contiene los puntos en el
       \textbf{eje y}.
+    \pausa
     \item Si necesitamos trazar una línea desde (1, 3) a (8, 10),
       tenemos que pasar dos matrices [1, 8] y [3, 10] a la función de trazado.
   \end{itemize}
@@ -124,6 +129,7 @@ import matplotlib.pyplot as plt
 
 \begin{frame}[fragile]
   \frametitle{Graficando los puntos "x" y "y"}
+
   \begin{columns}
       \column{0.5\textwidth}
         \begin{exampleblock}{Ejemplo:}
@@ -145,6 +151,8 @@ import matplotlib.pyplot as plt
 
 \begin{frame}[fragile]
   \frametitle{Trazando sin línea}
+
+  \vspace{\baselineskip}
   Para trazar solo los marcadores, puede utilizar el parámetro
   de notación de cadena de acceso directo "o", que significa "anillos".
   \begin{columns}
@@ -156,14 +164,14 @@ import matplotlib.pyplot as plt
         \end{exampleblock}
       \column{0.5\textwidth}
       \pausa
-      \begin{center}
-          \includegraphics[scale=0.5]{ejemplos/e03.pdf}
-      \end{center}
+      \parbox{\textwidth}{\includegraphics[width=\linewidth]{ejemplos/e03.pdf}}
   \end{columns}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Puntos múltiples}
+
+  \vspace{\baselineskip}
   Puedes trazar tantos puntos como desees, sólo asegúrate de
   tener la misma cantidad de puntos en ambos ejes.
   \begin{columns}
@@ -176,14 +184,14 @@ import matplotlib.pyplot as plt
         \end{exampleblock}
       \column{0.5\textwidth}
       \pausa
-      \begin{center}
-          \includegraphics[scale=0.5]{ejemplos/e04.pdf}
-      \end{center}
+      \parbox{\textwidth}{\includegraphics[width=\linewidth]{ejemplos/e04.pdf}}
   \end{columns}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Puntos X predeterminados}
+
+  \vspace{\baselineskip}
   Si no especificamos los puntos en el eje x, obtendrán los
   valores predeterminados 0, 1, 2, 3, etc., dependiendo de la
   longitud de los puntos y.
@@ -198,9 +206,7 @@ import matplotlib.pyplot as plt
         \end{exampleblock}
       \column{0.4\textwidth}
       \pausa
-      \begin{center}
-          \includegraphics[scale=0.3]{ejemplos/e05.pdf}
-      \end{center}
+      \parbox{\textwidth}{\includegraphics[width=55mm]{ejemplos/e05.pdf}}
       \begin{itemize}
         \item Los puntos x en el ejemplo son [0, 1, 2, 3, 4, 5].
       \end{itemize}
@@ -211,6 +217,8 @@ import matplotlib.pyplot as plt
 
 \begin{frame}[fragile]
   \frametitle{Creación de barras}
+
+  \vspace{\baselineskip}
   Con Pyplot, puedes utilizar la función \textbf{bar()}
   para dibujar gráficos de barras:
   \begin{columns}
@@ -221,14 +229,14 @@ import matplotlib.pyplot as plt
         \end{exampleblock}
       \column{0.5\textwidth}
       \pausa
-      \begin{center}
-          \includegraphics[scale=0.5]{ejemplos/e06.pdf}
-      \end{center}
+      \parbox{\textwidth}{\includegraphics[width=\linewidth]{ejemplos/e06.pdf}}
   \end{columns}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Creación de barras}
+
+  \vspace{\baselineskip}
   La función \textbf{bar()} toma argumentos que describen
   el diseño de las barras.
 
@@ -242,14 +250,14 @@ import matplotlib.pyplot as plt
         \end{exampleblock}
       \column{0.5\textwidth}
       \pausa
-      \begin{center}
-          \includegraphics[scale=0.5]{ejemplos/e07.pdf}
-      \end{center}
+      \parbox{\textwidth}{\includegraphics[width=\linewidth]{ejemplos/e07.pdf}}
   \end{columns}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Barras horizontales}
+
+  \vspace{\baselineskip}
   Si desea que las barras se muestren horizontalmente
   en lugar de verticalmente, utilice la función \textbf{barh()}:
   \begin{columns}
@@ -259,9 +267,7 @@ import matplotlib.pyplot as plt
         \end{exampleblock}
       \column{0.5\textwidth}
       \pausa
-      \begin{center}
-          \includegraphics[scale=0.5]{ejemplos/e08.pdf}
-      \end{center}
+      \parbox{\textwidth}{\includegraphics[width=\linewidth]{ejemplos/e08.pdf}}
   \end{columns}
 \end{frame}
 
