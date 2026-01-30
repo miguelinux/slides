@@ -1,0 +1,134 @@
+% ex: ts=2 sw=2 sts=2 et filetype=tex
+% SPDX-License-Identifier: CC-BY-SA-4.0
+
+\section{Nombre y correo}
+
+\begin{frame}[c]{Antes de comenzar ...}
+  \begin{itemize}
+    \item Si estas en \textbf{Windows} utiliza el programa de \textbf{Git
+          Bash}
+    \pause
+    \item Si estas en \textbf{Mac OS}  o \textbf{Linux} abre una terminal de
+          sistema.
+    \pause
+    \item ¿Dónde se ejecutan estos comandos?
+    \pause
+      \begin{itemize}
+        \item Los comandos se ejecuten dentro del directorio que contiene el
+              \textbf{repositorio}
+      \end{itemize}
+    \pause
+    \item ¿Cómo sé que es el directorio del repositorio?
+    \pause
+      \begin{itemize}
+        \item El directorio del repositorio contiene un directorio llamado
+              \textbf{.git}
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Comandos básicos de linea de comandos}
+  \begin{lstlisting}
+ls
+  \end{lstlisting}
+  Lista los archivos contenidos en el directorio/carpeta actual
+  \pause
+  \begin{lstlisting}
+pwd
+  \end{lstlisting}
+  Muestra la ruta completa del directorio actual
+  \pause
+  \begin{lstlisting}
+cd DESTINO
+  \end{lstlisting}
+  Se cambia al directorio DESTINO
+  \pause
+  \begin{lstlisting}
+mkdir CARPETA
+  \end{lstlisting}
+  Crea el directorio llamado CARPETA
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Configurando tu nombre en Git}
+  \begin{lstlisting}
+git config user.name
+  \end{lstlisting}
+  Muestra el nombre configurado
+  \pause
+  \begin{lstlisting}
+git config --global user.name "Nombre Completo"
+  \end{lstlisting}
+  Asigna el nombre
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Configurando tu correo electrónico en Git}
+  \begin{lstlisting}
+git config user.email
+  \end{lstlisting}
+  Muestra el correo electrónico configurado
+  \pause
+  \begin{lstlisting}
+git config --global user.email usuario@servidor.com
+  \end{lstlisting}
+  Asigna el correo electrónico
+\end{frame}
+
+\section{Editor de texto}
+
+\begin{frame}[fragile]
+  \frametitle{Configurando el editor de texto en Git}
+  El editor de texto sirve para crear los "\textbf{commits}".
+  Por default \emph{git} utiliza el editor \textbf{vim}
+  \pause
+  \begin{lstlisting}
+git config core.editor
+  \end{lstlisting}
+  Muestra el editor configurado
+  \pause
+  \begin{lstlisting}
+git config --global core.editor EDITOR
+  \end{lstlisting}
+  Asigna el editor de texto a usar
+  \begin{itemize}
+    \item En \textbf{Windows} el EDITOR puede ser \textbf{notepad}
+    \item En \textbf{Mac OS} y en \textbf{Linux} el EDITOR puede
+          ser \textbf{nano}
+  \end{itemize}
+\end{frame}
+
+\section{Llaves SSH en GitHub}
+
+\begin{frame}[c]{¿Qué son las llaves SSH?}
+  \begin{itemize}
+    \item Las llaves SSH se utilizan para autentificarse en un servidor
+          remoto.
+    \pause
+    \item \textbf{Github} las utiliza para autentificarse en su servidor
+          y poder actualizar el contenido de un repositorio.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Llave/Clave privada y publica}
+
+  Para generar una nueva llave privada y publica se hace con el siguiente
+  comando
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Bash]
+ssh-keygen -t ed25519 -C "un comentario o tu correo"
+  \end{lstlisting}
+  \vspace{\baselineskip}
+  Y para fines escolares le dan \textbf{3 veces} la tecla \textbf{Enter}
+  
+  \begin{alertblock}{Nota:}
+    Si vas a usar un sistema "viejo" que no soporte el algoritmo Ed25519 usa
+    el siguiente comando:
+
+    \begin{lstlisting}[language=Bash]
+ssh-keygen -t rsa -b 4096 -C "un comentario o tu correo"
+    \end{lstlisting}
+  \end{alertblock}
+\end{frame}
