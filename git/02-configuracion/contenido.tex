@@ -29,25 +29,30 @@
 
 \begin{frame}[fragile]
   \frametitle{Comandos básicos de linea de comandos}
-  \begin{lstlisting}
+  \begin{lstlisting}[language=Bash]
 ls
   \end{lstlisting}
   Lista los archivos contenidos en el directorio/carpeta actual
   \pause
-  \begin{lstlisting}
+  \begin{lstlisting}[language=Bash]
 pwd
   \end{lstlisting}
   Muestra la ruta completa del directorio actual
   \pause
-  \begin{lstlisting}
+  \begin{lstlisting}[language=Bash]
 cd DESTINO
   \end{lstlisting}
   Se cambia al directorio DESTINO
   \pause
-  \begin{lstlisting}
+  \begin{lstlisting}[language=Bash]
 mkdir CARPETA
   \end{lstlisting}
   Crea el directorio llamado CARPETA
+  \pause
+  \begin{lstlisting}[language=Bash]
+cat UN_ARCHIVO
+  \end{lstlisting}
+  Muestra el contenido en pantalla de UN\_ARCHIVO
 \end{frame}
 
 \begin{frame}[fragile]
@@ -112,9 +117,9 @@ git config --global core.editor EDITOR
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Llave/Clave privada y publica}
+  \frametitle{Llave/Clave privada y pública}
 
-  Para generar una nueva llave privada y publica se hace con el siguiente
+  Para generar una nueva llave privada y pública se hace con el siguiente
   comando
   \vspace{\baselineskip}
   \begin{lstlisting}[language=Bash]
@@ -131,4 +136,88 @@ ssh-keygen -t ed25519 -C "un comentario o tu correo"
 ssh-keygen -t rsa -b 4096 -C "un comentario o tu correo"
     \end{lstlisting}
   \end{alertblock}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Creando una llave privada y pública}
+  {\small
+  \begin{verbatim}
+$ ssh-keygen -t ed25519 -C "tu@correo.com"
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/home/linux/.ssh/id_ed25519):
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /ruta/de/llave.key
+Your public key has been saved in /ruta/de/llave.key.pub
+The key fingerprint is:
+SHA256:wORH6Q1UOYYglYKThePgoUjZX5OL+3zp5eX8H61kMhQ tu@correo.com
+The key's randomart image is:
++--[ED25519 256]--+
+|  o=o.++++..     |
+|.+*..=.=+ +      |
+|=o.o..*.++ .E    |
+|o..  o +. .  .   |
+|       o oo += ..|
+|$       o. . oo.o|
++----[SHA256]-----+
+  \end{verbatim}
+  }
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Llave privada}
+
+  Una llave privada se ve como sigue:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Bash,basicstyle={\footnotesize\ttfamily}]
+$ cat id_ed25519
+-----BEGIN OPENSSH PRIVATE KEY-----
+b3BlbnNzaC1rZXktdjEAAAAACmFlczI1Ni1jdHIAAAAGYmNyeXB0AAAAGAAAABBy+jTsNn
+RGbVHm4+tj17iXAAAAEAAAAAEAAAAzAAAAC3NzaC1lZDI1NTE5AAAAICyF8SypKpKQ3RM+
+sj/f1spMXDDZw8/0Jr6Y6jkqz4wRAAAAsIbtjd3GW8mJ7/rnh2c3uuoaO0MdvQVqNg62Sn
+Gm81ev+7Le8glK4Cm3TszQb7tbMKyhttlvMoj6ar2r6hTATSVHlZWCOs6mcA6YZWFuy5rN
+2EQULumaIOe/mbd8MTY7vFyHRT09fsf02lya3z78T04sz/4/KWtre5/q7n5avaswl/axZv
+z82f93E1bsE+8GCEWKzlnO5ZzryRCApWpC6jvrqR7StONAo8Ju2O3Py+Hi
+-----END OPENSSH PRIVATE KEY-----
+$
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Llave pública}
+
+  Una llave pública se ve como sigue:
+
+  \vspace{\baselineskip}
+  \begin{lstlisting}[language=Bash,basicstyle={\footnotesize\ttfamily}]
+$ cat id_ed25519.pub
+ssh-ed25519 AAAAC3NzaC1lZI1NTEAICpKQ3RM+sj/f1spZw8/0J6kqz4wR tu@correo.com
+$
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Configuración en GitHub}
+  \begin{itemize}
+    \item En \textbf{Windows} abran un nuevo \textbf{Git Bash}.
+    \item En \textbf{Mac OS} y \textbf{Linux} abran una nueva terminal.
+    \pause
+    \item Ingresen al directorio \textbf{.ssh}
+  \begin{lstlisting}
+cd .ssh
+  \end{lstlisting}
+    \pause
+    \item Muestren el contendido de la llave pública
+  \begin{lstlisting}
+cat id_ed25519.pub
+  \end{lstlisting}
+    \pause
+    \item Copia el contenido de la llave pública
+    \pause
+  \item ingresa a
+    \href{https://github.com/settings/keys}{https://github.com/settings/keys}
+
+
+  \end{itemize}
 \end{frame}
