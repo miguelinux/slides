@@ -7,19 +7,19 @@
   \begin{itemize}
     \item Si estas en \textbf{Windows} utiliza el programa de \textbf{Git
           Bash}
-    \pause
+    \pausa
     \item Si estas en \textbf{Mac OS}  o \textbf{Linux} abre una terminal de
           sistema.
-    \pause
+    \pausa
     \item ¿Dónde se ejecutan estos comandos?
-    \pause
+    \pausa
       \begin{itemize}
         \item Los comandos se ejecuten dentro del directorio que contiene el
               \textbf{repositorio}
       \end{itemize}
-    \pause
+    \pausa
     \item ¿Cómo sé que es el directorio del repositorio?
-    \pause
+    \pausa
       \begin{itemize}
         \item El directorio del repositorio contiene un directorio llamado
               \textbf{.git}
@@ -33,22 +33,22 @@
 ls
   \end{lstlisting}
   Lista los archivos contenidos en el directorio/carpeta actual
-  \pause
+  \pausa
   \begin{lstlisting}[language=Bash]
 pwd
   \end{lstlisting}
   Muestra la ruta completa del directorio actual
-  \pause
+  \pausa
   \begin{lstlisting}[language=Bash]
 cd DESTINO
   \end{lstlisting}
   Se cambia al directorio DESTINO
-  \pause
+  \pausa
   \begin{lstlisting}[language=Bash]
 mkdir CARPETA
   \end{lstlisting}
   Crea el directorio llamado CARPETA
-  \pause
+  \pausa
   \begin{lstlisting}[language=Bash]
 cat UN_ARCHIVO
   \end{lstlisting}
@@ -61,7 +61,7 @@ cat UN_ARCHIVO
 git config user.name
   \end{lstlisting}
   Muestra el nombre configurado
-  \pause
+  \pausa
   \begin{lstlisting}
 git config --global user.name "Nombre Completo"
   \end{lstlisting}
@@ -74,7 +74,7 @@ git config --global user.name "Nombre Completo"
 git config user.email
   \end{lstlisting}
   Muestra el correo electrónico configurado
-  \pause
+  \pausa
   \begin{lstlisting}
 git config --global user.email usuario@servidor.com
   \end{lstlisting}
@@ -87,12 +87,12 @@ git config --global user.email usuario@servidor.com
   \frametitle{Configurando el editor de texto en Git}
   El editor de texto sirve para crear los "\textbf{commits}".
   Por default \emph{git} utiliza el editor \textbf{vim}
-  \pause
+  \pausa
   \begin{lstlisting}
 git config core.editor
   \end{lstlisting}
   Muestra el editor configurado
-  \pause
+  \pausa
   \begin{lstlisting}
 git config --global core.editor EDITOR
   \end{lstlisting}
@@ -110,7 +110,7 @@ git config --global core.editor EDITOR
   \begin{itemize}
     \item Las llaves SSH se utilizan para autentificarse en un servidor
           remoto.
-    \pause
+    \pausa
     \item \textbf{Github} las utiliza para autentificarse en su servidor
           y poder actualizar el contenido de un repositorio.
   \end{itemize}
@@ -202,22 +202,56 @@ $
   \begin{itemize}
     \item En \textbf{Windows} abran un nuevo \textbf{Git Bash}.
     \item En \textbf{Mac OS} y \textbf{Linux} abran una nueva terminal.
-    \pause
+    \pausa
     \item Ingresen al directorio \textbf{.ssh}
   \begin{lstlisting}
 cd .ssh
   \end{lstlisting}
-    \pause
+    \pausa
     \item Muestren el contendido de la llave pública
   \begin{lstlisting}
 cat id_ed25519.pub
   \end{lstlisting}
-    \pause
+    \pausa
     \item Copia el contenido de la llave pública
-    \pause
-  \item ingresa a
-    \href{https://github.com/settings/keys}{https://github.com/settings/keys}
-
-
   \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Configuración en GitHub}
+  \begin{itemize}
+    \item Ingresa a:
+    \href{https://github.com/settings/keys}{https://github.com/settings/keys}
+    \pausa
+    \begin{itemize}
+      \item Dale click al botón verde que dice \textbf{New SSH key}
+      \pausa
+      \item Dale un nombre/titulo a esta nueva llave (\textbf{Title})
+      \pausa
+      \item Copia el contenido de la llave pública en el recuadro
+            \textbf{Key}
+      \pausa
+      \item Finalmente dale click al botón verde que dice \textbf{Add SSH
+            key}
+      \item Ingresa tu clave si es necesario.
+    \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\section{Usando SSH con git push}
+
+\begin{frame}[fragile]
+  \frametitle{Repositorios remotos en git}
+  \begin{itemize}
+    \item Si un repositorio fue descargado ("\emph{clonado}"),
+      entonces tiene un repositorio \textbf{remoto}.
+    \pausa
+  \item Para ver los repositorios \textbf{remotos} se usa el comando:
+  \end{itemize}
+
+  \begin{lstlisting}[language=Bash]
+ls
+  \end{lstlisting}
+  \pausa
+
 \end{frame}
